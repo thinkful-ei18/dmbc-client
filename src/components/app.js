@@ -6,6 +6,7 @@ import {refreshAuthToken} from '../actions/auth';
 import '../styles/app.css'
 import Login from './login';
 import Register from './register';
+import AmbassadorRegister from './ambassador-register';
 import Spread from './scratch/placeCard.js'
 import Dashboard from './dashboard';
 
@@ -43,9 +44,11 @@ export class App extends React.Component {
       <div className="app">
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
+        <Link to="/ambassador-register">Ambassador Register</Link>
         <Link to='/mock'>Mockups</Link>
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
+        <Route path="/ambassador-register" component={AmbassadorRegister} />
         <Route path="/mock" component={Spread} />
         <Route path="/dashboard" component={Dashboard} />
       </div>
