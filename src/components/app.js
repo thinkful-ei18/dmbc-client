@@ -9,7 +9,7 @@ import Register from './register';
 import Spread from './scratch/placeCard.js'
 import Dashboard from './dashboard';
 
-class App extends React.Component {
+export class App extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn && !this.props.loggedIn) {
       // When we are logged in, refresh the auth token periodically
