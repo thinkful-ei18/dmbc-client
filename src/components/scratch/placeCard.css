@@ -1,0 +1,83 @@
+.cardContainer-expanded{
+  background-color: white;
+  width:305px;
+  height:355px;
+  display:flex;
+  flex-direction: column;
+  padding:15px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.cardContainer-minimized{
+  background-color: white;
+  width:220px;
+  height:290px;
+  display:flex;
+  flex-direction: column;
+  padding:15px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.cardHeader{
+  width:100%;
+  color:white;
+  background-size: cover;
+  flex:1 1 20em;
+
+}
+.placeName{
+  position:relative;
+  display:block;
+  top:100%;
+  transform: translateY(-100%);
+  font-family: 'IBM plex serif';
+  font-size: 23px;
+  margin:0 0 0 5px;
+}
+.placeTags{
+  height:40px;
+  margin:5px 0;
+  display:flex;
+  flex-direction: row;
+  align-items: baseline;
+  flex:2 2 10em;
+  justify-content: space-between;
+
+}
+.placeTags ul{
+  font-size:11px
+}
+.placeTags li{
+  display: inline-block;
+  background-color: silver;
+  margin:0 4px 5px 0;
+  padding:2px;
+}
+.placeTags li::after{
+  margin-right: 10px;
+}
+.blurbHeader{
+  display:flex;
+  flex:1 1 10em;
+}
+.cardBlurb{
+  display: flex;
+  flex:1 1 10em;
+  font-size: 10px;
+  /* text-align:justify; */
+
+}
+.cardBody{
+  color:black;
+  flex:2 2 20em;
+  font-size: 14px;
+}
+.cardControls{
+  display:flex;
+  justify-content: flex-end;
+  flex:2 2 auto;
+}
+.cardControls button{
+  background-color: none;
+  padding:4px;
+  font-size:9px;
+
+}
