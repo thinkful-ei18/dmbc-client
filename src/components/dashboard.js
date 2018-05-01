@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
 import requiresLogin from '../requires-login';
 import Logout from './logout';
 
@@ -13,4 +15,8 @@ export class Dashboard extends React.Component {
   }
 }
 
-export default requiresLogin()(Dashboard);
+const mapStateToProps = state => ({
+  currentUser: state.auth.currentUser
+});
+
+export default requiresLogin()(connect(mapStateToProps)(Dashboard));
