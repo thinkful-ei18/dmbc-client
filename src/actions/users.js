@@ -20,22 +20,22 @@ export const fetchUsersError = error => ({
   error
 });
 
-export const fetchUsers = users => dispatch => {
-  dispatch(fetchUsersRequest());
-  return fetch(`${API_BASE_URL}/users`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-    .then(res => {
-      return res.json();
-    })
-    .then(users => {
-      dispatch(fetchUsersSuccess(users));
-    })
-    .catch(err => {dispatch(fetchUsersError(err))});
-}
+// export const fetchUsers = users => dispatch => {
+//   dispatch(fetchUsersRequest());
+//   return fetch(`${API_BASE_URL}/users`, {
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     }
+//   })
+//     .then(res => {
+//       return res.json();
+//     })
+//     .then(users => {
+//       dispatch(fetchUsersSuccess(users));
+//     })
+//     .catch(err => {dispatch(fetchUsersError(err))});
+// }
 
 export const registerUser = user => dispatch => {
   return fetch(`${API_BASE_URL}/users`, {

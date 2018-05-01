@@ -1,9 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
+import {Link, Route, withRouter} from 'react-router-dom';
 import {refreshAuthToken} from '../actions/auth';
 
 import '../styles/app.css'
+import Login from './login';
+import Register from './register';
 
 class App extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -37,8 +39,10 @@ class App extends React.Component {
   render() {
     return(
       <div className="app">
-        <p>Hello!</p> 
-        <p className="hello">- From Chris' Computer</p>
+        <Link to="/login">Login</Link>
+        <Link to="/register">Register</Link>
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
       </div>
     ) 
   }
