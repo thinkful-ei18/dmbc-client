@@ -6,7 +6,7 @@ import {Redirect} from 'react-router-dom';
 
 export class LoginForm extends React.Component {
   onSubmit(values) {
-    return this.props.dispatch(login(values.username, values.password));
+    return this.props.dispatch(login(values.email, values.password));
   }
 
   render() {
@@ -31,13 +31,13 @@ export class LoginForm extends React.Component {
           )}>
           <h4>Sign in to your account</h4>
           {error}
-          <label htmlFor="username">Username</label>
+          <label htmlFor="email">Email</label>
           <Field
             component="input"
             type="text"
-            name="username"
-            id="username"
-            placeholder="username"
+            name="email"
+            id="email"
+            placeholder="email"
             validate={[required, nonEmpty]}
           />
           <label htmlFor="password">Password</label>
