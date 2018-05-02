@@ -9,7 +9,7 @@ env:
   - CI=true
 
 before_deploy:
-  - yarn install netlify-cli -g
+  - yarn global add netlify-cli
   - yarn run build
 
 deploy:
