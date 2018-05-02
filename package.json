@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "carousel": "^0.0.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jwt-decode": "^2.2.0",
+    "nuka": "^1.0.0",
     "react": "^16.3.2",
     "react-date-picker": "^6.10.1",
     "react-dom": "^16.3.2",
@@ -15,7 +17,8 @@
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
     "redux-form": "^7.3.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "slider": "^1.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
