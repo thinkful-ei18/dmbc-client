@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
+import React, { Component } from 'react';
+// import {Field, reduxForm, focus} from 'redux-form';
 import {connect} from 'react-redux';
 
 //react components
