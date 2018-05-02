@@ -1,16 +1,26 @@
 import React from 'react';
 import requiresLogin from '../requires-login';
+import { connect } from 'react-redux';
 import Logout from './logout';
+import NewTripForm from './newTrip-form';
 
 export class Dashboard extends React.Component {
+
   render () {
     return (
       <div className="dashboard">
         Hello from the Dashboard!
+        {this.props.currentItenerary.length ? 'this is where the multi view would go' : <NewTripForm />}
         <Logout />
       </div>
     )
   }
 }
 
-export default requiresLogin()(Dashboard);
+
+const mapStateToProps = state => ({
+  currentItenerary:[]
+});
+
+
+export default requiresLogin()(connect(mapStateToProps)(Dashboard));

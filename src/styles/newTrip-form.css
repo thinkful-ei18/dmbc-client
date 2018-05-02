@@ -1,0 +1,62 @@
+.tripFormContainer{
+  margin:auto;
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  width:85vw;
+  height:500px;
+
+  /* alignItems:center; */
+}
+
+/*
+
+*/
+
+.tripFormContainer > *{
+  /* border:1px solid green; */
+  width:80%;
+  margin:auto;
+  text-align: center;
+}
+.tripFormContainer input{
+  height:40px;
+  width:80%;
+}
+.tripFormPlace{
+flex:3 1 auto;
+text-align: center;
+padding:135px 10px 10px 10px ;
+}
+.tripFormPlace input{
+  /* border:1px solid yellow; */
+  font-size:26px;
+}
+.tripFromDates{
+flex:1 1 auto;
+}
+.tripTravelrs{
+flex:1 1 auto;
+}
+.tripTravelers input{
+  height:24px;
+  width:80%;
+  font-size:18px;
+
+}
+.controls{
+flex:1 1 auto;
+}
+.formContainer p{
+  display:inline-block;
+}
+
+/*
+tripFormPlace
+tripFromDates
+tripTravelrs
+controls
+*/

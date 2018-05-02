@@ -6,8 +6,11 @@ import {refreshAuthToken} from '../actions/auth';
 import '../styles/app.css'
 import Login from './login';
 import Register from './register';
-import Spread from './scratch/placeCard.js'
 import Dashboard from './dashboard';
+
+
+import Spread from './scratch/placeCard.js'
+import FormDraft from './scratch/formDraft.js'
 
 class App extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -46,7 +49,7 @@ class App extends React.Component {
         <Link to='/mock'>Mockups</Link>
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/mock" component={Spread} />
+        <Route path="/mock" component={FormDraft} />
         <Route path="/dashboard" component={Dashboard} />
       </div>
     )
