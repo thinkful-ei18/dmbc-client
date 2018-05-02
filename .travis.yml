@@ -8,6 +8,7 @@ script:
 env:
   - CI=true
 
+# Added revised yarn verbiage
 before_deploy:
   - yarn global add netlify-cli
   - yarn run build
