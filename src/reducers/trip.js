@@ -1,33 +1,33 @@
 import {
-  SET_START_DATE,
-  SET_END_DATE,
-  SET_TRIP_LOCATION,
+  SET_DATE_START,
+  SET_DATE_END,
+  SET_TRIP_DESTINATION,
   SET_TRIP_PARTNERS
 } from '../actions/trip'
 
 const initialState={
-  startDate: null,
-  endDate:null,
-  location:null,
+  dateStart: null,
+  dateEnd:null,
+  destination:null,
   partners:'just me.',
 }
 
 export default function reducer(state = initialState, action){
   switch (action.type) {
-    case SET_START_DATE:
+    case SET_DATE_START:
       return {
         ...state,
-        startDate:action.startDate
+        dateStart:action.dateStart
       }
-    case SET_END_DATE:
+    case SET_DATE_END:
       return{
         ...state,
-        endDate:action.endDate
+        dateEnd:action.dateEnd
       }
-    case SET_TRIP_LOCATION:
+    case SET_TRIP_DESTINATION:
       return{
         ...state,
-        location:action.location
+        destination:action.destination
       }
     case SET_TRIP_PARTNERS:
       return{

@@ -1,20 +1,20 @@
 import {API_BASE_URL} from '../config';
 
-export const SET_START_DATE = 'SET_START_DATE';
-export const setStartDate = (startDate) => ({
-  type:SET_START_DATE,
-  startDate
+export const SET_DATE_START = 'SET_DATE_START';
+export const setDateStart = (dateStart) => ({
+  type:SET_DATE_START,
+  dateStart
 });
 
-export const SET_END_DATE = 'SET_END_DATE';
-export const setEndDate = (endDate) => ({
-  type:SET_END_DATE,
-  endDate
+export const SET_DATE_END = 'SET_DATE_END';
+export const setDateEnd = (dateEnd) => ({
+  type:SET_DATE_END,
+  dateEnd
 });
 
-export const SET_TRIP_LOCATION = 'SET_TRIP_LOCATION'
-export const setTripLocation = (location) => ({
-  type:SET_TRIP_LOCATION,
+export const SET_TRIP_DESTINATION = 'SET_TRIP_DESTINATION'
+export const setTripDestination = (location) => ({
+  type:SET_TRIP_DESTINATION,
   location
 });
 
@@ -44,13 +44,14 @@ export const pushTripDetailsError = (err) =>({
 
 export const PUSH_TRIP_DETAILS = 'PUSH_TRIP_DETAILS';
 export const pushTripDetails = (tripDetails) => (dispatch, getState) => {
-  console.log('sendingreq',tripDetails)
+  console.log('sendingreq stringified',JSON.stringify(tripDetails));
   const authToken = getState().auth.authToken;
   dispatch(pushTripDetailsRequest());
   return fetch(`${API_BASE_URL}/itinerary`,{
     method:'POST',
     headers:{
       Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/json'
     },
     body:JSON.stringify(tripDetails)
   })
