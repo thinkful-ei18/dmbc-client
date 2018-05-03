@@ -1,4 +1,4 @@
-import * as actions from "../actions/ambassador-main";
+import * as actions from "../actions/ambassador-itineraries";
 
 const initialState = {
   intineraries: [],

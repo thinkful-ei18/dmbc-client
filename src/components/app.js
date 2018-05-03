@@ -1,15 +1,16 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {Link, Route, withRouter} from 'react-router-dom';
-import {refreshAuthToken} from '../actions/auth';
+import React from "react";
+import { connect } from "react-redux";
+import { Link, Route, withRouter } from "react-router-dom";
+import { refreshAuthToken } from "../actions/auth";
 
-import '../styles/app.css'
-import Login from './login';
-import Register from './register';
+import "../styles/app.css";
+import Login from "./login";
+import Register from "./register";
 
-import AmbassadorRegister from './ambassador-register';
-import Spread from './scratch/placeCard.js'
-import Dashboard from './dashboard';
+import AmbassadorRegister from "./ambassador-register";
+import AmbassadorPage from "./ambassador-page";
+import Spread from "./scratch/placeCard.js";
+import Dashboard from "./dashboard";
 
 export class App extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -41,18 +42,19 @@ export class App extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div className="app">
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
         <Link to="/ambassador-register">Ambassador Register</Link>
-        <Link to='/mock'>Mockups</Link>
+        <Link to="/mock">Mockups</Link>
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/ambassador-register" component={AmbassadorRegister} />
         <Route path="/dashboard" component={Dashboard} />
+        <Route path="/ambassador-page" component={AmbassadorPage} />
       </div>
-    )
+    );
   }
 }
 
