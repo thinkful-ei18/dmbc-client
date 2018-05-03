@@ -8,8 +8,8 @@ import Login from './login';
 import Register from './register';
 
 import AmbassadorRegister from './ambassador-register';
-// import Spread from './scratch/placeCard.js'
 import Dashboard from './dashboard';
+import DaySpreads from './daySpreads'
 
 export class App extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -51,6 +51,7 @@ export class App extends React.Component {
         <Route path="/register" component={Register} />
         <Route path="/ambassador-register" component={AmbassadorRegister} />
         <Route path="/dashboard" component={Dashboard} />
+        <Route exact path="/DaySpreads" component={DaySpreads} />
       </div>
     )
   }
