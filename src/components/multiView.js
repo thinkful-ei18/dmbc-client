@@ -1,8 +1,6 @@
 import React , {Component} from 'react';
-import {Link,Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-
-import DaySpreads from './daySpreads';
 
 import { setDashboardCurrentDay, setDashboardTripdays } from '../actions/dashboard';
 
@@ -29,7 +27,6 @@ class MultiView extends Component{
   handleRedirect(date){
     console.log('changing dash current date to',date);
     this.props.dispatch(setDashboardCurrentDay(date));
-    return (<Redirect to="/dayspreads" />)
   }
   assembleTripSpread(){
     const dayName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];

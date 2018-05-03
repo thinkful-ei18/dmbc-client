@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 //components
 import BlockSpread from './daySpread/blockSpread';
 import AddNewSpread from './daySpread/addNewSpread';
-import Card from './daySpread/Card'
+
 
 //actions
 

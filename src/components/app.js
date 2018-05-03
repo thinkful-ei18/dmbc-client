@@ -8,7 +8,6 @@ import Login from './login';
 import Register from './register';
 
 import AmbassadorRegister from './ambassador-register';
-import Spread from './scratch/placeCard.js'
 import Dashboard from './dashboard';
 import DaySpreads from './daySpreads'
 

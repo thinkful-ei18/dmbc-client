@@ -7,7 +7,7 @@ export const createNewBlock = () => {
 
 export const fetchBlocks = () => (dispatch, getState) =>{
   console.log('fetching blocks');
-  const authToken = getState().auth.authToken;
+  // const authToken = getState().auth.authToken;
 
 
 }
