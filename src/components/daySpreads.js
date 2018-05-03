@@ -21,8 +21,8 @@ class DaySpreads extends Component{
   }
 
   render(){
+    console.log(this.props.currentDay);
     return(
-
       <div className="day-spreads-container">
 
         <BlockSpread />
@@ -34,7 +34,7 @@ class DaySpreads extends Component{
   }
 }
 const mapStateToProps = (state) => ({
-  tempDeleteMe:true,
+  currentDay:state.dashboard.currentDay,
 })
 
 export default connect(mapStateToProps)(DaySpreads);
