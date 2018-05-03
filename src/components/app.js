@@ -8,6 +8,10 @@ import Login from './login';
 import Register from './register';
 
 import AmbassadorRegister from './ambassador-register';
+<<<<<<< HEAD
+=======
+// import Spread from './scratch/placeCard.js'
+>>>>>>> 19d6716afdf4487cdf45e8dd5e2a620c4b37e1d2
 import Dashboard from './dashboard';
 import DaySpreads from './daySpreads'
 
