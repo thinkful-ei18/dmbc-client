@@ -15,3 +15,13 @@ export const normalizeResponseErrors = res => {
   }
   return res;
 };
+
+export const convertDateStringToDate = (itinerary) => {
+  const dateStartObj = new Date(itinerary.dateStart);
+  const dateEndObj = new Date(itinerary.dateEnd);
+  const formattedItinerary = Object.assign({},itinerary,{
+    dateStart:dateStartObj,
+    dateEnd:dateEndObj,
+  });
+  return formattedItinerary;
+}

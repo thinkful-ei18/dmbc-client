@@ -1,4 +1,5 @@
 import {API_BASE_URL} from '../config';
+import {convertDateStringToDate} from './utils.js'
 
 export const SET_DATE_START = 'SET_DATE_START';
 export const setDateStart = (dateStart) => ({
@@ -87,21 +88,11 @@ export const fetchTripDetails = () => (dispatch, getState) => {
     })
     .then(res => res.json())
     .then(itinerary =>{
-      convertDateStringToDate(itinerary)
-      return dispatch(fetchTripDetailsSuccess(itinerary))
+      const formattedItinerary = convertDateStringToDate(itinerary);
+      console.log(formattedItinerary,'formated');
+      return dispatch(fetchTripDetailsSuccess(formattedItinerary))
     })
     .catch((err) => dispatch(fetchTripDetailsError(err)));
 }
 
 //heler move to utils
-const convertDateStringToDate = (itinerary) => {
-  console.log('from the helper', itinerary);
-  const dateStartObj = new Date(itinerary.dateStart);
-  const dateEndObj = new Date(itinerary.dateEnd);
-  return{
-    ...itinerary,
-    'itinerary.dateStart':dateStartObj,
-    'itinerary.dateEnd'
-  }
-
-}
