@@ -13,9 +13,9 @@ export const setDateEnd = (dateEnd) => ({
 });
 
 export const SET_TRIP_DESTINATION = 'SET_TRIP_DESTINATION'
-export const setTripDestination = (location) => ({
+export const setTripDestination = (destination) => ({
   type:SET_TRIP_DESTINATION,
-  location
+  destination
 });
 
 export const SET_TRIP_PARTNERS = 'SET_TRIP_PARTNERS'
@@ -44,7 +44,6 @@ export const pushTripDetailsError = (err) =>({
 
 export const PUSH_TRIP_DETAILS = 'PUSH_TRIP_DETAILS';
 export const pushTripDetails = (tripDetails) => (dispatch, getState) => {
-  console.log('sendingreq stringified',JSON.stringify(tripDetails));
   const authToken = getState().auth.authToken;
   dispatch(pushTripDetailsRequest());
   return fetch(`${API_BASE_URL}/itinerary`,{
@@ -56,5 +55,53 @@ export const pushTripDetails = (tripDetails) => (dispatch, getState) => {
     body:JSON.stringify(tripDetails)
   })
   .then((res) => dispatch(pushTripDetailsSuccess(res)))
+  .then(() => dispatch(fetchTripDetails()))
   .catch((err) => dispatch(pushTripDetailsError(err)) )
+}
+
+export const FETCH_TRIP_DETAILS_REQUEST = 'FETCH_TRIP_DETAILS_REQUEST';
+export const fetchTripDetailsRequest = () => ({
+  type:FETCH_TRIP_DETAILS_REQUEST
+})
+
+export const FETCH_TRIP_DETAILS_SUCCESS = 'FETCH_TRIP_DETAILS_SUCCESS';
+export const fetchTripDetailsSuccess = (tripDetails) => ({
+  type:FETCH_TRIP_DETAILS_SUCCESS,
+  tripDetails
+})
+
+export const FETCH_TRIP_DETAILS_ERROR = 'FETCH_TRIP_DETAILS_ERROR';
+export const fetchTripDetailsError = (err) => ({
+  type:FETCH_TRIP_DETAILS_ERROR,
+  err
+})
+
+export const FETCH_TRIP_DETAILS = 'FETCH_TRIP_DETAILS';
+export const fetchTripDetails = () => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/itinerary`,{
+      method:'GET',
+      headers:{
+        Authorization: `Bearer ${authToken}`
+      }
+    })
+    .then(res => res.json())
+    .then(itinerary =>{
+      convertDateStringToDate(itinerary)
+      return dispatch(fetchTripDetailsSuccess(itinerary))
+    })
+    .catch((err) => dispatch(fetchTripDetailsError(err)));
+}
+
+//heler move to utils
+const convertDateStringToDate = (itinerary) => {
+  console.log('from the helper', itinerary);
+  const dateStartObj = new Date(itinerary.dateStart);
+  const dateEndObj = new Date(itinerary.dateEnd);
+  return{
+    ...itinerary,
+    'itinerary.dateStart':dateStartObj,
+    'itinerary.dateEnd'
+  }
+
 }

@@ -1,5 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
+import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
 //react components
@@ -13,7 +12,7 @@ import {
   setTripDestination,
   setTripPartners,
   pushTripDetails
-} from '../actions/trip';
+} from '../actions/tripForm';
 //styles
 import '../styles/newTrip-form.css';
 
@@ -21,11 +20,12 @@ class NewTripForm extends Component {
   sendDays(){
     //temp fix need to either modify back end or my actions.
     const tripDetails = {
-      // "destination":this.props.destination,
+      "destination":this.props.destination,
       "dateStart":this.props.dateStart,
       "dateEnd":this.props.dateEnd,
       "partners":this.props.partners,
-      "ambassador":'322222222222222222222200'
+      "ambassador":'322222222222222222222200',
+      'distance':30
     }
     return this.props.dispatch(pushTripDetails(tripDetails));
   }

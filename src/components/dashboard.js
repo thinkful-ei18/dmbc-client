@@ -5,13 +5,21 @@ import requiresLogin from '../requires-login';
 import Logout from './logout';
 import NewTripForm from './newTrip-form';
 
-export class Dashboard extends React.Component {
+//actions
+import { fetchTripDetails } from '../actions/tripForm';
+//temporary please delete
+import TempMultiView from './tempMultiView.js';
 
+export class Dashboard extends React.Component {
+  componentDidMount(){
+    console.log('dash mounted');
+    this.props.dispatch(fetchTripDetails());
+  }
   render () {
     return (
       <div className="dashboard">
         Hello from the Dashboard!
-        {this.props.currentItenerary.length ? 'this is where the multi view would go' : <NewTripForm />}
+        {this.props.currentItinerary ? <TempMultiView /> : <NewTripForm />}
         <Logout />
       </div>
     )
@@ -19,7 +27,7 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  currentItenerary:[],
+  currentItinerary:state.dashboard.currentItinerary,
   currentUser: state.auth.currentUser
 });
 
