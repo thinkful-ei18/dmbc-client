@@ -38,9 +38,7 @@ export class CreateCard extends React.Component {
             validate={[required, nonEmpty]}
           />
           <label htmlFor="description">Description</label>
-          <Field
-            component="input"
-            type="textarea"
+          <textarea
             name="description"
             id="description"
             placeholder="description"
@@ -49,7 +47,7 @@ export class CreateCard extends React.Component {
           <label htmlFor="address">Address</label>
           <Field
             component="input"
-            type="textarea"
+            type="text"
             name="address"
             id="address"
             placeholder="address"
@@ -58,7 +56,7 @@ export class CreateCard extends React.Component {
           <label htmlFor="hours">Hours</label>
           <Field
             component="input"
-            type="textarea"
+            type="text"
             name="hours"
             id="hours"
             placeholder="hours"
