@@ -20,9 +20,10 @@ class OneDayView extends Component {
       .dispatch(fetchTripDetails());
   }
 
-  componentDidUpdate() {
-  }
-  assembleBlocks() {
+
+  assembleBlocks(){
+    console.log('====assemble blocks',this.props.blocks.blocks);
+
     const blocksToBeAssembled = this.props.blocks.blocks;
 
     const filteredBlocks = blocksToBeAssembled.filter((block) => {
@@ -68,6 +69,7 @@ class OneDayView extends Component {
           ]}</h1>
         <ul>
           {blocks}
+          {}
         </ul>
         <AddNewSpread/> {toolbelt}
       </div>
@@ -77,9 +79,11 @@ class OneDayView extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  currentUser: state.auth.currentUser, 
-  currentDay: state.dashboard.currentDay, 
-  blocks: state.dashboard.currentItinerary
+  currentUser: state.auth.currentUser,  
+  blocks: state.dashboard.currentItinerary,
+  currentDay:state.dashboard.currentDay,
+  blocks:state.dashboard.currentItinerary,
+  temporaryBlocks:[]
 })
 
 export default connect(mapStateToProps)(OneDayView);

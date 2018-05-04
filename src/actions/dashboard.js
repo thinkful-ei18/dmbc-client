@@ -10,3 +10,10 @@ export const setDashboardTripdays = (tripDays) => ({
   type:SET_DASHBOARD_TRIPDAYS,
   tripDays
 })
+
+
+export const PUSH_TEMPORARY_NEW_BLOCK = 'PUSH_TEMPORARY_NEW_BLOCK';
+export const pushTemporaryNewBlock = (newBlock) => ({
+  type:PUSH_TEMPORARY_NEW_BLOCK,
+  newBlock
+});
