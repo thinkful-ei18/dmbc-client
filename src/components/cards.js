@@ -20,15 +20,35 @@ export class Cards extends React.Component {
     this.props.dispatch(fetchCards());
   }
 
+  addSelectorToCard(cardId) {
+    const options = this.props.blocks.map(block => {
+      return <option value={block.id} key={block.id}>{block.title}</option>
+    });
+    const selector = (
+      <form onSubmit={e => {
+        e.preventDefault();
+        console.log('Block ID',this.input.value, 'Card ID', cardId);
+      }}>
+        <label>Assign to Card
+          <select ref={(input) => this.input = input}>
+            {options}
+          </select>
+        </label>
+        <button type="submit">Lock In</button>
+      </form>
+    )
+    return selector;
+  }
+
   render() {
     const apiTags = ['Family Friendly', 'Crowd Friendly', 'No Pets'];
-    //END DUMMY PROPS
+    
     const placeTags = apiTags.map((tag,index) => {
       return (<li key={index}>{tag}</li>)
     });
     const cards = this.props.cards.map((card, index) => {
       return (
-        <div className={'cardContainer-expanded'}>
+        <div className={'cardContainer-expanded'} key={index}>
           <div className='cardHeader' style={{'backgroundImage':`url(${Background})`}}>
             <span className='placeName'>{card.name}</span>
           </div>
@@ -45,6 +65,7 @@ export class Cards extends React.Component {
             </span>
           </div>
           <div className='cardControls'>
+            {this.addSelectorToCard(card.id)}
             <Link to={`/cards/${card.id}`}>Edit Card</Link>
             <button className='confirm-location'>Lock in</button>
           </div>
@@ -108,7 +129,8 @@ export class Cards extends React.Component {
 const mapStateToProps = state => ({
   cards: state.cards.cards,
   loading: state.cards.loading,
-  error: state.cards.error
+  error: state.cards.error,
+  blocks:state.dashboard.currentItinerary.blocks
 });
 
 export default requiresLogin()(connect(mapStateToProps)(Cards));
