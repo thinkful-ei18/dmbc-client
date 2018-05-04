@@ -82,7 +82,6 @@ const mapStateToProps = (state) => ({
   currentUser: state.auth.currentUser,  
   blocks: state.dashboard.currentItinerary,
   currentDay:state.dashboard.currentDay,
-  blocks:state.dashboard.currentItinerary,
   temporaryBlocks:[]
 })
 
