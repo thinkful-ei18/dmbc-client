@@ -7,11 +7,14 @@ import authReducer from './reducers/auth';
 import userReducer from './reducers/users';
 import tripReducer from './reducers/tripForm';
 import blockReducer from './reducers/block';
+import cardReducer from './reducers/cards';
 import dashboardReducer from './reducers/dashboard';
 import ambassadorItinerariesReducer from "./reducers/ambassador-itineraries";
 
+
 import {loadAuthToken} from './local-storage';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
+
 
 const store = createStore(
   combineReducers({
@@ -21,6 +24,7 @@ const store = createStore(
     form: formReducer,
     auth: authReducer,
     users: userReducer,
+    cards: cardReducer,
     itineraries: ambassadorItinerariesReducer
   }),
   applyMiddleware(thunk)
