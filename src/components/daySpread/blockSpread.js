@@ -8,8 +8,9 @@ export default class BlockSpread extends Component{
 
   render(){
     return(
-        
+
         <div className="block-spread">
+          <h1>{this.props.blockName}</h1>
           <Card />
           <Card />
           <Card />

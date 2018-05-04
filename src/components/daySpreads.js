@@ -4,28 +4,45 @@ import { connect } from 'react-redux';
 import BlockSpread from './daySpread/blockSpread';
 import AddNewSpread from './daySpread/addNewSpread';
 
+import '../styles/placeCard.css';
 
-//actions
-
-//styles
-// import '../styles/daySpreads.css'
-
-
-//ON FETCH HIT router.post('/block')
-//WILL PLACE THE BLOCK VIA USER ID
 class DaySpreads extends Component{
 
-  //fetch blocks, here or parent component ? -m
-  componentDidMount(){
+  componentWillMount(){
 
   }
 
+  componentDidUpdate(){
+
+  }
+  assembleBlocks(){
+    const blocksToBeAssembled = this.props.blocks;
+    if(blocksToBeAssembled === undefined){
+      console.log('the blocks were empty');
+      return(<li>loading</li>);
+    }
+
+   const filteredBlocks = blocksToBeAssembled.filter((block) => {
+      return block.date.getDate() === this.props.currentDay.getDate();
+    })
+
+    const blocksAssembled = filteredBlocks.map((currentBlock) => {
+      return(
+        <li>
+          <BlockSpread blockName={currentBlock.title}/>
+        </li>
+    )
+    });
+    return blocksAssembled;
+  }
+  
   render(){
-    console.log(this.props.currentDay);
+    const blocks = this.assembleBlocks();
     return(
       <div className="day-spreads-container">
-
-        <BlockSpread />
+        <ul>
+          {blocks}
+        </ul>
         <AddNewSpread />
       </div>
 
@@ -33,8 +50,10 @@ class DaySpreads extends Component{
     )
   }
 }
+
 const mapStateToProps = (state) => ({
   currentDay:state.dashboard.currentDay,
+  blocks:state.dashboard.currentItinerary.blocks
 })
 
 export default connect(mapStateToProps)(DaySpreads);

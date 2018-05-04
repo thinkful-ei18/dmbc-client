@@ -44,7 +44,11 @@ export const sendNewBlock = (newBlock) => (dispatch, getState) => {
     },
     body:JSON.stringify(newBlock)
   })
-  .then((res) => dispatch(sendNewBlockSuccess(res)))
+  .then((response) => response.json())
+  .then((res) => {
+    console.log('this is the respose from sending a new block',res)
+    return dispatch(sendNewBlockSuccess(res))
+  })
   .catch((err) => dispatch(sendNewBlockError(err)))
 
 
