@@ -9,7 +9,6 @@ import Register from "./register";
 
 import AmbassadorRegister from "./ambassador-register";
 import AmbassadorPage from "./ambassador-page";
-import Spread from "./scratch/placeCard.js";
 import Dashboard from "./dashboard";
 
 export class App extends React.Component {
