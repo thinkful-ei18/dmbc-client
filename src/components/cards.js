@@ -6,7 +6,7 @@ import {fetchCards, fetchSearchCards} from '../actions/cards';
 import CreateCard from './create-card';
 import Background from '../assets/barPlaceHolder.jpg'
 
-import '../styles/placeCard.css';
+import '../styles/oneDayView.css';
 
 export class Cards extends React.Component {
   constructor() {
@@ -61,7 +61,7 @@ export class Cards extends React.Component {
             event.preventDefault();
             this.props.dispatch(fetchSearchCards(this.searchTerm.value));
           }}>
-          <input 
+          <input
             placeholder="search"
             name="search"
             ref={input => this.searchTerm = input}
@@ -74,7 +74,7 @@ export class Cards extends React.Component {
     } else {
       cardSearch = <CreateCard />
     }
-    
+
     let changeState;
     if (this.state.search) {
       changeState = (

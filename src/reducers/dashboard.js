@@ -1,16 +1,21 @@
 import { FETCH_TRIP_DETAILS_SUCCESS } from '../actions/tripForm';
-import {  SET_DASHBOARD_CURRENT_DAY, SET_DASHBOARD_TRIPDAYS } from '../actions/dashboard';
+import {
+  SET_DASHBOARD_CURRENT_DAY,
+  SET_DASHBOARD_TRIPDAYS,
+  PUSH_TEMPORARY_NEW_BLOCK
+} from '../actions/dashboard';
+
 const initialState = {
   currentItinerary:undefined,
   tripDays:undefined,
   currentDay:undefined,
-  userBlocks:[]
+  userBlocks:[],
+  temporaryBlocks:[]
 }
 
 export default function reducer(state = initialState, action){
   switch (action.type) {
     case FETCH_TRIP_DETAILS_SUCCESS:
-    console.log('destroy',action.tripDetails);
       return{
         ...state,
         currentItinerary:action.tripDetails,
@@ -25,6 +30,16 @@ export default function reducer(state = initialState, action){
       return{
         ...state,
         currentDay:action.date
+      }
+    case PUSH_TEMPORARY_NEW_BLOCK:
+      console.log('payload',action.newBlock);
+      console.log('target',state);
+      return{
+        ...state,
+        currentItinerary:{
+          ...state.currentItinerary,
+          blocks:[...state.currentItinerary.blocks, action.newBlock]
+        }
       }
     default:
       return state;

@@ -12,7 +12,7 @@ class AddNewSpread extends Component {
     return this.refs['block-name-input'].value = '';
   }
   render(){
-    console.log('you hve render');
+    console.log('addNewSpread has rendered');
     return(
       <div
         className="add-new-spread"
