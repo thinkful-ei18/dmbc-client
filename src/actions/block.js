@@ -6,7 +6,6 @@ export const createNewBlock = () => {
 }
 
 export const fetchBlocks = () => (dispatch, getState) =>{
-  console.log('fetching blocks');
 
 }
 
@@ -47,8 +46,8 @@ export const sendNewBlock = (newBlock) => (dispatch, getState) => {
     const formattedBlock = Object.assign({},block,{
       date:new Date(block.date)
     })
-    dispatch(pushTemporaryNewBlock(formattedBlock));
-    return dispatch(sendNewBlockSuccess(formattedBlock));
+    return dispatch(pushTemporaryNewBlock(formattedBlock));
+    // return dispatch(sendNewBlockSuccess(formattedBlock));
   })
   .catch((err) => dispatch(sendNewBlockError(err)))
 
