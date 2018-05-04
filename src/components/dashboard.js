@@ -1,14 +1,15 @@
-import React from 'react';
-import {connect} from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-import requiresLogin from '../requires-login';
-import Logout from './logout';
-import NewTripForm from './newTrip-form';
-
+import requiresLogin from "../requires-login";
+import Logout from "./logout";
+import NewTripForm from "./newTrip-form";
 //actions
 import { fetchTripDetails } from '../actions/tripForm';
-
+//components
 import MultiView from './multiView.js';
+
 
 export class Dashboard extends React.Component {
   componentDidMount(){
@@ -21,8 +22,11 @@ export class Dashboard extends React.Component {
         Hello from the Dashboard!
         {this.props.currentItinerary ? <MultiView /> : <NewTripForm />}
         <Logout />
+        <Link to="/ambassador-page">
+          <button>Ambassador Page</button>
+        </Link>
       </div>
-    )
+    );
   }
 }
 

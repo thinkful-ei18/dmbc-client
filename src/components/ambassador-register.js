@@ -11,7 +11,7 @@ export function AmbassadorRegister(props) {
   }
   return (
     <div className="registration">
-      <h2>Register</h2>
+      <h2>Ambassador Register</h2>
       <RegistrationForm ambassador="true"/>
       <p>Already have an account? <Link to="/login">Login</Link></p>
     </div>

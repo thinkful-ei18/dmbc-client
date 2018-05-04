@@ -1,15 +1,17 @@
 // import actions
+import { SEND_NEW_BLOCK_SUCCESS } from '../actions/block.js';
 
-const TEMP_TEMP = 'TEMPPLACEHOLDERFORSWITCH'
+
 const initialState = {
   blocks:[],
 }
 
 export default function reducer(state = initialState, action){
   switch (action.type) {
-    case TEMP_TEMP:
+    case SEND_NEW_BLOCK_SUCCESS:
       return{
-        ...state
+        ...state,
+        blocks:[...state.blocks, action.newBlock]
       }
     default:
       return state;

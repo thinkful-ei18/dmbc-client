@@ -3,13 +3,14 @@ import React, { Component } from 'react';
 import Card from './Card';
 
 //styles
-import '../../styles/daySpreads.css'
+import '../../styles/oneDayView.css'
 export default class BlockSpread extends Component{
 
   render(){
     return(
-        
+
         <div className="block-spread">
+          <h1>{this.props.blockName}</h1>
           <Card />
           <Card />
           <Card />

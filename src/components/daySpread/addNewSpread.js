@@ -5,13 +5,14 @@ import { sendNewBlock } from '../../actions/block.js';
 class AddNewSpread extends Component {
   handleNewBlockSubmit(){
     const newBlock = {
-      'date': new Date(),
+      'date': this.props.currentDay,
       'title': this.refs['block-name-input'].value
     }
-    // console.log(this.refs['block-name-input'].value)
-    this.props.dispatch(sendNewBlock(newBlock))
+    this.props.dispatch(sendNewBlock(newBlock));
+    return this.refs['block-name-input'].value = '';
   }
   render(){
+    console.log('you hve render');
     return(
       <div
         className="add-new-spread"
@@ -35,7 +36,7 @@ class AddNewSpread extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  dummyPropForNow:null
+  currentDay:state.dashboard.currentDay
 })
 
 export default connect(mapStateToProps)(AddNewSpread);
