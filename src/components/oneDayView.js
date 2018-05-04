@@ -18,10 +18,11 @@ class OneDayView extends Component{
     this.props.dispatch(fetchTripDetails());
   }
 
-  componentDidUpdate(){
-
-  }
+  // componentWillUpdate(){
+  //   this.props.dispatch(fetchTripDetails());
+  // }
   assembleBlocks(){
+    console.log('====assemble blocks',this.props.blocks.blocks);
     const blocksToBeAssembled = this.props.blocks.blocks;
 
    const filteredBlocks = blocksToBeAssembled.filter((block) => {
@@ -38,6 +39,7 @@ class OneDayView extends Component{
     return blocksAssembled;
   }
 
+
   render(){
     if(!this.props.blocks){
       return(<p>no blocks yet</p>)
@@ -51,6 +53,7 @@ class OneDayView extends Component{
         <h1>{dayNamesArray[this.props.currentDay.getDay()]}</h1>
         <ul>
           {blocks}
+          {}
         </ul>
         <AddNewSpread />
       </div>
@@ -62,7 +65,8 @@ class OneDayView extends Component{
 
 const mapStateToProps = (state) => ({
   currentDay:state.dashboard.currentDay,
-  blocks:state.dashboard.currentItinerary
+  blocks:state.dashboard.currentItinerary,
+  temporaryBlocks:[]
 })
 
 export default connect(mapStateToProps)(OneDayView);
