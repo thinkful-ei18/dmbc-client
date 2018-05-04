@@ -5,6 +5,7 @@ import requiresLogin from '../requires-login';
 import {fetchCards, fetchSearchCards} from '../actions/cards';
 import CreateCard from './create-card';
 import Background from '../assets/barPlaceHolder.jpg'
+import { putCardOnBlock } from '../actions/block';
 
 import '../styles/oneDayView.css';
 
@@ -28,6 +29,7 @@ export class Cards extends React.Component {
       <form onSubmit={e => {
         e.preventDefault();
         console.log('Block ID',this.input.value, 'Card ID', cardId);
+        this.props.dispatch(putCardOnBlock({ blockID: this.input.value, cardID: cardId}));
       }}>
         <label>Assign to Card
           <select ref={(input) => this.input = input}>
