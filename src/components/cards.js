@@ -27,7 +27,7 @@ export class Cards extends React.Component {
     const selector = (
       <form onSubmit={e => {
         e.preventDefault();
-        // this.props.dispatch(AddCardToBlock(this.input.value, cardId))
+        console.log('Block ID',this.input.value, 'Card ID', cardId);
       }}>
         <label>Assign to Card
           <select ref={(input) => this.input = input}>
