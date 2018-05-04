@@ -7,7 +7,7 @@ import {
 
 const initialState = {
   cards: [],
-  singleCard: [],
+  singleCard: {},
   loading: false,
   error: null
 };

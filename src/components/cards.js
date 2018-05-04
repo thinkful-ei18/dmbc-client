@@ -6,7 +6,7 @@ import {fetchCards, fetchSearchCards} from '../actions/cards';
 import CreateCard from './create-card';
 import Background from '../assets/barPlaceHolder.jpg'
 
-import './scratch/placeCard.css';
+import '../styles/placeCard.css';
 
 export class Cards extends React.Component {
   constructor() {
@@ -28,7 +28,7 @@ export class Cards extends React.Component {
     });
     const cards = this.props.cards.map((card, index) => {
       return (
-        <div className={'cardContainer-expanded'}>
+        <div className={'cardContainer-expanded'} key={index}>
           <div className='cardHeader' style={{'backgroundImage':`url(${Background})`}}>
             <span className='placeName'>{card.name}</span>
           </div>
