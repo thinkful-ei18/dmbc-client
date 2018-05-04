@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import {combineReducers} from 'redux';
 import {reducer as formReducer} from 'redux-form';
@@ -15,6 +15,19 @@ import ambassadorItinerariesReducer from "./reducers/ambassador-itineraries";
 import {loadAuthToken} from './local-storage';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
+const middlewares = [thunk];
+let enhancers;
+
+
+if (process.env.NODE_ENV === 'development') {
+  enhancers = compose(
+    applyMiddleware(...middlewares),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  );
+} else {
+  enhancers = applyMiddleware(...middlewares)
+}
+
 
 const store = createStore(
   combineReducers({
@@ -27,7 +40,8 @@ const store = createStore(
     cards: cardReducer,
     itineraries: ambassadorItinerariesReducer
   }),
-  applyMiddleware(thunk)
+  {},
+  enhancers
 );
 
 const authToken = loadAuthToken();
