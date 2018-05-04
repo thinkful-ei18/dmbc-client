@@ -7,7 +7,7 @@ import NewTripForm from './newTrip-form';
 
 //actions
 import { fetchTripDetails } from '../actions/tripForm';
-
+//components
 import MultiView from './multiView.js';
 
 export class Dashboard extends React.Component {

@@ -8,10 +8,11 @@ class AddNewSpread extends Component {
       'date': this.props.currentDay,
       'title': this.refs['block-name-input'].value
     }
-    // console.log(this.refs['block-name-input'].value)
-    this.props.dispatch(sendNewBlock(newBlock))
+    this.props.dispatch(sendNewBlock(newBlock));
+    return this.refs['block-name-input'].value = '';
   }
   render(){
+    console.log('you hve render');
     return(
       <div
         className="add-new-spread"

@@ -9,7 +9,7 @@ import Register from './register';
 
 import AmbassadorRegister from './ambassador-register';
 import Dashboard from './dashboard';
-import DaySpreads from './daySpreads'
+import oneDayView from './oneDayView'
 
 export class App extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -51,7 +51,7 @@ export class App extends React.Component {
         <Route path="/register" component={Register} />
         <Route path="/ambassador-register" component={AmbassadorRegister} />
         <Route path="/dashboard" component={Dashboard} />
-        <Route exact path="/dayspreads" component={DaySpreads} />
+        <Route exact path="/oneDayView" component={oneDayView} />
       </div>
     )
   }
