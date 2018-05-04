@@ -1,17 +1,20 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
-import {refreshAuthToken} from '../actions/auth';
+import React from "react";
+import { connect } from "react-redux";
+import { Route, withRouter } from "react-router-dom";
+import { refreshAuthToken } from "../actions/auth";
 
-import '../styles/app.css'
+import "../styles/app.css";
 import Navigation from './navigation';
-import Login from './login';
-import Register from './register';
+import Login from "./login";
+import Register from "./register";
 import AmbassadorRegister from './ambassador-register';
+import AmbassadorPage from "./ambassador-page";
 import Dashboard from './dashboard';
 import DaySpreads from './daySpreads';
 import Cards from './cards';
 import EditCard from './edit-card';
+import oneDayView from './oneDayView'
+
 
 export class App extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -43,7 +46,7 @@ export class App extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div className="app">
         <Navigation />
         <Route path="/login" component={Login} />
@@ -53,8 +56,10 @@ export class App extends React.Component {
         <Route exact path="/cards" component={Cards} />
         <Route exact path="/cards/:id" component={EditCard} />
         <Route exact path="/DaySpreads" component={DaySpreads} />
+        <Route path="/ambassador-page" component={AmbassadorPage} />
+        <Route exact path="/oneDayView" component={oneDayView} />
       </div>
-    )
+    );
   }
 }
 

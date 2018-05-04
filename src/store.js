@@ -9,6 +9,7 @@ import tripReducer from './reducers/tripForm';
 import blockReducer from './reducers/block';
 import cardReducer from './reducers/cards';
 import dashboardReducer from './reducers/dashboard';
+import ambassadorItinerariesReducer from "./reducers/ambassador-itineraries";
 
 
 import {loadAuthToken} from './local-storage';
@@ -23,9 +24,11 @@ const store = createStore(
     form: formReducer,
     auth: authReducer,
     users: userReducer,
-    cards: cardReducer
+    cards: cardReducer,
+    itineraries: ambassadorItinerariesReducer
   }),
-  applyMiddleware(thunk));
+  applyMiddleware(thunk)
+);
 
 const authToken = loadAuthToken();
 if (authToken) {

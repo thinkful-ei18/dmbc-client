@@ -1,12 +1,13 @@
 import React , {Component} from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import { dayNamesArray } from './utils/dateObjectUtils';
 import { setDashboardCurrentDay, setDashboardTripdays } from '../actions/dashboard';
 
 class MultiView extends Component{
 
   componentWillMount(){
+    console.log('multiview has mounted', this.props)
     this.assembleTripDays();
   }
   //handle clicking a div to set our current date on the dash and redirect to
@@ -14,10 +15,11 @@ class MultiView extends Component{
 
   //myDate.setHours(myDate.getHours() + 24)
   assembleTripDays(){
-    let start = this.props.dateStart;
+    let start = new Date(this.props.dateStart);
     let end = this.props.dateEnd;
     let tripDays =[];
-    while(start.getDay()!==end.getDay()+1){
+
+    while(start.getDate()!==end.getDate()+1){
       let date = start;
       tripDays.push(date);
       start = new Date(start.setHours(start.getHours()+24));
@@ -29,16 +31,15 @@ class MultiView extends Component{
     this.props.dispatch(setDashboardCurrentDay(date));
   }
   assembleTripSpread(){
-    const dayName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     if(this.props.tripDays===undefined){
       return <li className='loading-trip-spread'>loading</li>
     }
     const tripSpread = this.props.tripDays.map((day,index) => {
       return(
-        <li key={index}>
-          <h2>{dayName[day.getDay()]}</h2>
-          {/* <p onClick={() => this.handleRedirect(day)}>go to day</p> */}
-          <Link to="/dayspreads" onClick={() => this.handleRedirect(day)}> go to day </Link>
+        //needs refactor to componenet.
+        <li key={index} style={{'border':'1px solid red'}}>
+          <h2>{dayNamesArray[day.getDay()]}</h2>
+          <Link to="/oneDayView" onClick={() => this.handleRedirect(day)}> go to day </Link>
         </li>
       )
     })
@@ -53,21 +54,6 @@ class MultiView extends Component{
         <ul>
           {wee}
         </ul>
-          {/* this is a temp block with temp styles not final */}
-
-          {/* <div
-            style={{'width':'300px','height':'300px','border':'1px solid red','textAlign':'center'}}
-            onClick={() => this.goToOneDayView()}
-          >
-            <Link to='/DaySpreads' />
-            <h2>MONDAY</h2>
-            <p>TEMPORARY DAY OBJECT</p>
-
-          </div> */}
-
-
-
-        {/* <DaySpreads /> */}
       </div>
     )
   }
