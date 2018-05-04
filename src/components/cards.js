@@ -6,7 +6,7 @@ import {fetchCards, fetchSearchCards} from '../actions/cards';
 import CreateCard from './create-card';
 import Background from '../assets/barPlaceHolder.jpg'
 
-import './scratch/placeCard.css';
+import '../styles/placeCard.css';
 
 export class Cards extends React.Component {
   constructor() {

@@ -10,7 +10,6 @@ import Register from "./register";
 import AmbassadorRegister from './ambassador-register';
 import AmbassadorPage from "./ambassador-page";
 import Dashboard from './dashboard';
-import DaySpreads from './daySpreads';
 import Cards from './cards';
 import EditCard from './edit-card';
 import oneDayView from './oneDayView'
@@ -55,7 +54,6 @@ export class App extends React.Component {
         <Route path="/dashboard" component={Dashboard} />
         <Route exact path="/cards" component={Cards} />
         <Route exact path="/cards/:id" component={EditCard} />
-        <Route exact path="/DaySpreads" component={DaySpreads} />
         <Route path="/ambassador-page" component={AmbassadorPage} />
         <Route exact path="/oneDayView" component={oneDayView} />
       </div>
