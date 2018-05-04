@@ -3,7 +3,7 @@ import {
   SET_DATE_END,
   SET_TRIP_DESTINATION,
   SET_TRIP_PARTNERS
-} from '../actions/trip'
+} from '../actions/tripForm'
 
 const initialState={
   dateStart: null,

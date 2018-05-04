@@ -6,10 +6,10 @@ import { refreshAuthToken } from "../actions/auth";
 import "../styles/app.css";
 import Login from "./login";
 import Register from "./register";
-
-import AmbassadorRegister from "./ambassador-register";
+import AmbassadorRegister from './ambassador-register';
 import AmbassadorPage from "./ambassador-page";
-import Dashboard from "./dashboard";
+import Dashboard from './dashboard';
+import oneDayView from './oneDayView'
 
 export class App extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -52,6 +52,7 @@ export class App extends React.Component {
         <Route path="/ambassador-register" component={AmbassadorRegister} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/ambassador-page" component={AmbassadorPage} />
+        <Route exact path="/oneDayView" component={oneDayView} />
       </div>
     );
   }

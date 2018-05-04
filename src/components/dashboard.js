@@ -5,17 +5,22 @@ import { Link } from "react-router-dom";
 import requiresLogin from "../requires-login";
 import Logout from "./logout";
 import NewTripForm from "./newTrip-form";
+//actions
+import { fetchTripDetails } from '../actions/tripForm';
+//components
+import MultiView from './multiView.js';
+
 
 export class Dashboard extends React.Component {
-  render() {
+  componentDidMount(){
+    console.log('dash mounted');
+    this.props.dispatch(fetchTripDetails());
+  }
+  render () {
     return (
       <div className="dashboard">
         Hello from the Dashboard!
-        {this.props.currentItenerary.length ? (
-          "this is where the multi view would go"
-        ) : (
-          <NewTripForm />
-        )}
+        {this.props.currentItinerary ? <MultiView /> : <NewTripForm />}
         <Logout />
         <Link to="/ambassador-page">
           <button>Ambassador Page</button>
@@ -26,7 +31,7 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  currentItenerary: [],
+  currentItinerary:state.dashboard.currentItinerary,
   currentUser: state.auth.currentUser
 });
 
