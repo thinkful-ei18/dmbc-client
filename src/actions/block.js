@@ -1,5 +1,5 @@
 import {API_BASE_URL} from '../config.js';
-
+import { pushTemporaryNewBlock } from './dashboard';
 export const CREATE_NEW_BLOCK = 'CREATE_NEW_BLOCK'
 export const createNewBlock = () => {
 
@@ -7,8 +7,6 @@ export const createNewBlock = () => {
 
 export const fetchBlocks = () => (dispatch, getState) =>{
   console.log('fetching blocks');
-  // const authToken = getState().auth.authToken;
-
 
 }
 
@@ -45,9 +43,12 @@ export const sendNewBlock = (newBlock) => (dispatch, getState) => {
     body:JSON.stringify(newBlock)
   })
   .then((response) => response.json())
-  .then((res) => {
-    console.log('this is the respose from sending a new block',res)
-    return dispatch(sendNewBlockSuccess(res))
+  .then((block) => {
+    const formattedBlock = Object.assign({},block,{
+      date:new Date(block.date)
+    })
+    dispatch(pushTemporaryNewBlock(formattedBlock));
+    return dispatch(sendNewBlockSuccess(formattedBlock));
   })
   .catch((err) => dispatch(sendNewBlockError(err)))
 

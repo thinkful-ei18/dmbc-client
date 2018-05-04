@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import './placeCard.css'
 
 
 //will be a prop later
