@@ -1,7 +1,7 @@
 import React , {Component} from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import { dayNamesArray } from './utils/dateObjectUtils';
 import { setDashboardCurrentDay, setDashboardTripdays } from '../actions/dashboard';
 
 class MultiView extends Component{
@@ -31,15 +31,15 @@ class MultiView extends Component{
     this.props.dispatch(setDashboardCurrentDay(date));
   }
   assembleTripSpread(){
-    const dayName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     if(this.props.tripDays===undefined){
       return <li className='loading-trip-spread'>loading</li>
     }
     const tripSpread = this.props.tripDays.map((day,index) => {
       return(
-        <li key={index}>
-          <h2>{dayName[day.getDay()]}</h2>
-          <Link to="/dayspreads" onClick={() => this.handleRedirect(day)}> go to day </Link>
+        //needs refactor to componenet.
+        <li key={index} style={{'border':'1px solid red'}}>
+          <h2>{dayNamesArray[day.getDay()]}</h2>
+          <Link to="/oneDayView" onClick={() => this.handleRedirect(day)}> go to day </Link>
         </li>
       )
     })
