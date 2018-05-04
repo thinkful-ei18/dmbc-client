@@ -86,7 +86,7 @@ export const fetchTripDetails = () => (dispatch, getState) => {
         Authorization: `Bearer ${authToken}`
       }
     })
-    .then(res => res.json())
+    .then((res) => res.json())
     .then(itinerary =>{
       const formattedItinerary = convertDateStringToDate(itinerary);
       return dispatch(fetchTripDetailsSuccess(formattedItinerary))

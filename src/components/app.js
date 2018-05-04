@@ -51,7 +51,7 @@ export class App extends React.Component {
         <Route path="/register" component={Register} />
         <Route path="/ambassador-register" component={AmbassadorRegister} />
         <Route path="/dashboard" component={Dashboard} />
-        <Route exact path="/DaySpreads" component={DaySpreads} />
+        <Route exact path="/dayspreads" component={DaySpreads} />
       </div>
     )
   }

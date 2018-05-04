@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './placeCard.css'
+// import './placeCard.css'
 
 
 //will be a prop later
@@ -11,14 +11,17 @@ class ExpandedContent extends Component{
     return(
       <div>
         <div className='cardBody'>
-          <span className='blurbHeader'>Details</span>
+          <span className='blurbHeader'>Description</span>
           <span className='cardBlurb'>
-            E anim illum ut occaecat. Ubi quo tamen nulla cillum, singulis graviterque iis
-            iudicem, fabulas duis quid ingeniis nisi, quem doctrina nam cernantur ubi
-            ingeniis esse nisi ingeniis nisi, ita ipsum possumus fidelissimae hic dolore
-            litteris tractavissent.
+            DESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPT
+            DESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPT
 
           </span>
+          <span className='placeHours'>hours</span>
+          <span className='cardAuthor'>author</span>
+          <span>rating</span>
+          <span>tips</span>
+
         </div>
         <div className='cardControls'>
           <button className='confirm-location'>Lock in</button>
@@ -45,7 +48,8 @@ class PlaceCard extends Component { // eslint-disable-line react/prefer-stateles
           className='cardHeader'
           style={{'backgroundImage':`url(${Background})`}}
         >
-          <span className='placeName'>Foo's bar</span>
+          <span className='placeAddress'>ADDRESS</span>
+          <span className='placeName'>NAME</span>
         </div>
         <div className='placeTags'>
           <ul>
