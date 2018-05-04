@@ -6,7 +6,7 @@ import {fetchCards, fetchSearchCards} from '../actions/cards';
 import CreateCard from './create-card';
 import Background from '../assets/barPlaceHolder.jpg'
 
-import '../styles/placeCard.css';
+import '../styles/oneDayView.css';
 
 export class Cards extends React.Component {
   constructor() {
@@ -20,9 +20,29 @@ export class Cards extends React.Component {
     this.props.dispatch(fetchCards());
   }
 
+  addSelectorToCard(cardId) {
+    const options = this.props.blocks.map(block => {
+      return <option value={block.id} key={block.id}>{block.title}</option>
+    });
+    const selector = (
+      <form onSubmit={e => {
+        e.preventDefault();
+        console.log('Block ID',this.input.value, 'Card ID', cardId);
+      }}>
+        <label>Assign to Card
+          <select ref={(input) => this.input = input}>
+            {options}
+          </select>
+        </label>
+        <button type="submit">Lock In</button>
+      </form>
+    )
+    return selector;
+  }
+
   render() {
     const apiTags = ['Family Friendly', 'Crowd Friendly', 'No Pets'];
-    //END DUMMY PROPS
+    
     const placeTags = apiTags.map((tag,index) => {
       return (<li key={index}>{tag}</li>)
     });
@@ -45,6 +65,7 @@ export class Cards extends React.Component {
             </span>
           </div>
           <div className='cardControls'>
+            {this.addSelectorToCard(card.id)}
             <Link to={`/cards/${card.id}`}>Edit Card</Link>
             <button className='confirm-location'>Lock in</button>
           </div>
@@ -61,7 +82,7 @@ export class Cards extends React.Component {
             event.preventDefault();
             this.props.dispatch(fetchSearchCards(this.searchTerm.value));
           }}>
-          <input 
+          <input
             placeholder="search"
             name="search"
             ref={input => this.searchTerm = input}
@@ -74,7 +95,7 @@ export class Cards extends React.Component {
     } else {
       cardSearch = <CreateCard />
     }
-    
+
     let changeState;
     if (this.state.search) {
       changeState = (
@@ -108,7 +129,8 @@ export class Cards extends React.Component {
 const mapStateToProps = state => ({
   cards: state.cards.cards,
   loading: state.cards.loading,
-  error: state.cards.error
+  error: state.cards.error,
+  blocks:state.dashboard.currentItinerary.blocks
 });
 
 export default requiresLogin()(connect(mapStateToProps)(Cards));
