@@ -42,6 +42,9 @@ class OneDayView extends Component{
     if(!this.props.blocks){
       return(<p>no blocks yet</p>)
     }
+    if (!this.props.currentDay) {
+      return <Redirect to="/dashboard" />
+    }
     const blocks = this.assembleBlocks();
     return(
       <div className="day-spreads-container">
