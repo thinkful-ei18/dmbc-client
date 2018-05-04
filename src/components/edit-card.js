@@ -11,7 +11,13 @@ class SingleCard extends React.Component {
       console.log(this.props.singleCard)
       return (
         <div>
-          Hello
+          <form onSubmit={event => {
+            event.preventDefault();
+
+          }}>
+            <input placeholder={this.props.singleCard.name} />
+            <button>Submit Changes</button>
+          </form>
         </div>
       )
   }
