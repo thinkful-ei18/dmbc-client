@@ -6,14 +6,24 @@ import Card from './Card';
 import '../../styles/oneDayView.css'
 export default class BlockSpread extends Component{
 
-  render(){
-    return(
+  createCards() {
+    let cards = [];
+    for (let i = 0; i < 3; i++) {
+      if (this.props.block.cards[i] === undefined) {
+        break;
+      }
+      cards.push(<Card info={this.props.block.cards[i]} key={`${this.props.block.id}_${i}`}/>)
+    }
+    return cards;
+  }
 
+  render(){
+    let cards = this.createCards();
+    return(
+        
         <div className="block-spread">
-          <h1>{this.props.blockName}</h1>
-          <Card />
-          <Card />
-          <Card />
+          <h1>{this.props.block.title}</h1>
+          {cards}
         </div>
     )
   }

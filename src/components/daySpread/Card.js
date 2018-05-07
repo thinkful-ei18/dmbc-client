@@ -9,11 +9,8 @@ class ExpandedContent extends Component{
         <div className='cardBody'>
           <span className='blurbHeader'>Details</span>
           <span className='cardBlurb'>
-            E anim illum ut occaecat. Ubi quo tamen nulla cillum, singulis graviterque iis
-            iudicem, fabulas duis quid ingeniis nisi, quem doctrina nam cernantur ubi
-            ingeniis esse nisi ingeniis nisi, ita ipsum possumus fidelissimae hic dolore
-            litteris tractavissent.
-
+            {this.props.info.description}
+            {this.props.info.address}
           </span>
         </div>
         <div className='cardControls'>
@@ -27,11 +24,10 @@ class ExpandedContent extends Component{
 class Card extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     //DUMMY PROPS FOR DESIGN
-    const isExpanded = this.props.isExpanded  // dummy boolean, for telling the component to display extra stuff or not
-    const apiTags = ['Family Friendly', 'Crowd Friendly', 'No Pets'];
+    const isExpanded = true  // dummy boolean, for telling the component to display extra stuff or not
     //END DUMMY PROPS
-    const expandedContent =  isExpanded ? <ExpandedContent /> : undefined;
-    const placeTags = apiTags.map((tag,index) => {
+    const expandedContent =  isExpanded ? <ExpandedContent info={this.props.info}/> : undefined;
+    const placeTags = this.props.info.tags.map((tag,index) => {
       return (<li key={index}>{tag}</li>)
     })
 
@@ -41,7 +37,7 @@ class Card extends Component { // eslint-disable-line react/prefer-stateless-fun
           className='cardHeader'
           style={{'backgroundImage':`url(${Background})`}}
         >
-          <span className='placeName'>Foo's bar</span>
+          <span className='placeName'>{this.props.info.name}</span>
         </div>
         <div className='placeTags'>
           <ul>

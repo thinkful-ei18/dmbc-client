@@ -28,11 +28,11 @@ export class Cards extends React.Component {
     const selector = (
       <form onSubmit={e => {
         e.preventDefault();
-        console.log('Block ID',this.input.value, 'Card ID', cardId);
-        this.props.dispatch(putCardOnBlock({ blockID: this.input.value, cardID: cardId}));
+        console.log('Block ID',this.selectVal, 'Card ID', cardId);
+        this.props.dispatch(putCardOnBlock({ blockID: this.selectVal, cardID: cardId}));
       }}>
         <label>Assign to Card
-          <select ref={(input) => this.input = input}>
+          <select onChange={(input) => this.selectVal = input.target.value}>
             {options}
           </select>
         </label>
