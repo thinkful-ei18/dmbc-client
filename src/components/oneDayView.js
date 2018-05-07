@@ -27,8 +27,6 @@ class OneDayView extends Component {
   }
 
   assembleBlocks(){
-    console.log('====assemble blocks',this.props.blocks.blocks);
-
     const blocksAssembled = this.filterBlocks().map((currentBlock, index) => {
       return (
         <li key={index}>
@@ -73,7 +71,7 @@ class OneDayView extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  currentUser: state.auth.currentUser,  
+  currentUser: state.auth.currentUser,
   blocks: state.dashboard.currentItinerary,
   currentDay:state.dashboard.currentDay,
   temporaryBlocks:[]
