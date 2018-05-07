@@ -92,3 +92,45 @@ export const putCardOnBlock = ids => (dispatch, getState) => {
   })
   .catch(err => dispatch(putCardOnBlockError(err)));
 }
+
+
+export const SELECT_CARD_ON_BLOCK_REQUEST = 'SELECT_CARD_ON_BLOCK_REQUEST'
+export const selectCardOnBlockRequest = () => ({
+  type: SELECT_CARD_ON_BLOCK_REQUEST
+
+})
+
+export const SELECT_CARD_ON_BLOCK_SUCCESS = 'SELECT_CARD_ON_BLOCK_SUCCESS'
+export const selectCardOnBlockSuccess = (updatedBlock) => ({
+  type: SELECT_CARD_ON_BLOCK_SUCCESS,
+  updatedBlock
+})
+
+export const SELECT_CARD_ON_BLOCK_ERROR = 'SELECT_CARD_ON_BLOCK_ERROR'
+export const selectCardOnBlockError = (err) => ({
+  type: SELECT_CARD_ON_BLOCK_ERROR,
+  err
+})
+
+export const selectCardOnBlock = ids => (dispatch, getState) => {
+  dispatch(selectCardOnBlockRequest());
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/block/${ids.blockID}/select`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      selection: ids.cardID
+    })
+  })
+    .then(response => response.json())
+    .then(updatedBlock => {
+      const formattedBlock = Object.assign({}, updatedBlock, {
+        date: new Date(updatedBlock.date)
+      })
+      dispatch(selectCardOnBlockSuccess(formattedBlock))
+    })
+    .catch(err => dispatch(selectCardOnBlockError(err)));
+}

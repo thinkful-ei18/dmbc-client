@@ -20,19 +20,14 @@ class OneDayView extends Component {
       .dispatch(fetchTripDetails());
   }
 
+  filterBlocks() {
+    return this.props.blocks.blocks.filter(block => {
+      return block.date.getDate() === this.props.currentDay.getDate();
+    })
+  }
 
   assembleBlocks(){
-    const blocksToBeAssembled = this.props.blocks.blocks;
-    const filteredBlocks = blocksToBeAssembled.filter((block) => {
-      return block
-        .date
-        .getDate() === this
-        .props
-        .currentDay
-        .getDate();
-    })
-
-    const blocksAssembled = filteredBlocks.map((currentBlock, index) => {
+    const blocksAssembled = this.filterBlocks().map((currentBlock, index) => {
       return (
         <li key={index}>
           <BlockSpread block={currentBlock}/>
@@ -54,7 +49,7 @@ class OneDayView extends Component {
     const blocks = this.assembleBlocks();
     let toolbelt;
     if (this.props.currentUser.id === this.props.blocks.ambassador) {
-      toolbelt = <Cards/>
+      toolbelt = <Cards availableBlocks={this.filterBlocks()}/>
     }
     return (
       <div className="day-spreads-container">
