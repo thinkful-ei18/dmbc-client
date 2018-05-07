@@ -4,14 +4,12 @@ import {
   SET_DASHBOARD_TRIPDAYS,
   PUSH_TEMPORARY_NEW_BLOCK
 } from '../actions/dashboard';
-import { PUT_CARD_ON_BLOCK_SUCCESS } from '../actions/block';
+import { PUT_CARD_ON_BLOCK_SUCCESS, SELECT_CARD_ON_BLOCK_SUCCESS } from '../actions/block';
 
 const initialState = {
   currentItinerary:undefined,
   tripDays:undefined,
-  currentDay:undefined,
-  userBlocks:[],
-  temporaryBlocks:[]
+  currentDay:undefined
 }
 
 export default function reducer(state = initialState, action){
@@ -19,8 +17,7 @@ export default function reducer(state = initialState, action){
     case FETCH_TRIP_DETAILS_SUCCESS:
       return{
         ...state,
-        currentItinerary:action.tripDetails,
-        userBlocks:[action.tripDetails.blocks]
+        currentItinerary:action.tripDetails
       }
     case SET_DASHBOARD_TRIPDAYS:
       return{
@@ -33,8 +30,6 @@ export default function reducer(state = initialState, action){
         currentDay:action.date
       }
     case PUSH_TEMPORARY_NEW_BLOCK:
-      console.log('payload',action.newBlock);
-      console.log('target',state);
       return{
         ...state,
         currentItinerary:{
@@ -57,6 +52,21 @@ export default function reducer(state = initialState, action){
           blocks
         }
       };
+    case SELECT_CARD_ON_BLOCK_SUCCESS:
+      blocks = state.currentItinerary.blocks;
+      blocks = blocks.map(block => {
+        if (block.id === action.updatedBlock.id) {
+          block = Object.assign({}, action.updatedBlock);
+        }
+        return block;
+      })
+      return {
+        ...state,
+        currentItinerary: {
+          ...state.currentItinerary,
+          blocks
+        }
+      }
     default:
       return state;
 

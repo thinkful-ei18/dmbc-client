@@ -9,15 +9,9 @@
   width:85vw;
   height:500px;
 
-  /* alignItems:center; */
 }
 
-/*
-
-*/
-
 .tripFormContainer > *{
-  /* border:1px solid green; */
   width:80%;
   margin:auto;
   text-align: center;
@@ -32,7 +26,6 @@ text-align: center;
 padding:135px 10px 10px 10px ;
 }
 .tripFormPlace input{
-  /* border:1px solid yellow; */
   font-size:26px;
 }
 .tripFromDates{
@@ -53,10 +46,39 @@ flex:1 1 auto;
 .formContainer p{
   display:inline-block;
 }
+/* geosuggest */
+
+.geosuggest__suggests--hidden {
+  max-height: 0;
+  overflow: hidden;
+  border-width: 0;
+  border:none;
+}
+.geosuggest__item--active {
+  background: #267dc0;
+  color: #fff;
+}
+.geosuggest__suggests-wrapper{
+  position:absolute;
+  max-width: 100%;
+  width:80%;
+  margin:auto;
+  left:50%;
+  z-index:1000;
+  transform: translate(-50%,0);
+  font-size:22px;
+}
+.geosuggest__suggests{
+  background-color: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
 
 /*
-tripFormPlace
-tripFromDates
-tripTravelrs
-controls
-*/
+
+element.style {
+    position: absolute;
+    z-index: 1000;
+    background-color: white;
+    /* border-bottom: 1px solid black; */
+    /* border-right: 1px solid bla
+ */

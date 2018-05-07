@@ -20,25 +20,17 @@ class OneDayView extends Component {
       .dispatch(fetchTripDetails());
   }
 
+  filterBlocks() {
+    return this.props.blocks.blocks.filter(block => {
+      return block.date.getDate() === this.props.currentDay.getDate();
+    })
+  }
 
   assembleBlocks(){
-    console.log('====assemble blocks',this.props.blocks.blocks);
-
-    const blocksToBeAssembled = this.props.blocks.blocks;
-
-    const filteredBlocks = blocksToBeAssembled.filter((block) => {
-      return block
-        .date
-        .getDate() === this
-        .props
-        .currentDay
-        .getDate();
-    })
-
-    const blocksAssembled = filteredBlocks.map((currentBlock, index) => {
+    const blocksAssembled = this.filterBlocks().map((currentBlock, index) => {
       return (
         <li key={index}>
-          <BlockSpread blockName={currentBlock.title}/>
+          <BlockSpread block={currentBlock}/>
         </li>
       )
     });
@@ -57,7 +49,7 @@ class OneDayView extends Component {
     const blocks = this.assembleBlocks();
     let toolbelt;
     if (this.props.currentUser.id === this.props.blocks.ambassador) {
-      toolbelt = <Cards/>
+      toolbelt = <Cards availableBlocks={this.filterBlocks()}/>
     }
     return (
       <div className="day-spreads-container">
@@ -79,10 +71,9 @@ class OneDayView extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  currentUser: state.auth.currentUser,  
+  currentUser: state.auth.currentUser,
   blocks: state.dashboard.currentItinerary,
-  currentDay:state.dashboard.currentDay,
-  temporaryBlocks:[]
+  currentDay:state.dashboard.currentDay
 })
 
 export default connect(mapStateToProps)(OneDayView);

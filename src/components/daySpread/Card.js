@@ -1,55 +1,53 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Background from '../../assets/barPlaceHolder.jpg'
-
-class ExpandedContent extends Component{
-
-  render(){
-    return(
-      <div>
-        <div className='cardBody'>
-          <span className='blurbHeader'>Details</span>
-          <span className='cardBlurb'>
-            E anim illum ut occaecat. Ubi quo tamen nulla cillum, singulis graviterque iis
-            iudicem, fabulas duis quid ingeniis nisi, quem doctrina nam cernantur ubi
-            ingeniis esse nisi ingeniis nisi, ita ipsum possumus fidelissimae hic dolore
-            litteris tractavissent.
-
-          </span>
-        </div>
-        <div className='cardControls'>
-          <button className='confirm-location'>Lock in</button>
-        </div>
-      </div>
-    )
-  }
-}
+import ExpandedContent from './ExpandedContent';
 
 class Card extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     //DUMMY PROPS FOR DESIGN
-    const isExpanded = this.props.isExpanded  // dummy boolean, for telling the component to display extra stuff or not
-    const apiTags = ['Family Friendly', 'Crowd Friendly', 'No Pets'];
+    const isExpanded = true
+    const isSelected = this.props.selected; // dummy boolean, for telling the component to display extra stuff or not
     //END DUMMY PROPS
-    const expandedContent =  isExpanded ? <ExpandedContent /> : undefined;
-    const placeTags = apiTags.map((tag,index) => {
-      return (<li key={index}>{tag}</li>)
-    })
+
+    const expandedContent = isExpanded
+      ? <ExpandedContent
+          info={this.props.info}
+          blockId={this.props.blockId}
+          selected={isSelected}/>
+      : undefined;
+    const placeTags = this
+      .props
+      .info
+      .tags
+      .map((tag, index) => {
+        return (
+          <li key={index}>{tag}</li>
+        )
+      })
+
+    let divClassName = isExpanded
+      ? 'cardContainer-expanded'
+      : 'cardContainer-minimized';
+
+    divClassName += isSelected ? ' card-selected' : '';
+
 
     return (
-      <div className={isExpanded ? 'cardContainer-expanded' : 'cardContainer-minimized'}>
+      <div className={divClassName}>
         <div
           className='cardHeader'
-          style={{'backgroundImage':`url(${Background})`}}
-        >
-          <span className='placeName'>Foo's bar</span>
+          style={{
+          'backgroundImage': `url(${Background})`
+        }}>
+          <span className='placeName'>{this.props.info.name}</span>
         </div>
         <div className='placeTags'>
           <ul>
-          {placeTags}
+            {placeTags}
           </ul>
         </div>
         <div>
-        {expandedContent}
+          {expandedContent}
         </div>
       </div>
     );

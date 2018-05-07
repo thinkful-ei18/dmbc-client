@@ -36,9 +36,6 @@ class NewTripForm extends Component {
       {label: 'Chicago', location: {lat: 40.7033127, lng: -73.979681}},
       {label: 'Mexico City', location: {lat: -22.066452, lng: -42.9232368}},
       {label: 'Tokyo', location: {lat: 35.673343, lng: 139.710388}},
-      {label: 'San Diego', location: {lat: 35.673343, lng: 139.710388}},
-      {label: 'France', location: {lat: 35.673343, lng: 139.710388}},
-      {label: 'Gemany', location: {lat: 35.673343, lng: 139.710388}},
     ];
     return (
       <div className='tripFormContainer'>
