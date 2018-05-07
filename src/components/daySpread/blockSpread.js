@@ -7,6 +7,10 @@ import '../../styles/oneDayView.css'
 export default class BlockSpread extends Component{
 
   createCards() {
+    if (this.props.block.selectedCard) {
+      const selected = this.props.block.cards.find(card => card.id === this.props.block.selectedCard)
+      return <Card info={selected} key={selected} blockId={this.props.block.id} selected={true}/>
+    }
     let cards = [];
     for (let i = 0; i < 3; i++) {
       if (this.props.block.cards[i] === undefined) {
@@ -18,6 +22,7 @@ export default class BlockSpread extends Component{
   }
 
   render(){
+    console.log('Here is the block', this.props.block)
     let cards = this.createCards();
     return(
         

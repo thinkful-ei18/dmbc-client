@@ -40,6 +40,10 @@
   padding:15px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
+
+.card-selected {
+  background-color: gold;
+}
 .cardHeader{
   width:100%;
   color:white;
