@@ -18,11 +18,12 @@ export class Cards extends React.Component {
     }
   }
   componentDidMount() {
+    this.selectVal = this.props.availableBlocks[0].id
     this.props.dispatch(fetchCards());
   }
 
   addSelectorToCard(cardId) {
-    const options = this.props.blocks.map(block => {
+    const options = this.props.availableBlocks.map(block => {
       return <option value={block.id} key={block.id}>{block.title}</option>
     });
     const selector = (
@@ -132,7 +133,7 @@ const mapStateToProps = state => ({
   cards: state.cards.cards,
   loading: state.cards.loading,
   error: state.cards.error,
-  blocks:state.dashboard.currentItinerary.blocks
+  // blocks:state.dashboard.currentItinerary.blocks
 });
 
 export default requiresLogin()(connect(mapStateToProps)(Cards));
