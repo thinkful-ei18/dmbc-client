@@ -4,9 +4,12 @@ import {required, nonEmpty} from '../validators';
 import {addCard} from '../actions/cards';
 
 import requiresLogin from '../requires-login';
+import Input from './input';
+import TextArea from './textarea';
 
 export class CreateCard extends React.Component {
   onSubmit(values) {
+    window.location.reload(); 
     return this.props.dispatch(addCard(values));
   }
 
@@ -21,7 +24,7 @@ export class CreateCard extends React.Component {
     }
 
     return (
-      <div className="login-form">
+      <div className="create-card-form">
         <form
           onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values)
@@ -30,36 +33,36 @@ export class CreateCard extends React.Component {
           {error}
           <label htmlFor="name">Name</label>
           <Field
-            component="input"
+            component={Input}
             type="text"
             name="name"
             id="name"
-            placeholder="name"
+            info={this.props.name}
             validate={[required, nonEmpty]}
           />
           <label htmlFor="description">Description</label>
-          <textarea
+          <Field
+            component={TextArea}
             name="description"
             id="description"
-            placeholder="description"
             validate={[required, nonEmpty]}
           />
           <label htmlFor="address">Address</label>
           <Field
-            component="input"
+            component={Input}
             type="text"
             name="address"
             id="address"
-            placeholder="address"
+            info={this.props.location}
             validate={[required, nonEmpty]}
           />
           <label htmlFor="hours">Hours</label>
           <Field
-            component="input"
+            component={Input}
             type="text"
             name="hours"
             id="hours"
-            placeholder="hours"
+            info="something"
             validate={[required, nonEmpty]}
           />
           <button>Create</button>

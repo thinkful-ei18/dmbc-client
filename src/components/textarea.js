@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Input extends React.Component {
+export default class TextArea extends React.Component {
   componentDidUpdate(prevProps) {
     if (!prevProps.meta.active && this.props.meta.active) {
       this.input.focus();
@@ -27,13 +27,12 @@ export default class Input extends React.Component {
           {error}
           {warning}
         </label>
-        <input
+        <textarea
 					{...this.props.input}
 					id={this.props.input.name}
 					type={this.props.type}
           ref={input => (this.input = input)}
           placeholder={this.props.input.name}
-          value={this.props.info}
          />
         {warning}
       </div>
