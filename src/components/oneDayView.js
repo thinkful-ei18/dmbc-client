@@ -38,7 +38,7 @@ class OneDayView extends Component {
     const blocksAssembled = filteredBlocks.map((currentBlock, index) => {
       return (
         <li key={index}>
-          <BlockSpread blockName={currentBlock.title}/>
+          <BlockSpread block={currentBlock}/>
         </li>
       )
     });
