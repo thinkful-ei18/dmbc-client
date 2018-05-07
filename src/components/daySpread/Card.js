@@ -15,6 +15,8 @@ class Card extends Component { // eslint-disable-line react/prefer-stateless-fun
           blockId={this.props.blockId}
           selected={isSelected}/>
       : undefined;
+    
+    console.log(this.props)
     const placeTags = this
       .props
       .info
