@@ -12,7 +12,7 @@ export default class BlockSpread extends Component{
       if (this.props.block.cards[i] === undefined) {
         break;
       }
-      cards.push(<Card info={this.props.block.cards[i]} key={`${this.props.block.id}_${i}`}/>)
+      cards.push(<Card info={this.props.block.cards[i]} key={`${this.props.block.id}_${i}`} blockId={this.props.block.id}/>)
     }
     return cards;
   }
