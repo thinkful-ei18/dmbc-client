@@ -73,8 +73,7 @@ class OneDayView extends Component {
 const mapStateToProps = (state) => ({
   currentUser: state.auth.currentUser,
   blocks: state.dashboard.currentItinerary,
-  currentDay:state.dashboard.currentDay,
-  temporaryBlocks:[]
+  currentDay:state.dashboard.currentDay
 })
 
 export default connect(mapStateToProps)(OneDayView);
