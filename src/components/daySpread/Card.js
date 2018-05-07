@@ -8,6 +8,7 @@ class Card extends Component { // eslint-disable-line react/prefer-stateless-fun
     const isExpanded = true
     const isSelected = this.props.selected; // dummy boolean, for telling the component to display extra stuff or not
     //END DUMMY PROPS
+
     const expandedContent = isExpanded
       ? <ExpandedContent
           info={this.props.info}
@@ -29,6 +30,7 @@ class Card extends Component { // eslint-disable-line react/prefer-stateless-fun
       : 'cardContainer-minimized';
 
     divClassName += isSelected ? ' card-selected' : '';
+
 
     return (
       <div className={divClassName}>

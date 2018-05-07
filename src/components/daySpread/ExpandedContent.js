@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import {selectCardOnBlock} from '../../actions/block';
-import {connect} from 'react-redux';
+
+import { connect } from 'react-redux';
+
 
 export class ExpandedContent extends Component {
 
   lockIn() {
+
     this
       .props
       .dispatch(selectCardOnBlock({cardID: this.props.info.id, blockID: this.props.blockId}));
@@ -25,6 +28,7 @@ export class ExpandedContent extends Component {
         </div>
       )
     }
+
     return (
       <div>
         <div className='cardBody'>
@@ -34,12 +38,16 @@ export class ExpandedContent extends Component {
             {this.props.info.address}
           </span>
         </div>
+
         {select}
+
       </div>
     )
   }
 }
 
+
 const mapStateToProps = state => ({});
+
 
 export default connect(mapStateToProps)(ExpandedContent);
