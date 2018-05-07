@@ -52,6 +52,7 @@ flex:1 1 auto;
   max-height: 0;
   overflow: hidden;
   border-width: 0;
+  border:none;
 }
 .geosuggest__item--active {
   background: #267dc0;
@@ -59,9 +60,19 @@ flex:1 1 auto;
 }
 .geosuggest__suggests-wrapper{
   position:absolute;
-
+  max-width: 100%;
+  width:80%;
+  height:400px;
+  margin:auto;
+  left:50%;
+  z-index:1000;
+  transform: translate(-50%,0);
+  font-size:22px;
 }
-
+.geosuggest__suggests{
+  background-color: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
 
 /*
 
