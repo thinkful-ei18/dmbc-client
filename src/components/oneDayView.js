@@ -21,15 +21,13 @@ class OneDayView extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     console.log('spread mounted');
-    this
-      .props
-      .dispatch(fetchTripDetails());
-  }
-
-  componentWillUpdate() {
-    console.log('update');
+    if (this.props.blocks) {
+      this
+        .props
+        .dispatch(fetchTripDetails(this.props.blocks.id));
+    }
   }
 
   filterBlocks() {
@@ -50,13 +48,13 @@ class OneDayView extends Component {
   }
 
   render() {
+    if (!this.props.currentDay) {
+      return <Redirect to="/dashboard" />
+    }
     if (!this.props.blocks) {
       return (
         <p>no blocks yet</p>
       )
-    }
-    if (!this.props.currentDay) {
-      return <Redirect to="/dashboard"/>
     }
     const blocks = this.assembleBlocks();
     let toolbelt;

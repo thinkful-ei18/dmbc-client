@@ -15,9 +15,10 @@ export class Dashboard extends React.Component {
   componentDidMount(){
     let id = this.props.currentUser.itineraries;
     if (this.props.location.state) {
-      id = this.props.location.state.itineraryID;
+      id = this.props.location.state.itineraryId;
     }
     console.log('dash mounted');
+    console.log(this.props)
     this.props.dispatch(fetchTripDetails(id));
   }
   render () {

@@ -63,6 +63,25 @@ export const fetchSearchCards = searchTerm => (dispatch, getState) => {
     .catch(err => {dispatch(fetchCardsError(err))});
 }
 
+export const fetchDestinationCards = destination => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  const {distance, lat, lng} = destination;
+  dispatch(fetchCardsRequest());
+  return fetch(`${API_BASE_URL}/cards?lat=${lat}&distance=${distance}&lng=${lng}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+    .then(res => {
+      return res.json();
+    })
+    .then(cards => {
+      dispatch(fetchCardsSuccess(cards));
+    })
+    .catch(err => { dispatch(fetchCardsError(err)) });
+}
+
 export const fetchSingleCard = cardID => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchCardsRequest());
