@@ -1,19 +1,41 @@
 import React, {Component} from 'react';
 import {selectCardOnBlock} from '../../actions/block';
 
-import { connect } from 'react-redux';
-
+import {connect} from 'react-redux';
 
 export class ExpandedContent extends Component {
 
   lockIn() {
-
     this
       .props
       .dispatch(selectCardOnBlock({cardID: this.props.info.id, blockID: this.props.blockId}));
   }
 
+  createSelect() {
+    let options = new Array(5);
+    for (let i = 0; i < 5; i++) {
+      options[i] = <option value={i + 1} key={i + 1}>{i + 1}</option>
+    }
+    const selector = (
+      <form
+        onSubmit={e => {
+        e.preventDefault();
+        console.log('Value', this.selectVal, 'Card ID', this.props.info.id); 
+        // this.props.dispatch(rateCard({ blockID: this.selectVal, cardID: cardId })); 
+      }}>
+        <label>Rating
+          <select onChange={(input) => this.selectVal = input.target.value}>
+            {options}
+          </select>
+        </label>
+        <button type="submit">Rate Me</button>
+      </form>
+    )
+    return selector;
+  }
+
   render() {
+    const selector = this.createSelect()
     let select;
     if (this.props.selected) {
       select = (
@@ -34,6 +56,7 @@ export class ExpandedContent extends Component {
         <div className='cardBody'>
           <span className='blurbHeader'>Details</span>
           <span className='cardBlurb'>
+            {selector}
             {this.props.info.description}
             {this.props.info.address}
           </span>
@@ -46,8 +69,6 @@ export class ExpandedContent extends Component {
   }
 }
 
-
 const mapStateToProps = state => ({});
-
 
 export default connect(mapStateToProps)(ExpandedContent);
