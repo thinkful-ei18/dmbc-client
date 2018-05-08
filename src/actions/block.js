@@ -1,5 +1,6 @@
 import {API_BASE_URL} from '../config.js';
 import { pushTemporaryNewBlock } from './dashboard';
+import { convertBlockStringsToDate } from './utils.js';
 export const CREATE_NEW_BLOCK = 'CREATE_NEW_BLOCK'
 export const createNewBlock = () => {
 
@@ -133,4 +134,11 @@ export const selectCardOnBlock = ids => (dispatch, getState) => {
       dispatch(selectCardOnBlockSuccess(formattedBlock))
     })
     .catch(err => dispatch(selectCardOnBlockError(err)));
+}
+
+export const REMOVE_SELECT_CARD_ON_BLOCK_SUCCESS = 'REMOVE_SELECT_CARD_ON_BLOCK_SUCCESS'
+export const removeSelectCardOnBlockSuccess = blockId => ({type: REMOVE_SELECT_CARD_ON_BLOCK_SUCCESS, blockId})
+
+export const removeSelectOnBlock = value => (dispatch, getState) => {
+  return dispatch(removeSelectCardOnBlockSuccess(value.blockId));
 }

@@ -21,6 +21,10 @@ class OneDayView extends Component {
       .dispatch(fetchTripDetails());
   }
 
+  componentWillUpdate() {
+    console.log('update');
+  }
+
   filterBlocks() {
     return this.props.blocks.blocks.filter(block => {
       return block.date.getDate() === this.props.currentDay.getDate();
