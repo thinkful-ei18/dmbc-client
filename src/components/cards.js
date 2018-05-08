@@ -7,6 +7,7 @@ import Background from '../assets/barPlaceHolder.jpg'
 import { putCardOnBlock } from '../actions/block';
 
 import '../styles/oneDayView.css';
+import '../styles/cards.css';
 import Yelp from './yelp';
 
 export class Cards extends React.Component {
@@ -53,7 +54,7 @@ export class Cards extends React.Component {
     });
     const cards = this.props.cards.map((card, index) => {
       return (
-        <div className={'cardContainer-expanded'} key={index}>
+        <div className='cardContainer-expanded' key={index}>
           <div className='cardHeader' style={{'backgroundImage':`url(${Background})`}}>
             <span className='placeName'>{card.name}</span>
           </div>
@@ -82,7 +83,6 @@ export class Cards extends React.Component {
     let cardSearch;
     if (this.state.displayCards) {
       cardSearch = (
-        <div>
           <form onSubmit={event => {
             event.preventDefault();
             this.props.dispatch(fetchSearchCards(this.searchTerm.value));
@@ -94,8 +94,6 @@ export class Cards extends React.Component {
           />
           <button>Submit</button>
           </form>
-          {cards}
-        </div>
       );
     } else {
       cardSearch = <Yelp />
@@ -123,9 +121,14 @@ export class Cards extends React.Component {
     }
 
     return (
-      <div>
-        {cardSearch}
-        {changeState}
+      <div className={(this.props.cardsContainer === 'hidden') ? 'cards-container-hidden' : 'cards-container'}>
+        <div className="cards">
+          <div className="cards-nav">
+            {changeState}
+            {cardSearch}
+          </div>
+          {cards}
+        </div>
       </div>
     )
   }
