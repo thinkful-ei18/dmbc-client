@@ -13,6 +13,7 @@ import MultiView from './multiView.js';
 
 export class Dashboard extends React.Component {
   componentDidMount(){
+    console.log(this.props.location.state.itineraryId)
     console.log('dash mounted');
     this.props.dispatch(fetchTripDetails());
   }
