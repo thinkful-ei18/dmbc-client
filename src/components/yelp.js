@@ -13,10 +13,13 @@ export class Yelp extends React.Component {
     this.state = {
       create: false,
       name: '',
-      location: ''
+      location: '',
+      latitude: '',
+      longitude: ''
     }
   }
   render() {
+    console.log(this.props.yelp)
     let searchResults;
     if (this.props.yelp.length > 0) {
       searchResults = this.props.yelp.map((result, index) => {
@@ -31,7 +34,9 @@ export class Yelp extends React.Component {
               this.setState({
                 create: true,
                 name: result.name,
-                location: location
+                location: location,
+                latitude: result.coordinates.latitude,
+                longitude: result.coordinates.longitude
               })
             }}>Choose this location</button>
           </div>
@@ -61,6 +66,8 @@ export class Yelp extends React.Component {
         <CreateCard 
           name={this.state.name}
           location={this.state.location}
+          latitude={this.state.latitude}
+          longitude={this.state.longitude}
         />
       )
     }

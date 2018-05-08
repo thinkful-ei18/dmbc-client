@@ -92,9 +92,7 @@ export const addCard = card => (dispatch, getState) => {
           Authorization: `Bearer ${authToken}`
       },
       body: JSON.stringify({
-        ...card,
-        latitude: 19.2464696,
-        longitude: -99.10134979999998
+        ...card
       })
   })
       .then(res => normalizeResponseErrors(res))

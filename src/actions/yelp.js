@@ -22,7 +22,6 @@ const corsFix = 'https://cors-anywhere.herokuapp.com/';
 
 export const fetchYelp = (location, term, offset) => (dispatch) => {
   dispatch(fetchYelpRequest());
-  console.log('getting yelp results');
   return fetch(`${corsFix}https://api.yelp.com/v3/businesses/search?location=${location}&term=${term}&offset=${offset}`, {
     method: 'GET',
     headers: {

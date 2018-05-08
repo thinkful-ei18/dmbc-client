@@ -18,7 +18,9 @@ export class Cards extends React.Component {
     }
   }
   componentDidMount() {
-    this.selectVal = this.props.availableBlocks[0].id
+    if (this.props.availableBlocks > 0) {
+      this.selectVal = this.props.availableBlocks[0].id
+    }
     this.props.dispatch(fetchCards());
   }
 
