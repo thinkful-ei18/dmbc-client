@@ -45,6 +45,9 @@ export const fetchCards = cards => (dispatch, getState) => {
     .catch(err => {dispatch(fetchCardsError(err))});
 }
 
+export const FETCH_FILTER_CARDS_SUCCESS = 'FETCH_FILTER_CARDS_SUCCESS';
+export const fetchFilterCardsSuccess = (cards) => ({type: FETCH_FILTER_CARDS_SUCCESS, cards});
+
 export const fetchSearchCards = searchTerm => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchCardsRequest());
@@ -58,7 +61,7 @@ export const fetchSearchCards = searchTerm => (dispatch, getState) => {
       return res.json();
     })
     .then(cards => {
-      dispatch(fetchCardsSuccess(cards));
+      dispatch(fetchFilterCardsSuccess(cards));
     })
     .catch(err => {dispatch(fetchCardsError(err))});
 }
@@ -77,7 +80,7 @@ export const fetchDestinationCards = destination => (dispatch, getState) => {
       return res.json();
     })
     .then(cards => {
-      dispatch(fetchCardsSuccess(cards));
+      dispatch(fetchFilterCardsSuccess(cards));
     })
     .catch(err => { dispatch(fetchCardsError(err)) });
 }

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 //actions
-import {fetchTripDetails} from '../actions/tripForm';
 //components and helpers
 import BlockSpread from './daySpread/blockSpread';
 import AddNewSpread from './daySpread/addNewSpread';
@@ -19,15 +18,6 @@ class OneDayView extends Component {
     this.state = {
       cardsContainer: 'hidden'
     };
-  }
-
-  componentDidMount() {
-    console.log('spread mounted');
-    if (this.props.blocks) {
-      this
-        .props
-        .dispatch(fetchTripDetails(this.props.blocks.id));
-    }
   }
 
   filterBlocks() {

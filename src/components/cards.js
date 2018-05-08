@@ -18,7 +18,7 @@ export class Cards extends React.Component {
       displayCards: true
     }
   }
-  componentDidMount() {
+  componentWillMount() {
     console.log('coming from ambassador', this.props)
     if (this.props.availableBlocks.length > 0) {
       this.selectVal = this.props.availableBlocks[0].id
@@ -28,7 +28,10 @@ export class Cards extends React.Component {
       lat: this.props.destination.location.coordinates[1],
       lng: this.props.destination.location.coordinates[0]
     }
-    this.props.dispatch(fetchDestinationCards(destination));
+    if (!this.props.filtered) {
+      this.props.dispatch(fetchDestinationCards(destination));
+    }
+    
   }
 
   componentDidUpdate() {
@@ -147,6 +150,7 @@ export class Cards extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  filtered: state.cards.filtered,
   cards: state.cards.cards,
   loading: state.cards.loading,
   error: state.cards.error,

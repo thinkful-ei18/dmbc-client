@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchItineraries } from "../actions/ambassador-itineraries";
 import moment from "moment";
 import {
   CarouselProvider,
@@ -14,9 +13,6 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 import "./ambassador-itinerary-carousel.css";
 
 class AmbassadorPastItineraries extends Component {
-  componentWillMount() {
-    this.props.dispatch(fetchItineraries());
-  }
   render() {
     let itinerariesList;
     if (this.props.itineraries) {
@@ -31,10 +27,8 @@ class AmbassadorPastItineraries extends Component {
         );
       } else {
         itinerariesList = currentItineraries.map((itinerary, index) => {
-          console.log(itinerary);
-
           return (
-            <Link to={{pathname:"/dashboard", state:{itineraryId: itinerary.id}}}>
+            <Link to={{pathname:"/dashboard", state:{itineraryId: itinerary.id}}} key={index}>
               <Slide
                 className="ambassador-itinerary-slide"
                 key={index}
