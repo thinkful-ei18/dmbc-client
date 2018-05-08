@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
 import {selectCardOnBlock} from '../../actions/block';
+import { rateCard } from "../../actions/cards";
 
 import {connect} from 'react-redux';
 
 export class ExpandedContent extends Component {
+  componentDidMount() {
+    this.selectVal = 1;
+  }
 
   lockIn() {
     this
@@ -21,7 +25,12 @@ export class ExpandedContent extends Component {
         onSubmit={e => {
         e.preventDefault();
         console.log('Value', this.selectVal, 'Card ID', this.props.info.id); 
-        // this.props.dispatch(rateCard({ blockID: this.selectVal, cardID: cardId })); 
+        const values = { 
+          rating: this.selectVal, 
+          cardId: this.props.info.id,
+          blockId: this.props.blockId 
+        }
+        this.props.dispatch(rateCard(values)); 
       }}>
         <label>Rating
           <select onChange={(input) => this.selectVal = input.target.value}>

@@ -146,3 +146,35 @@ export const deleteCard = (cardID) => (dispatch, getState) => {
     })
     .catch(err => {dispatch(fetchCardsError(err))});
 }
+
+export const RATE_CARD_REQUEST = 'RATE_CARD_REQUEST';
+export const rateCardRequest = () => ({type: RATE_CARD_REQUEST});
+
+export const RATE_CARD_SUCCESS = 'RATE_CARD_SUCCESS';
+export const rateCardSuccess = (card) => ({type: RATE_CARD_SUCCESS, card});
+
+export const RATE_CARD_ERROR = 'RATE_CARD_ERROR';
+export const rateCardError = (err) => ({type: RATE_CARD_ERROR, err});
+
+export const rateCard = values => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  dispatch(rateCardRequest());
+  return fetch(`${API_BASE_URL}/cards/${values.cardId}/rate`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      rating: values.rating
+    })
+  })
+    .then(res => res.json())
+    .then(response => {
+      const specificCard = Object.assign({}, response, {
+        blockId: values.blockId
+      })
+      dispatch(rateCardSuccess(specificCard))
+    })
+    .catch(err => { dispatch(rateCardError(err)) });
+}
