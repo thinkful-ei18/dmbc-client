@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {selectCardOnBlock} from '../../actions/block';
+import {selectCardOnBlock, removeSelectOnBlock} from '../../actions/block';
 import { rateCard } from "../../actions/cards";
 
 import {connect} from 'react-redux';
@@ -13,6 +13,10 @@ export class ExpandedContent extends Component {
     this
       .props
       .dispatch(selectCardOnBlock({cardID: this.props.info.id, blockID: this.props.blockId}));
+  }
+
+  deselect() {
+    this.props.dispatch(removeSelectOnBlock({blockId: this.props.blockId}))
   }
 
   createSelect() {
@@ -49,7 +53,7 @@ export class ExpandedContent extends Component {
     if (this.props.selected) {
       select = (
         <div className='cardControls'>
-          <button onClick={() => this.lockIn()} className='confirm-location'>I want choices</button>
+          <button onClick={() => this.deselect()} className='confirm-location'>I want choices</button>
         </div>
       )
     } else {
