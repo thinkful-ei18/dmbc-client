@@ -5,7 +5,7 @@ import requiresLogin from "../requires-login";
 import Logout from "./logout";
 import AmbassadorItineraries from "./ambassador-itineraries";
 import AmbassadorPastItineraries from "./ambassador-past-itineraries";
-
+import AmbassadorExplore from "./ambassador-explore";
 
 export class AmbassadorPage extends React.Component {
   render() {
@@ -13,7 +13,7 @@ export class AmbassadorPage extends React.Component {
       <div className="ambassador-page">
         <AmbassadorItineraries />
         <AmbassadorPastItineraries />
-        <button>Explore</button>
+        <AmbassadorExplore />Í
         <button>My Cards</button>
         <Logout />
       </div>
