@@ -19,7 +19,7 @@ export class Dashboard extends React.Component {
     }
     console.log('dash mounted');
     console.log(this.props)
-    this.props.dispatch(fetchTripDetails(id));
+    this.props.dispatch(fetchTripDetails());
   }
   render () {
     return (
