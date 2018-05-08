@@ -11,6 +11,7 @@ import {dayNamesArray} from './utils/dateObjectUtils';
 //styles
 import '../styles/oneDayView.css';
 
+
 class OneDayView extends Component {
 
   componentWillMount() {

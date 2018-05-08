@@ -3,18 +3,18 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import requiresLogin from '../requires-login';
 import {fetchCards, fetchSearchCards} from '../actions/cards';
-import CreateCard from './create-card';
 import Background from '../assets/barPlaceHolder.jpg'
 import { putCardOnBlock } from '../actions/block';
 
 import '../styles/oneDayView.css';
+import Yelp from './yelp';
 
 export class Cards extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      search: true
+      displayCards: true
     }
   }
   componentDidMount() {
@@ -80,7 +80,7 @@ export class Cards extends React.Component {
     })
 
     let cardSearch;
-    if (this.state.search) {
+    if (this.state.displayCards) {
       cardSearch = (
         <div>
           <form onSubmit={event => {
@@ -98,16 +98,16 @@ export class Cards extends React.Component {
         </div>
       );
     } else {
-      cardSearch = <CreateCard />
+      cardSearch = <Yelp />
     }
 
     let changeState;
-    if (this.state.search) {
+    if (this.state.displayCards) {
       changeState = (
         <button onClick={event => {
           event.preventDefault();
           this.setState({
-            search: false
+            displayCards: false
           })
         }}>Create a Card</button>
       )
@@ -116,7 +116,7 @@ export class Cards extends React.Component {
         <button onClick={event => {
           event.preventDefault();
           this.setState({
-            search: true
+            displayCards: true
           })
         }}>Back</button>
       )

@@ -10,10 +10,8 @@ import Register from "./register";
 import AmbassadorRegister from './ambassador-register';
 import AmbassadorPage from "./ambassador-page";
 import Dashboard from './dashboard';
-import Cards from './cards';
 import EditCard from './edit-card';
 import oneDayView from './oneDayView'
-
 
 export class App extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -52,7 +50,6 @@ export class App extends React.Component {
         <Route path="/register" component={Register} />
         <Route path="/ambassador-register" component={AmbassadorRegister} />
         <Route path="/dashboard" component={Dashboard} />
-        <Route exact path="/cards" component={Cards} />
         <Route exact path="/cards/:id" component={EditCard} />
         <Route path="/ambassador-page" component={AmbassadorPage} />
         <Route exact path="/oneDayView" component={oneDayView} />

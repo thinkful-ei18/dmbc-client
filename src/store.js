@@ -10,6 +10,7 @@ import blockReducer from './reducers/block';
 import cardReducer from './reducers/cards';
 import dashboardReducer from './reducers/dashboard';
 import ambassadorItinerariesReducer from "./reducers/ambassador-itineraries";
+import yelpReducer from './reducers/yelp';
 
 
 import {loadAuthToken} from './local-storage';
@@ -38,7 +39,8 @@ const store = createStore(
     auth: authReducer,
     users: userReducer,
     cards: cardReducer,
-    itineraries: ambassadorItinerariesReducer
+    itineraries: ambassadorItinerariesReducer,
+    yelp: yelpReducer
   }),
   {},
   enhancers

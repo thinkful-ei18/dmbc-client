@@ -1,66 +1,58 @@
 import React from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
-import {required, nonEmpty} from '../validators';
 import {addCard} from '../actions/cards';
 
 import requiresLogin from '../requires-login';
 
 export class CreateCard extends React.Component {
-  onSubmit(values) {
-    return this.props.dispatch(addCard(values));
-  }
-
   render() {
-    let error;
-    if (this.props.error) {
-      error = (
-        <div className="form-error" aria-live="polite">
-          {this.props.error}
-        </div>
-      );
-    }
-
     return (
-      <div className="login-form">
+      <div className="create-card-form">
         <form
-          onSubmit={this.props.handleSubmit(values =>
-            this.onSubmit(values)
-          )}>
+          onSubmit={event => {
+            event.preventDefault();
+            let card = {
+              name: this.name.value,
+              address: this.address.value,
+              description: this.description.value,
+              hours: this.hours.value,
+              latitude: this.props.latitude,
+              longitude: this.props.longitude
+            }
+            this.props.dispatch(addCard(card))
+            window.location.reload(); 
+          }}>
           <h4>Create a Card</h4>
-          {error}
           <label htmlFor="name">Name</label>
-          <Field
-            component="input"
+          <input
             type="text"
             name="name"
             id="name"
-            placeholder="name"
-            validate={[required, nonEmpty]}
+            defaultValue={this.props.name}
+            ref={input => this.name = input}
           />
           <label htmlFor="description">Description</label>
           <textarea
             name="description"
             id="description"
             placeholder="description"
-            validate={[required, nonEmpty]}
+            required
+            ref={input => this.description = input}
           />
           <label htmlFor="address">Address</label>
-          <Field
-            component="input"
+          <input
             type="text"
             name="address"
             id="address"
-            placeholder="address"
-            validate={[required, nonEmpty]}
+            defaultValue={this.props.location}
+            ref={input => this.address = input}
           />
           <label htmlFor="hours">Hours</label>
-          <Field
-            component="input"
+          <input
             type="text"
             name="hours"
             id="hours"
-            placeholder="hours"
-            validate={[required, nonEmpty]}
+            defaultValue="something"
+            ref={input => this.hours = input}
           />
           <button>Create</button>
         </form>
@@ -69,7 +61,4 @@ export class CreateCard extends React.Component {
   }
 }
 
-export default requiresLogin()(reduxForm({
-  form: 'create-card',
-  onSubmitFail: (errors, dispatch) => dispatch(focus('create-card', 'name'))
-})(CreateCard));
+export default requiresLogin()(CreateCard);

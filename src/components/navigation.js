@@ -18,7 +18,6 @@ export class Navigation extends React.Component {
       isLoggedIn = (
         <div className="nav-content">
           <Link to="/dashboard">Home</Link>
-          <Link to="/cards">Cards</Link>
           <Logout />
       </div>
       );
