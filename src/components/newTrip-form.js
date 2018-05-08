@@ -14,7 +14,7 @@ import {
   pushTripDetails
 } from '../actions/tripForm';
 //styles
-import '../styles/newTrip-form.css';
+import './newTrip-form.css';
 
 class NewTripForm extends Component {
   sendDays(){

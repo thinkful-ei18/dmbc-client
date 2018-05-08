@@ -5,9 +5,7 @@ import { connect } from 'react-redux';
 
 
 export class ExpandedContent extends Component {
-
   lockIn() {
-
     this
       .props
       .dispatch(selectCardOnBlock({cardID: this.props.info.id, blockID: this.props.blockId}));
@@ -38,9 +36,7 @@ export class ExpandedContent extends Component {
             {this.props.info.address}
           </span>
         </div>
-
         {select}
-
       </div>
     )
   }
@@ -48,6 +44,5 @@ export class ExpandedContent extends Component {
 
 
 const mapStateToProps = state => ({});
-
 
 export default connect(mapStateToProps)(ExpandedContent);

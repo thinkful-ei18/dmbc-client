@@ -1,16 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import requiresLogin from '../requires-login';
-import {fetchCards, fetchSearchCards} from '../actions/cards';
-import Background from '../assets/barPlaceHolder.jpg'
-import { putCardOnBlock } from '../actions/block';
+import requiresLogin from '../../requires-login';
+import {fetchCards, fetchSearchCards} from '../../actions/cards';
+import Background from '../../assets/barPlaceHolder.jpg'
+import { putCardOnBlock } from '../../actions/block';
 
-import '../styles/oneDayView.css';
-import '../styles/cards.css';
+import './toolbelt.css';
 import Yelp from './yelp';
 
-export class Cards extends React.Component {
+export class Toolbelt extends React.Component {
   constructor() {
     super();
 
@@ -141,4 +140,4 @@ const mapStateToProps = state => ({
   // blocks:state.dashboard.currentItinerary.blocks
 });
 
-export default requiresLogin()(connect(mapStateToProps)(Cards));
+export default requiresLogin()(connect(mapStateToProps)(Toolbelt));

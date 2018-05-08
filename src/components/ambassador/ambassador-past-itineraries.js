@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { fetchItineraries } from "../../actions/ambassador-itineraries";
 import moment from "moment";
-import { fetchItineraries } from "../actions/ambassador-itineraries";
 import {
   CarouselProvider,
   Slider,
@@ -12,16 +12,16 @@ import {
 import "pure-react-carousel/dist/react-carousel.es.css";
 import "./ambassador-itinerary-carousel.css";
 
-class AmbassadorItineraries extends Component {
+class AmbassadorPastItineraries extends Component {
   componentWillMount() {
     this.props.dispatch(fetchItineraries());
   }
   render() {
-    let itinerariesList =
+    let pastItinerariesList =
       this.props.itineraries &&
       this.props.itineraries.map((key, index) => {
         let myDate = Date.parse(this.props.itineraries[index].dateEnd);
-        if (Date.now() < myDate) {
+        if (Date.now() > myDate) {
           return (
             <Slide
               className="ambassador-itinerary-slide"
@@ -33,7 +33,6 @@ class AmbassadorItineraries extends Component {
                 {moment(this.props.itineraries[index].dateStart).format("ll")}
               </h4>
               <h4>to</h4>
-              <h4>{this.props.itineraries.length}</h4>
               <h4>
                 {moment(this.props.itineraries[index].dateEnd).format("ll")}
               </h4>
@@ -41,29 +40,25 @@ class AmbassadorItineraries extends Component {
           );
         } else {
           return (
-            <Slide key={index} className="ambassador-itinerary-slide">
+            <Slide className="ambassador-itinerary-slide">
               <h4>No Current Itineraries</h4>
-              
             </Slide>
           );
         }
       });
 
-      // let itinerariesTotal = this.props.itineraries.length
-
     return (
       <div>
-        <h1>Current Itineraries</h1>
+        <h1>Past Itineraries</h1>
         <CarouselProvider
           naturalSlideWidth={100}
-          naturalSlideHeight={40}
+          naturalSlideHeight={30}
           totalSlides={1 || this.props.itineraries.length}
           visibleSlides={2}
         >
-          <Slider>{itinerariesList}</Slider>
+          <Slider>{pastItinerariesList}</Slider>
           <ButtonBack>Back</ButtonBack>
           <ButtonNext>Next</ButtonNext>
-          {/* <h1>{itinerariesTotal}</h1> */}
         </CarouselProvider>
       </div>
     );
@@ -75,4 +70,4 @@ const mapStateToProps = state => ({
   loading: state.itineraries.loading
 });
 
-export default connect(mapStateToProps)(AmbassadorItineraries);
+export default connect(mapStateToProps)(AmbassadorPastItineraries);

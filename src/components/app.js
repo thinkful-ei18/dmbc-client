@@ -3,15 +3,15 @@ import { connect } from "react-redux";
 import { Route, withRouter } from "react-router-dom";
 import { refreshAuthToken } from "../actions/auth";
 
-import "../styles/app.css";
+import "./app.css";
 import Navigation from './navigation';
-import Login from "./login";
-import Register from "./register";
-import AmbassadorRegister from './ambassador-register';
-import AmbassadorPage from "./ambassador-page";
+import Login from "./login/login";
+import Register from "./registration/register";
+import AmbassadorRegister from './registration/ambassador-register';
+import AmbassadorPage from "./ambassador/ambassador-page";
 import Dashboard from './dashboard';
-import EditCard from './edit-card';
-import oneDayView from './oneDayView'
+import EditCard from './toolbelt/edit-card';
+import oneDayView from './daySpread/oneDayView';
 
 export class App extends React.Component {
   componentWillReceiveProps(nextProps) {

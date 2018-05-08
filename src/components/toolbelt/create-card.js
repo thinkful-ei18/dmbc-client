@@ -1,7 +1,7 @@
 import React from 'react';
-import {addCard} from '../actions/cards';
+import {addCard} from '../../actions/cards';
 
-import requiresLogin from '../requires-login';
+import requiresLogin from '../../requires-login';
 
 export class CreateCard extends React.Component {
   render() {

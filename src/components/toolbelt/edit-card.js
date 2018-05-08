@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
-import {fetchSingleCard, updateCard} from '../actions/cards';
-import requiresLogin from '../requires-login';
+import {fetchSingleCard, updateCard} from '../../actions/cards';
+import requiresLogin from '../../requires-login';
 
 class SingleCard extends React.Component {
   constructor() {

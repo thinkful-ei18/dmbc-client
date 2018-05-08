@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
+// import requiresLogin from "../../requires-login";
 //actions
-import {fetchTripDetails} from '../actions/tripForm';
+import {fetchTripDetails} from '../../actions/tripForm';
 //components and helpers
-import BlockSpread from './daySpread/blockSpread';
-import AddNewSpread from './daySpread/addNewSpread';
-import Cards from './cards';
-import {dayNamesArray} from './utils/dateObjectUtils';
+import BlockSpread from './blockSpread';
+import AddNewSpread from './addNewSpread';
+import Toolbelt from '../toolbelt/toolbelt';
+import {dayNamesArray} from '../utils/dateObjectUtils';
 //styles
-import '../styles/oneDayView.css';
-
+import './oneDayView.css';
 
 class OneDayView extends Component {
   constructor() {
@@ -29,9 +29,13 @@ class OneDayView extends Component {
   }
 
   filterBlocks() {
-    return this.props.blocks.blocks.filter(block => {
-      return block.date.getDate() === this.props.currentDay.getDate();
-    })
+    return this
+            .props
+            .blocks
+            .blocks
+            .filter(block => {
+              return block.date.getDate() === this.props.currentDay.getDate();
+            })
   }
 
   assembleBlocks(){
@@ -51,17 +55,21 @@ class OneDayView extends Component {
         <p>no blocks yet</p>
       )
     }
+
     if (!this.props.currentDay) {
       return <Redirect to="/dashboard"/>
     }
+
     const blocks = this.assembleBlocks();
+
     let toolbelt;
     if (this.props.currentUser.id === this.props.blocks.ambassador) {
-      toolbelt = <Cards 
+      toolbelt = <Toolbelt 
         availableBlocks={this.filterBlocks()}
         cardsContainer={this.state.cardsContainer}
       />
     }
+    
     return (
       <div className="day-spreads-container">
       <button onClick={event => {
@@ -84,11 +92,10 @@ class OneDayView extends Component {
           ]}</h1>
         <ul>
           {blocks}
-          {}
         </ul>
-        <AddNewSpread/> {toolbelt}
+        <AddNewSpread/>
+        {toolbelt}
       </div>
-
     )
   }
 }
@@ -100,3 +107,4 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps)(OneDayView);
+// export default requiresLogin(connect(mapStateToProps)(OneDayView));

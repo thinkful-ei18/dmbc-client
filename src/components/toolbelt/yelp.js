@@ -1,9 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import requiresLogin from '../requires-login';
+import requiresLogin from '../../requires-login';
 
-import '../styles/oneDayView.css';
-import { fetchYelp } from '../actions/yelp';
+import { fetchYelp } from '../../actions/yelp';
 import CreateCard from './create-card';
 
 export class Yelp extends React.Component {

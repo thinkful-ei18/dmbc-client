@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 //react components
-import Card from './Card';
+import Card from './card';
 
 //styles
-import '../../styles/oneDayView.css'
+import './oneDayView.css'
 export default class BlockSpread extends Component{
-
   createCards() {
     if (this.props.block.selectedCard) {
       const selected = this.props.block.cards.find(card => card.id === this.props.block.selectedCard)
@@ -25,7 +24,6 @@ export default class BlockSpread extends Component{
     console.log('Here is the block', this.props.block)
     let cards = this.createCards();
     return(
-        
         <div className="block-spread">
           <h1>{this.props.block.title}</h1>
           {cards}
