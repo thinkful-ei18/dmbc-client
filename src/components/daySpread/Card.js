@@ -17,6 +17,9 @@ class Card extends Component { // eslint-disable-line react/prefer-stateless-fun
       : undefined;
     
     console.log(this.props)
+
+    const rating = this.props.info.ratingScore / this.props.info.ratingCount;
+
     const placeTags = this
       .props
       .info
@@ -49,6 +52,7 @@ class Card extends Component { // eslint-disable-line react/prefer-stateless-fun
           </ul>
         </div>
         <div>
+          {rating}
           {expandedContent}
         </div>
       </div>
