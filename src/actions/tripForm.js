@@ -78,9 +78,9 @@ export const fetchTripDetailsError = (err) => ({
 })
 
 export const FETCH_TRIP_DETAILS = 'FETCH_TRIP_DETAILS';
-export const fetchTripDetails = () => (dispatch, getState) => {
+export const fetchTripDetails = id => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-    return fetch(`${API_BASE_URL}/itinerary`,{
+    return fetch(`${API_BASE_URL}/itineraries/${id}`,{
       method:'GET',
       headers:{
         Authorization: `Bearer ${authToken}`
