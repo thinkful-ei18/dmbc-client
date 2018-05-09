@@ -106,6 +106,7 @@ export const fetchTripDetailsById = id => (dispatch, getState) => {
     .then((res) => res.json())
     .then(itinerary => {
       const formattedItinerary = convertDateStringToDate(itinerary);
+      console.log(formattedItinerary)
       return dispatch(fetchTripDetailsSuccess(formattedItinerary))
     })
     .catch((err) => dispatch(fetchTripDetailsError(err)));

@@ -9,6 +9,7 @@ import { putCardOnBlock } from '../actions/block';
 import '../styles/oneDayView.css';
 import '../styles/cards.css';
 import Yelp from './yelp';
+// import Card from './daySpread/Card';
 
 export class Cards extends React.Component {
   constructor() {
@@ -93,6 +94,9 @@ export class Cards extends React.Component {
           </div>
         </div>
       )
+      // return (
+      //   <Card info={card}/>
+      // )
     })
 
     let cardSearch;

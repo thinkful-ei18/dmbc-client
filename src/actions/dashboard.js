@@ -17,3 +17,10 @@ export const pushTemporaryNewBlock = (newBlock) => ({
   type:PUSH_TEMPORARY_NEW_BLOCK,
   newBlock
 });
+
+
+export const SET_AMBASSADOR_ITINERARIES = 'SET_AMBASSADOR_ITINERARIES'
+export const setAmbassadorItineraries = (tripDays) => ({
+  type:SET_AMBASSADOR_ITINERARIES,
+  tripDays
+})

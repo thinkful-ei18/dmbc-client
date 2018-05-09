@@ -1,20 +1,25 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
+
+//dnd
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+
 //actions
+import {fetchTripDetails} from '../actions/tripForm';
 //components and helpers
 import BlockSpread from './daySpread/blockSpread';
-import AddNewSpread from './daySpread/addNewSpread';
+import AddNewBlock from './daySpread/addNewBlock';
 import Cards from './cards';
 import {dayNamesArray} from './utils/dateObjectUtils';
 //styles
 import '../styles/oneDayView.css';
+import { setDashboardCurrentDay } from '../actions/dashboard';
 
 
 class OneDayView extends Component {
   constructor() {
     super();
-
     this.state = {
       cardsContainer: 'hidden'
     };
@@ -29,9 +34,18 @@ class OneDayView extends Component {
   assembleBlocks(){
     const blocksAssembled = this.filterBlocks().map((currentBlock, index) => {
       return (
-        <li key={index}>
-          <BlockSpread block={currentBlock}/>
-        </li>
+        // <li key={index}>
+         // ###draganddropnotes, block dragging
+        //this is a drag object for block dragging
+        //this is where we can pass in the id's for organizing and re ordering blocks
+        //define an order blocks function here?
+        //id is temporarily index, should be comming from state once we wire things up
+          <BlockSpread
+            block={currentBlock}
+            key={index}
+            id={index}
+          />
+        // </li>
       )
     });
     return blocksAssembled;
@@ -39,17 +53,21 @@ class OneDayView extends Component {
 
   render() {
     if (!this.props.currentDay) {
-      return <Redirect to="/dashboard" />
+      this.props.dispatch(fetchTripDetails());
+      let lastDayViewed = new Date(localStorage.getItem('lastDayViewed'));
+      this.props.dispatch(setDashboardCurrentDay(lastDayViewed));
     }
     if (!this.props.blocks) {
       return (
         <p>no blocks yet</p>
       )
     }
+    localStorage.setItem('lastDayViewed', this.props.currentDay)
     const blocks = this.assembleBlocks();
+
     let toolbelt;
     if (this.props.currentUser.id === this.props.blocks.ambassador) {
-      toolbelt = <Cards 
+      toolbelt = <Cards
         availableBlocks={this.filterBlocks()}
         cardsContainer={this.state.cardsContainer}
       />
@@ -76,9 +94,8 @@ class OneDayView extends Component {
           ]}</h1>
         <ul>
           {blocks}
-          {}
         </ul>
-        <AddNewSpread/> {toolbelt}
+        <AddNewBlock blocksAmmount={blocks.length}/> {toolbelt}
       </div>
 
     )
@@ -91,4 +108,5 @@ const mapStateToProps = (state) => ({
   currentDay:state.dashboard.currentDay
 })
 
+OneDayView = DragDropContext(HTML5Backend)(OneDayView);
 export default connect(mapStateToProps)(OneDayView);

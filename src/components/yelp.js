@@ -5,6 +5,7 @@ import requiresLogin from '../requires-login';
 import '../styles/oneDayView.css';
 import { fetchYelp } from '../actions/yelp';
 import CreateCard from './create-card';
+// import Card from './daySpread/Card';
 
 export class Yelp extends React.Component {
   constructor() {
@@ -24,8 +25,16 @@ export class Yelp extends React.Component {
     if (this.props.yelp.length > 0) {
       searchResults = this.props.yelp.map((result, index) => {
         let location = `${result.location.address1}, ${result.location.city}, ${result.location.state}, ${result.location.zip_code}`;
+        // const card = {
+        //   name: result.name,
+        //   ratingCount: 0,
+        //   ratingScore: 0,
+        //   tags: [],
+        //   location: location
+        // }
         return (
           <div key={index}>
+            {/* <Card info={card}/> */}
             <img src={result.image_url} alt={result.name} style={{width: '300px', height: '300px'}}/>
             <p>{result.name}</p>
             <p>{location}</p>
@@ -71,7 +80,6 @@ export class Yelp extends React.Component {
         />
       )
     }
-    console.log()
     let latitude = this.props.destination.location.coordinates[1];
     let longitude = this.props.destination.location.coordinates[0];
     return (

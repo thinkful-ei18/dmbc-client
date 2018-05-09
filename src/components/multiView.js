@@ -3,35 +3,45 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { dayNamesArray } from './utils/dateObjectUtils';
 import { setDashboardCurrentDay, setDashboardTripdays } from '../actions/dashboard';
+import { fetchTripDetailsById } from '../actions/tripForm';
 
 class MultiView extends Component{
-
-  componentWillMount(){
-    this.assembleTripDays();
+  componentDidMount(){
+    if (this.props.match) {
+      this.props.dispatch(fetchTripDetailsById(this.props.match.params.id))
+      .then(() => {
+        this.dateStart = this.props.currentItinerary.dateStart;
+        this.dateEnd = this.props.currentItinerary.dateEnd;
+        this.assembleTripDays();
+      })
+    } else {
+      this.dateStart = this.props.currentItinerary.dateStart;
+      this.dateEnd = this.props.currentItinerary.dateEnd;
+      this.assembleTripDays();
+    }
   }
+
   //handle clicking a div to set our current date on the dash and redirect to
   // one day view after filtering cards with matching date/
 
-  //myDate.setHours(myDate.getHours() + 24)
   assembleTripDays(){
-    let start = new Date(this.props.dateStart);
-    let end = this.props.dateEnd;
-    end = new Date(end.setHours(end.getHours() + 24))
+    let start = new Date(this.dateStart);
+    let end = this.dateEnd;
+    let tripEnd = new Date(end.getTime());
+    tripEnd = new Date(tripEnd.setHours(tripEnd.getHours() + 24))
     let tripDays =[];
-    while(start.getDate()!==end.getDate()){
+    while(start.getDate()!==tripEnd.getDate()){
       let date = new Date(start);
-      console.log(date);
       tripDays.push(date);
-      console.log(tripDays)
       start = new Date(start.setHours(start.getHours()+24));
     }
-    console.log(tripDays);
     this.props.dispatch(setDashboardTripdays(tripDays));
   }
+
   handleRedirect(date){
-    console.log('changing dash current date to',date);
     this.props.dispatch(setDashboardCurrentDay(date));
   }
+
   assembleTripSpread(){
     if(this.props.tripDays===undefined){
       return <li className='loading-trip-spread'>loading</li>
@@ -57,9 +67,10 @@ class MultiView extends Component{
     })
     return tripSpread;
   };
+
   render(){
-    console.log(this.props.currentItinerary)
     let wee = this.assembleTripSpread();
+    console.log(this.props)
     return(
       <div>
         <p style={{'display':'block'}}>MultiView Component</p>
@@ -70,19 +81,10 @@ class MultiView extends Component{
     )
   }
 };
+
 const mapStateToProps = (state) => ({
-  dateStart:state.dashboard.currentItinerary.dateStart,
-  dateEnd:state.dashboard.currentItinerary.dateEnd,
   tripDays:state.dashboard.tripDays,
   currentItinerary: state.dashboard.currentItinerary
-  // dateStart:'woo',
-  // dateEnd:'woooo'
 });
 
 export default connect(mapStateToProps)(MultiView);
-
-
-/*
-<Link to='/mock'>Mockups</Link>
-<Route path="/login" component={Login} />
-*/

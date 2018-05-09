@@ -26,7 +26,7 @@ class AmbassadorItineraries extends Component {
       } else {
         itinerariesList = currentItineraries.map((itinerary, index) => {
           return (
-            <Link to={{pathname: "/dashboard", state: { itineraryId: itinerary.id }}} key={index}>
+            <Link to={{pathname: "/itinerary/:id", state: { itineraryId: itinerary.id }}} key={index}>
               <Slide className="ambassador-itinerary-slide" key={index} index={index}>
                 <h4>{itinerary.destination.locationName}</h4>
                 <h4>{moment(itinerary.dateStart).format("ll")}</h4>
@@ -46,7 +46,7 @@ class AmbassadorItineraries extends Component {
         <CarouselProvider
           naturalSlideWidth={100}
           naturalSlideHeight={40}
-          totalSlides={1 || this.props.itineraries.length}
+          totalSlides={this.props.itineraries.length || 1}
           visibleSlides={2}>
           <Slider>{itinerariesList}</Slider>
           <ButtonBack>Back</ButtonBack>
