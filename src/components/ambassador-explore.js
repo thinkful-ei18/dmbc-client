@@ -58,7 +58,7 @@ class AmbassadorExplore extends Component {
         <h1>Explore Your Cards</h1>
         <CarouselProvider
           naturalSlideWidth={100}
-          naturalSlideHeight={40}
+          naturalSlideHeight={120}
           totalSlides={this.props.cards.length || 1}
           visibleSlides={2}>
           <Slider>{exploreCardsList}</Slider>
