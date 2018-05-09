@@ -12,6 +12,7 @@ import AmbassadorPage from "./ambassador-page";
 import Dashboard from './dashboard';
 import EditCard from './edit-card';
 import oneDayView from './oneDayView'
+import MultiView from "./multiView";
 
 export class App extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -53,6 +54,7 @@ export class App extends React.Component {
         <Route exact path="/cards/:id" component={EditCard} />
         <Route path="/ambassador-page" component={AmbassadorPage} />
         <Route exact path="/oneDayView" component={oneDayView} />
+        <Route path="/itineraries/:id" component={MultiView} />
       </div>
     );
   }

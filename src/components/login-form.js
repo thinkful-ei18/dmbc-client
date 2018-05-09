@@ -3,6 +3,7 @@ import {Field, reduxForm, focus} from 'redux-form';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
 import {Redirect} from 'react-router-dom';
+import Input from './input';
 
 export class LoginForm extends React.Component {
   onSubmit(values) {
@@ -33,7 +34,7 @@ export class LoginForm extends React.Component {
           {error}
           <label htmlFor="email">Email</label>
           <Field
-            component="input"
+            component={Input}
             type="text"
             name="email"
             id="email"
@@ -42,7 +43,7 @@ export class LoginForm extends React.Component {
           />
           <label htmlFor="password">Password</label>
           <Field
-            component="input"
+            component={Input}
             type="password"
             name="password"
             id="password"

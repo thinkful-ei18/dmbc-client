@@ -5,6 +5,7 @@ import requiresLogin from '../requires-login';
 import '../styles/oneDayView.css';
 import { fetchYelp } from '../actions/yelp';
 import CreateCard from './create-card';
+// import Card from './daySpread/Card';
 
 export class Yelp extends React.Component {
   constructor() {
@@ -24,8 +25,16 @@ export class Yelp extends React.Component {
     if (this.props.yelp.length > 0) {
       searchResults = this.props.yelp.map((result, index) => {
         let location = `${result.location.address1}, ${result.location.city}, ${result.location.state}, ${result.location.zip_code}`;
+        // const card = {
+        //   name: result.name,
+        //   ratingCount: 0,
+        //   ratingScore: 0,
+        //   tags: [],
+        //   location: location
+        // }
         return (
           <div key={index}>
+            {/* <Card info={card}/> */}
             <img src={result.image_url} alt={result.name} style={{width: '300px', height: '300px'}}/>
             <p>{result.name}</p>
             <p>{location}</p>
@@ -71,15 +80,15 @@ export class Yelp extends React.Component {
         />
       )
     }
+    let latitude = this.props.destination.location.coordinates[1];
+    let longitude = this.props.destination.location.coordinates[0];
     return (
       <div>
         <form onSubmit={event => {
           event.preventDefault();
           this.offset = 0;
-          this.props.dispatch(fetchYelp(this.location.value, this.term.value, this.offset));
+          this.props.dispatch(fetchYelp(latitude, longitude, this.term.value, this.offset));
         }}>
-          <label>Location(required)</label>
-          <input ref={input => this.location = input} required/>
           <label>Term</label>
           <input ref={input => this.term = input}/>
           <button>Submit</button>
@@ -94,7 +103,8 @@ export class Yelp extends React.Component {
 const mapStateToProps = state => ({
   yelp: state.yelp.yelp,
   loading: state.cards.loading,
-  error: state.cards.error
+  error: state.cards.error,
+  destination:state.dashboard.currentItinerary.destination
 });
 
 export default requiresLogin()(connect(mapStateToProps)(Yelp));

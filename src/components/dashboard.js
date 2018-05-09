@@ -18,10 +18,13 @@ export class Dashboard extends React.Component {
       this
         .props
         .dispatch(fetchTripDetails());
-    } 
+    }
   }
 
   render() {
+    // if (this.props.currentUser.ambassador) {
+    //   return <Redirect to="/ambassador-page"/>;
+    // }
     return (
       <div className="dashboard">
         Hello from the Dashboard! {this.props.currentItinerary

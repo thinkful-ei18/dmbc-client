@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
 
 //dnd
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 //actions
+import {fetchTripDetails} from '../actions/tripForm';
 //components and helpers
 import BlockSpread from './daySpread/blockSpread';
 import AddNewBlock from './daySpread/addNewBlock';
@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import {dayNamesArray} from './utils/dateObjectUtils';
 //styles
 import '../styles/oneDayView.css';
+import { setDashboardCurrentDay } from '../actions/dashboard';
 
 
 class OneDayView extends Component {
@@ -53,13 +54,16 @@ class OneDayView extends Component {
 
   render() {
     if (!this.props.currentDay) {
-      return <Redirect to="/dashboard" />
+      this.props.dispatch(fetchTripDetails());
+      let lastDayViewed = new Date(localStorage.getItem('lastDayViewed'));
+      this.props.dispatch(setDashboardCurrentDay(lastDayViewed));
     }
     if (!this.props.blocks) {
       return (
         <p>no blocks yet</p>
       )
     }
+    localStorage.setItem('lastDayViewed', this.props.currentDay)
     const blocks = this.assembleBlocks();
 
     let toolbelt;
