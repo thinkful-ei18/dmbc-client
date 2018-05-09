@@ -14,6 +14,7 @@ class MultiView extends Component{
 
   //myDate.setHours(myDate.getHours() + 24)
   assembleTripDays(){
+
     let start = new Date(this.props.dateStart);
     let end = this.props.dateEnd;
     let tripEnd = new Date(end.getTime());

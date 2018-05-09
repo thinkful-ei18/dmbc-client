@@ -1,11 +1,30 @@
 import React, { Component } from 'react';
 //react components
 import Card from './Card';
-
+//dnd
+import { DragSource } from 'react-dnd';
+import PropTypes from 'prop-types';
+import { ItemTypes } from '../utils/itemTypes';
 //styles
 import '../../styles/oneDayView.css'
-export default class BlockSpread extends Component{
 
+const blockSource = {
+  beginDrag(props){
+    console.log('dragging',props.id);
+    return{
+      // id:props.id
+    };
+  }
+}
+
+function collect(connect, monitor){
+  return{
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
+  }
+}
+
+class BlockSpread extends Component{
   createCards() {
     if (this.props.block.selectedCard) {
       const selected = this.props.block.cards.find(card => card.id === this.props.block.selectedCard)
@@ -22,15 +41,31 @@ export default class BlockSpread extends Component{
   }
 
   render(){
-    console.log('Here is the block', this.props.block)
+
+    // console.log('Here is the block', this.props.block)
     let cards = this.createCards();
-    return(
-        
-        <div className="block-spread">
-          <h1>{this.props.block.title}</h1>
-          {cards}
-        </div>
+    const { connectDragSource, isDragging} = this.props;
+    console.log(this.props.block,'woow');
+    return connectDragSource(
+        <li key={this.props.key}
+          style={{
+            opacity: isDragging ? 0.2 : 1,
+            fontSize:25,
+            fontWeight:'bold',
+            cursor:'move'
+        }}>
+          <div className="block-spread">
+            <h1>{this.props.block.title}</h1>
+            {cards}
+          </div>
+        </li>
     )
   }
-
 }
+
+BlockSpread.propTypes = {
+  connectDragSource: PropTypes.func.isRequired,
+  isDragging: PropTypes.bool.isRequired
+}
+
+export default DragSource(ItemTypes.BLOCK, blockSource, collect)(BlockSpread)
