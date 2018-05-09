@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 //actions
-import {fetchTripDetails} from '../actions/tripForm';
 //components and helpers
 import BlockSpread from './daySpread/blockSpread';
 import AddNewSpread from './daySpread/addNewSpread';
@@ -19,17 +18,6 @@ class OneDayView extends Component {
     this.state = {
       cardsContainer: 'hidden'
     };
-  }
-
-  componentWillMount() {
-    console.log('spread mounted');
-    this
-      .props
-      .dispatch(fetchTripDetails());
-  }
-
-  componentWillUpdate() {
-    console.log('update');
   }
 
   filterBlocks() {
@@ -50,13 +38,13 @@ class OneDayView extends Component {
   }
 
   render() {
+    if (!this.props.currentDay) {
+      return <Redirect to="/dashboard" />
+    }
     if (!this.props.blocks) {
       return (
         <p>no blocks yet</p>
       )
-    }
-    if (!this.props.currentDay) {
-      return <Redirect to="/dashboard"/>
     }
     const blocks = this.assembleBlocks();
     let toolbelt;

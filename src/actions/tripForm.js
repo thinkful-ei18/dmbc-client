@@ -55,8 +55,8 @@ export const pushTripDetails = (tripDetails) => (dispatch, getState) => {
     },
     body:JSON.stringify(tripDetails)
   })
-  .then((res) => dispatch(pushTripDetailsSuccess(res)))
-  .then(() => dispatch(fetchTripDetails()))
+  .then(response => response.json())
+  .then(res => dispatch(fetchTripDetails(res.id)))
   .catch((err) => dispatch(pushTripDetailsError(err)) )
 }
 
@@ -78,9 +78,9 @@ export const fetchTripDetailsError = (err) => ({
 })
 
 export const FETCH_TRIP_DETAILS = 'FETCH_TRIP_DETAILS';
-export const fetchTripDetails = id => (dispatch, getState) => {
+export const fetchTripDetails = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-    return fetch(`${API_BASE_URL}/itineraries/${id}`,{
+    return fetch(`${API_BASE_URL}/itinerary`,{
       method:'GET',
       headers:{
         Authorization: `Bearer ${authToken}`
@@ -88,6 +88,23 @@ export const fetchTripDetails = id => (dispatch, getState) => {
     })
     .then((res) => res.json())
     .then(itinerary =>{
+      const formattedItinerary = convertDateStringToDate(itinerary);
+      return dispatch(fetchTripDetailsSuccess(formattedItinerary))
+    })
+    .catch((err) => dispatch(fetchTripDetailsError(err)));
+}
+
+
+export const fetchTripDetailsById = id => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/itineraries/${id}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+    .then((res) => res.json())
+    .then(itinerary => {
       const formattedItinerary = convertDateStringToDate(itinerary);
       return dispatch(fetchTripDetailsSuccess(formattedItinerary))
     })

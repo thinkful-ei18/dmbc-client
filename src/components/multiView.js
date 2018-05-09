@@ -7,7 +7,6 @@ import { setDashboardCurrentDay, setDashboardTripdays } from '../actions/dashboa
 class MultiView extends Component{
 
   componentWillMount(){
-    console.log('multiview has mounted', this.props)
     this.assembleTripDays();
   }
   //handle clicking a div to set our current date on the dash and redirect to
@@ -17,9 +16,9 @@ class MultiView extends Component{
   assembleTripDays(){
     let start = new Date(this.props.dateStart);
     let end = this.props.dateEnd;
+    end = new Date(end.setHours(end.getHours() + 24))
     let tripDays =[];
-
-    while(start.getDate()!==end.getDate()+1){
+    while(start.getDate()!==end.getDate()){
       let date = start;
       tripDays.push(date);
       start = new Date(start.setHours(start.getHours()+24));
@@ -47,7 +46,6 @@ class MultiView extends Component{
   };
   render(){
     let wee = this.assembleTripSpread();
-
     return(
       <div>
         <p style={{'display':'block'}}>MultiView Component</p>

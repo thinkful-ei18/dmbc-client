@@ -45,6 +45,9 @@ export const fetchCards = cards => (dispatch, getState) => {
     .catch(err => {dispatch(fetchCardsError(err))});
 }
 
+export const FETCH_FILTER_CARDS_SUCCESS = 'FETCH_FILTER_CARDS_SUCCESS';
+export const fetchFilterCardsSuccess = (cards) => ({type: FETCH_FILTER_CARDS_SUCCESS, cards});
+
 export const fetchSearchCards = searchTerm => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchCardsRequest());
@@ -58,9 +61,28 @@ export const fetchSearchCards = searchTerm => (dispatch, getState) => {
       return res.json();
     })
     .then(cards => {
-      dispatch(fetchCardsSuccess(cards));
+      dispatch(fetchFilterCardsSuccess(cards));
     })
     .catch(err => {dispatch(fetchCardsError(err))});
+}
+
+export const fetchDestinationCards = destination => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  const {distance, lat, lng} = destination;
+  dispatch(fetchCardsRequest());
+  return fetch(`${API_BASE_URL}/cards?lat=${lat}&distance=${distance}&lng=${lng}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+    .then(res => {
+      return res.json();
+    })
+    .then(cards => {
+      dispatch(fetchFilterCardsSuccess(cards));
+    })
+    .catch(err => { dispatch(fetchCardsError(err)) });
 }
 
 export const fetchSingleCard = cardID => (dispatch, getState) => {

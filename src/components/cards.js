@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import requiresLogin from '../requires-login';
-import {fetchCards, fetchSearchCards} from '../actions/cards';
+import {fetchDestinationCards, fetchSearchCards} from '../actions/cards';
 import Background from '../assets/barPlaceHolder.jpg'
 import { putCardOnBlock } from '../actions/block';
 
@@ -18,11 +18,26 @@ export class Cards extends React.Component {
       displayCards: true
     }
   }
-  componentDidMount() {
+  componentWillMount() {
+    console.log('coming from ambassador', this.props)
     if (this.props.availableBlocks.length > 0) {
       this.selectVal = this.props.availableBlocks[0].id
     }
-    this.props.dispatch(fetchCards());
+    const destination = {
+      distance: this.props.destination.distance,
+      lat: this.props.destination.location.coordinates[1],
+      lng: this.props.destination.location.coordinates[0]
+    }
+    if (!this.props.filtered) {
+      this.props.dispatch(fetchDestinationCards(destination));
+    }
+    
+  }
+
+  componentDidUpdate() {
+    if (this.props.availableBlocks.length > 0) {
+      this.selectVal = this.props.availableBlocks[0].id
+    }
   }
 
   addSelectorToCard(cardId) {
@@ -135,10 +150,11 @@ export class Cards extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  filtered: state.cards.filtered,
   cards: state.cards.cards,
   loading: state.cards.loading,
   error: state.cards.error,
-  // blocks:state.dashboard.currentItinerary.blocks
+  destination:state.dashboard.currentItinerary.destination
 });
 
 export default requiresLogin()(connect(mapStateToProps)(Cards));

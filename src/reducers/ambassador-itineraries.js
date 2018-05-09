@@ -1,14 +1,13 @@
 import * as actions from "../actions/ambassador-itineraries";
 
 const initialState = {
-  intineraries: [],
+  itineraries: [],
   loading: false,
   error: null
 };
 
 export default function reducer(state = initialState, action) {
   if (action.type === actions.FETCH_ITINERARIES_REQUEST) {
-    console.log("REDUCER");
     return Object.assign({}, state, {
       loading: true
     });

@@ -1,6 +1,5 @@
 import {API_BASE_URL} from '../config.js';
 import { pushTemporaryNewBlock } from './dashboard';
-import { convertBlockStringsToDate } from './utils.js';
 export const CREATE_NEW_BLOCK = 'CREATE_NEW_BLOCK'
 export const createNewBlock = () => {
 
