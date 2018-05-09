@@ -11,9 +11,9 @@ export const setAuthToken = authToken => ({
   authToken
 });
 
-export const CLEAR_AUTH = "CLEAR_AUTH";
+export const USER_LOGOUT = "USER_LOGOUT";
 export const clearAuth = () => ({
-  type: CLEAR_AUTH
+  type: USER_LOGOUT
 });
 
 export const AUTH_REQUEST = "AUTH_REQUEST";

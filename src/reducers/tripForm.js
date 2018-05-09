@@ -9,7 +9,7 @@ const initialState={
   dateStart: null,
   dateEnd:null,
   destination:null,
-  partners:'just me.',
+  partners:null,
 }
 
 export default function reducer(state = initialState, action){
