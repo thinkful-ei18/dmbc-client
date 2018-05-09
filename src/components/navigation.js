@@ -5,6 +5,7 @@ import Logout from './logout';
 
 export class Navigation extends React.Component {
   render() {
+    let ambassadorLink = '';
     let isLoggedIn = (
       <div className="nav-content">
         <Link to="/">Home</Link>
@@ -14,10 +15,15 @@ export class Navigation extends React.Component {
         <Link to='/mock'>Mockups</Link>
       </div>
     )
+
+    if (this.props.currentUser && this.props.currentUser.ambassador) {
+      ambassadorLink = <Link to="/ambassador-page">Ambassador Dashboard</Link>
+    }
     if (this.props.loggedIn) {
       isLoggedIn = (
         <div className="nav-content">
-          <Link to="/dashboard">Home</Link>
+          <Link to="/dashboard">My Dashboard</Link>
+          {ambassadorLink}
           <Logout />
       </div>
       );
