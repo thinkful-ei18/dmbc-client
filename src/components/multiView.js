@@ -14,13 +14,20 @@ class MultiView extends Component{
 
   //myDate.setHours(myDate.getHours() + 24)
   assembleTripDays(){
+
     let start = new Date(this.props.dateStart);
     let end = this.props.dateEnd;
     let tripEnd = new Date(end.getTime());
     tripEnd = new Date(tripEnd.setHours(tripEnd.getHours() + 24))
     let tripDays =[];
+<<<<<<< HEAD
     while(start.getDate()!==tripEnd.getDate()){
       let date = start;
+=======
+
+    while(start.getDate()!==end.getDate()+1){
+      let date = new Date(start);
+>>>>>>> blocks are draggable, adding blocks will be contextual, newer ones are "later" in the day
       tripDays.push(date);
       start = new Date(start.setHours(start.getHours()+24));
     }

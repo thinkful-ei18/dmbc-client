@@ -28,9 +28,9 @@ export const convertDateStringToDate = (itinerary) => {
   return formattedItinerary;
 }
 export const convertBlockStringsToDate = (blocks) => {
-  const formattedBlocks = blocks.map((block) => {
+  const formattedBlocks = blocks.map((block,index) => {
     return Object.assign({},block,{
-      date:new Date(block.date)
+      date:new Date(block.date),
     })
   })
   return formattedBlocks
