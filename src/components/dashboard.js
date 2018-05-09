@@ -24,7 +24,6 @@ export class Dashboard extends React.Component {
   }
 
   render() {
-    console.log('dashboard re rendering')
     return (
       <div className="dashboard">
         Hello from the Dashboard! {this.props.currentItinerary

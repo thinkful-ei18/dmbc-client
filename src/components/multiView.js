@@ -19,7 +19,6 @@ class MultiView extends Component{
     end = new Date(end.setHours(end.getHours() + 24))
     let tripDays =[];
     while(start.getDate()!==end.getDate()){
-      console.log(start, end)
       let date = start;
       tripDays.push(date);
       start = new Date(start.setHours(start.getHours()+24));
@@ -47,7 +46,6 @@ class MultiView extends Component{
   };
   render(){
     let wee = this.assembleTripSpread();
-    console.log('multiview has mounted')
     return(
       <div>
         <p style={{'display':'block'}}>MultiView Component</p>
