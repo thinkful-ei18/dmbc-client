@@ -1,6 +1,6 @@
 import {
   SET_AUTH_TOKEN, setAuthToken,
-  CLEAR_AUTH, clearAuth,
+  USER_LOGOUT, clearAuth,
   AUTH_REQUEST, authRequest,
   AUTH_SUCCESS, authSuccess,
   AUTH_ERROR, authError,
@@ -17,7 +17,7 @@ describe('Auth', () => {
 
   it('Should return the action', () => {
     const action = clearAuth();
-    expect(action.type).toEqual(CLEAR_AUTH);
+    expect(action.type).toEqual(USER_LOGOUT);
   });
 
   it('Should return the action', () => {
