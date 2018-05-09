@@ -55,18 +55,10 @@ class OneDayView extends Component {
       return <Redirect to="/dashboard" />
     }
     if (!this.props.blocks) {
-<<<<<<< HEAD
       return (
         <p>no blocks yet</p>
       )
     }
-=======
-      return (<p>no blocks yet</p>)
-    }
-    if (!this.props.currentDay) return <Redirect to="/dashboard"/>
-
-
->>>>>>> blocks are draggable, adding blocks will be contextual, newer ones are "later" in the day
     const blocks = this.assembleBlocks();
 
     let toolbelt;
