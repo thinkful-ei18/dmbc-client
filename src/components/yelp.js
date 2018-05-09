@@ -71,15 +71,16 @@ export class Yelp extends React.Component {
         />
       )
     }
+    console.log()
+    let latitude = this.props.destination.location.coordinates[1];
+    let longitude = this.props.destination.location.coordinates[0];
     return (
       <div>
         <form onSubmit={event => {
           event.preventDefault();
           this.offset = 0;
-          this.props.dispatch(fetchYelp(this.location.value, this.term.value, this.offset));
+          this.props.dispatch(fetchYelp(latitude, longitude, this.term.value, this.offset));
         }}>
-          <label>Location(required)</label>
-          <input ref={input => this.location = input} required/>
           <label>Term</label>
           <input ref={input => this.term = input}/>
           <button>Submit</button>
@@ -94,7 +95,8 @@ export class Yelp extends React.Component {
 const mapStateToProps = state => ({
   yelp: state.yelp.yelp,
   loading: state.cards.loading,
-  error: state.cards.error
+  error: state.cards.error,
+  destination:state.dashboard.currentItinerary.destination
 });
 
 export default requiresLogin()(connect(mapStateToProps)(Yelp));

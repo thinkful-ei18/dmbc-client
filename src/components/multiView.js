@@ -19,10 +19,13 @@ class MultiView extends Component{
     end = new Date(end.setHours(end.getHours() + 24))
     let tripDays =[];
     while(start.getDate()!==end.getDate()){
-      let date = start;
+      let date = new Date(start);
+      console.log(date);
       tripDays.push(date);
+      console.log(tripDays)
       start = new Date(start.setHours(start.getHours()+24));
     }
+    console.log(tripDays);
     this.props.dispatch(setDashboardTripdays(tripDays));
   }
   handleRedirect(date){
@@ -34,17 +37,28 @@ class MultiView extends Component{
       return <li className='loading-trip-spread'>loading</li>
     }
     const tripSpread = this.props.tripDays.map((day,index) => {
+      const blocks = this.props.currentItinerary.blocks;
+      const block = blocks.map((block, index) => {
+        if (dayNamesArray[day.getDay()] === dayNamesArray[block.date.getDay()]) {
+          return (
+            <p key={index}>{block.title}</p>
+          )
+        }
+        return null;
+      })
       return(
         //needs refactor to componenet.
         <li key={index} style={{'border':'1px solid red'}}>
           <h2>{dayNamesArray[day.getDay()]}</h2>
           <Link to="/oneDayView" onClick={() => this.handleRedirect(day)}> go to day </Link>
+          {block}
         </li>
       )
     })
     return tripSpread;
   };
   render(){
+    console.log(this.props.currentItinerary)
     let wee = this.assembleTripSpread();
     return(
       <div>
@@ -59,7 +73,8 @@ class MultiView extends Component{
 const mapStateToProps = (state) => ({
   dateStart:state.dashboard.currentItinerary.dateStart,
   dateEnd:state.dashboard.currentItinerary.dateEnd,
-  tripDays:state.dashboard.tripDays
+  tripDays:state.dashboard.tripDays,
+  currentItinerary: state.dashboard.currentItinerary
   // dateStart:'woo',
   // dateEnd:'woooo'
 });
