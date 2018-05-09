@@ -16,9 +16,10 @@ class MultiView extends Component{
   assembleTripDays(){
     let start = new Date(this.props.dateStart);
     let end = this.props.dateEnd;
-    end = new Date(end.setHours(end.getHours() + 24))
+    let tripEnd = new Date(end.getTime());
+    tripEnd = new Date(tripEnd.setHours(tripEnd.getHours() + 24))
     let tripDays =[];
-    while(start.getDate()!==end.getDate()){
+    while(start.getDate()!==tripEnd.getDate()){
       let date = start;
       tripDays.push(date);
       start = new Date(start.setHours(start.getHours()+24));

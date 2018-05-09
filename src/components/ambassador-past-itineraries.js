@@ -54,7 +54,7 @@ class AmbassadorPastItineraries extends Component {
         <CarouselProvider
           naturalSlideWidth={100}
           naturalSlideHeight={40}
-          totalSlides={1 || this.props.itineraries.length}
+          totalSlides={this.props.itineraries.length || 1}
           visibleSlides={2}
         >
           <Slider>{itinerariesList}</Slider>
