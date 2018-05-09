@@ -50,12 +50,12 @@ export class Cards extends React.Component {
         console.log('Block ID',this.selectVal, 'Card ID', cardId);
         this.props.dispatch(putCardOnBlock({ blockID: this.selectVal, cardID: cardId}));
       }}>
-        <label>Assign to Card
+        <label>Assign to Block
           <select onChange={(input) => this.selectVal = input.target.value}>
             {options}
           </select>
         </label>
-        <button type="submit">Lock In</button>
+        <button type="submit">Assign</button>
       </form>
     )
     return selector;
@@ -88,7 +88,6 @@ export class Cards extends React.Component {
           <div className='cardControls'>
             {this.addSelectorToCard(card.id)}
             <Link to={`/cards/${card.id}`}>Edit Card</Link>
-            <button className='confirm-location'>Lock in</button>
           </div>
           </div>
         </div>

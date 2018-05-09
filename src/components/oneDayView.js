@@ -11,6 +11,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import BlockSpread from './daySpread/blockSpread';
 import AddNewBlock from './daySpread/addNewBlock';
 import Cards from './cards';
+import { Link } from "react-router-dom";
 import {dayNamesArray} from './utils/dateObjectUtils';
 //styles
 import '../styles/oneDayView.css';
@@ -62,32 +63,38 @@ class OneDayView extends Component {
     const blocks = this.assembleBlocks();
 
     let toolbelt;
+    let toolbeltButton;
     if (this.props.currentUser.id === this.props.blocks.ambassador) {
       toolbelt = <Cards
         availableBlocks={this.filterBlocks()}
         cardsContainer={this.state.cardsContainer}
       />
+      toolbeltButton = (
+        <button onClick={event => {
+          event.preventDefault();
+          if (this.state.cardsContainer === 'hidden') {
+            this.setState({
+              cardsContainer: 'show'
+            });
+          } else {
+            this.setState({
+              cardsContainer: 'hidden'
+            })
+          }
+        }}>Toolbelt</button>
+      )
     }
+
     return (
       <div className="day-spreads-container">
-      <button onClick={event => {
-        event.preventDefault();
-        if (this.state.cardsContainer === 'hidden') {
-          this.setState({
-            cardsContainer: 'show'
-          });
-        } else {
-          this.setState({
-            cardsContainer: 'hidden'
-          })
-        }
-      }}>Toolbelt</button>
+        {toolbeltButton}
         <h1>{dayNamesArray[
             this
               .props
               .currentDay
               .getDay()
           ]}</h1>
+        <Link to="/dashboard"><button>Back To Dashboard</button></Link>
         <ul>
           {blocks}
         </ul>
