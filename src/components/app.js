@@ -13,6 +13,7 @@ import Dashboard from './dashboard';
 import EditCard from './edit-card';
 import oneDayView from './oneDayView'
 import MultiView from "./multiView";
+import Splash from './splash'
 
 export class App extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -32,7 +33,7 @@ export class App extends React.Component {
   startPeriodicRefresh() {
     this.refreshInterval = setInterval(
       () => this.props.dispatch(refreshAuthToken()),
-      10 * 60 * 1000 // Ten minutes
+      60 * 60 * 1000 // Sixty minutes
     );
   }
 
@@ -46,7 +47,8 @@ export class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Navigation />
+        {/* <Navigation /> */}
+        <Route exact path="/" component={Splash} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/ambassador-register" component={AmbassadorRegister} />

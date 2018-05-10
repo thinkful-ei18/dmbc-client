@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { dayNamesArray } from './utils/dateObjectUtils';
 import { setDashboardCurrentDay, setDashboardTripdays } from '../actions/dashboard';
 import { fetchTripDetailsById } from '../actions/tripForm';
+import MiniBlock from "./mini-block";
 
 import '../styles/multiView.css';
 
@@ -51,23 +52,25 @@ class MultiView extends Component{
     const tripSpread = this.props.tripDays.map((day,index) => {
       const blocks = this.props.currentItinerary.blocks;
       const block = blocks.map((block, index) => {
-        if (dayNamesArray[day.getDay()] === dayNamesArray[block.date.getDay()]) {
+        if (day.toDateString() === block.date.toDateString()) {
           return (
-            <span className="trip-block" key={index}>{block.title}</span>
+            <div key={index}>
+              <MiniBlock block={block}/>
+            </div>
           )
         }
         return null;
       })
       return(
         //needs refactor to componenet.
-        <Link to="/oneDayView" onClick={() => this.handleRedirect(day)}>
-          <li className="trip-spread" key={index} style={{'border':'1px solid red'}}>
-            <h2>{dayNamesArray[day.getDay()]}</h2>
-            <div>
-              {block}
-            </div>
-          </li>
-        </Link>
+        <li key={index} style={{'border':'1px solid red'}}>
+          <h2 className="block-day">{dayNamesArray[day.getDay()]}</h2>
+          <p className="block-date">{day.toDateString().slice(4)}</p>
+          <Link to="/oneDayView" onClick={() => this.handleRedirect(day)}>
+            <button>go to day</button> 
+          </Link>
+          {block}
+        </li>
       )
     })
     return tripSpread;
@@ -77,6 +80,9 @@ class MultiView extends Component{
     let trips = this.assembleTripSpread();
     return(
       <div>
+        <h1 className="itinerary-header">Trip Itinerary for {this.props.currentItinerary.destination.locationName}</h1>
+        <h2 className="itinerary-dates">{this.props.currentItinerary.dateStart.toDateString()} to {this.props.currentItinerary.dateEnd.toDateString()}</h2>
+        <p className="ambassador-info">Your ambassador is {this.props.currentItinerary.ambassador.name}</p>
         <p style={{'display':'block'}}>MultiView Component</p>
         <ul>
           {trips}
