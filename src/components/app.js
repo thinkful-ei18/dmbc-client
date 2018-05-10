@@ -47,7 +47,7 @@ export class App extends React.Component {
   render() {
     return (
       <div className="app">
-        {/* <Navigation /> */}
+        <Navigation />
         <Route exact path="/" component={Splash} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
