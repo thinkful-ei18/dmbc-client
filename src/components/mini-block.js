@@ -8,7 +8,7 @@ export default function MiniBlock(props) {
     smallCards = (
     <div className="mini-card">
       <h3 className="mini-card-header">{smallCards.name}</h3>
-      <p className="card-blurb">{smallCards.address}</p>
+      <p className="mini-card-blurb">{smallCards.address}</p>
     </div>
     )
   } else {

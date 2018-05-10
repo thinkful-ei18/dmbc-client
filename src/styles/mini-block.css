@@ -33,19 +33,10 @@
   flex:1 1 20em;
 
 }
-.blurbHeader{
-  display:flex;
-  flex:1 1 10em;
-}
-.cardBlurb{
+.mini-card-blurb{
   display: flex;
   flex:1 1 10em;
   font-size: 10px;
   /* text-align:justify; */
 
-}
-.cardBody{
-  color:black;
-  flex:2 2 20em;
-  font-size: 14px;
 }
