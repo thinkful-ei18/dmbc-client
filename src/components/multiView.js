@@ -50,7 +50,7 @@ class MultiView extends Component{
     const tripSpread = this.props.tripDays.map((day,index) => {
       const blocks = this.props.currentItinerary.blocks;
       const block = blocks.map((block, index) => {
-        if (dayNamesArray[day.getDay()] === dayNamesArray[block.date.getDay()]) {
+        if (day.toDateString() === block.date.toDateString()) {
           return (
             <div key={index}>
               <MiniBlock block={block}/>
