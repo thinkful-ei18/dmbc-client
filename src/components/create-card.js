@@ -1,10 +1,15 @@
 import React from 'react';
-import {addCard} from '../actions/cards';
+import {connect} from 'react-redux';
 
+
+import {addCard} from '../actions/cards';
 import requiresLogin from '../requires-login';
+import { setToolbeltDisplay } from '../actions/dashboard';
+
 
 export class CreateCard extends React.Component {
   render() {
+    const distance = this.props.destination.distance;
     return (
       <div className="create-card-form">
         <form
@@ -17,9 +22,9 @@ export class CreateCard extends React.Component {
               hours: this.hours.value,
               latitude: this.props.latitude,
               longitude: this.props.longitude
-            }
-            this.props.dispatch(addCard(card))
-            window.location.reload(); 
+            };
+            this.props.dispatch(addCard(card, distance))
+            this.props.dispatch(setToolbeltDisplay('cards'));
           }}>
           <h4>Create a Card</h4>
           <label htmlFor="name">Name</label>
@@ -61,4 +66,10 @@ export class CreateCard extends React.Component {
   }
 }
 
-export default requiresLogin()(CreateCard);
+const mapStateToProps = state => ({
+  loading: state.cards.loading,
+  error: state.cards.error,
+  destination:state.dashboard.currentItinerary.destination
+});
+
+export default requiresLogin()(connect(mapStateToProps)(CreateCard));

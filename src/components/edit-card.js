@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
 import {fetchSingleCard, updateCard} from '../actions/cards';
+import { setToolbeltDisplay } from '../actions/dashboard';
 import requiresLogin from '../requires-login';
 
 class SingleCard extends React.Component {
@@ -14,11 +14,10 @@ class SingleCard extends React.Component {
       address: null,
       hours: null,
       id: null,
-      finished: false
     }
   }
   componentDidMount() {
-    this.props.dispatch(fetchSingleCard(this.props.match.params.id))
+    this.props.dispatch(fetchSingleCard(this.props.id))
     .then(() => {
       this.setState({
         name: this.props.singleCard.name,
@@ -30,7 +29,7 @@ class SingleCard extends React.Component {
     });
   };
   render() {
-    let {finished} = this.state;
+    const distance = this.props.destination.distance;
 
     let editForm;
     if (this.state.id) {
@@ -45,12 +44,8 @@ class SingleCard extends React.Component {
       editForm = (
         <form onSubmit={event => {
           event.preventDefault();
-          this.props.dispatch(updateCard(newCard, this.state.id))
-          .then(() => {
-            this.setState({
-              finished: true
-            })
-          });
+          this.props.dispatch(updateCard(newCard, this.state.id, distance))
+          this.props.dispatch(setToolbeltDisplay('cards'));
         }}>
           <label htmlFor="name">Name</label>
           <input 
@@ -88,7 +83,7 @@ class SingleCard extends React.Component {
               })
             }}
           />
-          <label htmlFor="hours">Hours</label>
+          <label htmlFor="hours">Operating Hours</label>
           <input 
             id="hours"
             name="hours"
@@ -107,9 +102,6 @@ class SingleCard extends React.Component {
     return (
       <div>
         {editForm}
-        {finished && (
-          <Redirect to="/cards"/>
-        )}
       </div>
     )
   }
@@ -118,7 +110,8 @@ class SingleCard extends React.Component {
 const mapStateToProps = state => ({
   singleCard: state.cards.singleCard,
   loading: state.cards.loading,
-  error: state.cards.error
+  error: state.cards.error,
+  destination:state.dashboard.currentItinerary.destination
 });
 
 export default requiresLogin()(connect(mapStateToProps)(SingleCard));

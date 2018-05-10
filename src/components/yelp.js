@@ -5,7 +5,6 @@ import requiresLogin from '../requires-login';
 import '../styles/oneDayView.css';
 import { fetchYelp } from '../actions/yelp';
 import CreateCard from './create-card';
-// import Card from './daySpread/Card';
 
 export class Yelp extends React.Component {
   constructor() {
@@ -20,34 +19,45 @@ export class Yelp extends React.Component {
     }
   }
   render() {
-    console.log(this.props.yelp)
+    const apiTags = ['Family Friendly', 'Crowd Friendly', 'No Pets'];
+
+    const placeTags = apiTags.map((tag,index) => {
+      return (<li key={index}>{tag}</li>)
+    });
     let searchResults;
     if (this.props.yelp.length > 0) {
       searchResults = this.props.yelp.map((result, index) => {
         let location = `${result.location.address1}, ${result.location.city}, ${result.location.state}, ${result.location.zip_code}`;
-        // const card = {
-        //   name: result.name,
-        //   ratingCount: 0,
-        //   ratingScore: 0,
-        //   tags: [],
-        //   location: location
-        // }
         return (
-          <div key={index}>
-            {/* <Card info={card}/> */}
-            <img src={result.image_url} alt={result.name} style={{width: '300px', height: '300px'}}/>
-            <p>{result.name}</p>
-            <p>{location}</p>
-            <button onClick={event => {
-              event.preventDefault();
-              this.setState({
-                create: true,
-                name: result.name,
-                location: location,
-                latitude: result.coordinates.latitude,
-                longitude: result.coordinates.longitude
-              })
-            }}>Choose this location</button>
+          <div className='cardContainer-expanded' key={index}>
+            <div className='cardHeader' style={{'backgroundImage':`url(${result.image_url})`}}>
+              <span className='placeName'>{result.name}</span>
+            </div>
+            <div className='placeTags'>
+              <ul>
+                {placeTags}
+              </ul>
+            </div>
+            <div>
+              <div className='cardBody'>
+                <span className='blurbHeader'>Details</span>
+                <span className='cardBlurb'>
+                  {location}
+                </span>
+              </div>
+              <div className='cardControls'>
+                <button onClick={event => {
+                    event.preventDefault();
+                    this.setState({
+                      create: true,
+                      name: result.name,
+                      location: location,
+                      latitude: result.coordinates.latitude,
+                      longitude: result.coordinates.longitude
+                    })
+                  }}>Choose this location</button>
+              </div>
+            </div>
           </div>
         )
       })
@@ -83,14 +93,14 @@ export class Yelp extends React.Component {
     let latitude = this.props.destination.location.coordinates[1];
     let longitude = this.props.destination.location.coordinates[0];
     return (
-      <div>
+      <div className="yelp-search">
         <form onSubmit={event => {
           event.preventDefault();
           this.offset = 0;
           this.props.dispatch(fetchYelp(latitude, longitude, this.term.value, this.offset));
         }}>
-          <label>Term</label>
-          <input ref={input => this.term = input}/>
+          <label htmlFor="searchterm">Term</label>
+          <input ref={input => this.term = input} placeholder="searchterm" name="searchterm"/>
           <button>Submit</button>
         </form>
         {searchResults}

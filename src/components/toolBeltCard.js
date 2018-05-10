@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import { ItemTypes } from './utils/itemTypes.js';
 import { DragSource } from 'react-dnd';
 import PropTypes from 'prop-types';
 
-import {Link} from 'react-router-dom';
+import { setToolbeltDisplay } from '../actions/dashboard';
 
 const cardSource = {
   beginDrag(props){
@@ -44,7 +45,11 @@ class ToolbeltCard extends Component {
           </div>
           <div className='cardControls'>
             {/* {this.addSelectorToCard(card.id)} */}
-            <Link to={`/cards/${this.props.card.id}`}>Edit Card</Link>
+            <button onClick={event => {
+              event.preventDefault();
+              this.props.cardId(this.props.card.id);
+              this.props.dispatch(setToolbeltDisplay('edit'));
+            }}>Edit Card</button>
             <button className='confirm-location'>Lock in</button>
           </div>
           </div>
@@ -53,9 +58,17 @@ class ToolbeltCard extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  loading: state.cards.loading,
+  error: state.cards.error,
+  destination:state.dashboard.currentItinerary.destination
+});
+
+const toolBeltCard = connect(mapStateToProps)(ToolbeltCard);
+
 ToolbeltCard.propTypes = {
   connectDragSource: PropTypes.func.isRequired,
   isDragging: PropTypes.bool.isRequired
 }
 
-export default DragSource(ItemTypes.CARD, cardSource, collect)(ToolbeltCard);
+export default DragSource(ItemTypes.CARD, cardSource, collect)(toolBeltCard);

@@ -1,0 +1,8 @@
+.trip-spread {
+  display: flex;
+  justify-content: space-between;
+}
+
+.trip-block {
+  margin: 0 20px;
+}

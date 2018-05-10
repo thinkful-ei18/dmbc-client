@@ -6,6 +6,8 @@ import { setDashboardCurrentDay, setDashboardTripdays } from '../actions/dashboa
 import { fetchTripDetailsById } from '../actions/tripForm';
 import MiniBlock from "./mini-block";
 
+import '../styles/multiView.css';
+
 class MultiView extends Component{
   componentDidMount(){
     if (this.props.match) {
@@ -75,8 +77,7 @@ class MultiView extends Component{
   };
 
   render(){
-    let wee = this.assembleTripSpread();
-    console.log(this.props)
+    let trips = this.assembleTripSpread();
     return(
       <div>
         <h1 className="itinerary-header">Trip Itinerary for {this.props.currentItinerary.destination.locationName}</h1>
@@ -84,7 +85,7 @@ class MultiView extends Component{
         <p className="ambassador-info">Your ambassador is {this.props.currentItinerary.ambassador.name}</p>
         <p style={{'display':'block'}}>MultiView Component</p>
         <ul>
-          {wee}
+          {trips}
         </ul>
       </div>
     )

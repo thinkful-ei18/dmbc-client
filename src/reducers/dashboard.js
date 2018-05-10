@@ -2,7 +2,8 @@ import { FETCH_TRIP_DETAILS_SUCCESS } from '../actions/tripForm';
 import {
   SET_DASHBOARD_CURRENT_DAY,
   SET_DASHBOARD_TRIPDAYS,
-  PUSH_TEMPORARY_NEW_BLOCK
+  PUSH_TEMPORARY_NEW_BLOCK,
+  SET_TOOLBELT_DISPLAY
 } from '../actions/dashboard';
 import { PUT_CARD_ON_BLOCK_SUCCESS, SELECT_CARD_ON_BLOCK_SUCCESS, REMOVE_SELECT_CARD_ON_BLOCK_SUCCESS } from '../actions/block';
 import { RATE_CARD_SUCCESS } from "../actions/cards";
@@ -10,7 +11,8 @@ import { RATE_CARD_SUCCESS } from "../actions/cards";
 const initialState = {
   currentItinerary:undefined,
   tripDays:undefined,
-  currentDay:undefined
+  currentDay:undefined,
+  toolBeltDisplay: 'cards'
 }
 
 export default function reducer(state = initialState, action){
@@ -29,6 +31,11 @@ export default function reducer(state = initialState, action){
       return{
         ...state,
         currentDay:action.date
+      }
+    case SET_TOOLBELT_DISPLAY:
+      return{
+        ...state,
+        toolBeltDisplay: action.display
       }
     case PUSH_TEMPORARY_NEW_BLOCK:
       return{

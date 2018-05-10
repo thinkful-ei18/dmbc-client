@@ -24,3 +24,9 @@ export const setAmbassadorItineraries = (tripDays) => ({
   type:SET_AMBASSADOR_ITINERARIES,
   tripDays
 })
+
+export const SET_TOOLBELT_DISPLAY = 'SET_TOOLBELT_DISPLAY'
+export const setToolbeltDisplay = (display) => ({
+  type:SET_TOOLBELT_DISPLAY,
+  display
+})
