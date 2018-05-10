@@ -1,0 +1,51 @@
+.mini-block{
+  background-color: grey;
+
+  display:flex;
+  justify-content:space-around;
+
+  margin:22px 0px;
+  width:100%;
+  align-items:center;
+}
+
+.mini-block-title {
+  width:150px;
+  height:200px;
+  display:flex;
+  flex-direction: column;
+  padding:15px;
+  font-size: 24px;
+}
+.mini-card{
+  background-color: white;
+  width:220px;
+  height:200px;
+  display:flex;
+  flex-direction: column;
+  padding:15px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.mini-card-header{
+  width:100%;
+  background-size: cover;
+  flex:1 1 20em;
+
+}
+.blurbHeader{
+  display:flex;
+  flex:1 1 10em;
+}
+.cardBlurb{
+  display: flex;
+  flex:1 1 10em;
+  font-size: 10px;
+  /* text-align:justify; */
+
+}
+.cardBody{
+  color:black;
+  flex:2 2 20em;
+  font-size: 14px;
+}
