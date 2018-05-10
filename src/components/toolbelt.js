@@ -5,27 +5,26 @@ import {connect} from 'react-redux';
 import requiresLogin from '../requires-login';
 import {fetchDestinationCards, fetchSearchCards} from '../actions/cards';
 import Background from '../assets/barPlaceHolder.jpg'
-import { putCardOnBlock } from '../actions/block';
 import ToolbeltCard from './toolBeltCard'
 import '../styles/oneDayView.css';
-import '../styles/cards.css';
+import '../styles/toolbelt.css';
 import Yelp from './yelp';
-// import Card from './daySpread/Card';
+import { setToolbeltDisplay } from '../actions/dashboard';
+import EditCard from './edit-card';
 
 
 
 
 
-export class Cards extends React.Component {
+export class Toolbelt extends React.Component {
   constructor() {
     super();
+
     this.state = {
-      displayCards: true
+      cardId: ''
     }
   }
-
   componentWillMount() {
-    console.log('coming from ambassador', this.props)
     if (this.props.availableBlocks.length > 0) {
       this.selectVal = this.props.availableBlocks[0].id
     }
@@ -37,7 +36,6 @@ export class Cards extends React.Component {
     if (!this.props.filtered) {
       this.props.dispatch(fetchDestinationCards(destination));
     }
-
   }
 
   componentDidUpdate() {
@@ -45,30 +43,9 @@ export class Cards extends React.Component {
       this.selectVal = this.props.availableBlocks[0].id
     }
   }
-  addSelectorToCard(cardId) {
-    const options = this.props.availableBlocks.map(block => {
-      return <option value={block.id} key={block.id}>{block.title}</option>
-    });
-    const selector = (
-      <form onSubmit={e => {
-        e.preventDefault();
-        console.log('Block ID',this.selectVal, 'Card ID', cardId);
-        this.props.dispatch(putCardOnBlock({ blockID: this.selectVal, cardID: cardId}));
-      }}>
-        <label>Assign to Block
-          <select onChange={(input) => this.selectVal = input.target.value}>
-            {options}
-          </select>
-        </label>
-        <button type="submit">Assign</button>
-      </form>
-    )
-    return selector;
-  }
 
   render() {
     const apiTags = ['Family Friendly', 'Crowd Friendly', 'No Pets'];
-    // const { connectDragSource, isDragging } = this.props;
 
     const placeTags = apiTags.map((tag,index) => {
       return (<li key={index}>{tag}</li>)
@@ -82,61 +59,63 @@ export class Cards extends React.Component {
           card={card}
           index={index}
           placeTags={placeTags}
+          cardId={cardId => {
+            this.setState({
+              cardId: cardId
+            })
+          }}
         />
       )
-      // return (
-      //   <Card info={card}/>
-      // )
     })
 
-    let cardSearch;
-    if (this.state.displayCards) {
-      cardSearch = (
-          <form onSubmit={event => {
+    let display;
+    if (this.props.toolBeltDisplay === 'cards') {
+      display = (
+        <div>
+          <form className="card-search" onSubmit={event => {
             event.preventDefault();
             this.props.dispatch(fetchSearchCards(this.searchTerm.value));
           }}>
-          <input
-            placeholder="search"
-            name="search"
-            ref={input => this.searchTerm = input}
-          />
-          <button>Submit</button>
+            <input
+              placeholder="search"
+              name="search"
+              ref={input => this.searchTerm = input}
+            />
+            <button><i className="fas fa-search"></i></button>
           </form>
+          <div className="cards-container">
+            {cards}
+          </div>
+        </div>
       );
-    } else {
-      cardSearch = <Yelp />
+    } else if (this.props.toolBeltDisplay === 'create') {
+      display = <Yelp />
+    } else if (this.props.toolBeltDisplay === 'edit') {
+      display = <EditCard id={this.state.cardId}/>
     }
 
     let changeState;
-    if (this.state.displayCards) {
+    if (this.props.toolBeltDisplay === 'cards') {
       changeState = (
-        <button onClick={event => {
+        <button class="create-card" onClick={event => {
           event.preventDefault();
-          this.setState({
-            displayCards: false
-          })
-        }}>Create a Card</button>
+          this.props.dispatch(setToolbeltDisplay('create'));
+        }}>New Card</button>
       )
-    } else {
+    } else if (this.props.toolBeltDisplay !== 'cards'){
       changeState = (
-        <button onClick={event => {
+        <button class="back-button" onClick={event => {
           event.preventDefault();
-          this.setState({
-            displayCards: true
-          })
+          this.props.dispatch(setToolbeltDisplay('cards'));
         }}>Back</button>
       )
     }
 
     return (
-      <div className={(this.props.cardsContainer === 'hidden') ? 'cards-container-hidden' : 'cards-container'}>
+      <div className={(this.props.cardsContainer === 'hidden') ? 'toolbelt-hidden' : 'toolbelt'}>
         <div className="cards">
-          <div className="cards-nav">
-            {changeState}
-            {cardSearch}
-          </div>
-          {cards}
+          {changeState}
+          {display} 
         </div>
       </div>
     )
@@ -148,7 +127,8 @@ const mapStateToProps = state => ({
   cards: state.cards.cards,
   loading: state.cards.loading,
   error: state.cards.error,
-  destination:state.dashboard.currentItinerary.destination
+  destination:state.dashboard.currentItinerary.destination,
+  toolBeltDisplay: state.dashboard.toolBeltDisplay
 });
 
-export default requiresLogin()(connect(mapStateToProps)(Cards));
+export default requiresLogin()(connect(mapStateToProps)(Toolbelt));

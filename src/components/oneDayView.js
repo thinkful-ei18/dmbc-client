@@ -13,7 +13,7 @@ import { putCardOnBlock } from '../actions/block';
 //components and helpers
 import BlockSpread from './daySpread/blockSpread';
 import AddNewBlock from './daySpread/addNewBlock';
-import Cards from './cards';
+import Toolbelt from './toolbelt';
 import { Link } from "react-router-dom";
 import {dayNamesArray} from './utils/dateObjectUtils';
 //styles
@@ -77,24 +77,29 @@ class OneDayView extends Component {
     let toolbelt;
     let toolbeltButton;
     if (this.props.currentUser.id === this.props.blocks.ambassador) {
-      toolbelt = <Cards
+      toolbelt = <Toolbelt
         availableBlocks={this.filterBlocks()}
         cardsContainer={this.state.cardsContainer}
       />
-      toolbeltButton = (
-        <button onClick={event => {
-          event.preventDefault();
-          if (this.state.cardsContainer === 'hidden') {
+      if (this.state.cardsContainer === 'hidden') {
+        toolbeltButton = (
+          <button className="toolbelt-button" onClick={event => {
+            event.preventDefault();
             this.setState({
               cardsContainer: 'show'
             });
-          } else {
+          }}>Toolbelt</button>
+        )
+      } else {
+        toolbeltButton = (
+          <i className="far fa-times-circle fa-lg toolbelt-button" onClick={event => {
+            event.preventDefault();
             this.setState({
               cardsContainer: 'hidden'
             })
-          }
-        }}>Toolbelt</button>
-      )
+          }} />
+        )
+      }
     }
 
     return (

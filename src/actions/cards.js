@@ -104,7 +104,7 @@ export const fetchSingleCard = cardID => (dispatch, getState) => {
     .catch(err => {dispatch(fetchCardsError(err))});
 }
 
-export const addCard = card => (dispatch, getState) => {
+export const addCard = (card, distance) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   console.log(card);
   return fetch(`${API_BASE_URL}/cards`, {
@@ -119,6 +119,13 @@ export const addCard = card => (dispatch, getState) => {
   })
       .then(res => normalizeResponseErrors(res))
       .then(res => res.json())
+      .then(res => {
+          dispatch(fetchDestinationCards({
+            distance: distance,
+            lat: res.location.coordinates[1],
+            lng: res.location.coordinates[0]
+        }))
+      })
       .catch(err => {
           const {reason, message, location} = err;
           if (reason === 'ValidationError') {
@@ -132,7 +139,7 @@ export const addCard = card => (dispatch, getState) => {
       });
 };
 
-export const updateCard = (newCard, cardID) => (dispatch, getState) => {
+export const updateCard = (newCard, cardID, distance) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchCardsRequest());
   return fetch(`${API_BASE_URL}/cards/${cardID}`, {
@@ -148,8 +155,15 @@ export const updateCard = (newCard, cardID) => (dispatch, getState) => {
     .then(res => {
       return res.json();
     })
-    .then(card => {
-      dispatch(fetchSingleCardSuccess(card));
+    // .then(card => {
+    //   dispatch(fetchSingleCardSuccess(card));
+    // })
+    .then(res => {
+      dispatch(fetchDestinationCards({
+        distance: distance,
+        lat: res.location.coordinates[1],
+        lng: res.location.coordinates[0]
+      }))
     })
     .catch(err => {dispatch(fetchCardsError(err))});
 }

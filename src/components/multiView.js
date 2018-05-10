@@ -5,6 +5,8 @@ import { dayNamesArray } from './utils/dateObjectUtils';
 import { setDashboardCurrentDay, setDashboardTripdays } from '../actions/dashboard';
 import { fetchTripDetailsById } from '../actions/tripForm';
 
+import '../styles/multiView.css';
+
 class MultiView extends Component{
   componentDidMount(){
     if (this.props.match) {
@@ -51,31 +53,33 @@ class MultiView extends Component{
       const block = blocks.map((block, index) => {
         if (dayNamesArray[day.getDay()] === dayNamesArray[block.date.getDay()]) {
           return (
-            <p key={index}>{block.title}</p>
+            <span className="trip-block" key={index}>{block.title}</span>
           )
         }
         return null;
       })
       return(
         //needs refactor to componenet.
-        <li key={index} style={{'border':'1px solid red'}}>
-          <h2>{dayNamesArray[day.getDay()]}</h2>
-          <Link to="/oneDayView" onClick={() => this.handleRedirect(day)}> go to day </Link>
-          {block}
-        </li>
+        <Link to="/oneDayView" onClick={() => this.handleRedirect(day)}>
+          <li className="trip-spread" key={index} style={{'border':'1px solid red'}}>
+            <h2>{dayNamesArray[day.getDay()]}</h2>
+            <div>
+              {block}
+            </div>
+          </li>
+        </Link>
       )
     })
     return tripSpread;
   };
 
   render(){
-    let wee = this.assembleTripSpread();
-    console.log(this.props)
+    let trips = this.assembleTripSpread();
     return(
       <div>
         <p style={{'display':'block'}}>MultiView Component</p>
         <ul>
-          {wee}
+          {trips}
         </ul>
       </div>
     )

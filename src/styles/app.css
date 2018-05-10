@@ -1,5 +1,22 @@
 .app {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+input {
+  border: none;
+  padding: 5px;
+  margin: 0 5px;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0 5px;
+  background-color: #4EA5D9;
+  cursor: pointer;
 }
 
 /* geosuggest package */
