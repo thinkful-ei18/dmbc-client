@@ -11,10 +11,15 @@ export default function MiniBlock(props) {
       <p className="mini-card-blurb">{smallCards.address}</p>
     </div>
     )
+  } else if (props.block.cards.length === 0){
+    smallCards = 
+      <div className="mini-card">
+        <h3 className="mini-card-header">Your ambassador is still selecting</h3>
+      </div>
   } else {
     smallCards = 
       <div className="mini-card">
-        <h3 className="mini-card-header">No card selected</h3>
+        <h3 className="mini-card-header">Select your reccomendation</h3>
       </div>
   }
 
