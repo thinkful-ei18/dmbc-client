@@ -42,7 +42,7 @@ class NewTripForm extends Component {
       <div className='tripFormContainer'>
         <h2>Tell us a little about your trip</h2>
         <div className='tripFormPlace'>
-          <p>I'm traveling to📍</p>
+          <p>I'm traveling to...</p>
           <Geosuggest
             className="tripGeoInput"
             fixtures={fixtures}
