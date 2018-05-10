@@ -8,28 +8,34 @@
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   width:85vw;
   height:500px;
-
 }
-
+.tripFormContainer h2{
+  /* border:1px solid green; */
+  margin-top: 36px;
+  font-size:30px;
+}
 .tripFormContainer > *{
   width:80%;
   margin:auto;
   text-align: center;
 }
+
+.tripFormPlace{
+flex:3 1 auto;
+text-align: center;
+padding:55px 10px 10px 10px;
+}
+
+.tripFormPlace input{
+  font-size:26px;
+}
 .tripFormContainer input{
   height:40px;
   width:80%;
 }
-.tripFormPlace{
-flex:3 1 auto;
-text-align: center;
-padding:135px 10px 10px 10px ;
-}
-.tripFormPlace input{
-  font-size:26px;
-}
-.tripFromDates{
+.tripFormDates{
 flex:1 1 auto;
+text-align: center;
 }
 .tripTravelrs{
 flex:1 1 auto;
@@ -72,13 +78,44 @@ flex:1 1 auto;
   background-color: white;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
+.react-date-picker{
+  margin:0 15px
+}
+@media only screen and (max-width: 400px) {
+  .tripFormContainer h2{
+    /* border:1px solid blue; */
+    margin-top: 26px;
+    font-size: 1.1em;
+}
 
-/*
+}
+@media only screen and (max-width: 705px)  {
+  .tripFormContainer h2{
+    /* border:1px solid blue; */
+    margin-top: 26px;
+    font-size: 1.3em;
+  }
+  .tripFormDates > *{
+    /* border:1px solid green; */
+    display:inline-block;
+    margin:auto;
+    width:60%;
+  }
+  .tripFormPlace input{
+    font-size:22px;
+  }
+  .react-calendar .react-date-picker__calendar .react-date-picker__calendar--open .react-date-picker__calendar--above-label{
+    /* border:1px solid yellow; */
+    position:relative;
+    left:-10vw;
+    z-index:1000;
+  }
+  .react-date-picker__calendar {
+    left: -91px;
+}
 
-element.style {
-    position: absolute;
-    z-index: 1000;
-    background-color: white;
-    /* border-bottom: 1px solid black; */
-    /* border-right: 1px solid bla
- */
+  .react-date-picker__button__input {
+    min-width: calc(1px + (0px * 3) + 3.68em + 0.434em);
+  }
+}
+/*  */
