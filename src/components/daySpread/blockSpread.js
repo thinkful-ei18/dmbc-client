@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
-//react components
-import Card from './Card';
+
 //dnd
-import { DragSource } from 'react-dnd';
-import PropTypes from 'prop-types';
+import { DropTarget } from 'react-dnd';
 import { ItemTypes } from '../utils/itemTypes';
+import Card from './Card';
 //styles
 import '../../styles/oneDayView.css'
 
-const blockSource = {
-  beginDrag(props){
-    console.log('dragging',props.id);
-    return{
-      // id:props.id
-    };
+const blockTarget = {
+  drop(props,monitor,component){
+    component.handleCardDroppedOnBlock(props.block.id,monitor.getItem().cardId)
+    return{};
   }
 }
-
 function collect(connect, monitor){
   return{
-    connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging()
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
   }
 }
 
 class BlockSpread extends Component{
+  handleCardDroppedOnBlock(blockId,cardId){
+    return this.props.handleCardDrop({blockID:blockId, cardID:cardId})
+  }
   createCards() {
     if (this.props.block.selectedCard) {
       const selected = this.props.block.cards.find(card => card.id === this.props.block.selectedCard)
@@ -42,18 +41,13 @@ class BlockSpread extends Component{
 
   render(){
 
-    // console.log('Here is the block', this.props.block)
     let cards = this.createCards();
-    const { connectDragSource, isDragging} = this.props;
-    console.log(this.props.block,'woow');
-    return connectDragSource(
+    const { connectDropTarget, isOver} = this.props;
+    return connectDropTarget(
         <li key={this.props.key}
           style={{
-            opacity: isDragging ? 0.2 : 1,
-            fontSize:25,
-            fontWeight:'bold',
-            cursor:'move'
-        }}>
+            'backgroundColor': isOver ? 'yellow' : 'grey'
+          }}>
           <div className="block-spread">
             <h1>{this.props.block.title}</h1>
             {cards}
@@ -63,9 +57,4 @@ class BlockSpread extends Component{
   }
 }
 
-BlockSpread.propTypes = {
-  connectDragSource: PropTypes.func.isRequired,
-  isDragging: PropTypes.bool.isRequired
-}
-
-export default DragSource(ItemTypes.BLOCK, blockSource, collect)(BlockSpread)
+export default DropTarget(ItemTypes.CARD, blockTarget, collect)(BlockSpread)

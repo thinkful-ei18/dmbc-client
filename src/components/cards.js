@@ -1,24 +1,29 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+
+
 import requiresLogin from '../requires-login';
 import {fetchDestinationCards, fetchSearchCards} from '../actions/cards';
 import Background from '../assets/barPlaceHolder.jpg'
 import { putCardOnBlock } from '../actions/block';
-
+import ToolbeltCard from './toolBeltCard'
 import '../styles/oneDayView.css';
 import '../styles/cards.css';
 import Yelp from './yelp';
 // import Card from './daySpread/Card';
 
+
+
+
+
 export class Cards extends React.Component {
   constructor() {
     super();
-
     this.state = {
       displayCards: true
     }
   }
+
   componentWillMount() {
     console.log('coming from ambassador', this.props)
     if (this.props.availableBlocks.length > 0) {
@@ -32,7 +37,7 @@ export class Cards extends React.Component {
     if (!this.props.filtered) {
       this.props.dispatch(fetchDestinationCards(destination));
     }
-    
+
   }
 
   componentDidUpdate() {
@@ -40,7 +45,6 @@ export class Cards extends React.Component {
       this.selectVal = this.props.availableBlocks[0].id
     }
   }
-
   addSelectorToCard(cardId) {
     const options = this.props.availableBlocks.map(block => {
       return <option value={block.id} key={block.id}>{block.title}</option>
@@ -64,34 +68,21 @@ export class Cards extends React.Component {
 
   render() {
     const apiTags = ['Family Friendly', 'Crowd Friendly', 'No Pets'];
-    
+    // const { connectDragSource, isDragging } = this.props;
+
     const placeTags = apiTags.map((tag,index) => {
       return (<li key={index}>{tag}</li>)
     });
+    //cards assembled here
     const cards = this.props.cards.map((card, index) => {
       return (
-        <div className='cardContainer-expanded' key={index}>
-          <div className='cardHeader' style={{'backgroundImage':`url(${Background})`}}>
-            <span className='placeName'>{card.name}</span>
-          </div>
-          <div className='placeTags'>
-            <ul>
-              {placeTags}
-            </ul>
-          </div>
-          <div>
-          <div className='cardBody'>
-            <span className='blurbHeader'>Details</span>
-            <span className='cardBlurb'>
-              {card.description}
-            </span>
-          </div>
-          <div className='cardControls'>
-            {this.addSelectorToCard(card.id)}
-            <Link to={`/cards/${card.id}`}>Edit Card</Link>
-          </div>
-          </div>
-        </div>
+        <ToolbeltCard
+          Background={Background}
+          key={index}
+          card={card}
+          index={index}
+          placeTags={placeTags}
+        />
       )
       // return (
       //   <Card info={card}/>
