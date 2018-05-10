@@ -1,0 +1,24 @@
+.logo i{
+  color:red;
+  font-size:4em;
+}
+
+.logo p{
+  color:red;
+  font-family: 'Grand Hotel';
+  font-size:4.4em;
+}
+
+.small i{
+  font-size: 3em;
+}
+.large i{
+  font-size: 6em;
+}
+
+.small p{
+  font-size: 1.9em;
+}
+.large p{
+  font-size:6em;
+}
