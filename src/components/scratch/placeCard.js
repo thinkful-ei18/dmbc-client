@@ -9,9 +9,9 @@ class ExpandedContent extends Component{
   render(){
     return(
       <div>
-        <div className='cardBody'>
-          <span className='blurbHeader'>Description</span>
-          <span className='cardBlurb'>
+        <div className='card-body'>
+          <span className='blurb-header'>Description</span>
+          <span className='card-blurb'>
             DESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPT
             DESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPTDESCRIPT
 
@@ -42,13 +42,13 @@ class PlaceCard extends Component { // eslint-disable-line react/prefer-stateles
     })
 
     return (
-      <div className={isExpanded ? 'cardContainer-expanded' : 'cardContainer-minimized'}>
+      <div className={isExpanded ? 'card-container-expanded' : 'cardContainer-minimized'}>
         <div
-          className='cardHeader'
+          className='card-header'
           style={{'backgroundImage':`url(${Background})`}}
         >
           <span className='placeAddress'>ADDRESS</span>
-          <span className='placeName'>NAME</span>
+          <span className='place-name'>NAME</span>
         </div>
         <div className='placeTags'>
           <ul>

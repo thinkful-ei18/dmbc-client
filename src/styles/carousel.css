@@ -1,0 +1,61 @@
+.ambassador-cards-slide {
+    margin-top: 15px;
+}
+
+.carousel-title-card{
+    font-size: 2em;
+    text-align: center;
+    background: linear-gradient(to right, #0066cc -14%, #ffffff 53%);
+    
+}
+
+.carousel-title-current{
+    font-size: 2em;
+    text-align: center;
+    background: linear-gradient(to right, #0066cc -14%, #ffffff 53%);
+
+}
+
+.carousel-title-past{
+    font-size: 2em;
+    text-align: center;
+    background: linear-gradient(to right, #0066cc -14%, #ffffff 53%);
+    
+}
+
+.carousel-background-cards {
+    background-color: rgba(245, 88, 211, 0.425);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.carousel-background-current {
+    background-color: rgba(93, 245, 88, 0.425);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    
+}
+
+.carousel-background-past {
+    background-color: rgba(69, 69, 202, 0.425);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.itinerary-container {
+    background-color: white;
+    width:400px;
+    height:355px;
+    display:flex;
+    flex-direction: column;
+    padding:15px;
+    margin-top: 100px;
+    margin: 0px auto;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.itinerary-destination {
+    background-color: rgba(0, 0, 0, 0.192)
+}
+
+
+
+

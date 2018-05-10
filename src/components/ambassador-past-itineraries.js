@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import Background from "../assets/barPlaceHolder.jpg";
 import {
   CarouselProvider,
   Slider,
@@ -10,7 +11,7 @@ import {
   ButtonNext
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import "./ambassador-itinerary-carousel.css";
+import "../styles/carousel.css";
 
 class AmbassadorPastItineraries extends Component {
   render() {
@@ -28,17 +29,35 @@ class AmbassadorPastItineraries extends Component {
       } else {
         itinerariesList = currentItineraries.map((itinerary, index) => {
           return (
-            <Link to={{pathname:`/itineraries/${itinerary.id}`}} key={index}>
+            <Link  to={{ pathname: `/itineraries/${itinerary.id}` }} key={index}>
               <Slide
-                className="ambassador-itinerary-slide"
-                key={index}
                 index={index}
+                key={index}
+                className="ambassador-cards-slide"
               >
-                <h4>{itinerary.destination.locationName}</h4>
-                <h4>{moment(itinerary.dateStart).format("ll")}</h4>
-                <h4>to</h4>
-                <h4>{moment(itinerary.dateEnd).format("ll")}</h4>
-                <h4>{itinerary.partners}</h4>
+                <div className="itinerary-container" key={index}>
+                  <div
+                    className="card-header"
+                    style={{
+                      backgroundImage: `url(${Background})`
+                    }}
+                  >
+                    <span className="place-name">
+                      {itinerary.destination.locationName}
+                    </span>
+                  </div>
+
+                  <div className="card-body">
+                    <span className="blurb-header">
+                     Date Start: {moment(itinerary.dateStart).format("ll")}
+                    </span>
+                    <span className="blurb-header">
+                      Date End: {moment(itinerary.dateEnd).format("ll")}
+                    </span>
+
+                    <span className="card-blurb">Notes: {itinerary.partners}</span>
+                  </div>
+                </div>
               </Slide>
             </Link>
           );
@@ -48,12 +67,13 @@ class AmbassadorPastItineraries extends Component {
 
     return (
       <div>
-        <h1>Past Itineraries</h1>
+        <h1 className="carousel-title-past">Past Itineraries</h1>
         <CarouselProvider
           naturalSlideWidth={100}
           naturalSlideHeight={40}
           totalSlides={this.props.itineraries.length || 1}
           visibleSlides={2}
+          className="carousel-background-past"
         >
           <Slider>{itinerariesList}</Slider>
           <ButtonBack>Back</ButtonBack>
