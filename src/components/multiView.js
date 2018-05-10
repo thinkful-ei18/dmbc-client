@@ -64,7 +64,9 @@ class MultiView extends Component{
         <li key={index} style={{'border':'1px solid red'}}>
           <h2 className="block-day">{dayNamesArray[day.getDay()]}</h2>
           <p className="block-date">{day.toDateString().slice(4)}</p>
-          <Link to="/oneDayView" onClick={() => this.handleRedirect(day)}> go to day </Link>
+          <Link to="/oneDayView" onClick={() => this.handleRedirect(day)}>
+            <button>go to day</button> 
+          </Link>
           {block}
         </li>
       )
