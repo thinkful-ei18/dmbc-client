@@ -73,6 +73,9 @@ class MultiView extends Component{
     console.log(this.props)
     return(
       <div>
+        <h1 className="itinerary-header">Trip Itinerary for {this.props.currentItinerary.destination.locationName}</h1>
+        <h2 className="itinerary-dates">{this.props.currentItinerary.dateStart.toDateString()} to {this.props.currentItinerary.dateEnd.toDateString()}</h2>
+        <p className="ambassador-info">Your ambassador is {this.props.currentItinerary.ambassador.name}</p>
         <p style={{'display':'block'}}>MultiView Component</p>
         <ul>
           {wee}
