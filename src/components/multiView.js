@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { dayNamesArray } from './utils/dateObjectUtils';
 import { setDashboardCurrentDay, setDashboardTripdays } from '../actions/dashboard';
 import { fetchTripDetailsById } from '../actions/tripForm';
+import MiniBlock from "./mini-block";
 
 class MultiView extends Component{
   componentDidMount(){
@@ -51,7 +52,9 @@ class MultiView extends Component{
       const block = blocks.map((block, index) => {
         if (dayNamesArray[day.getDay()] === dayNamesArray[block.date.getDay()]) {
           return (
-            <p key={index}>{block.title}</p>
+            <div key={index}>
+              <MiniBlock block={block}/>
+            </div>
           )
         }
         return null;
@@ -59,7 +62,8 @@ class MultiView extends Component{
       return(
         //needs refactor to componenet.
         <li key={index} style={{'border':'1px solid red'}}>
-          <h2>{dayNamesArray[day.getDay()]}</h2>
+          <h2 className="block-day">{dayNamesArray[day.getDay()]}</h2>
+          <p className="block-date">{day.toDateString().slice(4)}</p>
           <Link to="/oneDayView" onClick={() => this.handleRedirect(day)}> go to day </Link>
           {block}
         </li>
