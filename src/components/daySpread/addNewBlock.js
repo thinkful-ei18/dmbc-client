@@ -11,9 +11,7 @@ class AddNewBlock extends Component {
     this.props.dispatch(sendNewBlock(newBlock));
     return this.refs['block-name-input'].value = '';
   }
-  dateNewBlockHelper(){
-
-  }
+  
   render(){
   //sets it up so that when you are gonna add a block it will be the "sooner/newer" date
   this.props.currentDay.setHours(this.props.blocksAmmount);

@@ -1,13 +1,32 @@
 import React, {Component} from 'react';
+import { ItemTypes } from '../utils/itemTypes.js';
+import { DragSource } from 'react-dnd';
+import PropTypes from 'prop-types';
 import Background from '../../assets/barPlaceHolder.jpg'
 import ExpandedContent from './ExpandedContent';
 
-class Card extends Component { // eslint-disable-line react/prefer-stateless-function
+
+const cardSource = {
+  beginDrag(props){
+    return{};
+  }
+}
+
+function collect(connect,monitor){
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
+  }
+}
+
+class Card extends Component {
   render() {
     //DUMMY PROPS FOR DESIGN
     const isExpanded = true
     const isSelected = this.props.selected; // dummy boolean, for telling the component to display extra stuff or not
     //END DUMMY PROPS
+    //dnd
+    const { connectDragSource, isDragging } = this.props;
 
     const expandedContent = isExpanded
       ? <ExpandedContent
@@ -37,8 +56,15 @@ class Card extends Component { // eslint-disable-line react/prefer-stateless-fun
     divClassName += isSelected ? ' card-selected' : '';
 
 
-    return (
-      <div className={divClassName}>
+    return connectDragSource(
+      <div className={divClassName}
+        style={{
+          opacity: isDragging ? 0.2 : 1,
+          fontSize:25,
+          fontWeight:'bold',
+          cursor:'move'
+        }}
+        >
         <div
           className='cardHeader'
           style={{
@@ -59,5 +85,9 @@ class Card extends Component { // eslint-disable-line react/prefer-stateless-fun
     );
   }
 }
+Card.propTypes = {
+  connectDragSource: PropTypes.func.isRequired,
+  isDragging: PropTypes.bool.isRequired
+}
 
-export default Card;
+export default DragSource(ItemTypes.CARD, cardSource, collect)(Card);

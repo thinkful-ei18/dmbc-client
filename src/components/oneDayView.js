@@ -6,7 +6,10 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 //actions
+
 import {fetchTripDetails} from '../actions/tripForm';
+import { putCardOnBlock } from '../actions/block';
+
 //components and helpers
 import BlockSpread from './daySpread/blockSpread';
 import AddNewBlock from './daySpread/addNewBlock';
@@ -25,15 +28,20 @@ class OneDayView extends Component {
       cardsContainer: 'hidden'
     };
   }
-
+  handleCardDrop(cardObject){
+    console.log(cardObject,'from up here');
+    this.props.dispatch(putCardOnBlock(cardObject))
+  }
   filterBlocks() {
     return this.props.blocks.blocks.filter(block => {
       return block.date.getDate() === this.props.currentDay.getDate();
     })
+    .sort((a,b) => a-b);
   }
 
   assembleBlocks(){
     const blocksAssembled = this.filterBlocks().map((currentBlock, index) => {
+      console.log(currentBlock,index,'blocksAssembled');
       return (
         // <li key={index}>
          // ###draganddropnotes, block dragging
@@ -44,14 +52,14 @@ class OneDayView extends Component {
           <BlockSpread
             block={currentBlock}
             key={index}
-            id={index}
+            id={currentBlock.date}
+            handleCardDrop={(e) => this.handleCardDrop(e)}
           />
         // </li>
       )
     });
     return blocksAssembled;
   }
-
   render() {
     if (!this.props.currentDay) {
       this.props.dispatch(fetchTripDetails());
