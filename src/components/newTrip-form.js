@@ -31,7 +31,8 @@ class NewTripForm extends Component {
   }
 
   render() {
-    //defualt values on first focus for Geosuggest
+    const wrongDates = this.props.dateStart>this.props.dateEnd ? true:false;
+    const noDate = this.props.dateStart ? false:true;
     const fixtures = [
       {label: 'Chicago', location: {lat: 40.7033127, lng: -73.979681}},
       {label: 'Mexico City', location: {lat: -22.066452, lng: -42.9232368}},
@@ -39,15 +40,16 @@ class NewTripForm extends Component {
     ];
     return (
       <div className='tripFormContainer'>
+        <h2>Tell us a little about your trip</h2>
         <div className='tripFormPlace'>
-          <p>I'm traveling to</p>
+          <p>I'm traveling to📍</p>
           <Geosuggest
             className="tripGeoInput"
             fixtures={fixtures}
             onSuggestSelect={(location) => this.props.dispatch(setTripDestination(location))}
           />
         </div>
-        <div className='tripFromDates'>
+        <div className='tripFormDates'>
           <p>From</p>
           <DatePicker
             value={this.props.dateStart}
@@ -55,16 +57,27 @@ class NewTripForm extends Component {
           />
         <p>up until,</p>
           <DatePicker
+            style={{'margin':'0px 5px'}}
             value={this.props.dateEnd}
             onChange={ (dateEnd) => this.props.dispatch(setDateEnd(dateEnd)) }
           />
         </div>
         <div className='tripTravelrs'>
-          <p>and I'm traveling with</p>
-          <input type="text" onBlur={(travelers) => this.props.dispatch(setTripPartners(travelers.target.value))}/>
+          <p>who's traveling with you? </p>
+          <input
+            type="text"
+            placeholder="you can leave me blank if you're traveling solo"
+            onBlur={(travelers) => this.props.dispatch(setTripPartners(travelers.target.value))
+            }/>
         </div>
         <div className='controls'>
-          <button onClick={() =>this.sendDays()}>Submit</button>
+          <button
+            ref='submit'
+            onClick={() =>this.sendDays()}
+            disabled={wrongDates||noDate}
+          >Submit</button>
+
+
         </div>
 
       </div>
@@ -78,6 +91,7 @@ const mapStateToProps = (state) =>({
   dateEnd:state.trip.dateEnd,
   partners:state.trip.partners,
   destination:state.trip.destination
+
 })
 
 export default connect(mapStateToProps)(NewTripForm);
