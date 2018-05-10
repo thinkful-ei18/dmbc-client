@@ -24,11 +24,11 @@ class ToolbeltCard extends Component {
   render(){
     const { connectDragSource, isDragging } = this.props
     return connectDragSource(
-        <div className='cardContainer-expanded' key={this.props.index}
+        <div className='card-container-expanded' key={this.props.index}
           style={{'opacity': isDragging ? 0.2:1}}
           >
-          <div className='cardHeader' style={{'backgroundImage':`url(${this.props.Background})`}}>
-            <span className='placeName'>{this.props.card.name}</span>
+          <div className='card-header' style={{'backgroundImage':`url(${this.props.Background})`}}>
+            <span className='place-name'>{this.props.card.name}</span>
           </div>
           <div className='placeTags'>
             <ul>
@@ -36,9 +36,9 @@ class ToolbeltCard extends Component {
             </ul>
           </div>
           <div>
-          <div className='cardBody'>
-            <span className='blurbHeader'>Details</span>
-            <span className='cardBlurb'>
+          <div className='card-body'>
+            <span className='blurb-header'>Details</span>
+            <span className='card-blurb'>
               {this.props.card.description}
             </span>
           </div>

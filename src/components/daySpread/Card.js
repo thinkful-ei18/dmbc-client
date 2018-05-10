@@ -50,7 +50,7 @@ class Card extends Component {
       })
 
     let divClassName = isExpanded
-      ? 'cardContainer-expanded'
+      ? 'card-container-expanded'
       : 'cardContainer-minimized';
 
     divClassName += isSelected ? ' card-selected' : '';
@@ -66,11 +66,11 @@ class Card extends Component {
         }}
         >
         <div
-          className='cardHeader'
+          className='card-header'
           style={{
           'backgroundImage': `url(${Background})`
         }}>
-          <span className='placeName'>{this.props.info.name}</span>
+          <span className='place-name'>{this.props.info.name}</span>
         </div>
         <div className='placeTags'>
           <ul>
