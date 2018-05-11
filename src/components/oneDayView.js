@@ -88,17 +88,15 @@ class OneDayView extends Component {
       />
       if (this.state.cardsContainer === 'hidden') {
         toolbeltButton = (
-          <button className="toolbelt-button" onClick={event => {
-            event.preventDefault();
+          <button className="toolbelt-open" onClick={event => {
             this.setState({
               cardsContainer: 'show'
             });
-          }}>Toolbelt</button>
+          }}>Show Toolbelt</button>
         )
       } else {
         toolbeltButton = (
-          <i className="far fa-times-circle fa-lg toolbelt-button" onClick={event => {
-            event.preventDefault();
+          <i className="far fa-times-circle fa-lg toolbelt-close" onClick={event => {
             this.setState({
               cardsContainer: 'hidden'
             })
