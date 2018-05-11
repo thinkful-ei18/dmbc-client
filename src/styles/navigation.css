@@ -2,7 +2,7 @@
   position:relative;
   z-index: 5000;
   width:100%;
-  margin-bottom:10px;
+  /* margin-bottom:10px; */
   display:flex;
   justify-content: space-between;
   background-color:rgba(0, 0, 0, 0.22);
@@ -10,7 +10,7 @@
 }
 .nav-logo{
   display:inline-block;
-  margin:10px 30px;
+  margin:4px 18px;
 }
 
 .nav-links{

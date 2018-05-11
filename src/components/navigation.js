@@ -10,7 +10,7 @@ export class Navigation extends React.Component {
     let isLoggedIn = (
       <div className="nav-content">
         <div className='nav-logo'>
-          <Logo size={'small'}/>
+          <Logo size={'tiny'}/>
         </div>
         <div className='nav-links'>
           <Link to="/">Home</Link>
