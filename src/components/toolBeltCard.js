@@ -28,23 +28,22 @@ class ToolbeltCard extends Component {
         <div className='card-container-expanded' key={this.props.index}
           style={{'opacity': isDragging ? 0.2:1}}
           >
-          <div className='cardHeader' style={{'backgroundImage':`url(${this.props.Background})`}}>
+          <div className='card-header' style={{'backgroundImage':`url(${this.props.Background})`}}>
             <div className="card-title">
-              <div className='placeName'>{this.props.card.name}</div>
-              <div className='cardBlurb'>{this.props.card.address}</div>
-            </div>
+              <div className='place-name'>{this.props.card.name}</div>
+              <div className='card-blurb'>{this.props.card.address}</div>            </div>
           </div>
-          <div className='placeTags'>
+          <div className='place-tags'>
             <ul>
               {this.props.placeTags}
             </ul>
           </div>
           <div>
-            <div className='cardBody'>
-              <span className='blurbHeader'>Details</span>
-              <span className='cardBlurb'>{this.props.card.description}</span>
+            <div className='card-body'>
+              <span className='blurb-header'>Details</span>
+              <span className='card-blurb'>{this.props.card.description}</span>
             </div>
-            <div className='cardControls'>
+            <div className='card-controls'>
               {/* {this.addSelectorToCard(card.id)} */}
               <button onClick={event => {
                 event.preventDefault();

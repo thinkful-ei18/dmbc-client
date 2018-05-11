@@ -33,10 +33,10 @@ export class CreateCard extends React.Component {
             this.props.dispatch(setToolbeltDisplay('cards'));
           }}>
           <h4>Create a Card</h4>
-          <div className='cardContainer-expanded' key={this.props.index}>
-          <div className='cardHeader' style={{'backgroundImage':`url(${Background})`}}>
+          <div className='card-container-expanded' key={this.props.index}>
+          <div className='card-header' style={{'backgroundImage':`url(${Background})`}}>
             <div className="card-title">
-              <span className='placeName'>
+              <span className='place-name'>
                 <input
                   type="text"
                   name="name"
@@ -45,7 +45,7 @@ export class CreateCard extends React.Component {
                   ref={input => this.name = input}
                 />
               </span>
-              <span className='cardBlurb'>
+              <span className='card-blurb'>
                 <input
                   type="text"
                   name="address"
@@ -56,15 +56,15 @@ export class CreateCard extends React.Component {
               </span>
             </div>
           </div>
-          <div className='placeTags'>
+          <div className='place-tags'>
             <ul>
               {placeTags}
             </ul>
           </div>
           <div>
-            <div className='cardBody'>
-              <span className='blurbHeader'>Details</span>
-              <span className='cardBlurb'>
+            <div className='card-body'>
+              <span className='blurb-header'>Details</span>
+              <span className='card-blurb'>
                 <textarea
                   name="description"
                   id="description"
@@ -74,7 +74,7 @@ export class CreateCard extends React.Component {
                   ref={input => this.description = input}
                 />
               </span>
-              <span className='cardBlurb'>
+              <span className='card-blurb'>
                 <input
                   type="text"
                   name="hours"
@@ -84,7 +84,7 @@ export class CreateCard extends React.Component {
                 />
               </span>
             </div>
-            <div className='cardControls'>
+            <div className='card-controls'>
               <button>Create</button>
             </div>
           </div>

@@ -76,7 +76,7 @@ class OneDayView extends Component {
 
     let toolbelt;
     let toolbeltButton;
-    if (this.props.currentUser.id === this.props.blocks.ambassador.id) {
+    if (this.props.currentUser.id === this.props.blocks.ambassador) {
       toolbelt = <Toolbelt
         availableBlocks={this.filterBlocks()}
         cardsContainer={this.state.cardsContainer}

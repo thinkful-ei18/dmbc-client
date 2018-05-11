@@ -29,25 +29,25 @@ export class Yelp extends React.Component {
       searchResults = this.props.yelp.map((result, index) => {
         let location = `${result.location.address1}, ${result.location.city}, ${result.location.state}, ${result.location.zip_code}`;
         return (
-          <div className='cardContainer-expanded' key={index}>
-            <div className='cardHeader' style={{'backgroundImage':`url(${result.image_url})`}}>
+          <div className='card-container-expanded' key={index}>
+            <div className='card-header' style={{'backgroundImage':`url(${result.image_url})`}}>
               <div className="card-title">
-                <span className='placeName'>{result.name}</span>
+                <span className='place-name'>{result.name}</span>
               </div>
             </div>
-            <div className='placeTags'>
+            <div className='place-tags'>
               <ul>
                 {placeTags}
               </ul>
             </div>
             <div>
-              <div className='cardBody'>
-                <span className='blurbHeader'>Location</span>
-                <span className='cardBlurb'>
+              <div className='card-body'>
+                <span className='blurb-header'>Location</span>
+                <span className='card-blurb'>
                   {location}
                 </span>
               </div>
-              <div className='cardControls'>
+              <div className='card-controls'>
                 <button onClick={event => {
                     event.preventDefault();
                     this.setState({

@@ -53,10 +53,10 @@ class SingleCard extends React.Component {
           this.props.dispatch(updateCard(newCard, this.state.id, distance))
           this.props.dispatch(setToolbeltDisplay('cards'));
         }}>
-        <div className='cardContainer-expanded' key={this.props.index}>
-          <div className='cardHeader' style={{'backgroundImage':`url(${Background})`}}>
+        <div className='card-container-expanded' key={this.props.index}>
+          <div className='card-header' style={{'backgroundImage':`url(${Background})`}}>
             <div className="card-title">
-              <span className='placeName'>
+              <span className='place-name'>
                 <input 
                   id="name"
                   name="name"
@@ -69,7 +69,7 @@ class SingleCard extends React.Component {
                   }}
                 />
               </span>
-              <span className='cardBlurb'>
+              <span className='card-blurb'>
                 <input 
                   id="address"
                   name="address"
@@ -84,15 +84,15 @@ class SingleCard extends React.Component {
               </span>
             </div>
           </div>
-          <div className='placeTags'>
+          <div className='place-tags'>
             <ul>
               {placeTags}
             </ul>
           </div>
           <div>
-            <div className='cardBody'>
-              <span className='blurbHeader'>Details</span>
-              <span className='cardBlurb'>
+            <div className='card-body'>
+              <span className='blurb-header'>Details</span>
+              <span className='card-blurb'>
                 <textarea 
                   id="description"
                   name="description"
@@ -106,7 +106,7 @@ class SingleCard extends React.Component {
                 }}/>
               </span>
             </div>
-            <div className='cardControls'>
+            <div className='card-controls'>
               <button>Submit Changes</button>
             </div>
           </div>
