@@ -85,11 +85,24 @@ class MultiView extends Component{
 
   render(){
     let trips = this.assembleTripSpread();
+    let tripDetails = (
+      <div className="trip-details">
+        <h1 className="itinerary-header">We are loading your trip</h1>
+      </div>
+    );
+
+    if (this.props.currentItinerary) {
+      tripDetails = (
+        <div className="trip-details">
+          <h1 className="itinerary-header">Trip Itinerary for {this.props.currentItinerary.destination.locationName}</h1>
+          <h2 className="itinerary-dates">{this.props.currentItinerary.dateStart.toDateString()} to {this.props.currentItinerary.dateEnd.toDateString()}</h2>
+          <p className="ambassador-info">Your ambassador is {this.props.currentItinerary.ambassador.name}</p>
+        </div>
+      )
+    }
     return(
       <div className="multi-view">
-        <h1 className="itinerary-header">Trip Itinerary for {this.props.currentItinerary.destination.locationName}</h1>
-        <h2 className="itinerary-dates">{this.props.currentItinerary.dateStart.toDateString()} to {this.props.currentItinerary.dateEnd.toDateString()}</h2>
-        <p className="ambassador-info">Your ambassador is {this.props.currentItinerary.ambassador.name}</p>
+        {tripDetails}
         <ul>
           {trips}
         </ul>
