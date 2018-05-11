@@ -97,7 +97,7 @@ export class Toolbelt extends React.Component {
     let changeState;
     if (this.props.toolBeltDisplay === 'cards') {
       changeState = (
-        <button class="create-card" onClick={event => {
+        <button className="create-card" onClick={event => {
           event.preventDefault();
           this.props.dispatch(setToolbeltDisplay('create'));
         }}>New Card</button>

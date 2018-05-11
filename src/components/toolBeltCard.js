@@ -29,7 +29,10 @@ class ToolbeltCard extends Component {
           style={{'opacity': isDragging ? 0.2:1}}
           >
           <div className='cardHeader' style={{'backgroundImage':`url(${this.props.Background})`}}>
-            <span className='placeName'>{this.props.card.name}</span>
+            <div className="card-title">
+              <div className='placeName'>{this.props.card.name}</div>
+              <div className='cardBlurb'>{this.props.card.address}</div>
+            </div>
           </div>
           <div className='placeTags'>
             <ul>
@@ -37,21 +40,19 @@ class ToolbeltCard extends Component {
             </ul>
           </div>
           <div>
-          <div className='cardBody'>
-            <span className='blurbHeader'>Details</span>
-            <span className='cardBlurb'>
-              {this.props.card.description}
-            </span>
-          </div>
-          <div className='cardControls'>
-            {/* {this.addSelectorToCard(card.id)} */}
-            <button onClick={event => {
-              event.preventDefault();
-              this.props.cardId(this.props.card.id);
-              this.props.dispatch(setToolbeltDisplay('edit'));
-            }}>Edit Card</button>
-            <button className='confirm-location'>Lock in</button>
-          </div>
+            <div className='cardBody'>
+              <span className='blurbHeader'>Details</span>
+              <span className='cardBlurb'>{this.props.card.description}</span>
+            </div>
+            <div className='cardControls'>
+              {/* {this.addSelectorToCard(card.id)} */}
+              <button onClick={event => {
+                event.preventDefault();
+                this.props.cardId(this.props.card.id);
+                this.props.dispatch(setToolbeltDisplay('edit'));
+              }}>Edit Card</button>
+              {/* <button className='confirm-location'>Lock in</button> */}
+            </div>
           </div>
         </div>
     )

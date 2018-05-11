@@ -31,7 +31,9 @@ export class Yelp extends React.Component {
         return (
           <div className='cardContainer-expanded' key={index}>
             <div className='cardHeader' style={{'backgroundImage':`url(${result.image_url})`}}>
-              <span className='placeName'>{result.name}</span>
+              <div className="card-title">
+                <span className='placeName'>{result.name}</span>
+              </div>
             </div>
             <div className='placeTags'>
               <ul>
@@ -40,7 +42,7 @@ export class Yelp extends React.Component {
             </div>
             <div>
               <div className='cardBody'>
-                <span className='blurbHeader'>Details</span>
+                <span className='blurbHeader'>Location</span>
                 <span className='cardBlurb'>
                   {location}
                 </span>

@@ -46,30 +46,38 @@
   background-color: gold;
 }
 .cardHeader{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
   width:100%;
   color:white;
   background-size: cover;
   flex:1 1 20em;
-
+}
+.card-title {
+  margin: 0 0 0 5px;
+}
+.card-title input {
+  position: relative;
+  width: 260px;
+  top: -5px;
+  margin: 0;
+  margin-bottom: 5px;
 }
 .placeName{
-  position:relative;
   display:block;
-  top:100%;
-  transform: translateY(-100%);
   font-family: 'IBM plex serif';
   font-size: 23px;
-  margin:0 0 0 5px;
 }
 .placeTags{
   height:40px;
   margin:5px 0;
+  margin-left: 5px;
   display:flex;
   flex-direction: row;
   align-items: baseline;
   flex:2 2 10em;
   justify-content: space-between;
-
 }
 .placeTags ul{
   font-size:11px
@@ -90,14 +98,24 @@
 .cardBlurb{
   display: flex;
   flex:1 1 10em;
-  font-size: 10px;
+  font-size: 12px;
   /* text-align:justify; */
-
+}
+.cardBlurb input {
+  width: 260px;
+  margin: 0;
+  margin-bottom: 5px;
 }
 .cardBody{
   color:black;
   flex:2 2 20em;
   font-size: 14px;
+  margin-left: 5px;
+}
+.cardBody textarea {
+  width: 260px;
+  height: 40px;
+  margin-bottom: 10px;
 }
 .cardControls{
   display:flex;
@@ -107,6 +125,5 @@
 .cardControls button{
   background-color: none;
   padding:4px;
-  font-size:9px;
-
+  font-size:12px;
 }

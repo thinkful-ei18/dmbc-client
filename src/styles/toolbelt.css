@@ -51,7 +51,7 @@
 
 .toolbelt-button {
   margin: 0;
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 35px;
   cursor: pointer;
