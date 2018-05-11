@@ -1,3 +1,7 @@
+.multi-view {
+  font-family: 'IBM Plex', sans-serif;
+}
+
 .trip-spread {
   display: flex;
   justify-content: space-between;
@@ -5,4 +9,19 @@
 
 .trip-block {
   margin: 0 20px;
+}
+
+.block-date {
+  padding-top: 15px;
+  padding-left: 15px;
+  font-size: 20px;
+  border-bottom: 1px solid black;
+}
+
+.one-day-link:hover .one-day-link:active {
+  background-color: grey;
+}
+
+.no-blocks {
+  padding: 15px;
 }

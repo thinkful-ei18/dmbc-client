@@ -1,37 +1,38 @@
 .mini-block{
-  background-color: grey;
+  background-color: rgb(188, 193, 209);
 
   display:flex;
   justify-content:space-around;
 
-  margin:22px 0px;
+  margin:0;
   width:100%;
   align-items:center;
+  height: 100px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  display: grid;
+  grid-template-columns: 33% 67%;
 }
 
 .mini-block-title {
-  width:150px;
-  height:200px;
-  display:flex;
-  flex-direction: column;
+  width:auto;
   padding:15px;
-  font-size: 24px;
+  font-size: 18px;
+  vertical-align: middle;
+  grid-column: 1;
 }
 .mini-card{
   background-color: white;
-  width:220px;
-  height:200px;
-  display:flex;
-  flex-direction: column;
+  width:auto;
+  height: 100px;
   padding:15px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  grid-column: 2;
 }
 
 .mini-card-header{
   width:100%;
   background-size: cover;
   flex:1 1 20em;
-
 }
 .mini-card-blurb{
   display: flex;
