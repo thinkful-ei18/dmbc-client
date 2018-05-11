@@ -22,7 +22,7 @@ class ExpandedContent extends Component{
           <span>tips</span>
 
         </div>
-        <div className='cardControls'>
+        <div className='card-controls'>
           <button className='confirm-location'>Lock in</button>
         </div>
       </div>
