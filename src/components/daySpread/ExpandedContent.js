@@ -66,9 +66,9 @@ export class ExpandedContent extends Component {
 
     return (
       <div>
-        <div className='cardBody'>
-          <span className='blurbHeader'>Details</span>
-          <span className='cardBlurb'>
+        <div className='card-body'>
+          <span className='blurb-header'>Details</span>
+          <span className='card-blurb'>
             {selector}
             {this.props.info.description}
             {this.props.info.address}

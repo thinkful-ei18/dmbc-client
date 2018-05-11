@@ -25,7 +25,7 @@ class ToolbeltCard extends Component {
   render(){
     const { connectDragSource, isDragging } = this.props
     return connectDragSource(
-        <div className='cardContainer-expanded' key={this.props.index}
+        <div className='card-container-expanded' key={this.props.index}
           style={{'opacity': isDragging ? 0.2:1}}
           >
           <div className='cardHeader' style={{'backgroundImage':`url(${this.props.Background})`}}>

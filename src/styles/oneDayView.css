@@ -21,7 +21,7 @@
   height:400px;
   align-items:center;
 }
-.cardContainer-expanded{
+.card-container-expanded{
   background-color: white;
   width:300px;
   height:355px;
@@ -45,10 +45,7 @@
 .card-selected {
   background-color: gold;
 }
-.cardHeader{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
+.card-header{
   width:100%;
   color:white;
   background-size: cover;
@@ -64,7 +61,8 @@
   margin: 0;
   margin-bottom: 5px;
 }
-.placeName{
+.place-name{
+  position:relative;
   display:block;
   font-family: 'IBM plex serif';
   font-size: 23px;
@@ -91,11 +89,11 @@
 .placeTags li::after{
   margin-right: 10px;
 }
-.blurbHeader{
+.blurb-header{
   display:flex;
   flex:1 1 10em;
 }
-.cardBlurb{
+.card-blurb{
   display: flex;
   flex:1 1 10em;
   font-size: 12px;
@@ -106,7 +104,7 @@
   margin: 0;
   margin-bottom: 5px;
 }
-.cardBody{
+.card-body{
   color:black;
   flex:2 2 20em;
   font-size: 14px;

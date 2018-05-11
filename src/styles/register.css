@@ -5,20 +5,18 @@
   height:100%;
 }
 .hero-container{
-  border:1px solid green;
-
   grid-column: 1;
   height: 96.5vh;
 
-
   color:white;
-  padding-top:140px;
+  padding-top:190px;
+  padding-left:30px;
 
   background-image:
     linear-gradient(
       to right,
-       rgba(0, 0, 0, 0.19),
-       rgba(0, 0, 0, 0.2)
+       rgba(0, 0, 0, 0.44),
+       rgba(0, 0, 0, 0.22)
       ),
     url('../assets/registration-hero.jpg');
   background-repeat: no-repeat;
@@ -28,15 +26,21 @@
 
 }
 .form-container{
+  margin-top:27px;
   grid-column:2;
-  border:1px solid yellow;
   text-align: center;
 }
 .account-link{
   font-size: 14px;
 }
+.logo{
+  position:fixed;
+  /* border:1px solid green; */
+  top:40px;
+  left:14px;
+}
 
-@media only screen and (max-width: 720px)  {
+@media only screen and (max-width: 859px)  {
   .registration{
     display:grid;
     grid-template-columns: repeat(1,1fr);
@@ -51,10 +55,10 @@
     background-position: top;
   }
   .form-container{
+    margin-top:15px;
     grid-column:1;
     height:70vh;
     display: inline-block;
   }
-
 
 }
