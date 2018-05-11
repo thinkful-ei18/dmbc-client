@@ -15,7 +15,7 @@ export default function MiniBlock(props) {
     <div className="mini-card">
       <p className="mini-card-header">{smallCards.name}</p>
       <p className="mini-card-blurb">{smallCards.address}</p>
-      <p className="mini-card-blurb">Rating: {Math.floor(smallCards.ratingScore / smallCards.ratingCount)}</p>
+      <p className="mini-card-blurb">Rating: {Math.floor(smallCards.ratingScore / smallCards.ratingCount) || 0}</p>
     </div>
     )
   } else {
