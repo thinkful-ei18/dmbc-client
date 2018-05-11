@@ -33,12 +33,6 @@
 .account-link{
   font-size: 14px;
 }
-.logo{
-  position:fixed;
-  /* border:1px solid green; */
-  top:40px;
-  left:14px;
-}
 
 @media only screen and (max-width: 859px)  {
   .registration{
