@@ -13,7 +13,7 @@ class ExpandedContent extends Component{
             litteris tractavissent.
           </span>
         </div>
-        <div className='cardControls'>
+        <div className='card-controls'>
           <button className='confirm-location'>Lock in</button>
         </div>
       </div>

@@ -43,7 +43,7 @@ class AmbassadorExplore extends Component {
                     {card.description}
                   </span>
                 </div>
-                <div className='cardControls'>
+                <div className='card-controls'>
                   <Link to={`/cards/${card.id}`}>Edit Card</Link>
                 </div>
               </div>

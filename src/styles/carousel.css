@@ -5,37 +5,38 @@
 .carousel-title-card{
     font-size: 2em;
     text-align: center;
-    background: linear-gradient(to right, #0066cc -14%, #ffffff 53%);
-    
+    background: linear-gradient(to right, #267dc0 -14%, #ffffff 53%);
+    font-family: 'IBM plex serif';
 }
 
 .carousel-title-current{
     font-size: 2em;
     text-align: center;
-    background: linear-gradient(to right, #0066cc -14%, #ffffff 53%);
-
+    background: linear-gradient(to right, #267dc0 -14%, #ffffff 53%);
+    font-family: 'IBM plex serif';
 }
 
 .carousel-title-past{
     font-size: 2em;
     text-align: center;
-    background: linear-gradient(to right, #0066cc -14%, #ffffff 53%);
-    
+    background: linear-gradient(to right, #267dc0 -14%, #ffffff 53%);
+    font-family: 'IBM plex serif';
 }
 
 .carousel-background-cards {
-    background-color: rgba(245, 88, 211, 0.425);
+    background-color: tomato;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    font-family: 'IBM plex serif';
 }
 
 .carousel-background-current {
-    background-color: rgba(93, 245, 88, 0.425);
+    background-color: tomato;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    
+    font-family: 'IBM plex serif';
 }
 
 .carousel-background-past {
-    background-color: rgba(69, 69, 202, 0.425);
+    background-color: tomato;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
@@ -50,12 +51,46 @@
     margin: 0px auto;
     margin-bottom: 30px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    font-family: 'IBM plex serif';
+}
+
+.itinerary-container:hover { 
+    background: rgba(71, 69, 69, 0.2);
+	border: solid black 4px;
 }
 
 .itinerary-destination {
     background-color: rgba(0, 0, 0, 0.192)
 }
 
+/* @media (max-width: 400px) {
+    .itinerary-container {
+        width:150px;
+        height:55px;
+    }
 
+.small-card {
+	border-top: solid rgb(7, 180, 233) 2px;
+}
+
+.lp-header {
+	grid-column: 1 / -1;
+	/* border-bottom: solid white 0.5px; */
+	/* text-align: center;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.image {
+	width: 100%;
+}
+
+.social-container {
+	margin: 50px auto;
+	padding: 0;
+	border: 0;
+	background-color: rgba(34, 34, 34, 0.747);
+	font-family: Arial, Helvetica, sans-serif;
+	width: 90%;
+}
+} */ 
 
 
