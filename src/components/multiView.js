@@ -77,7 +77,7 @@ class MultiView extends Component{
             <h2 className="block-date">{parsedDate}</h2>
             {block}
           </li>
-        </Link> 
+        </Link>
       )
     })
     return tripSpread;

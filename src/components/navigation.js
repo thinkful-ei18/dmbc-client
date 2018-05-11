@@ -2,17 +2,26 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Logout from './logout';
-
+import Logo from './logo';
+import '../styles/navigation.css';
 export class Navigation extends React.Component {
   render() {
     let ambassadorLink = '';
     let isLoggedIn = (
       <div className="nav-content">
-        <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
-        <Link to="/ambassador-register">Ambassador Register</Link>
-        <Link to='/mock'>Mockups</Link>
+        <div className='nav-logo'>
+          <Logo size={'tiny'}/>
+        </div>
+        <div className='nav-links'>
+          <Link to="/">Home</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
+          <Link to="/ambassador-register">Ambassador Register</Link>
+        </div>
+
+
+
+
       </div>
     )
 

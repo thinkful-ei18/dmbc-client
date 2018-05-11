@@ -9,13 +9,18 @@
   font-size:4.4em;
 }
 
+.tiny i{
+  font-size:1.6em;
+}
 .small i{
   font-size: 3em;
 }
 .large i{
   font-size: 6em;
 }
-
+.tiny p{
+  font-size:1.7em;
+}
 .small p{
   font-size: 1.9em;
 }
