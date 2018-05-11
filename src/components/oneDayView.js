@@ -108,7 +108,7 @@ class OneDayView extends Component {
     }
 
     let addBlock;
-    if (this.state.addBlock) {
+    if (this.state.addBlock || this.filterBlocks().length === 0) {
       addBlock = <AddNewBlock 
         blocksAmmount={blocks.length}
         updateAddBlock={event => {
