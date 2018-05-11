@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {fetchSingleCard, updateCard} from '../actions/cards';
 import { setToolbeltDisplay } from '../actions/dashboard';
 import requiresLogin from '../requires-login';
+import Background from '../assets/barPlaceHolder.jpg'
 
 class SingleCard extends React.Component {
   constructor() {
@@ -29,6 +30,11 @@ class SingleCard extends React.Component {
     });
   };
   render() {
+    const apiTags = ['Family Friendly', 'Crowd Friendly', 'No Pets'];
+
+    const placeTags = apiTags.map((tag,index) => {
+      return (<li key={index}>{tag}</li>)
+    });
     const distance = this.props.destination.distance;
 
     let editForm;
@@ -47,55 +53,64 @@ class SingleCard extends React.Component {
           this.props.dispatch(updateCard(newCard, this.state.id, distance))
           this.props.dispatch(setToolbeltDisplay('cards'));
         }}>
-          <label htmlFor="name">Name</label>
-          <input 
-            id="name"
-            name="name"
-            defaultValue={this.state.name}
-            onChange={event => {
-              event.preventDefault();
-              this.setState({
-                name: event.target.value
-              })
-            }}
-          />
-          <label htmlFor="description">Description</label>
-          <textarea 
-            id="description"
-            name="description"
-            defaultValue={this.state.description}
-            onChange={event => {
-              event.preventDefault();
-              this.setState({
-                description: event.target.value
-              })
-            }}
-          />
-          <label htmlFor="address">Address</label>
-          <input 
-            id="address"
-            name="address"
-            defaultValue={this.state.address}
-            onChange={event => {
-              event.preventDefault();
-              this.setState({
-                address: event.target.value
-              })
-            }}
-          />
-          <label htmlFor="hours">Operating Hours</label>
-          <input 
-            id="hours"
-            name="hours"
-            defaultValue={this.state.hours}
-            onChange={event => {
-              event.preventDefault();
-              this.setState({
-                hours: event.target.value
-              })
-            }}
-          />
-          <button>Submit Changes</button>
+        <div className='card-container-expanded' key={this.props.index}>
+          <div className='card-header' style={{'backgroundImage':`url(${Background})`}}>
+            <div className="card-title">
+              <span className='place-name'>
+                <input 
+                  id="name"
+                  name="name"
+                  defaultValue={this.state.name}
+                  onChange={event => {
+                    event.preventDefault();
+                    this.setState({
+                      name: event.target.value
+                    })
+                  }}
+                />
+              </span>
+              <span className='card-blurb'>
+                <input 
+                  id="address"
+                  name="address"
+                  defaultValue={this.state.address}
+                  onChange={event => {
+                    event.preventDefault();
+                    this.setState({
+                      address: event.target.value
+                    })
+                  }}
+                />
+              </span>
+            </div>
+          </div>
+          <div className='place-tags'>
+            <ul>
+              {placeTags}
+            </ul>
+          </div>
+          <div>
+            <div className='card-body'>
+              <span className='blurb-header'>Details</span>
+              <span className='card-blurb'>
+                <textarea 
+                  id="description"
+                  name="description"
+                  maxLength="100"
+                  defaultValue={this.state.description}
+                  onChange={event => {
+                    event.preventDefault();
+                    this.setState({
+                      description: event.target.value
+                    })
+                }}/>
+              </span>
+            </div>
+            <div className='card-controls'>
+              <button>Submit Changes</button>
+            </div>
+          </div>
+        </div>
         </form>
       );
     }

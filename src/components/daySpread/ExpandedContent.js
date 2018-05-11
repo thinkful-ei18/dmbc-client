@@ -36,11 +36,10 @@ export class ExpandedContent extends Component {
         }
         this.props.dispatch(rateCard(values)); 
       }}>
-        <label>Rating
-          <select onChange={(input) => this.selectVal = input.target.value}>
-            {options}
-          </select>
-        </label>
+        <label>Rating</label>
+        <select onChange={(input) => this.selectVal = input.target.value}>
+          {options}
+        </select>
         <button type="submit">Rate Me</button>
       </form>
     )
@@ -52,31 +51,29 @@ export class ExpandedContent extends Component {
     let select;
     if (this.props.selected) {
       select = (
-        <div className='cardControls'>
-          <button onClick={() => this.deselect()} className='confirm-location'>I want choices</button>
-        </div>
+        <button onClick={() => this.deselect()} className='confirm-location'>I want choices</button>
       )
     } else {
       select = (
-        <div className='cardControls'>
-          <button onClick={() => this.lockIn()} className='confirm-location'>Lock in</button>
-        </div>
+        <button onClick={() => this.lockIn()} className='confirm-location'>Lock in</button>
       )
     }
 
     return (
       <div>
         <div className='card-body'>
+          <span className='blurb-header'>
+            {this.props.rating}/5
+          </span>
           <span className='blurb-header'>Details</span>
           <span className='card-blurb'>
-            {selector}
             {this.props.info.description}
-            {this.props.info.address}
           </span>
         </div>
-
-        {select}
-
+        <span className='card-controls'>
+          {selector}
+          {select}
+        </span>
       </div>
     )
   }

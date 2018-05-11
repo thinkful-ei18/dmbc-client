@@ -30,30 +30,38 @@
 }
 
 .card-search {
-  margin: 48px 20px;
+  margin: 0 41px;
   margin-bottom: 25px;
-  float: right;
+  height: 30px;
+  background-color: #000;
+  float: left;
 }
 
 .card-search button {
+  width: 50px;
+  height: 100%;
   margin: 0;
+  border-radius: 0;
 }
 
 .card-search input {
+  width: 250px;
+  height: 100%;
   margin: 0;
+  padding-top: 7px;
 }
 
 .create-card, .back-button {
-  margin: 50px 20px;
+  margin: 50px 41px;
   margin-bottom: 25px;
   float: left;
 }
 
 .toolbelt-button {
   margin: 0;
-  position: absolute;
+  position: fixed;
   top: 20px;
-  right: 35px;
+  right: 30px;
   cursor: pointer;
   z-index: 100;
 }
