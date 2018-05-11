@@ -104,7 +104,7 @@ export class Toolbelt extends React.Component {
       )
     } else if (this.props.toolBeltDisplay !== 'cards'){
       changeState = (
-        <button class="back-button" onClick={event => {
+        <button className="back-button" onClick={event => {
           event.preventDefault();
           this.props.dispatch(setToolbeltDisplay('cards'));
         }}>Back</button>
@@ -115,7 +115,7 @@ export class Toolbelt extends React.Component {
       <div className={(this.props.cardsContainer === 'hidden') ? 'toolbelt-hidden' : 'toolbelt'}>
         <div className="cards">
           {changeState}
-          {display} 
+          {display}
         </div>
       </div>
     )

@@ -19,6 +19,7 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === FETCH_YELP_SUCCESS) {
     return Object.assign({}, state, {
       yelp: action.yelp,
+      loading: false,
       error: null
     });
   } else if (action.type === FETCH_YELP_ERROR) {

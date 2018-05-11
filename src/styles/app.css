@@ -8,6 +8,7 @@ input {
   border: 1px solid #666;
   padding: 5px;
   margin: 0 5px;
+  outline: 0;
 }
 
 button {
@@ -17,6 +18,7 @@ button {
   margin: 0 5px;
   background-color: #4EA5D9;
   cursor: pointer;
+  outline: 0;
 }
 
 /* geosuggest package */

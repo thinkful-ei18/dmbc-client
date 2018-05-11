@@ -53,6 +53,7 @@ class SingleCard extends React.Component {
           this.props.dispatch(updateCard(newCard, this.state.id, distance))
           this.props.dispatch(setToolbeltDisplay('cards'));
         }}>
+        <h4>Edit a Card</h4>
         <div className='card-container-expanded' key={this.props.index}>
           <div className='card-header' style={{'backgroundImage':`url(${Background})`}}>
             <div className="card-title">
@@ -115,7 +116,7 @@ class SingleCard extends React.Component {
       );
     }
     return (
-      <div>
+      <div className="edit-card-form">
         {editForm}
       </div>
     )

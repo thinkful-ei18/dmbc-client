@@ -16,20 +16,22 @@ class AddNewBlock extends Component {
   //sets it up so that when you are gonna add a block it will be the "sooner/newer" date
   this.props.currentDay.setHours(this.props.blocksAmmount);
     return(
-      <div
-        className="add-new-spread"
-      >
-        <input
-          type="text"
-          placeholder="blockName"
-          className="block-name-input"
-          ref="block-name-input"
-         />
-         <button
-           onClick={()=>this.handleNewBlockSubmit()}
-         >
-           submit
-         </button>
+      <div className="add-new-spread">
+        <form onSubmit={event=> {
+          event.preventDefault();
+          this.handleNewBlockSubmit();
+          this.props.updateAddBlock();
+        }}>
+          <label htmlFor="newblock">Enter a Block Name</label>
+          <input
+            type="text"
+            placeholder="blockname"
+            className="block-name-input"
+            name="newblock"
+            ref="block-name-input"
+          />
+          <button>submit</button>
+        </form>
       </div>
     )
   }

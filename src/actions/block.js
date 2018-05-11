@@ -5,8 +5,50 @@ export const createNewBlock = () => {
 
 }
 
-export const fetchBlocks = () => (dispatch, getState) =>{
+export const FETCH_BLOCKS_SUCCESS = 'FETCH_BLOCKS_SUCCESS'
+export const fetchBlocksSuccess = (blocks) => ({
+  type:FETCH_BLOCKS_SUCCESS,
+  blocks
+})
 
+export const FETCH_BLOCKS_ERROR = 'FETCH_BLOCKS_ERROR'
+export const fetchBlocksError = (err) => ({
+  type:FETCH_BLOCKS_ERROR,
+  err
+})
+
+export const fetchBlocks = () => (dispatch, getState) =>{
+  return fetch(`${API_BASE_URL}/blocks`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(res => {
+      return res.json();
+    })
+    .then(blocks => {
+      dispatch(fetchBlocksSuccess(blocks));
+    })
+    .catch(err => {dispatch(fetchBlocksError(err))});
+}
+
+export const deleteBlock = (blockId) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/block/${blockId}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(res => {
+    return res.json();
+  })
+  .then(() => {
+    dispatch(fetchBlocks())
+  })
+  .catch(err => {dispatch(fetchBlocksError(err))});
 }
 
 //send new block
