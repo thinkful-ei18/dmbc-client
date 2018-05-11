@@ -33,22 +33,28 @@
   margin: 0 41px;
   margin-bottom: 25px;
   height: 30px;
-  background-color: #000;
   float: left;
 }
 
-.card-search button {
-  width: 50px;
-  height: 100%;
-  margin: 0;
-  border-radius: 0;
+.card-search {
+  height: 30px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .card-search input {
-  width: 250px;
+  width: 230px;
   height: 100%;
   margin: 0;
-  padding-top: 7px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.card-search button {
+  width: 70px;
+  height: 100%;
+  margin: 0;
+  border-radius: 0 5px 5px 0;
 }
 
 .create-card, .back-button {
@@ -68,12 +74,43 @@
 
 .yelp-search {
   margin-top: 100px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-left: 41px;
 }
 
-.yelp-search label{
-  margin-left: 20px;
+.yelp-search form {
+  height: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
 }
 
-.yelp-search input {
-  margin-bottom: 20px;
+.yelp-search form label {
+  margin-bottom: 5px;
+}
+
+.yelp-search form input {
+  width: 230px;
+  height: 100%;
+  margin: 0;
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.yelp-search form button {
+  width: 70px;
+  height: 100%;
+  margin: 0;
+  border-radius: 0 5px 5px 0;
+}
+
+.create-card-form, .edit-card-form {
+  margin-top: 100px;
+}
+
+.create-card-form h4, .edit-card-form h4 {
+  margin-bottom: 10px;
 }

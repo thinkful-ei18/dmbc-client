@@ -1,25 +1,47 @@
+.day-spreads-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
 .block-spread{
   background-color: grey;
-
   display:flex;
+  flex-wrap: wrap;
   justify-content:space-around;
-
   margin:22px 0px;
-  /* width:1200px;
-  height:400px; */
+  padding: 20px;
+  min-height: 200px;
   align-items:center;
+}
+
+.delete-block {
+  position: relative;
+  display:  block;
+  width: 100%;
+  text-align: right;
+}
+
+.delete-block button {
+  background-color: tomato;
+}
+
+.block-spread h2 {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.block-spread h3 {
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .add-new-spread{
   border:1px solid blue;
   background-color:grey;
-  display:flex;
-  justify-content:space-around;
-
   margin:22px 0px;
-  width:1200px;
-  height:400px;
-  align-items:center;
+  padding: 20px;
+  height:200px;
 }
 .card-container-expanded{
   background-color: white;
@@ -124,4 +146,15 @@
   background-color: none;
   padding:4px;
   font-size:12px;
+}
+
+.new-block-button {
+  display: block;
+  width: 100%;
+  text-align: right;
+}
+
+.fa-plus-circle {
+  cursor: pointer;
+  font-size: 2.5em;
 }

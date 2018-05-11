@@ -36,11 +36,13 @@ class BlockSpread extends Component{
       }
       cards.push(<Card info={this.props.block.cards[i]} key={`${this.props.block.id}_${i}`} blockId={this.props.block.id}/>)
     }
+    if (cards.length === 0) {
+      cards = <h3>Waiting for Ambassador to Add Cards</h3>
+    }
     return cards;
   }
 
   render(){
-
     let cards = this.createCards();
     const { connectDropTarget, isOver} = this.props;
     return connectDropTarget(
@@ -49,12 +51,18 @@ class BlockSpread extends Component{
             'backgroundColor': isOver ? 'yellow' : 'grey'
           }}>
           <div className="block-spread">
-            <h1>{this.props.block.title}</h1>
+            <h2>{this.props.block.title}</h2>
             {cards}
+            <span className="delete-block">
+              <button onClick={() => {
+                this.props.deleteBlock(this.props.block.id)
+              }}>Delete</button>
+            </span>
           </div>
         </li>
     )
   }
 }
+
 
 export default DropTarget(ItemTypes.CARD, blockTarget, collect)(BlockSpread)

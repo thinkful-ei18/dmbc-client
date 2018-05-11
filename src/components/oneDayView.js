@@ -8,7 +8,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 //actions
 
 import {fetchTripDetails} from '../actions/tripForm';
-import { putCardOnBlock } from '../actions/block';
+import { putCardOnBlock, deleteBlock } from '../actions/block';
 
 //components and helpers
 import BlockSpread from './daySpread/blockSpread';
@@ -25,7 +25,8 @@ class OneDayView extends Component {
   constructor() {
     super();
     this.state = {
-      cardsContainer: 'hidden'
+      cardsContainer: 'hidden',
+      addBlock: false
     };
   }
   handleCardDrop(cardObject){
@@ -54,6 +55,10 @@ class OneDayView extends Component {
             key={index}
             id={currentBlock.date}
             handleCardDrop={(e) => this.handleCardDrop(e)}
+            deleteBlock={blockId => {
+              this.props.dispatch(deleteBlock(blockId));
+              window.location.reload();
+            }}
           />
         // </li>
       )
@@ -76,7 +81,7 @@ class OneDayView extends Component {
 
     let toolbelt;
     let toolbeltButton;
-    if (this.props.currentUser.id === this.props.blocks.ambassador) {
+    if (this.props.currentUser.id === this.props.blocks.ambassador.id) {
       toolbelt = <Toolbelt
         availableBlocks={this.filterBlocks()}
         cardsContainer={this.state.cardsContainer}
@@ -102,6 +107,17 @@ class OneDayView extends Component {
       }
     }
 
+    let addBlock;
+    if (this.state.addBlock) {
+      addBlock = <AddNewBlock 
+        blocksAmmount={blocks.length}
+        updateAddBlock={event => {
+          this.setState({
+            addBlock: false
+          });
+      }}/>;
+    }
+
     return (
       <div className="day-spreads-container">
         {toolbeltButton}
@@ -115,7 +131,22 @@ class OneDayView extends Component {
         <ul>
           {blocks}
         </ul>
-        <AddNewBlock blocksAmmount={blocks.length}/> {toolbelt}
+        {addBlock}
+        <span className="new-block-button">
+          <i className="fas fa-plus-circle" onClick={event => {
+            event.preventDefault();
+            if (!this.state.addBlock) {
+              this.setState({
+                addBlock: true
+              });
+            } else {
+              this.setState({
+                addBlock: false
+              })
+            }
+          }}></i>
+        </span>
+        {toolbelt}
       </div>
 
     )

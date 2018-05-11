@@ -24,6 +24,12 @@ export class Yelp extends React.Component {
     const placeTags = apiTags.map((tag,index) => {
       return (<li key={index}>{tag}</li>)
     });
+
+    let loading;
+    if (this.props.loading) {
+      loading = <p>Loading...</p>
+    }
+
     let searchResults;
     if (this.props.yelp.length > 0) {
       searchResults = this.props.yelp.map((result, index) => {
@@ -101,11 +107,14 @@ export class Yelp extends React.Component {
           this.offset = 0;
           this.props.dispatch(fetchYelp(latitude, longitude, this.term.value, this.offset));
         }}>
-          <label htmlFor="searchterm">Term</label>
-          <input ref={input => this.term = input} placeholder="searchterm" name="searchterm"/>
-          <button>Submit</button>
+          <label htmlFor="searchterm">What kind of card are you creating?</label>
+          <input type="text" ref={input => this.term = input} placeholder="searchterm" name="searchterm"/>
+          <button><i className="fas fa-search"></i></button>
         </form>
-        {searchResults}
+        {loading}
+        <div className="yelp-results">
+          {searchResults}
+        </div>
         {nextButton}
       </div>
     )
@@ -114,8 +123,8 @@ export class Yelp extends React.Component {
 
 const mapStateToProps = state => ({
   yelp: state.yelp.yelp,
-  loading: state.cards.loading,
-  error: state.cards.error,
+  loading: state.yelp.loading,
+  error: state.yelp.error,
   destination:state.dashboard.currentItinerary.destination
 });
 
