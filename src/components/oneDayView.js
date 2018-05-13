@@ -42,14 +42,7 @@ class OneDayView extends Component {
 
   assembleBlocks(){
     const blocksAssembled = this.filterBlocks().map((currentBlock, index) => {
-      console.log(currentBlock,index,'blocksAssembled');
       return (
-        // <li key={index}>
-         // ###draganddropnotes, block dragging
-        //this is a drag object for block dragging
-        //this is where we can pass in the id's for organizing and re ordering blocks
-        //define an order blocks function here?
-        //id is temporarily index, should be comming from state once we wire things up
           <BlockSpread
             block={currentBlock}
             key={index}
@@ -58,9 +51,7 @@ class OneDayView extends Component {
             deleteBlock={blockId => {
               this.props.dispatch(deleteBlock(blockId));
               window.location.reload();
-            }}
-          />
-        // </li>
+          }}/>
       )
     });
     return blocksAssembled;
@@ -97,19 +88,18 @@ class OneDayView extends Component {
         )
       } else {
         toolbeltButton = (
-          <i className="far fa-times-circle fa-lg toolbelt-button" onClick={event => {
+          <i
+            className="far fa-times-circle fa-lg toolbelt-button"
+            onClick={(event) => {
             event.preventDefault();
-            this.setState({
-              cardsContainer: 'hidden'
-            })
-          }} />
+            this.setState({cardsContainer: 'hidden'})
+          }}/>
         )
       }
     }
-
     let addBlock;
     if (this.state.addBlock || this.filterBlocks().length === 0) {
-      addBlock = <AddNewBlock 
+      addBlock = <AddNewBlock
         blocksAmmount={blocks.length}
         updateAddBlock={event => {
           this.setState({
