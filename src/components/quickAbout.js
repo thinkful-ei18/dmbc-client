@@ -4,9 +4,6 @@ import '../styles/quickAbout.css'
 export default function QuickAbout(props){
   return(
     <div>
-      {/* <div className="quick-about-header">
-        <p><span className="pseudo-rating">5/5</span> users agree that they have used this app.</p>
-      </div> */}
       <div className="quick-about">
         <div className="info-card">
           <i className="fas fa-paper-plane"></i>

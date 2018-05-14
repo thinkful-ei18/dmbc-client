@@ -1,5 +1,5 @@
 .tripFormContainer{
-  margin:auto;
+  margin:0px auto;
   display:flex;
   flex-wrap:wrap;
   flex-direction: column;
@@ -8,9 +8,26 @@
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   width:85vw;
   height:500px;
+  background-color: white;
+}
+.trip-form-background{
+  padding-top: 43px;
+  z-index: -1000;
+  width:100vw;
+  height:100vh;
+  background-image:linear-gradient(
+    to bottom,
+     rgba(0, 0, 0, 0.56),
+     rgba(0, 0, 0, 0.41)
+    ),
+  url('../assets/new-trip-background.jpg')
+  ;
+  background-repeat: no-repeat;
+  background-size: 220%;
+  background-position: top center;
+
 }
 .tripFormContainer h2{
-  /* border:1px solid green; */
   margin-top: 36px;
   font-size:30px;
 }
@@ -41,7 +58,7 @@ text-align: center;
 flex:1 1 auto;
 }
 .tripTravelers input{
-  height:24px;
+  height:38px;
   width:80%;
   font-size:18px;
 
@@ -51,6 +68,7 @@ flex:1 1 auto;
 }
 .formContainer p{
   display:inline-block;
+  font-size:1.4em;
 }
 /* geosuggest */
 
@@ -81,37 +99,39 @@ flex:1 1 auto;
 .react-date-picker{
   margin:0 15px
 }
-@media only screen and (max-width: 400px) {
-  .tripFormContainer h2{
-    /* border:1px solid blue; */
-    margin-top: 26px;
-    font-size: 1.1em;
+.react-date-picker__calendar{
+  z-index: 1000;
 }
 
-}
 @media only screen and (max-width: 705px)  {
   .tripFormContainer h2{
-    /* border:1px solid blue; */
     margin-top: 26px;
     font-size: 1.3em;
   }
+  .trip-form-background{
+    background-size: 420%;
+  }
+
   .tripFormDates > *{
-    /* border:1px solid green; */
     display:inline-block;
     margin:auto;
-    width:60%;
+    width:80%;
+  }
+  .tripFormPlace{
+    padding-top:18px;
+    margin-top:10px;
   }
   .tripFormPlace input{
     font-size:22px;
   }
-  .react-calendar .react-date-picker__calendar .react-date-picker__calendar--open .react-date-picker__calendar--above-label{
-    /* border:1px solid yellow; */
+  /* .react-calendar .react-date-picker__calendar .react-date-picker__calendar--open .react-date-picker__calendar--above-label{
     position:relative;
     left:-10vw;
-    z-index:1000;
-  }
+    z-index:4000;
+  } */
   .react-date-picker__calendar {
     left: -91px;
+
 }
 
   .react-date-picker__button__input {
@@ -119,3 +139,13 @@ flex:1 1 auto;
   }
 }
 /*  */
+
+@media only screen and (max-width: 400px) {
+  .tripFormContainer h2{
+    margin-top: 26px;
+    font-size: 1.1em;
+  }
+  .formContainer p{
+    font-size:0.7em;
+  }
+}

@@ -15,6 +15,8 @@ export class Login extends Component {
         <h2>Login</h2>
         <LoginForm />
         <p>Don't have an account? <Link to="/register">Register</Link></p>
+        <p>Want to be an ambassador? <Link to="/ambassador-register">Register</Link></p>
+
       </div>
     )
   }
