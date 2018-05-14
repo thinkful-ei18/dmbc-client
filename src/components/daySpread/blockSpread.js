@@ -37,7 +37,7 @@ class BlockSpread extends Component{
       cards.push(<Card info={this.props.block.cards[i]} key={`${this.props.block.id}_${i}`} blockId={this.props.block.id}/>)
     }
     if (cards.length === 0) {
-      cards = <h3>Waiting for Ambassador to Add Cards</h3>
+      cards = <h4>Waiting for Ambassador to Add Cards</h4>
     }
     return cards;
   }
@@ -51,7 +51,7 @@ class BlockSpread extends Component{
             'backgroundColor': isOver ? 'yellow' : 'grey'
           }}>
           <div className="block-spread">
-            <h2>{this.props.block.title}</h2>
+            <h3>{this.props.block.title}</h3>
             {cards}
             <span className="delete-block">
               <button onClick={() => {

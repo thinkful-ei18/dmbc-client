@@ -30,8 +30,9 @@ class ToolbeltCard extends Component {
           >
           <div className='card-header' style={{'backgroundImage':`url(${this.props.Background})`}}>
             <div className="card-title">
-              <div className='place-name'>{this.props.card.name}</div>
-              <div className='card-blurb'>{this.props.card.address}</div>            </div>
+              <p className='place-name'>{this.props.card.name}</p>
+              <p className='card-blurb'>{this.props.card.address}</p>
+            </div>
           </div>
           <div className='place-tags'>
             <ul>

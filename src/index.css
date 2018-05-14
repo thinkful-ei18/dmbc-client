@@ -48,14 +48,24 @@ p{
 	display:inline-block;
 }
 
+input {
+  border: 1px solid #666;
+  padding: 5px;
+  margin: 0 5px;
+  outline: 0;
+}
+
 button{
   border: none;
-  margin: 0;
-  padding: 0;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0 5px;
   width: auto;
   overflow: visible;
-
   background: transparent;
+  background-color: #4EA5D9;
+  cursor: pointer;
+  outline: 0;
 
   /* inherit font & color from ancestor */
   color: inherit;

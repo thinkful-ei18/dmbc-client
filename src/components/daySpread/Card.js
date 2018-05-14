@@ -71,8 +71,8 @@ class Card extends Component {
         }}>
           <div className='card-header' style={{'backgroundImage':`url(${Background})`}}>
             <div className="card-title">
-              <div className='place-name'>{this.props.info.name}</div>
-              <div className='card-blurb'>{this.props.info.address}</div>            </div>
+              <p className='place-name'>{this.props.info.name}</p>
+              <p className='card-blurb'>{this.props.info.address}</p>            </div>
           </div>
           <div className='place-tags'>
             <ul>

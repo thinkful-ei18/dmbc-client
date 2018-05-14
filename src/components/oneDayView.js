@@ -14,8 +14,6 @@ import { putCardOnBlock, deleteBlock } from '../actions/block';
 import BlockSpread from './daySpread/blockSpread';
 import AddNewBlock from './daySpread/addNewBlock';
 import Toolbelt from './toolbelt';
-import { Link } from "react-router-dom";
-import {dayNamesArray} from './utils/dateObjectUtils';
 import ViewButton from './buttons/viewButton'
 //styles
 import '../styles/oneDayView.css';
@@ -118,13 +116,7 @@ class OneDayView extends Component {
     return (
       <div className="day-spreads-container">
         {toolbeltButton}
-        <h1>{dayNamesArray[
-            this
-              .props
-              .currentDay
-              .getDay()
-          ]}</h1>
-        <Link to="/dashboard"><button>Back To Dashboard</button></Link>
+        <h2>{this.props.currentDay.toDateString()}</h2>
         <ul>
           {blocks}
         </ul>
