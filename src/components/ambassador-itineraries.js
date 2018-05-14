@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import moment from "moment";
 import { Link } from "react-router-dom";
-import Background from '../assets/barPlaceHolder.jpg'
 
 import {
   CarouselProvider,
   Slider,
   Slide,
   ButtonBack,
-  ButtonNext
+  ButtonNext,
+  Image
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import "../styles/carousel.css";
@@ -34,31 +34,24 @@ class AmbassadorItineraries extends Component {
               <Slide
                 index={index}
                 key={index}
-                className="ambassador-cards-slide" 
+                className="ambassador-itinerary-slide"
               >
-                <div className="itinerary-container" key={index}>
-                  <div
-                    className="card-header"
+                {/* <div
+                    className="itineraryheader"
                     style={{
                       backgroundImage: `url(${Background})`
                     }}
                   >
-                    <span className="place-name">
-                      {itinerary.destination.locationName}
-                    </span>
-                  </div>
+                    
+                  </div> */}
 
-                  <div className="card-body">
-                    <span className="blurb-header">
-                      Date Start: {moment(itinerary.dateStart).format("ll")}
-                    </span>
-                    <span className="blurb-header">
-                      Date End: {moment(itinerary.dateEnd).format("ll")}
-                    </span>
+                <h3 className="place-name">
+                  {itinerary.destination.locationName}
+                </h3>
+                <h4>Date Start: {moment(itinerary.dateStart).format("ll")}</h4>
+                <h4>Date End: {moment(itinerary.dateEnd).format("ll")}</h4>
 
-                    <span className="card-blurb">Notes: {itinerary.partners}</span>
-                  </div>
-                </div>
+                <h4 className="itinerary-blurb">Notes: {itinerary.partners}</h4>
               </Slide>
             </Link>
           );
@@ -71,14 +64,22 @@ class AmbassadorItineraries extends Component {
         <h1 className="carousel-title-current">Current Itineraries</h1>
         <CarouselProvider
           naturalSlideWidth={100}
-          naturalSlideHeight={40}
+          naturalSlideHeight={70}
           totalSlides={this.props.itineraries.length || 1}
           visibleSlides={2}
           className="carousel-background-current"
         >
           <Slider>{itinerariesList}</Slider>
-          <ButtonBack>Back</ButtonBack>
-          <ButtonNext>Next</ButtonNext>
+          <Image
+            hasMasterSpinner="false"
+            src="https://www.visitlasvegas.com/"
+          />
+          <ButtonBack>
+            <i class="fas fa-angle-left" /> Back
+          </ButtonBack>
+          <ButtonNext>
+            Next <i class="fas fa-angle-right" />
+          </ButtonNext>
           {/* <h1>{itinerariesTotal}</h1> */}
         </CarouselProvider>
       </div>

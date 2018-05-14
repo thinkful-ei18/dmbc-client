@@ -40,8 +40,12 @@
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
+._horizontalSlider_9ve3r_1 {
+    padding: 10px;
+}
+
 .itinerary-container {
-    background-color: white;
+    /* background-color: white;
     width:400px;
     height:355px;
     display:flex;
@@ -49,13 +53,13 @@
     padding:15px;
     margin-top: 100px;
     margin: 0px auto;
-    margin-bottom: 30px;
+    margin-bottom: 30px; */
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-family: 'IBM plex serif';
 }
 
 .itinerary-container:hover { 
-    background: rgba(71, 69, 69, 0.2);
+    background-color: grey;
 	border: solid black 4px;
 }
 
@@ -63,6 +67,61 @@
     background-color: rgba(0, 0, 0, 0.192)
 }
 
+._slideInner_fhwgk_1 {
+    text-align: center;
+    padding: 100px;
+    color: white;
+    font-family: 'IBM plex serif';
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+@media (max-width: 768px) {
+    ._slideInner_fhwgk_1 h3 {
+        font-size: 40px;
+            }
+            ._slideInner_fhwgk_1{
+                padding: 25px;
+            }
+
+}
+@media (max-width: 700px) {
+    ._slideInner_fhwgk_1 h3 {
+font-size: 15px;
+    }
+    ._slideInner_fhwgk_1 h4 {
+        font-size: 9px;
+            }
+           ._slideInner_fhwgk_1 li {
+                font-size: 9px;
+            } 
+            ._slideInner_fhwgk_1 button {
+                font-size: 9px;
+            }
+            ._slideInner_fhwgk_1{
+                padding: 5px;
+                text-align: left;
+            }
+}
+    /* .carousel-background-current
+   {
+        height: 280px;
+    }
+    .carousel-background-past
+    {
+         height: 280px;
+     }
+     .carousel-background-cards
+     {
+          height: 280px;
+      }
+      .carousel-background-cards > button {
+          vertical-align: bottom;
+      }
+      .itinerary-container {
+          height: 200px;
+          width: 200px;
+      }
+} */ 
 /* @media (max-width: 400px) {
     .itinerary-container {
         width:150px;

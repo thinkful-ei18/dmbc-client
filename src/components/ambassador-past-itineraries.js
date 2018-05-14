@@ -29,35 +29,18 @@ class AmbassadorPastItineraries extends Component {
       } else {
         itinerariesList = currentItineraries.map((itinerary, index) => {
           return (
-            <Link  to={{ pathname: `/itineraries/${itinerary.id}` }} key={index}>
+            <Link to={{ pathname: `/itineraries/${itinerary.id}` }} key={index}>
               <Slide
                 index={index}
                 key={index}
-                className="ambassador-cards-slide"
+                className="ambassador-itinerary-slide"
               >
-                <div className="itinerary-container" key={index}>
-                  <div
-                    className="card-header"
-                    style={{
-                      backgroundImage: `url(${Background})`
-                    }}
-                  >
-                    <span className="place-name">
-                      {itinerary.destination.locationName}
-                    </span>
-                  </div>
-
-                  <div className="card-body">
-                    <span className="blurb-header">
-                     Date Start: {moment(itinerary.dateStart).format("ll")}
-                    </span>
-                    <span className="blurb-header">
-                      Date End: {moment(itinerary.dateEnd).format("ll")}
-                    </span>
-
-                    <span className="card-blurb">Notes: {itinerary.partners}</span>
-                  </div>
-                </div>
+                <h3 className="place-name">
+                  {itinerary.destination.locationName}
+                </h3>
+                <h4>Date Start: {moment(itinerary.dateStart).format("ll")}</h4>
+                <h4>Date End: {moment(itinerary.dateEnd).format("ll")}</h4>
+                <h4 className="itinerary-blurb">Notes: {itinerary.partners}</h4>
               </Slide>
             </Link>
           );
@@ -70,14 +53,18 @@ class AmbassadorPastItineraries extends Component {
         <h1 className="carousel-title-past">Past Itineraries</h1>
         <CarouselProvider
           naturalSlideWidth={100}
-          naturalSlideHeight={40}
+          naturalSlideHeight={70}
           totalSlides={this.props.itineraries.length || 1}
           visibleSlides={2}
           className="carousel-background-past"
         >
           <Slider>{itinerariesList}</Slider>
-          <ButtonBack>Back</ButtonBack>
-          <ButtonNext>Next</ButtonNext>
+          <ButtonBack>
+            <i class="fas fa-angle-left" /> Back
+          </ButtonBack>
+          <ButtonNext>
+            Next <i class="fas fa-angle-right" />
+          </ButtonNext>
           {/* <h1>{itinerariesTotal}</h1> */}
         </CarouselProvider>
       </div>
