@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Route, withRouter } from "react-router-dom";
 import { refreshAuthToken } from "../actions/auth";
 
-import "../styles/app.css";
 import Navigation from './navigation';
 import Login from "./login";
 import Register from "./register";
@@ -14,6 +13,7 @@ import EditCard from './edit-card';
 import oneDayView from './oneDayView'
 import MultiView from "./multiView";
 import Splash from './splash'
+import "../styles/app.css";
 
 export class App extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -47,16 +47,27 @@ export class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Navigation />
+        {/* <Navigation /> */}
         <Route exact path="/" component={Splash} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/ambassador-register" component={AmbassadorRegister} />
+        
+        <Route path="/dashboard" component={Navigation} />
         <Route path="/dashboard" component={Dashboard} />
+
+        <Route exact path="/cards/:id" component={Navigation} />
         <Route exact path="/cards/:id" component={EditCard} />
+
+        <Route path="/ambassador-page" component={Navigation} />
         <Route path="/ambassador-page" component={AmbassadorPage} />
+
+        <Route exact path="/oneDayView" component={Navigation} />
         <Route exact path="/oneDayView" component={oneDayView} />
+
+        <Route path="/itineraries/:id" component={Navigation} />
         <Route path="/itineraries/:id" component={MultiView} />
+
       </div>
     );
   }

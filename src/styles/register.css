@@ -43,9 +43,7 @@
   .hero-container{
     height:27vh;
     display: inline-block;
-
     padding-top:20px;
-
     background-position: top;
   }
   .form-container{
