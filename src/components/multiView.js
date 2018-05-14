@@ -5,6 +5,7 @@ import { dayNamesArray } from './utils/dateObjectUtils';
 import { setDashboardCurrentDay, setDashboardTripdays } from '../actions/dashboard';
 import { fetchTripDetailsById } from '../actions/tripForm';
 import MiniBlock from "./mini-block";
+import BackgroundImage from '../assets/la.jpg'
 
 import '../styles/multiView.css';
 
@@ -71,7 +72,10 @@ class MultiView extends Component{
       return(
         <Link to="/oneDayView" onClick={() => this.handleRedirect(day)} className="one-day-link" key={index}>
           <li className="multi-view-day">
-            <h2 className="block-date">{parsedDate}</h2>
+            <div className="multi-day-header">
+              <h2 className="block-date">{parsedDate}</h2>
+              <button className="go-to-day">Go to day</button>
+            </div>
             {block}
           </li>
         </Link>
@@ -90,8 +94,8 @@ class MultiView extends Component{
 
     if (this.props.currentItinerary) {
       tripDetails = (
-        <div className="trip-details">
-          <h1 className="itinerary-header">Trip Itinerary for {this.props.currentItinerary.destination.locationName}</h1>
+        <div className="trip-details" style={{backgroundImage: `url(${BackgroundImage})`}}>
+          <h1 className="itinerary-header">{this.props.currentItinerary.destination.locationName}</h1>
           <h2 className="itinerary-dates">{this.props.currentItinerary.dateStart.toDateString()} to {this.props.currentItinerary.dateEnd.toDateString()}</h2>
           <p className="ambassador-info">Your ambassador is {this.props.currentItinerary.ambassador.name}</p>
         </div>

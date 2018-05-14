@@ -11,11 +11,21 @@
   margin: 0 20px;
 }
 
+.multi-day-header {
+  border-bottom: 1px solid black;
+}
+
 .block-date {
   padding-top: 15px;
   padding-left: 15px;
   font-size: 20px;
-  border-bottom: 1px solid black;
+  display: inline-block;
+}
+
+.go-to-day {
+  float: right;
+  margin-right: 25px;
+  margin-top: 15px;
 }
 
 .one-day-link:hover .one-day-link:active {
@@ -24,4 +34,24 @@
 
 .no-blocks {
   padding: 15px;
+}
+
+.trip-details {
+  height: auto;
+  background-repeat: no-repeat;
+  background-position: 0% 80%;
+  background-size: 100%;
+  color: white;
+  text-align: center;
+  padding-bottom: 225px;
+}
+
+@media only screen and (max-width: 600px) {
+  .itinerary-header {
+    font-size: 32px;
+  }
+
+  .itinerary-dates {
+    font-size: 28px;
+  }
 }

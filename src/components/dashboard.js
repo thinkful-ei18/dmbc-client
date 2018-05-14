@@ -27,7 +27,7 @@ export class Dashboard extends React.Component {
     // }
     return (
       <div className="dashboard">
-        Hello from the Dashboard! {this.props.currentItinerary
+        {this.props.currentItinerary
           ? <MultiView/>
           : <NewTripForm/>}
       </div>
