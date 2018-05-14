@@ -20,11 +20,9 @@ class Splash extends Component {
             <Login/>
           </div>
         </div>
-        <div className="placeholder-1">
-          <span>this is a placeholder for section</span>
-        </div>
-        <div className="footer">
-          <span>this is placeholder for the footer</span>
+        <div className="placeholder">
+          <span>placeholder</span>
+
         </div>
       </div>
     )

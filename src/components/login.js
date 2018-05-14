@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import LoginForm from './login-form';
+import '../styles/login.css';
 
 export class Login extends Component {
   render() {
@@ -10,7 +11,7 @@ export class Login extends Component {
     }
 
     return (
-      <div className="login">
+      <div className="login-container">
         <h2>Login</h2>
         <LoginForm />
         <p>Don't have an account? <Link to="/register">Register</Link></p>
