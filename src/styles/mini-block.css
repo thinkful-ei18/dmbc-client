@@ -1,9 +1,5 @@
 .mini-block{
   background-color: rgb(188, 193, 209);
-
-  display:flex;
-  justify-content:space-around;
-
   margin:0;
   width:100%;
   align-items:center;
@@ -13,12 +9,20 @@
   grid-template-columns: 33% 67%;
 }
 
-.mini-block-title {
+.mini-block-nav {
   width:auto;
-  padding:15px;
+  padding-right:15px;
   font-size: 18px;
   vertical-align: middle;
   grid-column: 1;
+  text-align: right;
+}
+
+.mini-block-title {
+  display: inline-block;
+  padding-right: 15px;
+  width:auto;
+  font-size: 18px;
 }
 .mini-card{
   background-color: white;
@@ -41,6 +45,12 @@
   /* text-align:justify; */
 
 }
+
+.line {
+  display: inline-block;
+  grid-column: 1;
+}
+
 
 @media only screen and (min-width: 800px) {
   .mini-card-blurb {
