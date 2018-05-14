@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import {selectCardOnBlock, removeSelectOnBlock} from '../../actions/block';
 import { rateCard } from "../../actions/cards";
-import CardButton from '../buttons/cardButton'
+
+import {connect} from 'react-redux';
 
 export class LocationInfo extends Component {
   componentDidMount() {
@@ -28,20 +28,19 @@ export class LocationInfo extends Component {
       <form
         onSubmit={e => {
         e.preventDefault();
-        console.log('Value', this.selectVal, 'Card ID', this.props.info.id);
-        const values = {
-          rating: this.selectVal,
+        console.log('Value', this.selectVal, 'Card ID', this.props.info.id); 
+        const values = { 
+          rating: this.selectVal, 
           cardId: this.props.info.id,
-          blockId: this.props.blockId
+          blockId: this.props.blockId 
         }
-        this.props.dispatch(rateCard(values));
+        this.props.dispatch(rateCard(values)); 
       }}>
         <label>Rating</label>
         <select onChange={(input) => this.selectVal = input.target.value}>
           {options}
         </select>
-        <CardButton buttonText={"Rate Me"} />
-
+        <button type="submit">Rate Me</button>
       </form>
     )
     return selector;
@@ -52,17 +51,11 @@ export class LocationInfo extends Component {
     let select;
     if (this.props.selected) {
       select = (
-<<<<<<< HEAD:src/components/daySpread/ExpandedContent.js
-        // <button onClick={() => this.deselect()} className='confirm-location'>I want choices</button>
-        <CardButton buttonFunction={() => this.deselect()} buttonText={"I want choices"} />
-=======
         <button onClick={() => this.deselect()} className='confirm-location'>Choices</button>
->>>>>>> styling changes to one day view:src/components/daySpread/location-info.js
       )
     } else {
       select = (
-        // <button onClick={() => this.lockIn()} className='confirm-location'>Lock in</button>
-        <CardButton buttonFunction={() => this.lockIn()} buttonText={"Lock in"} />
+        <button onClick={() => this.lockIn()} className='confirm-location'>Lock in</button>
       )
     }
 
@@ -92,8 +85,4 @@ export class LocationInfo extends Component {
 
 const mapStateToProps = state => ({});
 
-<<<<<<< HEAD:src/components/daySpread/ExpandedContent.js
-export default connect(mapStateToProps)(ExpandedContent);
-=======
 export default connect(mapStateToProps)(LocationInfo);
->>>>>>> styling changes to one day view:src/components/daySpread/location-info.js
