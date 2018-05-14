@@ -16,6 +16,7 @@ import AddNewBlock from './daySpread/addNewBlock';
 import Toolbelt from './toolbelt';
 import { Link } from "react-router-dom";
 import {dayNamesArray} from './utils/dateObjectUtils';
+import ViewButton from './buttons/viewButton'
 //styles
 import '../styles/oneDayView.css';
 import { setDashboardCurrentDay } from '../actions/dashboard';
@@ -30,7 +31,6 @@ class OneDayView extends Component {
     };
   }
   handleCardDrop(cardObject){
-    console.log(cardObject,'from up here');
     this.props.dispatch(putCardOnBlock(cardObject))
   }
   filterBlocks() {
@@ -79,12 +79,19 @@ class OneDayView extends Component {
       />
       if (this.state.cardsContainer === 'hidden') {
         toolbeltButton = (
-          <button className="toolbelt-button" onClick={event => {
-            event.preventDefault();
-            this.setState({
-              cardsContainer: 'show'
-            });
-          }}>Toolbelt</button>
+          // <button className="toolbelt-button" onClick={event => {
+          //   event.preventDefault();
+          //   this.setState({
+          //     cardsContainer: 'show'
+          //   });
+          // }}>Toolbelt</button>
+          <ViewButton
+            buttonFunction={event => {
+              event.preventDefault();
+              this.setState({cardsContainer: 'show'});
+            }}
+            buttonText="Toolbelt"
+          />
         )
       } else {
         toolbeltButton = (

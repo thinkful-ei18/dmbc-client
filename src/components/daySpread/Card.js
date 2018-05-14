@@ -86,31 +86,7 @@ class Card extends Component {
           </div>
         </div>
 
-      // <div className={divClassName}
-      //   style={{
-      //     opacity: isDragging ? 0.2 : 1,
-      //     fontSize:25,
-      //     fontWeight:'bold',
-      //     cursor:'move'
-      //   }}
-      //   >
-      //   <div
-      //     className='card-header'
-      //     style={{
-      //     'backgroundImage': `url(${Background})`
-      //   }}>
-      //     <span className='place-name'>{this.props.info.name}</span>
-      //   </div>
-      //   <div className='placeTags'>
-      //     <ul>
-      //       {placeTags}
-      //     </ul>
-      //   </div>
-      //   <div>
-      //     {rating}
-      //     {expandedContent}
-      //   </div>
-      // </div>
+
     );
   }
 }
