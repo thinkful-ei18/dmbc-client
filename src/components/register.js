@@ -2,7 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import RegistrationForm from './registration-form';
-import '../styles/register.css'
+import Logo from './logo';
+import '../styles/register.css';
+
 
 export function Registration(props) {
   // If we are logged in (which happens automatically when registration
@@ -12,6 +14,9 @@ export function Registration(props) {
   }
   return (
     <div className="registration">
+      <div className="splash-logo">
+        <Logo />
+      </div>
       <div className="hero-container">
 
         <h2>Adventure Awaits</h2>
@@ -20,8 +25,8 @@ export function Registration(props) {
       </div>
       <div className="form-container">
         <h2>Traveler Register Copy</h2>
-        <span className='account-link'>Already have an account? <Link to="/login">Login</Link></span>
         <RegistrationForm ambassador="false"/>
+        <span className='account-link'>Already have an account? <Link to="/">Login</Link></span>
 
       </div>
 

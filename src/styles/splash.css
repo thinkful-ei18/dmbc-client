@@ -9,7 +9,7 @@
 }
 .splash-logo{
   position:absolute;
-  left:10px;
+  left:25px;
   top:0px;
 }
 .jumbotron-container{
@@ -69,10 +69,9 @@
     flex-wrap: nowrap;
     flex-direction:column;
     justify-content:flex-end;
-    /* align-content:stretch; */
     height:100vh;
     background-position:center;
-    background-size:470%;
+    background-size:300%;
   }
   .jumbotron-copy{
     display:block;
