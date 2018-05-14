@@ -4,7 +4,7 @@ import {selectCardOnBlock, removeSelectOnBlock} from '../../actions/block';
 import { rateCard } from "../../actions/cards";
 import CardButton from '../buttons/cardButton'
 
-export class ExpandedContent extends Component {
+export class LocationInfo extends Component {
   componentDidMount() {
     this.selectVal = 1;
   }
@@ -52,8 +52,12 @@ export class ExpandedContent extends Component {
     let select;
     if (this.props.selected) {
       select = (
+<<<<<<< HEAD:src/components/daySpread/ExpandedContent.js
         // <button onClick={() => this.deselect()} className='confirm-location'>I want choices</button>
         <CardButton buttonFunction={() => this.deselect()} buttonText={"I want choices"} />
+=======
+        <button onClick={() => this.deselect()} className='confirm-location'>Choices</button>
+>>>>>>> styling changes to one day view:src/components/daySpread/location-info.js
       )
     } else {
       select = (
@@ -63,20 +67,24 @@ export class ExpandedContent extends Component {
     }
 
     return (
-      <div>
-        <div className='card-body'>
-          <span className='blurb-header'>
-            {this.props.rating}/5
-          </span>
-          <span className='blurb-header'>Details</span>
-          <span className='card-blurb'>
-            {this.props.info.description}
-          </span>
+      <div className="location-info">
+        <div className="location-name">
+          <h3>{this.props.info.name}</h3>
+          <p className="location-address">{this.props.info.address}</p>
+          <p className="location-phone">123-456-7890</p>
+          <hr />
+          <ul className='place-tags'>
+            {this.props.placeTags}
+          </ul>
         </div>
-        <span className='card-controls'>
+        <div>
+          <p>Details</p>
+          <p className="location-description">{this.props.info.description}</p>
+        </div>
+        <div className="location-controls">
           {selector}
           {select}
-        </span>
+        </div>
       </div>
     )
   }
@@ -84,4 +92,8 @@ export class ExpandedContent extends Component {
 
 const mapStateToProps = state => ({});
 
+<<<<<<< HEAD:src/components/daySpread/ExpandedContent.js
 export default connect(mapStateToProps)(ExpandedContent);
+=======
+export default connect(mapStateToProps)(LocationInfo);
+>>>>>>> styling changes to one day view:src/components/daySpread/location-info.js

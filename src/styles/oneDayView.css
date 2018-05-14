@@ -1,48 +1,9 @@
 .day-spreads-container {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
   padding: 10px 0;
 }
 
-.block-spread {
-  background-color: #bcc1d1;
-  display:flex;
-  flex-wrap: wrap;
-  justify-content:space-around;
-  margin:22px 0px;
-  padding: 20px;
-  min-height: 200px;
-  align-items:center;
-}
-
-.delete-block {
-  position: relative;
-  display:  block;
-  width: 100%;
-  text-align: right;
-}
-
-.delete-block button {
-  background-color: tomato;
-}
-
-.block-spread h2 {
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.block-spread h3 {
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.add-new-spread{
-  border:1px solid blue;
-  background-color:#bcc1d1;
-  margin:22px 0px;
-  padding: 20px;
-  height:200px;
-}
 .card-container-expanded{
   background-color: white;
   width:300px;
@@ -53,6 +14,7 @@
   margin: 0px auto;
   margin-bottom: 30px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  cursor: pointer;
 }
 .card-container-minimized {
   background-color: white;
@@ -62,6 +24,7 @@
   flex-direction: column;
   padding:15px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  cursor: pointer;
 }
 
 .card-selected {
@@ -111,18 +74,16 @@
 .place-tags{
   height:40px;
   margin:5px 0;
-  display:flex;
+  font-size:11px;
+  margin-bottom: 20px;
+  /* display:flex;
   flex-direction: row;
   align-items: baseline;
   flex:2 2 10em;
-  justify-content: space-between;
+  justify-content: space-between; */
 }
 
-.place-tags ul{
-  font-size:11px
-}
-
-.place-tags li{
+.place-tags li {
   display: inline-block;
   background-color: silver;
   margin:0 4px 5px 0;
