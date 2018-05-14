@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Login from './login';
 import Logo from './logo';
+import QuickAbout from './quickAbout';
 import '../styles/splash.css'
 class Splash extends Component {
   render(){
@@ -20,10 +21,10 @@ class Splash extends Component {
             <Login/>
           </div>
         </div>
-        <div className="placeholder">
-          <span>placeholder</span>
-
+        <div>
+          <QuickAbout />
         </div>
+
       </div>
     )
   }
