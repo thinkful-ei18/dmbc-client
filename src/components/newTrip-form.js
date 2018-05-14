@@ -85,9 +85,7 @@ class NewTripForm extends Component {
               disabled={wrongDates || noDate}
               overrideStyle={{
                 marginTop:'10px'
-                // width:'345px',
-                // height:'50px',
-                // fontSize:'2em'
+
               }}
             />
           </div>

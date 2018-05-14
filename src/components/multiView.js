@@ -74,8 +74,8 @@ class MultiView extends Component{
             <div className="multi-day-header">
               <h2 className="block-date">{parsedDate}</h2>
               {/* <button className="go-to-day">Go to day</button> */}
-              <ViewButton buttonText={'Go To Day'} style={
-                {  
+              <ViewButton buttonText={'Go To Day'} overrideStyle={
+                {
                   marginRight: '25px',
                   marginTop: '15px'
                 }
