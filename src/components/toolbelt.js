@@ -114,8 +114,10 @@ export class Toolbelt extends React.Component {
     return (
       <div className={(this.props.cardsContainer === 'hidden') ? 'toolbelt-hidden' : 'toolbelt'}>
         <div className="cards">
-          {changeState}
-          {display}
+          <div className="cards-content">
+            {changeState}
+            {display}
+          </div>
         </div>
       </div>
     )

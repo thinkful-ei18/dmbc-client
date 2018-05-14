@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 //dnd
 import { DropTarget } from 'react-dnd';
 import { ItemTypes } from '../utils/itemTypes';
-import Card from './Card';
+import Location from './location';
 //styles
-import '../../styles/oneDayView.css'
+import '../../styles/oneDayView.css';
+import './blockSpread.css';
 
 const blockTarget = {
   drop(props,monitor,component){
@@ -27,22 +28,31 @@ class BlockSpread extends Component{
   createCards() {
     if (this.props.block.selectedCard) {
       const selected = this.props.block.cards.find(card => card.id === this.props.block.selectedCard)
-      return <Card info={selected} key={selected} blockId={this.props.block.id} selected={true}/>
+      return <Location info={selected} key={selected} blockId={this.props.block.id} selected={true}/>
     }
     let cards = [];
     for (let i = 0; i < 3; i++) {
       if (this.props.block.cards[i] === undefined) {
         break;
       }
-      cards.push(<Card info={this.props.block.cards[i]} key={`${this.props.block.id}_${i}`} blockId={this.props.block.id}/>)
+      cards.push(<Location info={this.props.block.cards[i]} key={`${this.props.block.id}_${i}`} blockId={this.props.block.id}/>)
     }
     if (cards.length === 0) {
-      cards = <h3>Waiting for Ambassador to Add Cards</h3>
+      cards = <h4>Waiting for Ambassador to Add Cards</h4>
     }
     return cards;
   }
 
   render(){
+    let deleteBlockButton;
+    if (!this.props.ambassador) {
+      deleteBlockButton = (
+        <span className="delete-block">
+          <button onClick={() => {
+            this.props.deleteBlock(this.props.block.id)
+          }}>Delete Block</button>
+        </span>
+    )}
     let cards = this.createCards();
     const { connectDropTarget, isOver} = this.props;
     return connectDropTarget(
@@ -53,11 +63,7 @@ class BlockSpread extends Component{
           <div className="block-spread">
             <h2>{this.props.block.title}</h2>
             {cards}
-            <span className="delete-block">
-              <button onClick={() => {
-                this.props.deleteBlock(this.props.block.id)
-              }}>Delete</button>
-            </span>
+            {deleteBlockButton}
           </div>
         </li>
     )

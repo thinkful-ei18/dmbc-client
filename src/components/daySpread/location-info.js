@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import {selectCardOnBlock, removeSelectOnBlock} from '../../actions/block';
 import { rateCard } from "../../actions/cards";
-import CardButton from '../buttons/cardButton'
 
-export class ExpandedContent extends Component {
+import {connect} from 'react-redux';
+
+export class LocationInfo extends Component {
   componentDidMount() {
     this.selectVal = 1;
   }
@@ -28,20 +28,19 @@ export class ExpandedContent extends Component {
       <form
         onSubmit={e => {
         e.preventDefault();
-        console.log('Value', this.selectVal, 'Card ID', this.props.info.id);
-        const values = {
-          rating: this.selectVal,
+        console.log('Value', this.selectVal, 'Card ID', this.props.info.id); 
+        const values = { 
+          rating: this.selectVal, 
           cardId: this.props.info.id,
-          blockId: this.props.blockId
+          blockId: this.props.blockId 
         }
-        this.props.dispatch(rateCard(values));
+        this.props.dispatch(rateCard(values)); 
       }}>
         <label>Rating</label>
         <select onChange={(input) => this.selectVal = input.target.value}>
           {options}
         </select>
-        <CardButton buttonText={"Rate Me"} />
-
+        <button type="submit">Rate Me</button>
       </form>
     )
     return selector;
@@ -52,31 +51,33 @@ export class ExpandedContent extends Component {
     let select;
     if (this.props.selected) {
       select = (
-        // <button onClick={() => this.deselect()} className='confirm-location'>I want choices</button>
-        <CardButton buttonFunction={() => this.deselect()} buttonText={"I want choices"} />
+        <button onClick={() => this.deselect()} className='confirm-location'>Choices</button>
       )
     } else {
       select = (
-        // <button onClick={() => this.lockIn()} className='confirm-location'>Lock in</button>
-        <CardButton buttonFunction={() => this.lockIn()} buttonText={"Lock in"} />
+        <button onClick={() => this.lockIn()} className='confirm-location'>Lock in</button>
       )
     }
 
     return (
-      <div>
-        <div className='card-body'>
-          <span className='blurb-header'>
-            {this.props.rating}/5
-          </span>
-          <span className='blurb-header'>Details</span>
-          <span className='card-blurb'>
-            {this.props.info.description}
-          </span>
+      <div className="location-info">
+        <div className="location-name">
+          <h3>{this.props.info.name}</h3>
+          <p className="location-address">{this.props.info.address}</p>
+          <p className="location-phone">123-456-7890</p>
+          <hr />
+          <ul className='place-tags'>
+            {this.props.placeTags}
+          </ul>
         </div>
-        <span className='card-controls'>
+        <div>
+          <p>Details</p>
+          <p className="location-description">{this.props.info.description}</p>
+        </div>
+        <div className="location-controls">
           {selector}
           {select}
-        </span>
+        </div>
       </div>
     )
   }
@@ -84,4 +85,4 @@ export class ExpandedContent extends Component {
 
 const mapStateToProps = state => ({});
 
-export default connect(mapStateToProps)(ExpandedContent);
+export default connect(mapStateToProps)(LocationInfo);

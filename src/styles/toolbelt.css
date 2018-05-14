@@ -2,26 +2,36 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 400px;
+  width: 390px;
   height: 100%;
   transition: 1s;
+  z-index: 5000;
 }
 
 .toolbelt-hidden {
   position: fixed;
   top: 0;
   right: -400px;
-  width: 400px;
+  width: 390px;
   height: 100%;
   opacity: 0;
   transition: 1s;
+  z-index: 5000;
 }
 
-.cards-container {
-  clear: both;
+.toolbelt-button {
+  margin: 0;
+  position: fixed;
+  top: 50px;
+  right: 2.5%;
+  cursor: pointer;
+  z-index: 5001;
 }
 
 .cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
   overflow-y: scroll;
   height: 100%;
@@ -29,17 +39,17 @@
   background-color: tomato;
 }
 
-.card-search {
-  margin: 0 41px;
-  margin-bottom: 25px;
-  height: 30px;
-  float: left;
+.cards-content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 305px;
 }
 
 .card-search {
-  height: 30px;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 25px;
+  height: 30px;
 }
 
 .card-search input {
@@ -58,33 +68,22 @@
 }
 
 .create-card, .back-button {
-  margin: 50px 41px;
+  margin: 50px 0;
   margin-bottom: 25px;
-  float: left;
-}
-
-.toolbelt-button {
-  margin: 0;
-  position: fixed;
-  top: 20px;
-  right: 30px;
-  cursor: pointer;
-  z-index: 100;
+  justify-content: flex-start;
 }
 
 .yelp-search {
-  margin-top: 100px;
   display: flex;
-  justify-content: flex-start;
   flex-wrap: wrap;
-  width: 100%;
-  padding-left: 41px;
+  justify-content: center;
 }
 
 .yelp-search form {
-  height: 30px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  height: 30px;
   margin-bottom: 50px;
 }
 
@@ -105,10 +104,6 @@
   height: 100%;
   margin: 0;
   border-radius: 0 5px 5px 0;
-}
-
-.create-card-form, .edit-card-form {
-  margin-top: 100px;
 }
 
 .create-card-form h4, .edit-card-form h4 {

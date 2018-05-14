@@ -3,8 +3,9 @@ import { ItemTypes } from '../utils/itemTypes.js';
 import { DragSource } from 'react-dnd';
 import PropTypes from 'prop-types';
 import Background from '../../assets/barPlaceHolder.jpg'
-import ExpandedContent from './ExpandedContent';
+import LocationInfo from './location-info.js';
 
+import './blockSpread.css';
 
 const cardSource = {
   beginDrag(props){
@@ -19,7 +20,7 @@ function collect(connect,monitor){
   }
 }
 
-class Card extends Component {
+class Location extends Component {
   render() {
     //DUMMY PROPS FOR DESIGN
     const isExpanded = true
@@ -30,19 +31,21 @@ class Card extends Component {
 
     const rating = this.props.info.ratingCount === 0 ? 0 : this.props.info.ratingScore / this.props.info.ratingCount;
 
-    const expandedContent = isExpanded
-      ? <ExpandedContent
-          rating={rating}
-          info={this.props.info}
-          blockId={this.props.blockId}
-          selected={isSelected}/>
-      : undefined;
-
     const apiTags = ['Family Friendly', 'Crowd Friendly', 'No Pets'];
 
     const placeTags = apiTags.map((tag,index) => {
       return (<li key={index}>{tag}</li>)
     });
+
+    const expandedContent = isExpanded
+      ? <LocationInfo
+          rating={rating}
+          info={this.props.info}
+          blockId={this.props.blockId}
+          selected={isSelected}
+          placeTags={placeTags}
+          />
+      : undefined;
 
     // const placeTags = this
     //   .props
@@ -54,45 +57,25 @@ class Card extends Component {
     //     )
     //   })
 
-    let divClassName = isExpanded
-      ? 'card-container-expanded'
-      : 'card-container-minimized';
+    let divClassName = 'location';
 
     divClassName += isSelected ? ' card-selected' : '';
 
-
     return connectDragSource(
-      <div className={divClassName}
+      <div className={divClassName} 
         style={{
           opacity: isDragging ? 0.2 : 1,
-          fontSize:25,
-          fontWeight:'bold',
           cursor:'move'
-        }}>
-          <div className='card-header' style={{'backgroundImage':`url(${Background})`}}>
-            <div className="card-title">
-              <p className='place-name'>{this.props.info.name}</p>
-              <p className='card-blurb'>{this.props.info.address}</p>            </div>
-          </div>
-          <div className='place-tags'>
-            <ul>
-              {placeTags}
-            </ul>
-          </div>
-          <div>
-            <div className='card-body'>
-              {expandedContent}
-            </div>
-          </div>
-        </div>
-
-
+      }}>
+        {expandedContent}
+        <img src={Background} alt={this.props.info.name}/>
+      </div>
     );
   }
 }
-Card.propTypes = {
+Location.propTypes = {
   connectDragSource: PropTypes.func.isRequired,
   isDragging: PropTypes.bool.isRequired
 }
 
-export default DragSource(ItemTypes.CARD, cardSource, collect)(Card);
+export default DragSource(ItemTypes.CARD, cardSource, collect)(Location);
