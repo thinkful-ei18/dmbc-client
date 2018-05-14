@@ -44,6 +44,15 @@ class BlockSpread extends Component{
   }
 
   render(){
+    let deleteBlockButton;
+    if (!this.props.ambassador) {
+      deleteBlockButton = (
+        <span className="delete-block">
+          <button onClick={() => {
+            this.props.deleteBlock(this.props.block.id)
+          }}>Delete Block</button>
+        </span>
+    )}
     let cards = this.createCards();
     const { connectDropTarget, isOver} = this.props;
     return connectDropTarget(
@@ -54,11 +63,7 @@ class BlockSpread extends Component{
           <div className="block-spread">
             <h2>{this.props.block.title}</h2>
             {cards}
-            <span className="delete-block">
-              <button onClick={() => {
-                this.props.deleteBlock(this.props.block.id)
-              }}>Delete Block</button>
-            </span>
+            {deleteBlockButton}
           </div>
         </li>
     )

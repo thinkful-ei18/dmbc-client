@@ -46,6 +46,7 @@ class OneDayView extends Component {
             key={index}
             id={currentBlock.date}
             handleCardDrop={(e) => this.handleCardDrop(e)}
+            ambassador={this.props.currentUser.ambassador}
             deleteBlock={blockId => {
               this.props.dispatch(deleteBlock(blockId));
               window.location.reload();
@@ -113,14 +114,9 @@ class OneDayView extends Component {
       }}/>;
     }
 
-    return (
-      <div className="day-spreads-container">
-        {toolbeltButton}
-        <h2>{this.props.currentDay.toDateString()}</h2>
-        <ul>
-          {blocks}
-        </ul>
-        {addBlock}
+    let addBlockButton;
+    if (!this.props.currentUser.ambassador) {
+      addBlockButton = (
         <span className="new-block-button">
           <i className="fas fa-plus-circle" onClick={event => {
             event.preventDefault();
@@ -135,6 +131,17 @@ class OneDayView extends Component {
             }
           }}></i>
         </span>
+    )}
+
+    return (
+      <div className="day-spreads-container">
+        {toolbeltButton}
+        <h2>{this.props.currentDay.toDateString()}</h2>
+        <ul>
+          {blocks}
+        </ul>
+        {addBlock}
+        {addBlockButton}
         {toolbelt}
       </div>
 
