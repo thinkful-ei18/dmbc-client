@@ -51,7 +51,7 @@ class BlockSpread extends Component{
             'backgroundColor': isOver ? 'yellow' : 'grey'
           }}>
           <div className="block-spread">
-            <h3>{this.props.block.title}</h3>
+            <h2 className="block-title">{this.props.block.title}</h2>
             {cards}
             <span className="delete-block">
               <button onClick={() => {
