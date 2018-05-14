@@ -15,7 +15,6 @@ export default function MiniBlock(props) {
     <div className="mini-card">
       <p className="mini-card-header">{smallCards.name}</p>
       <p className="mini-card-blurb">{smallCards.address}</p>
-      <p className="mini-card-blurb">Rating: {Math.floor(smallCards.ratingScore / smallCards.ratingCount) || 0}</p>
     </div>
     )
   } else {
@@ -34,9 +33,40 @@ export default function MiniBlock(props) {
     )
   }
 
+  let timeline = (
+    <i className="far fa-circle"></i>
+  );
+
+  if (props.index !== 0 && props.length - 1 === props.index) {
+    timeline = (
+      <div className="line">
+        <div className="line-above"></div>
+        <i className="far fa-circle"></i>
+      </div>
+    )
+  } else if (props.index !== 0 && props.length - 1 > props.index) {
+    timeline = (
+      <div className="line">
+        <div className="line-above"></div>
+        <i className="far fa-circle"></i>
+        <div className="line-below"></div>
+      </div>
+    )
+  } else if (props.index === 0 && props.length > 1){
+    timeline = (
+      <div className="line">
+        <i className="far fa-circle"></i>
+        <div className="line-below"></div>
+      </div>
+    )
+  }
+
   return (
     <div className="mini-block">
-      <h4 className="mini-block-title">{props.block.title}</h4>
+      <div className="mini-block-nav">
+        <h4 className="mini-block-title">{props.block.title}</h4>
+        {timeline}
+      </div> 
       {smallCards}
     </div>
   )
