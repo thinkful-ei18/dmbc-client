@@ -9,12 +9,11 @@
 }
 .splash-logo{
   position:absolute;
-  left:10px;
+  left:25px;
   top:0px;
 }
 .jumbotron-container{
   grid-column:1;
-  border:1px solid yellow;
   display:grid;
   height:75vh;
   width:100%;
@@ -43,7 +42,6 @@
   margin-bottom:10px;
 }
 .jumbotron-form{
-  border:1px solid green;
   grid-column:2;
   display:flex;
   flex-direction:column;
@@ -54,13 +52,7 @@
   padding: 15px;
   margin:5vh 63px 0px 88px;
 }
-.placeholder{
-  grid-column: 1;
-  display:block;
-  background-color:grey;
-  border:1px solid yellow;
-  height:1000px;
-}
+
 
 @media only screen and (max-width: 1018px){
   .jumbotron-container{
@@ -69,10 +61,9 @@
     flex-wrap: nowrap;
     flex-direction:column;
     justify-content:flex-end;
-    /* align-content:stretch; */
     height:100vh;
-    background-position:center;
-    background-size:470%;
+    background-position:top;
+    background-size:300%;
   }
   .jumbotron-copy{
     display:block;
