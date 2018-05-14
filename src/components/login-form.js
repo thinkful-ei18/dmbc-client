@@ -4,6 +4,7 @@ import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
 import {Redirect} from 'react-router-dom';
 import Input from './input';
+import '../styles/login-form.css';
 
 export class LoginForm extends React.Component {
   onSubmit(values) {
@@ -14,7 +15,7 @@ export class LoginForm extends React.Component {
     if (this.props.loggedIn) {
       return <Redirect to="/dashboard" />;
     }
-    
+
     let error;
     if (this.props.error) {
       error = (
@@ -30,7 +31,6 @@ export class LoginForm extends React.Component {
           onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values)
           )}>
-          <h4>Sign in to your account</h4>
           {error}
           <label htmlFor="email">Email</label>
           <Field

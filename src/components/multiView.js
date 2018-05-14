@@ -24,9 +24,6 @@ class MultiView extends Component{
     }
   }
 
-  //handle clicking a div to set our current date on the dash and redirect to
-  // one day view after filtering cards with matching date/
-
   assembleTripDays(){
     let start = new Date(this.dateStart);
     let end = this.dateEnd;
@@ -73,7 +70,7 @@ class MultiView extends Component{
       }
       return(
         <Link to="/oneDayView" onClick={() => this.handleRedirect(day)} className="one-day-link" key={index}>
-          <li style={{'border':'1px solid red'}} className="multi-view-day">
+          <li className="multi-view-day">
             <h2 className="block-date">{parsedDate}</h2>
             {block}
           </li>
