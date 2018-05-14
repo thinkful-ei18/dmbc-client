@@ -5,6 +5,7 @@ import { dayNamesArray } from './utils/dateObjectUtils';
 import { setDashboardCurrentDay, setDashboardTripdays } from '../actions/dashboard';
 import { fetchTripDetailsById } from '../actions/tripForm';
 import MiniBlock from "./mini-block";
+import ViewButton from './buttons/viewButton'
 import BackgroundImage from '../assets/la.jpg'
 
 import '../styles/multiView.css';
@@ -74,7 +75,8 @@ class MultiView extends Component{
           <li className="multi-view-day">
             <div className="multi-day-header">
               <h2 className="block-date">{parsedDate}</h2>
-              <button className="go-to-day">Go to day</button>
+              {/* <button className="go-to-day">Go to day</button> */}
+              <ViewButton buttonText={'Go To Day'} />
             </div>
             {block}
           </li>
@@ -104,6 +106,7 @@ class MultiView extends Component{
     return(
       <div className="multi-view">
         {tripDetails}
+
         <ul>
           {trips}
         </ul>

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {selectCardOnBlock, removeSelectOnBlock} from '../../actions/block';
 import { rateCard } from "../../actions/cards";
-
-import {connect} from 'react-redux';
+import CardButton from '../buttons/cardButton'
 
 export class ExpandedContent extends Component {
   componentDidMount() {
@@ -28,19 +28,20 @@ export class ExpandedContent extends Component {
       <form
         onSubmit={e => {
         e.preventDefault();
-        console.log('Value', this.selectVal, 'Card ID', this.props.info.id); 
-        const values = { 
-          rating: this.selectVal, 
+        console.log('Value', this.selectVal, 'Card ID', this.props.info.id);
+        const values = {
+          rating: this.selectVal,
           cardId: this.props.info.id,
-          blockId: this.props.blockId 
+          blockId: this.props.blockId
         }
-        this.props.dispatch(rateCard(values)); 
+        this.props.dispatch(rateCard(values));
       }}>
         <label>Rating</label>
         <select onChange={(input) => this.selectVal = input.target.value}>
           {options}
         </select>
-        <button type="submit">Rate Me</button>
+        <CardButton buttonText={"Rate Me"} />
+
       </form>
     )
     return selector;
@@ -51,11 +52,13 @@ export class ExpandedContent extends Component {
     let select;
     if (this.props.selected) {
       select = (
-        <button onClick={() => this.deselect()} className='confirm-location'>I want choices</button>
+        // <button onClick={() => this.deselect()} className='confirm-location'>I want choices</button>
+        <CardButton buttonFunction={() => this.deselect()} buttonText={"I want choices"} />
       )
     } else {
       select = (
-        <button onClick={() => this.lockIn()} className='confirm-location'>Lock in</button>
+        // <button onClick={() => this.lockIn()} className='confirm-location'>Lock in</button>
+        <CardButton buttonFunction={() => this.lockIn()} buttonText={"Lock in"} />
       )
     }
 

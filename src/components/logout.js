@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
-
+import ViewButton from './buttons/viewButton'
 export class Logout extends React.Component {
   logOut() {
     this.props.dispatch(clearAuth());
@@ -14,10 +14,15 @@ export class Logout extends React.Component {
     let logOutButton;
     if (this.props.loggedIn) {
       logOutButton = (
-        <button id="logout"
-          onClick={(event) => {
-            this.logOut();
-        }}>Logout</button>
+        // <button id="logout"
+        //   onClick={(event) => {
+        //     this.logOut();
+        // }}>Logout</button>
+        <ViewButton
+          buttonText={'Logout'}
+          buttonFunction={() => this.logOut()}
+        />
+        
       );
     }
     return (
