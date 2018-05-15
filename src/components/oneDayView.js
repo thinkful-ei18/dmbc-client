@@ -7,7 +7,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 
 //actions
 
-import {fetchTripDetails} from '../actions/tripForm';
+import {fetchTripDetails, fetchTripDetailsById} from '../actions/tripForm';
 import { putCardOnBlock, deleteBlock } from '../actions/block';
 
 //components and helpers
@@ -59,7 +59,7 @@ class OneDayView extends Component {
   }
   render() {
     if (!this.props.currentDay) {
-      this.props.dispatch(fetchTripDetails());
+      this.props.dispatch(fetchTripDetailsById(this.props.match.params.id));
       let lastDayViewed = new Date(localStorage.getItem('lastDayViewed'));
       this.props.dispatch(setDashboardCurrentDay(lastDayViewed));
     }
