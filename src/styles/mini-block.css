@@ -16,11 +16,13 @@
   vertical-align: middle;
   grid-column: 1;
   text-align: right;
+  display: flex;
+  justify-content: space-between;
 }
 
 .mini-block-title {
   display: inline-block;
-  padding-right: 15px;
+  margin-left:15px;
   width:auto;
   font-size: 18px;
 }

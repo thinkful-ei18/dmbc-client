@@ -1,0 +1,30 @@
+.timeline-symbol{
+  /* position:absolute; */
+  /* border:1px solid red; */
+  /* top:0px; */
+  /* margin-top:50px; */
+  position:relative;
+  display:block;
+}
+
+.timeline-symbol i{
+  font-size: 2em;
+  /* display:block; */
+}
+
+
+.timeline-symbol hr{
+  width: 3px;
+  height: 55px;
+  background-color: #333;
+  border: none;
+  position: absolute;
+  right: 17px;
+  top: 40px;
+}
+
+@media only screen and (max-width:595px){
+  .timeline-symbol{
+    visibility: hidden;
+  }
+}
