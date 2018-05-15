@@ -34,9 +34,17 @@ class NewTripForm extends Component {
   render() {
     const wrongDates = this.props.dateStart>this.props.dateEnd ? true:false;
     const noDate = this.props.dateStart ? false:true;
+    let error = <div className="trip-form-error">Required</div>;
+    let placeError;
+    if (!this.props.destination) {
+      placeError = <div className="trip-form-error">Required</div>;
+    }
+    if (wrongDates && this.props.dateEnd) {
+      error = <div className="trip-form-error">The end date must be after the start</div>;
+    }
     const fixtures = [
-      {label: 'Chicago', location: {lat: 40.7033127, lng: -73.979681}},
-      {label: 'Mexico City', location: {lat: -22.066452, lng: -42.9232368}},
+      {label: 'Chicago', location: {lat: 41.8781, lng: -87.6298}},
+      {label: 'Mexico City', location: {lat: 19.4326, lng: -99.1332}},
       {label: 'Tokyo', location: {lat: 35.673343, lng: 139.710388}},
     ];
     return (
@@ -45,6 +53,7 @@ class NewTripForm extends Component {
           <h2>Tell us a little about your trip</h2>
           <div className='tripFormPlace'>
             <p>I'm traveling to...</p>
+            {placeError}
             <Geosuggest
               className="tripGeoInput"
               fixtures={fixtures}
@@ -53,22 +62,30 @@ class NewTripForm extends Component {
           </div>
           <div className='tripFormDates'>
             <p>From</p>
-            <DatePicker
-              value={this.props.dateStart}
-              onChange={ (dateStart) => this.props.dispatch(setDateStart(dateStart)) }
-            />
+            <div className="trip-form-input">
+              {error}
+              <DatePicker
+                value={this.props.dateStart}
+                onChange={ (dateStart) => this.props.dispatch(setDateStart(dateStart)) }
+                minDate={new Date()}
+              />
+            </div>
           <p>up until,</p>
-            <DatePicker
-              style={{'margin':'0px 5px'}}
-              value={this.props.dateEnd}
-              onChange={ (dateEnd) => this.props.dispatch(setDateEnd(dateEnd)) }
-            />
+          <div className="trip-form-input">
+              {error}
+              <DatePicker
+                style={{'margin':'0px 5px'}}
+                value={this.props.dateEnd}
+                onChange={ (dateEnd) => this.props.dispatch(setDateEnd(dateEnd)) }
+                minDate={new Date(this.props.dateStart)}
+              />
+            </div>
           </div>
           <div className='tripTravelers'>
-            <p>who's traveling with you? </p>
+            <p>Who's traveling with you? </p>
             <input
               type="text"
-              placeholder="you can leave me blank if you're traveling solo"
+              placeholder="Not required if travelling solo"
               onBlur={(travelers) => this.props.dispatch(setTripPartners(travelers.target.value))
               }/>
           </div>
