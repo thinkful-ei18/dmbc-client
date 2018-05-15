@@ -102,6 +102,7 @@ class MultiView extends Component{
                 {
                   marginRight: '25px',
                   marginTop: '15px',
+                  marginBottom: '0',
                   float: 'right'
                 }
               }/>
