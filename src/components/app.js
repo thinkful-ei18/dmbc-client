@@ -62,11 +62,11 @@ export class App extends React.Component {
         <Route path="/ambassador-page" component={Navigation} />
         <Route path="/ambassador-page" component={AmbassadorPage} />
 
-        <Route exact path="/oneDayView" component={Navigation} />
-        <Route exact path="/oneDayView" component={oneDayView} />
+        <Route path="/itineraries/:id/oneDayView" component={Navigation} />
+        <Route path="/itineraries/:id/oneDayView" component={oneDayView} />
 
-        <Route path="/itineraries/:id" component={Navigation} />
-        <Route path="/itineraries/:id" component={MultiView} />
+        <Route exact path="/itineraries/:id" component={Navigation} />
+        <Route exact path="/itineraries/:id" component={MultiView} />
 
       </div>
     );

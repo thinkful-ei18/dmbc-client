@@ -93,7 +93,7 @@ class MultiView extends Component{
         )
       }
       return(
-        <Link to="/oneDayView" onClick={() => this.handleRedirect(day)} className="one-day-link" key={index}>
+        <Link to={`/itineraries/${this.props.currentItinerary.id || this.props.match.params.id}/oneDayView`} onClick={() => this.handleRedirect(day)} className="one-day-link" key={index}>
           <li className="multi-view-day">
             <div className="multi-day-header">
               <h2 className="block-date">{parsedDate}</h2>
