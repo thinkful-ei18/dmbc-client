@@ -1,4 +1,4 @@
-import { FETCH_TRIP_DETAILS_SUCCESS } from '../actions/tripForm';
+import { FETCH_TRIP_DETAILS_SUCCESS, FETCH_TRIP_DETAILS_ERROR } from '../actions/tripForm';
 import {
   SET_DASHBOARD_CURRENT_DAY,
   SET_DASHBOARD_TRIPDAYS,
@@ -12,15 +12,23 @@ const initialState = {
   currentItinerary:undefined,
   tripDays:undefined,
   currentDay:undefined,
-  toolBeltDisplay: 'cards'
+  toolBeltDisplay: 'cards',
+  loading: false,
+  error: null
 }
 
 export default function reducer(state = initialState, action){
   switch (action.type) {
+    case FETCH_TRIP_DETAILS_ERROR:
+      return{
+        ...state,
+        error: 'No trip'
+      }
     case FETCH_TRIP_DETAILS_SUCCESS:
       return{
         ...state,
-        currentItinerary:action.tripDetails
+        currentItinerary:action.tripDetails,
+        error: null
       }
     case SET_DASHBOARD_TRIPDAYS:
       return{

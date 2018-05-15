@@ -6,7 +6,7 @@ import Logo from './logo';
 import '../styles/navigation.css';
 export class Navigation extends React.Component {
   render() {
-    if (!this.props.loggedIn) {
+    if (!this.props.loggedIn && !localStorage.getItem('authToken')) {
       return <Redirect to='/'/>
     }
     let ambassadorLink = '';
