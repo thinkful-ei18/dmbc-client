@@ -27,6 +27,18 @@ export class LocationInfo extends Component {
     }));
   }
 
+  removeSelected() {
+    console.log('doin this')
+    this.props.dispatch(removeSelectOnBlock({blockId: this.props.blockId}))
+      .then(() => {
+        this.props.dispatch(removeCardOnBlock({
+          blockID: this.props.blockId, 
+          cardID: this.props.info.id,
+          cards:  this.props.cards
+        }))
+      })
+  }
+
   createSelect() {
     let options = new Array(5);
     for (let i = 0; i < 5; i++) {
@@ -57,13 +69,17 @@ export class LocationInfo extends Component {
   render() {
     const selector = this.createSelect()
     let select;
-    if (this.props.ambassador) {
+    if (this.props.ambassador && this.props.selected) {
       select = (
-        <button onClick={() => this.removeCard()}>Remove</button>
+        <button onClick={() => this.removeSelected()} className='confirm-location'>Remove</button>
       )
     } else if (this.props.selected) {
       select = (
         <button onClick={() => this.deselect()} className='confirm-location'>Choices</button>
+      )
+    } else if (this.props.ambassador) {
+      select = (
+        <button onClick={() => this.removeCard()}>Remove</button>
       )
     } else {
       select = (

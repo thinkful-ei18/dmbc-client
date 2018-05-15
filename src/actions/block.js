@@ -178,11 +178,24 @@ export const selectCardOnBlock = ids => (dispatch, getState) => {
     .catch(err => dispatch(selectCardOnBlockError(err)));
 }
 
-export const REMOVE_SELECT_CARD_ON_BLOCK_SUCCESS = 'REMOVE_SELECT_CARD_ON_BLOCK_SUCCESS'
-export const removeSelectCardOnBlockSuccess = blockId => ({type: REMOVE_SELECT_CARD_ON_BLOCK_SUCCESS, blockId})
-
 export const removeSelectOnBlock = value => (dispatch, getState) => {
-  return dispatch(removeSelectCardOnBlockSuccess(value.blockId));
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/block/${value.blockId}/deselect`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+    .then(updatedBlock => {
+      console.log(updatedBlock)
+      const formattedBlock = Object.assign({}, updatedBlock, {
+        date: new Date(updatedBlock.date)
+      })
+      dispatch(selectCardOnBlockSuccess(formattedBlock))
+    })
+  .catch(err => dispatch(selectCardOnBlockError(err)));
 }
 
 export const REMOVE_CARD_ON_BLOCK_SUCCESS = 'REMOVE_SELECT_CARD_ON_BLOCK_SUCCESS'
