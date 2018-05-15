@@ -23,8 +23,6 @@
   font-size: 18px;
   text-align: right;
   position: relative;
-  top: 22%;
-  transform: translateY(-50%);
 }
 .mini-card {
   background-color: white;
