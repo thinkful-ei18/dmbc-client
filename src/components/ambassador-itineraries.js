@@ -9,7 +9,6 @@ import {
   Slide,
   ButtonBack,
   ButtonNext,
-  Image
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import "../styles/carousel.css";
@@ -69,17 +68,14 @@ class AmbassadorItineraries extends Component {
           visibleSlides={2}
           className="carousel-background-current"
         >
-          <Slider>{itinerariesList}</Slider>
-          <Image
-            hasMasterSpinner="false"
-            src="https://www.visitlasvegas.com/"
-          />
-          <ButtonBack>
-            <i class="fas fa-angle-left" /> Back
+          <ButtonBack className="back-button">
+            <i class="fas fa-angle-left" />
           </ButtonBack>
-          <ButtonNext>
-            Next <i class="fas fa-angle-right" />
+          <ButtonNext className="next-button">
+            <i class="fas fa-angle-right" />
           </ButtonNext>
+          <Slider>{itinerariesList}</Slider>
+          
           {/* <h1>{itinerariesTotal}</h1> */}
         </CarouselProvider>
       </div>

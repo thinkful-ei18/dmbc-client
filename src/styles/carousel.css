@@ -1,47 +1,60 @@
+
+
 .ambassador-cards-slide {
     margin-top: 15px;
+}
+
+.back-button {
+    position: absolute;
+    width: 3%;
+    height: 50%;
+    background-color: rgba(255, 255, 255, 0.25);
+    
 }
 
 .carousel-title-card{
     font-size: 2em;
     text-align: center;
-    background: linear-gradient(to right, #267dc0 -14%, #ffffff 53%);
+    background: linear-gradient(to right, #5e7cfd -14%, #ffffff 53%);
     font-family: 'IBM plex serif';
 }
 
 .carousel-title-current{
-    font-size: 2em;
+    font-size: 5vw;
     text-align: center;
-    background: linear-gradient(to right, #267dc0 -14%, #ffffff 53%);
+    background: linear-gradient(to right, #5e7cfd -14%, #ffffff 53%);
     font-family: 'IBM plex serif';
 }
 
 .carousel-title-past{
-    font-size: 2em;
+    font-size: 5vw;
     text-align: center;
-    background: linear-gradient(to right, #267dc0 -14%, #ffffff 53%);
+    background: linear-gradient(to right, #5e7cfd -14%, #ffffff 53%);
     font-family: 'IBM plex serif';
 }
 
 .carousel-background-cards {
-    background-color: tomato;
+    background-color: silver;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-family: 'IBM plex serif';
 }
 
 .carousel-background-current {
-    background-color: tomato;
+    background-color: silver;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-family: 'IBM plex serif';
 }
 
 .carousel-background-past {
-    background-color: tomato;
+    background-color: silver;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 ._horizontalSlider_9ve3r_1 {
     padding: 10px;
+    margin-left: 3%;
+    margin-right: 3%;
+    display: block;
 }
 
 .itinerary-container {
@@ -67,40 +80,72 @@
     background-color: rgba(0, 0, 0, 0.192)
 }
 
+.next-button {
+    position: absolute;
+    right: 0;
+    height: 50%;
+    width: 3%;
+    background-color: rgba(255, 255, 255, 0.25);
+    margin: 50px 0;
+    
+}
+
 ._slideInner_fhwgk_1 {
     text-align: center;
-    padding: 100px;
+    padding: 30px;
     color: white;
     font-family: 'IBM plex serif';
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-top: solid gold 4px;
 }
 
-@media (max-width: 768px) {
-    ._slideInner_fhwgk_1 h3 {
+._slideInner_fhwgk_1 h3 {
+    font-size: 6vw;
+    background-color: rgba(241, 243, 108, 0.555)
+}
+
+._slideInner_fhwgk_1 h4 {
+    font-size: 2vw;
+}
+
+
+
+@media (max-width: 1650px) {
+    /* ._slideInner_fhwgk_1 h3 {
         font-size: 40px;
+            } */
+        
+            .next-button {
+                height: 10%;
+                
             }
-            ._slideInner_fhwgk_1{
-                padding: 25px;
+            .back-button {
+                height: 10%;
+                
             }
 
 }
 @media (max-width: 700px) {
-    ._slideInner_fhwgk_1 h3 {
+    /* ._slideInner_fhwgk_1 h3 {
 font-size: 15px;
-    }
-    ._slideInner_fhwgk_1 h4 {
+    } */
+    /* ._slideInner_fhwgk_1 h4 {
         font-size: 9px;
-            }
+            } */
            ._slideInner_fhwgk_1 li {
                 font-size: 9px;
             } 
-            ._slideInner_fhwgk_1 button {
-                font-size: 9px;
-            }
+          
             ._slideInner_fhwgk_1{
                 padding: 5px;
                 text-align: left;
             }
+            .back-button {
+                
+                height: 10%;
+            }
+
+              
 }
     /* .carousel-background-current
    {
