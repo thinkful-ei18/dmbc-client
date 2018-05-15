@@ -101,7 +101,9 @@ class MultiView extends Component{
               <ViewButton buttonText={'Go To Day'} overrideStyle={
                 {
                   marginRight: '25px',
-                  marginTop: '15px'
+                  marginTop: '15px',
+                  marginBottom: '0',
+                  float: 'right'
                 }
               }/>
             </div>

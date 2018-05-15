@@ -8,13 +8,13 @@ export default function MiniBlock(props) {
   if (props.block.cards.length === 0){
     smallCards =
       <div className="mini-card">
-        <p className="mini-card-header">Your ambassador is still selecting</p>
+        <h4 className="mini-card-header">Your ambassador is still selecting</h4>
       </div>
   } else if (props.block.selectedCard) {
     smallCards = props.block.cards.filter(card => card.id === props.block.selectedCard)[0]
     smallCards = (
     <div className="mini-card">
-      <p className="mini-card-header">{smallCards.name}</p>
+      <h4 className="mini-card-header">{smallCards.name}</h4>
       <p className="mini-card-blurb">{smallCards.address}</p>
     </div>
     )
@@ -25,7 +25,7 @@ export default function MiniBlock(props) {
         break;
       }
       name = props.block.cards[i].name
-      nameTag.push (<p className="mini-card-header" key={i}>{name}</p>)
+      nameTag.push (<h4 className="mini-card-header" key={i}>{name}</h4>)
     }
     smallCards = (
       <div className="mini-card">
@@ -37,7 +37,7 @@ export default function MiniBlock(props) {
   return (
     <div className="mini-block">
       <div className="mini-block-nav">
-        <h4 className="mini-block-title">{props.block.title}</h4>
+        <h3 className="mini-block-title">{props.block.title}</h3>
         {/* {timeline} */}
         <span>{props.timelineSymbol}</span>
       </div>
