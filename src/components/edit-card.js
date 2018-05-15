@@ -15,6 +15,7 @@ class SingleCard extends React.Component {
       address: null,
       hours: null,
       id: null,
+      image: null,
     }
   }
   componentDidMount() {
@@ -25,11 +26,13 @@ class SingleCard extends React.Component {
         description: this.props.singleCard.description,
         address: this.props.singleCard.address,
         hours: this.props.singleCard.hours,
-        id: this.props.singleCard.id
+        id: this.props.singleCard.id,
+        image: this.props.singleCard.image
       })
     });
   };
   render() {
+    console.log(this.props)
     const apiTags = ['Family Friendly', 'Crowd Friendly', 'No Pets'];
 
     const placeTags = apiTags.map((tag,index) => {
@@ -45,6 +48,7 @@ class SingleCard extends React.Component {
         address: this.state.address,
         hours: this.state.hours,
         id: this.state.id,
+        image: this.state.image,
         ambassador: this.props.singleCard.ambassador
       }
       editForm = (
@@ -55,7 +59,7 @@ class SingleCard extends React.Component {
         }}>
         <h4>Edit Card</h4>
         <div className='card-container-expanded no-drag' key={this.props.index}>
-          <div className='card-header' style={{'backgroundImage':`url(${Background})`}}>
+          <div className='card-header' style={{'backgroundImage':`url(${this.state.image})`}}>
             <div className="card-title">
               <span className='place-name'>
                 <input 

@@ -23,12 +23,13 @@ function collect(connect, monitor){
 class ToolbeltCard extends Component {
 
   render(){
+    console.log(this.props)
     const { connectDragSource, isDragging } = this.props
     return connectDragSource(
         <div className='card-container-expanded' key={this.props.index}
           style={{'opacity': isDragging ? 0.2:1}}
           >
-          <div className='card-header' style={{'backgroundImage':`url(${this.props.Background})`}}>
+          <div className='card-header' style={{'backgroundImage':`url(${this.props.card.image})`}}>
             <div className="card-title">
               <p className='place-name'>{this.props.card.name}</p>
               <p className='card-blurb'>{this.props.card.address}</p>

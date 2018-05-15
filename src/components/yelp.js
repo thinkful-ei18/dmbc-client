@@ -15,7 +15,9 @@ export class Yelp extends React.Component {
       name: '',
       location: '',
       latitude: '',
-      longitude: ''
+      longitude: '',
+      phone: '',
+      image: ''
     }
   }
   render() {
@@ -33,12 +35,23 @@ export class Yelp extends React.Component {
     let searchResults;
     if (this.props.yelp.length > 0) {
       searchResults = this.props.yelp.map((result, index) => {
-        let location = `${result.location.address1}, ${result.location.city}, ${result.location.state}, ${result.location.zip_code}`;
+        let location;
+        result.location.display_address.map(address => {
+          if (!location) {
+            location = address;
+          } else {
+            location = location + ', ' + address
+          }
+          return location;
+        })
         return (
           <div className='card-container-expanded no-drag' key={index}>
             <div className='card-header' style={{'backgroundImage':`url(${result.image_url})`}}>
               <div className="card-title">
                 <span className='place-name'>{result.name}</span>
+                <span className='card-blurb'>
+                  {result.display_phone}
+                </span>
               </div>
             </div>
             <div className='place-tags'>
@@ -61,7 +74,9 @@ export class Yelp extends React.Component {
                       name: result.name,
                       location: location,
                       latitude: result.coordinates.latitude,
-                      longitude: result.coordinates.longitude
+                      longitude: result.coordinates.longitude,
+                      phone: result.display_phone,
+                      image: result.image_url
                     })
                   }}>Choose this location</button>
               </div>
@@ -87,7 +102,7 @@ export class Yelp extends React.Component {
         }}>Next</button>
       </div>
     )}
-
+    console.log(this.props.yelp)
     if (this.state.create) {
       return (
         <CreateCard 
@@ -95,6 +110,8 @@ export class Yelp extends React.Component {
           location={this.state.location}
           latitude={this.state.latitude}
           longitude={this.state.longitude}
+          phone={this.state.phone}
+          image={this.state.image}
         />
       )
     }

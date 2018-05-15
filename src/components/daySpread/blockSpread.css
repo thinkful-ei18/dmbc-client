@@ -83,6 +83,12 @@
   width: 100%;
 }
 
+.location-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .location-name h3 {
   width: 100%;
   margin: 0;
@@ -103,8 +109,6 @@
 .location-controls {
   display:flex;
   justify-content: flex-end;
-  align-self: flex-end;
-  flex:2 2 auto;
   margin: 10px 0;
 }
 
@@ -122,6 +126,15 @@
   .block-spread {
     padding: 30px;
   }
+
+  .location-address {
+    width: 50%;
+  }
+
+  .location-phone {
+    text-align: right;
+    width: 50%;
+  }
 }
 
 @media only screen and (min-width: 859px) {
@@ -131,13 +144,13 @@
   }
 
   .location img {
-    width: 65%;
+    width: 40%;
   }
 
   .location-info {
     display: flex;
     flex-wrap: wrap;
-    width: 35%;
+    width: 60%;
     padding: 5px;
   }
 }
@@ -180,10 +193,10 @@
 
 @media only screen and (min-width: 1600px) {
   .location img {
-    width: 55%;
+    width: 40%;
   }
 
   .location-info {
-    width: 45%;
+    width: 60%;
   }
 }
