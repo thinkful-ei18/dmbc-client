@@ -34,9 +34,13 @@ class NewTripForm extends Component {
   render() {
     const wrongDates = this.props.dateStart>this.props.dateEnd ? true:false;
     const noDate = this.props.dateStart ? false:true;
+    let error;
+    if (wrongDates && this.props.dateEnd) {
+      error = <div className="form-error">The end date must be after the start</div>;
+    }
     const fixtures = [
-      {label: 'Chicago', location: {lat: 40.7033127, lng: -73.979681}},
-      {label: 'Mexico City', location: {lat: -22.066452, lng: -42.9232368}},
+      {label: 'Chicago', location: {lat: 41.8781, lng: -87.6298}},
+      {label: 'Mexico City', location: {lat: 19.4326, lng: -99.1332}},
       {label: 'Tokyo', location: {lat: 35.673343, lng: 139.710388}},
     ];
     return (
@@ -58,6 +62,7 @@ class NewTripForm extends Component {
               onChange={ (dateStart) => this.props.dispatch(setDateStart(dateStart)) }
             />
           <p>up until,</p>
+            {error}
             <DatePicker
               style={{'margin':'0px 5px'}}
               value={this.props.dateEnd}
