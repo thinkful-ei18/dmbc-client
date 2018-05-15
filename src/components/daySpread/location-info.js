@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {selectCardOnBlock, removeSelectOnBlock} from '../../actions/block';
+import {selectCardOnBlock, removeSelectOnBlock, removeCardOnBlock} from '../../actions/block';
 import { rateCard } from "../../actions/cards";
 
 import {connect} from 'react-redux';
@@ -17,6 +17,14 @@ export class LocationInfo extends Component {
 
   deselect() {
     this.props.dispatch(removeSelectOnBlock({blockId: this.props.blockId}))
+  }
+
+  removeCard() {
+    this.props.dispatch(removeCardOnBlock({
+      blockID: this.props.blockId, 
+      cardID: this.props.info.id,
+      cards:  this.props.cards
+    }));
   }
 
   createSelect() {
@@ -49,13 +57,17 @@ export class LocationInfo extends Component {
   render() {
     const selector = this.createSelect()
     let select;
-    if (this.props.selected) {
+    if (this.props.ambassador) {
+      select = (
+        <button onClick={() => this.removeCard()}>Remove</button>
+      )
+    } else if (this.props.selected) {
       select = (
         <button onClick={() => this.deselect()} className='confirm-location'>Choices</button>
       )
     } else {
       select = (
-        <button onClick={() => this.lockIn()} className='confirm-location'>Lock in</button>
+        <button onClick={() => this.lockIn()} className='confirm-location'>Lock Location</button>
       )
     }
 
@@ -83,6 +95,8 @@ export class LocationInfo extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  ambassador: state.auth.currentUser.ambassador
+});
 
 export default connect(mapStateToProps)(LocationInfo);

@@ -8,7 +8,7 @@ import './blockSpread.css';
 export default class Location extends Component {
   render() {
     //DUMMY PROPS FOR DESIGN
-    const isExpanded = true
+    const isExpanded = true;
     const isSelected = this.props.selected; // dummy boolean, for telling the component to display extra stuff or not
     //END DUMMY PROPS
     //dnd
@@ -29,6 +29,7 @@ export default class Location extends Component {
           blockId={this.props.blockId}
           selected={isSelected}
           placeTags={placeTags}
+          cards={this.props.cards}
           />
       : undefined;
 

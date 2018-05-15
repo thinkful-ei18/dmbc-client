@@ -23,7 +23,7 @@
   margin: 0;
   position: fixed;
   top: 50px;
-  right: 2.5%;
+  right: 25px;
   cursor: pointer;
   z-index: 5001;
 }
@@ -39,11 +39,11 @@
   background-color: tomato;
 }
 
-.cards-content {
+/* .cards-content {
   display: flex;
   flex-wrap: wrap;
   width: 305px;
-}
+} */
 
 .card-search {
   display: flex;
@@ -70,7 +70,6 @@
 .create-card, .back-button {
   margin: 50px 0;
   margin-bottom: 25px;
-  justify-content: flex-start;
 }
 
 .yelp-search {

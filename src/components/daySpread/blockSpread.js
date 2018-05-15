@@ -31,11 +31,18 @@ class BlockSpread extends Component{
       return <Location info={selected} key={selected} blockId={this.props.block.id} selected={true}/>
     }
     let cards = [];
+    let cardIds = [];
     for (let i = 0; i < 3; i++) {
       if (this.props.block.cards[i] === undefined) {
         break;
       }
-      cards.push(<Location info={this.props.block.cards[i]} key={`${this.props.block.id}_${i}`} blockId={this.props.block.id}/>)
+      cardIds.push(this.props.block.cards[i].id);
+    }
+    for (let i = 0; i < 3; i++) {
+      if (this.props.block.cards[i] === undefined) {
+        break;
+      }
+      cards.push(<Location info={this.props.block.cards[i]} key={`${this.props.block.id}_${i}`} blockId={this.props.block.id} cards={cardIds}/>)
     }
     if (cards.length === 0) {
       cards = <h4>Waiting for Ambassador to Add Cards</h4>
@@ -44,6 +51,7 @@ class BlockSpread extends Component{
   }
 
   render(){
+    console.log(this.props.block);
     let deleteBlockButton;
     if (!this.props.ambassador) {
       deleteBlockButton = (
