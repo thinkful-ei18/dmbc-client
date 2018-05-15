@@ -26,10 +26,6 @@ class BlockSpread extends Component{
     return this.props.handleCardDrop({blockID:blockId, cardID:cardId})
   }
   createCards() {
-    if (this.props.block.selectedCard) {
-      const selected = this.props.block.cards.find(card => card.id === this.props.block.selectedCard)
-      return <Location info={selected} key={selected} blockId={this.props.block.id} selected={true}/>
-    }
     let cards = [];
     let cardIds = [];
     for (let i = 0; i < 3; i++) {
@@ -37,6 +33,10 @@ class BlockSpread extends Component{
         break;
       }
       cardIds.push(this.props.block.cards[i].id);
+    }
+    if (this.props.block.selectedCard) {
+      const selected = this.props.block.cards.find(card => card.id === this.props.block.selectedCard)
+      return <Location info={selected} key={selected} blockId={this.props.block.id} selected={true} cards={cardIds}/>
     }
     for (let i = 0; i < 3; i++) {
       if (this.props.block.cards[i] === undefined) {
