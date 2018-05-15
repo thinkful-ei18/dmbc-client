@@ -1,11 +1,12 @@
 import React from "react";
 import '../styles/mini-block.css'
+import '../styles/timeline.css'
 
 export default function MiniBlock(props) {
   let smallCards = '';
   let name = '';
   if (props.block.cards.length === 0){
-    smallCards = 
+    smallCards =
       <div className="mini-card">
         <p className="mini-card-header">Your ambassador is still selecting</p>
       </div>
@@ -33,40 +34,13 @@ export default function MiniBlock(props) {
     )
   }
 
-  let timeline = (
-    <i className="far fa-circle"></i>
-  );
-
-  if (props.index !== 0 && props.length - 1 === props.index) {
-    timeline = (
-      <div className="line">
-        <div className="line-above"></div>
-        <i className="far fa-circle"></i>
-      </div>
-    )
-  } else if (props.index !== 0 && props.length - 1 > props.index) {
-    timeline = (
-      <div className="line">
-        <div className="line-above"></div>
-        <i className="far fa-circle"></i>
-        <div className="line-below"></div>
-      </div>
-    )
-  } else if (props.index === 0 && props.length > 1){
-    timeline = (
-      <div className="line">
-        <i className="far fa-circle"></i>
-        <div className="line-below"></div>
-      </div>
-    )
-  }
-
   return (
     <div className="mini-block">
       <div className="mini-block-nav">
         <h4 className="mini-block-title">{props.block.title}</h4>
-        {timeline}
-      </div> 
+        {/* {timeline} */}
+        <span>{props.timelineSymbol}</span>
+      </div>
       {smallCards}
     </div>
   )

@@ -8,6 +8,7 @@ import MiniBlock from "./mini-block";
 import ViewButton from './buttons/viewButton'
 import BackgroundImage from '../assets/la.jpg'
 
+
 import '../styles/multiView.css';
 
 class MultiView extends Component{
@@ -57,9 +58,32 @@ class MultiView extends Component{
       const blocks = this.props.currentItinerary.blocks;
       let filteredBlocks = blocks.filter(block => day.toDateString() === block.date.toDateString())
       let block = filteredBlocks.map((block, index) => {
+          let timelineSymbol
+          if(index!==filteredBlocks.length-1){
+            timelineSymbol = (
+              <div className="timeline-symbol">
+                <i className="far fa-circle"></i>
+                <hr/>
+              </div>
+            )
+          }
+          else{
+             timelineSymbol = (
+               <div className="timeline-symbol">
+                 <i className="far fa-circle"></i>
+               </div>
+
+             )
+          }
           return (
-            <div key={index}>
-              <MiniBlock block={block} index={index} length={filteredBlocks.length}/>
+            <div className="mini-block-container"  key={index}>
+              {/* {timelineSymbol} */}
+              <MiniBlock
+                block={block}
+                index={index}
+                length={filteredBlocks.length}
+                timelineSymbol={timelineSymbol}
+              />
             </div>
           )
       })
@@ -74,8 +98,8 @@ class MultiView extends Component{
             <div className="multi-day-header">
               <h2 className="block-date">{parsedDate}</h2>
               {/* <button className="go-to-day">Go to day</button> */}
-              <ViewButton buttonText={'Go To Day'} style={
-                {  
+              <ViewButton buttonText={'Go To Day'} overrideStyle={
+                {
                   marginRight: '25px',
                   marginTop: '15px'
                 }
@@ -109,7 +133,6 @@ class MultiView extends Component{
     return(
       <div className="multi-view">
         {tripDetails}
-
         <ul>
           {trips}
         </ul>
