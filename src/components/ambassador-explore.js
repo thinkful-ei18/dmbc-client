@@ -9,7 +9,6 @@ import {
   ButtonBack,
   ButtonNext
 } from "pure-react-carousel";
-import Background from "../assets/barPlaceHolder.jpg";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import "../styles/carousel.css";
 // import '../styles/oneDayView.css'; import '../styles/cards.css';
@@ -54,10 +53,11 @@ class AmbassadorExplore extends Component {
           visibleSlides={2}
           className="carousel-background-cards"
         >
-          <Slider>{exploreCardsList}</Slider>
           <ButtonBack>
             <i class="fas fa-angle-left" /> Back
           </ButtonBack>
+          <Slider>{exploreCardsList}</Slider>
+        
           <ButtonNext>
             Next <i class="fas fa-angle-right" />
           </ButtonNext>

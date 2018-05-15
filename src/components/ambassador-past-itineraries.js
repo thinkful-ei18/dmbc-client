@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
-import Background from "../assets/barPlaceHolder.jpg";
 import {
   CarouselProvider,
   Slider,
@@ -58,13 +57,13 @@ class AmbassadorPastItineraries extends Component {
           visibleSlides={2}
           className="carousel-background-past"
         >
-          <Slider>{itinerariesList}</Slider>
-          <ButtonBack>
-            <i class="fas fa-angle-left" /> Back
+        <ButtonBack className="back-button">
+            <i class="fas fa-angle-left" />
           </ButtonBack>
-          <ButtonNext>
-            Next <i class="fas fa-angle-right" />
+          <ButtonNext className="next-button">
+             <i class="fas fa-angle-right" />
           </ButtonNext>
+          <Slider>{itinerariesList}</Slider>
           {/* <h1>{itinerariesTotal}</h1> */}
         </CarouselProvider>
       </div>
