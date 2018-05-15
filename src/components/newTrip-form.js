@@ -41,6 +41,8 @@ class NewTripForm extends Component {
     }
     if (wrongDates && this.props.dateEnd) {
       error = <div className="trip-form-error">The end date must be after the start</div>;
+    } else if (!wrongDates && !noDate ) {
+      error = '';
     }
     const fixtures = [
       {label: 'Chicago', location: {lat: 41.8781, lng: -87.6298}},
@@ -49,18 +51,18 @@ class NewTripForm extends Component {
     ];
     return (
       <div className="trip-form-background">
-        <div className='tripFormContainer'>
+        <div className='trip-form-container'>
           <h2>Tell us a little about your trip</h2>
-          <div className='tripFormPlace'>
+          <div className='trip-form-place'>
             <p>I'm traveling to...</p>
             {placeError}
             <Geosuggest
-              className="tripGeoInput"
+              className="trip-geo-input"
               fixtures={fixtures}
               onSuggestSelect={(location) => this.props.dispatch(setTripDestination(location))}
             />
           </div>
-          <div className='tripFormDates'>
+          <div className='trip-form-dates'>
             <p>From</p>
             <div className="trip-form-input">
               {error}
@@ -81,7 +83,7 @@ class NewTripForm extends Component {
               />
             </div>
           </div>
-          <div className='tripTravelers'>
+          <div className='trip-travelers'>
             <p>Who's traveling with you? </p>
             <input
               type="text"
