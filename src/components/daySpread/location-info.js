@@ -71,6 +71,10 @@ export class LocationInfo extends Component {
       )
     }
 
+    if (this.props.ambassador && this.props.selected) {
+      select = null;
+    }
+
     return (
       <div className="location-info">
         <div className="location-name">

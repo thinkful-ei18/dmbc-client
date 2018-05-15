@@ -11,10 +11,12 @@ import {fetchTripDetails} from '../actions/tripForm';
 import { putCardOnBlock, deleteBlock } from '../actions/block';
 
 //components and helpers
+import requiresLogin from "../requires-login";
 import BlockSpread from './daySpread/blockSpread';
 import AddNewBlock from './daySpread/addNewBlock';
 import Toolbelt from './toolbelt';
 import ViewButton from './buttons/viewButton'
+
 //styles
 import '../styles/oneDayView.css';
 import { setDashboardCurrentDay } from '../actions/dashboard';
@@ -156,4 +158,4 @@ const mapStateToProps = (state) => ({
 })
 
 OneDayView = DragDropContext(HTML5Backend)(OneDayView);
-export default connect(mapStateToProps)(OneDayView);
+export default requiresLogin()(connect(mapStateToProps)(OneDayView));

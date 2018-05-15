@@ -33,7 +33,7 @@ export class CreateCard extends React.Component {
             this.props.dispatch(setToolbeltDisplay('cards'));
           }}>
           <h4>Create a Card</h4>
-          <div className='card-container-expanded' key={this.props.index}>
+          <div className='card-container-expanded no-drag' key={this.props.index}>
           <div className='card-header' style={{'backgroundImage':`url(${Background})`}}>
             <div className="card-title">
               <span className='place-name'>

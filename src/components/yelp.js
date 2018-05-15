@@ -35,7 +35,7 @@ export class Yelp extends React.Component {
       searchResults = this.props.yelp.map((result, index) => {
         let location = `${result.location.address1}, ${result.location.city}, ${result.location.state}, ${result.location.zip_code}`;
         return (
-          <div className='card-container-expanded' key={index}>
+          <div className='card-container-expanded no-drag' key={index}>
             <div className='card-header' style={{'backgroundImage':`url(${result.image_url})`}}>
               <div className="card-title">
                 <span className='place-name'>{result.name}</span>

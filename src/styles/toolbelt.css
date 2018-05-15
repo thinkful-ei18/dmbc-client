@@ -39,11 +39,11 @@
   background-color: tomato;
 }
 
-/* .cards-content {
+.cards-content {
   display: flex;
   flex-wrap: wrap;
   width: 305px;
-} */
+}
 
 .card-search {
   display: flex;
