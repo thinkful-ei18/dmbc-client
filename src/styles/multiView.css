@@ -1,7 +1,10 @@
 .multi-view {
   font-family: 'IBM Plex', sans-serif;
+  margin-bottom:25px;
 }
-
+.multi-view button{
+  margin:10px;
+}
 .trip-spread {
   display: flex;
   justify-content: space-between;

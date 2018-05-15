@@ -1,32 +1,19 @@
 import React, {Component} from 'react';
-import { ItemTypes } from '../utils/itemTypes.js';
-import { DragSource } from 'react-dnd';
-import PropTypes from 'prop-types';
 import Background from '../../assets/bar-large.jpg'
 import ExpandedContent from './ExpandedContent';
 
 
-const cardSource = {
-  beginDrag(props){
-    return{};
-  }
-}
 
-function collect(connect,monitor){
-  return {
-    connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging()
-  }
-}
 
-class Card extends Component {
+
+
+export default class Card extends Component {
   render() {
     //DUMMY PROPS FOR DESIGN
     const isExpanded = true
     const isSelected = this.props.selected; // dummy boolean, for telling the component to display extra stuff or not
     //END DUMMY PROPS
     //dnd
-    const { connectDragSource, isDragging } = this.props;
 
     const rating = this.props.info.ratingCount === 0 ? 0 : this.props.info.ratingScore / this.props.info.ratingCount;
 
@@ -61,13 +48,11 @@ class Card extends Component {
     divClassName += isSelected ? ' card-selected' : '';
 
 
-    return connectDragSource(
+    return(
       <div className={divClassName}
         style={{
-          opacity: isDragging ? 0.2 : 1,
           fontSize:25,
-          fontWeight:'bold',
-          cursor:'move'
+          fontWeight:'bold'
         }}>
           <div className='card-header' style={{'backgroundImage':`url(${Background})`}}>
             <div className="card-title">
@@ -90,9 +75,3 @@ class Card extends Component {
     );
   }
 }
-Card.propTypes = {
-  connectDragSource: PropTypes.func.isRequired,
-  isDragging: PropTypes.bool.isRequired
-}
-
-export default DragSource(ItemTypes.CARD, cardSource, collect)(Card);

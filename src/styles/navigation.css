@@ -8,6 +8,9 @@
   background-color:rgba(0, 0, 0, 0.22);
   align-items: center;
 }
+.nav-content button{
+  margin:5px;
+}
 .nav-logo{
   display:inline-block;
   margin:4px 18px;
