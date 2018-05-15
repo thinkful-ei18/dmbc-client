@@ -22,19 +22,25 @@ export class Dashboard extends React.Component {
   }
 
   render() {
-    // if (this.props.currentUser.ambassador) {
-    //   return <Redirect to="/ambassador-page"/>;
-    // }
+    let dashboard = (<p>Loading...</p>)
+
+    if (this.props.currentItinerary) {
+        dashboard = <MultiView/>
+    } else if (this.props.noTrip) {
+      dashboard = <NewTripForm/>
+    }
     return (
       <div className="dashboard">
-        {this.props.currentItinerary
-          ? <MultiView/>
-          : <NewTripForm/>}
+        {dashboard}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({currentItinerary: state.dashboard.currentItinerary, currentUser: state.auth.currentUser});
+const mapStateToProps = state => ({
+  noTrip: state.dashboard.error === 'No trip',
+  currentItinerary: state.dashboard.currentItinerary, 
+  currentUser: state.auth.currentUser
+});
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));
