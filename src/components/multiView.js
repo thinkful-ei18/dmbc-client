@@ -6,7 +6,7 @@ import { setDashboardCurrentDay, setDashboardTripdays } from '../actions/dashboa
 import { fetchTripDetailsById } from '../actions/tripForm';
 import MiniBlock from "./mini-block";
 import ViewButton from './buttons/viewButton'
-import BackgroundImage from '../assets/la.jpg'
+import BackgroundImage from '../assets/la-large.jpg'
 
 
 import '../styles/multiView.css';

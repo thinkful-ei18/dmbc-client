@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 //will be a prop later
-import Background from '../../assets/barPlaceHolder.jpg'
+import Background from '../../assets/bar-large.jpg'
 
 class ExpandedContent extends Component{
 

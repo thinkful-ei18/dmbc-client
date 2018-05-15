@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {fetchSingleCard, updateCard} from '../actions/cards';
 import { setToolbeltDisplay } from '../actions/dashboard';
 import requiresLogin from '../requires-login';
-import Background from '../assets/barPlaceHolder.jpg'
+import Background from '../assets/bar-large.jpg'
 
 class SingleCard extends React.Component {
   constructor() {

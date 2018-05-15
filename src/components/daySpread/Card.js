@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { ItemTypes } from '../utils/itemTypes.js';
 import { DragSource } from 'react-dnd';
 import PropTypes from 'prop-types';
-import Background from '../../assets/barPlaceHolder.jpg'
+import Background from '../../assets/bar-large.jpg'
 import ExpandedContent from './ExpandedContent';
 
 
