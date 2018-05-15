@@ -20,7 +20,7 @@ export class Dashboard extends React.Component {
   render() {
     let dashboard = (<p>Loading...</p>)
 
-    if (this.props.currentItinerary) {
+    if (this.props.currentItinerary && this.props.currentItinerary.id === this.props.currentUser.itineraries) {
         dashboard = <MultiView/>
     } else if (this.props.noTrip) {
       dashboard = <NewTripForm/>
