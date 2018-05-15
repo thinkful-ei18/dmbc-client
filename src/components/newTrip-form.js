@@ -34,7 +34,11 @@ class NewTripForm extends Component {
   render() {
     const wrongDates = this.props.dateStart>this.props.dateEnd ? true:false;
     const noDate = this.props.dateStart ? false:true;
-    let error;
+    let error = <div className="form-error">Required</div>;
+    let placeError;
+    if (!this.props.destination) {
+      placeError = <div className="form-error">Required</div>;
+    }
     if (wrongDates && this.props.dateEnd) {
       error = <div className="form-error">The end date must be after the start</div>;
     }
@@ -49,6 +53,7 @@ class NewTripForm extends Component {
           <h2>Tell us a little about your trip</h2>
           <div className='tripFormPlace'>
             <p>I'm traveling to...</p>
+            {placeError}
             <Geosuggest
               className="tripGeoInput"
               fixtures={fixtures}
@@ -57,9 +62,11 @@ class NewTripForm extends Component {
           </div>
           <div className='tripFormDates'>
             <p>From</p>
+            {error}
             <DatePicker
               value={this.props.dateStart}
               onChange={ (dateStart) => this.props.dispatch(setDateStart(dateStart)) }
+              minDate={new Date}
             />
           <p>up until,</p>
             {error}
@@ -67,6 +74,7 @@ class NewTripForm extends Component {
               style={{'margin':'0px 5px'}}
               value={this.props.dateEnd}
               onChange={ (dateEnd) => this.props.dispatch(setDateEnd(dateEnd)) }
+              minDate={new Date(this.props.dateStart)}
             />
           </div>
           <div className='tripTravelers'>
