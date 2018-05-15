@@ -10,8 +10,8 @@ import Background from '../assets/bar-large.jpg'
 
 export class CreateCard extends React.Component {
   render() {
+    console.log(this.props)
     const apiTags = ['Family Friendly', 'Crowd Friendly', 'No Pets'];
-
     const placeTags = apiTags.map((tag,index) => {
       return (<li key={index}>{tag}</li>)
     });
@@ -25,16 +25,17 @@ export class CreateCard extends React.Component {
               name: this.name.value,
               address: this.address.value,
               description: this.description.value,
-              hours: this.hours.value,
+              phone: this.phone.value,
               latitude: this.props.latitude,
-              longitude: this.props.longitude
+              longitude: this.props.longitude,
+              image: this.props.image
             };
             this.props.dispatch(addCard(card, distance))
             this.props.dispatch(setToolbeltDisplay('cards'));
           }}>
           <h4>Create a Card</h4>
-          <div className='card-container-expanded' key={this.props.index}>
-          <div className='card-header' style={{'backgroundImage':`url(${Background})`}}>
+          <div className='card-container-expanded no-drag' key={this.props.index}>
+          <div className='card-header' style={{'backgroundImage':`url(${this.props.image})`}}>
             <div className="card-title">
               <span className='place-name'>
                 <input
@@ -77,10 +78,10 @@ export class CreateCard extends React.Component {
               <span className='card-blurb'>
                 <input
                   type="text"
-                  name="hours"
-                  id="hours"
-                  defaultValue="something"
-                  ref={input => this.hours = input}
+                  name="phone"
+                  id="phone"
+                  defaultValue={(this.props.phone !== "") ? this.props.phone : 'no phone number'}
+                  ref={input => this.phone = input}
                 />
               </span>
             </div>

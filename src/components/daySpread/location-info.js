@@ -87,6 +87,10 @@ export class LocationInfo extends Component {
       )
     }
 
+    if (this.props.ambassador && this.props.selected) {
+      select = null;
+    }
+
     return (
       <div className="location-info">
         <div className="location-name">
@@ -98,13 +102,15 @@ export class LocationInfo extends Component {
             {this.props.placeTags}
           </ul>
         </div>
-        <div>
-          <p>Details</p>
-          <p className="location-description">{this.props.info.description}</p>
-        </div>
-        <div className="location-controls">
-          {selector}
-          {select}
+        <div className="location-content">
+          <div>
+            <p>Details</p>
+            <p className="location-description">{this.props.info.description}</p>
+          </div>
+          <div className="location-controls">
+            {selector}
+            {select}
+          </div>
         </div>
       </div>
     )

@@ -50,7 +50,7 @@ export default class Location extends Component {
     return (
       <div className={divClassName}>
         {expandedContent}
-        <img src={Background} alt={this.props.info.name}/>
+        <img src={this.props.info.image} alt={this.props.info.name}/>
       </div>
     );
   }
