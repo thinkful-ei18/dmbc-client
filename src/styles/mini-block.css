@@ -37,17 +37,17 @@
   width: 100%;
   background-size: cover;
   flex: 1 1 20em;
+  font-size: 26px;
 }
 .mini-card-blurb {
   display: flex;
   flex: 1 1 10em;
-  font-size: 10px;
-  /* text-align:justify; */
+  font-size: 13px;
 }
 
 @media only screen and (min-width: 800px) {
   .mini-card-blurb {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .mini-block-title {
