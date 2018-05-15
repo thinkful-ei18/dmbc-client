@@ -4,17 +4,13 @@ import {connect} from "react-redux";
 import requiresLogin from "../requires-login";
 import NewTripForm from "./newTrip-form";
 //actions
-import {fetchTripDetails, fetchTripDetailsById} from '../actions/tripForm';
+import {fetchTripDetails} from '../actions/tripForm';
 //components
 import MultiView from './multiView.js';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
-    if (this.props.location.state) {
-      return this
-        .props
-        .dispatch(fetchTripDetailsById(this.props.location.state.itineraryId))
-    } else if (!this.props.currentItinerary) {
+    if (!this.props.currentItinerary || this.props.currentItinerary.id !== this.props.currentUser.itineraries) {
       this
         .props
         .dispatch(fetchTripDetails());
