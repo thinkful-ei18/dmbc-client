@@ -77,7 +77,7 @@ export class Toolbelt extends React.Component {
             this.props.dispatch(fetchSearchCards(this.searchTerm.value));
           }}>
             <input
-              placeholder="search"
+              placeholder="search cards"
               name="search"
               ref={input => this.searchTerm = input}
             />
@@ -98,14 +98,12 @@ export class Toolbelt extends React.Component {
     if (this.props.toolBeltDisplay === 'cards') {
       changeState = (
         <button className="create-card" onClick={event => {
-          event.preventDefault();
           this.props.dispatch(setToolbeltDisplay('create'));
         }}>New Card</button>
       )
     } else if (this.props.toolBeltDisplay !== 'cards'){
       changeState = (
         <button className="back-button" onClick={event => {
-          event.preventDefault();
           this.props.dispatch(setToolbeltDisplay('cards'));
         }}>Back</button>
       )

@@ -184,3 +184,31 @@ export const removeSelectCardOnBlockSuccess = blockId => ({type: REMOVE_SELECT_C
 export const removeSelectOnBlock = value => (dispatch, getState) => {
   return dispatch(removeSelectCardOnBlockSuccess(value.blockId));
 }
+
+export const REMOVE_CARD_ON_BLOCK_SUCCESS = 'REMOVE_SELECT_CARD_ON_BLOCK_SUCCESS'
+export const removeCardOnBlockSuccess = blockId => ({type: REMOVE_CARD_ON_BLOCK_SUCCESS, blockId})
+
+export const removeCardOnBlock = ({cardID, blockID, cards}) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  console.log(cardID)
+  return fetch(`${API_BASE_URL}/block/${blockID}/removecard`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      cards,
+      cardID
+    })
+  })
+  .then(response => response.json())
+    .then(updatedBlock => {
+      console.log(updatedBlock)
+      const formattedBlock = Object.assign({}, updatedBlock, {
+        date: new Date(updatedBlock.date)
+      })
+      dispatch(selectCardOnBlockSuccess(formattedBlock))
+    })
+  .catch(err => dispatch(selectCardOnBlockError(err)));
+}
