@@ -3,7 +3,8 @@
   margin: 0;
   width: 100%;
   align-items: center;
-  height: 100px;
+  min-height: 100px;
+  height: auto;
   display: grid;
   grid-template-columns: 33% 67%;
 }
@@ -27,7 +28,8 @@
 .mini-card {
   background-color: white;
   width: auto;
-  height: 100px;
+  min-height: 100px;
+  height: auto;
   padding: 15px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   grid-column: 2;
@@ -43,6 +45,12 @@
   display: flex;
   flex: 1 1 10em;
   font-size: 13px;
+}
+
+.mini-card-options {
+  float: left;
+  padding-right: 15px;
+  font-size: 14px;
 }
 
 @media only screen and (min-width: 800px) {

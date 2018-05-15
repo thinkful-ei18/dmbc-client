@@ -89,7 +89,7 @@ class MultiView extends Component{
       })
       if (this.isAllNull(block)) {
         block = (
-          <p className="no-blocks">You haven't created a block for this day yet.</p>
+          <p className="no-blocks">Go to day to create a block for this day.</p>
         )
       }
       return(

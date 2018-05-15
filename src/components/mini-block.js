@@ -25,11 +25,16 @@ export default function MiniBlock(props) {
         break;
       }
       name = props.block.cards[i].name
-      nameTag.push (<h4 className="mini-card-header" key={i}>{name}</h4>)
+      nameTag.push (<li className="mini-card-options" key={i}>{name}</li>)
     }
     smallCards = (
       <div className="mini-card">
-        {nameTag}
+        <h4 className="mini-card-header">Go to day to make your choice</h4>
+        <div>
+          <ul>
+            {nameTag}
+          </ul>
+        </div>
       </div>
     )
   }
