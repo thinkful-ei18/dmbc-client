@@ -70,6 +70,15 @@ flex:1 1 auto;
   display:inline-block;
   font-size:1.4em;
 }
+
+.trip-form-error {
+  color: red;
+  font-size: 0.8em;
+}
+
+.trip-form-input {
+  display: inline-block;
+}
 /* geosuggest */
 
 .geosuggest__suggests--hidden {

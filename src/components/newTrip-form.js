@@ -34,13 +34,13 @@ class NewTripForm extends Component {
   render() {
     const wrongDates = this.props.dateStart>this.props.dateEnd ? true:false;
     const noDate = this.props.dateStart ? false:true;
-    let error = <div className="form-error">Required</div>;
+    let error = <div className="trip-form-error">Required</div>;
     let placeError;
     if (!this.props.destination) {
-      placeError = <div className="form-error">Required</div>;
+      placeError = <div className="trip-form-error">Required</div>;
     }
     if (wrongDates && this.props.dateEnd) {
-      error = <div className="form-error">The end date must be after the start</div>;
+      error = <div className="trip-form-error">The end date must be after the start</div>;
     }
     const fixtures = [
       {label: 'Chicago', location: {lat: 41.8781, lng: -87.6298}},
@@ -62,26 +62,30 @@ class NewTripForm extends Component {
           </div>
           <div className='tripFormDates'>
             <p>From</p>
-            {error}
-            <DatePicker
-              value={this.props.dateStart}
-              onChange={ (dateStart) => this.props.dispatch(setDateStart(dateStart)) }
-              minDate={new Date}
-            />
+            <div className="trip-form-input">
+              {error}
+              <DatePicker
+                value={this.props.dateStart}
+                onChange={ (dateStart) => this.props.dispatch(setDateStart(dateStart)) }
+                minDate={new Date()}
+              />
+            </div>
           <p>up until,</p>
-            {error}
-            <DatePicker
-              style={{'margin':'0px 5px'}}
-              value={this.props.dateEnd}
-              onChange={ (dateEnd) => this.props.dispatch(setDateEnd(dateEnd)) }
-              minDate={new Date(this.props.dateStart)}
-            />
+          <div className="trip-form-input">
+              {error}
+              <DatePicker
+                style={{'margin':'0px 5px'}}
+                value={this.props.dateEnd}
+                onChange={ (dateEnd) => this.props.dispatch(setDateEnd(dateEnd)) }
+                minDate={new Date(this.props.dateStart)}
+              />
+            </div>
           </div>
           <div className='tripTravelers'>
-            <p>who's traveling with you? </p>
+            <p>Who's traveling with you? </p>
             <input
               type="text"
-              placeholder="you can leave me blank if you're traveling solo"
+              placeholder="Not required if travelling solo"
               onBlur={(travelers) => this.props.dispatch(setTripPartners(travelers.target.value))
               }/>
           </div>
