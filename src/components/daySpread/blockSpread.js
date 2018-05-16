@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-
+import CardButton from '../buttons/cardButton';
 //dnd
 import { DropTarget } from 'react-dnd';
 import { ItemTypes } from '../utils/itemTypes';
 import Location from './location';
 //styles
 import '../../styles/oneDayView.css';
-import './blockSpread.css';
+import '../../styles/blockSpread.css';
 
 const blockTarget = {
   drop(props,monitor,component){
@@ -56,9 +56,14 @@ class BlockSpread extends Component{
     if (!this.props.ambassador) {
       deleteBlockButton = (
         <span className="delete-block">
-          <button onClick={() => {
+          {/* <button onClick={() => {
             this.props.deleteBlock(this.props.block.id)
-          }}>Delete Block</button>
+          }}>Delete Block</button> */}
+          <CardButton
+            buttonFunction={() => this.props.deleteBlock(this.props.block.id)}
+            buttonText={'Delete Block'}
+            overrideStyle={{backgroundColor:'red'}}
+          />
         </span>
     )}
     let cards = this.createCards();

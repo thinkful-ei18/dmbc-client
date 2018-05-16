@@ -136,17 +136,7 @@
   margin-top: 10px;
 }
 
-.card-controls button{
-  background-color: none;
-  padding:4px;
-  font-size:12px;
-}
 
-.new-block-button {
-  display: block;
-  width: 100%;
-  text-align: right;
-}
 
 .fa-plus-circle {
   cursor: pointer;

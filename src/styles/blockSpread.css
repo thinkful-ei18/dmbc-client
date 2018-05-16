@@ -55,6 +55,8 @@
 
 .location img {
   width: 100%;
+  object-fit: cover;
+  height:350px;
 }
 
 .location hr {
@@ -83,6 +85,12 @@
   width: 100%;
 }
 
+.location-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .location-name h3 {
   width: 100%;
   margin: 0;
@@ -103,8 +111,6 @@
 .location-controls {
   display:flex;
   justify-content: flex-end;
-  align-self: flex-end;
-  flex:2 2 auto;
   margin: 10px 0;
 }
 
@@ -122,6 +128,15 @@
   .block-spread {
     padding: 30px;
   }
+
+  .location-address {
+    width: 50%;
+  }
+
+  .location-phone {
+    text-align: right;
+    width: 50%;
+  }
 }
 
 @media only screen and (min-width: 859px) {
@@ -131,13 +146,14 @@
   }
 
   .location img {
-    width: 65%;
+    width: 40%;
+    height:100%;
   }
 
   .location-info {
     display: flex;
     flex-wrap: wrap;
-    width: 35%;
+    width: 60%;
     padding: 5px;
   }
 }
@@ -154,7 +170,7 @@
   .location-info li {
     font-size: 15px;
   }
-  
+
   .location-info p {
     font-size: 15px;
   }
@@ -162,7 +178,7 @@
   .location-controls label {
     font-size: 15px;
   }
-  
+
   .location-controls button{
     font-size: 15px;
   }
@@ -180,10 +196,11 @@
 
 @media only screen and (min-width: 1600px) {
   .location img {
-    width: 55%;
+    width: 40%;
+    height:100px;
   }
 
   .location-info {
-    width: 45%;
+    width: 60%;
   }
 }
