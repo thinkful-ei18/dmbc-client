@@ -24,7 +24,7 @@ export class CreateCard extends React.Component {
             let card = {
               name: this.name.value,
               address: this.address.value,
-              description: this.description.value,
+              description: this.description.value.trim(),
               phone: this.phone.value,
               latitude: this.props.latitude,
               longitude: this.props.longitude,
