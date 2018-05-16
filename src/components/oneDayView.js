@@ -50,8 +50,11 @@ class OneDayView extends Component {
             handleCardDrop={(e) => this.handleCardDrop(e)}
             ambassador={this.props.currentUser.ambassador}
             deleteBlock={(blockId) => {
-              this.props.dispatch(deleteBlock(blockId));
-              window.location.reload();
+              this.props.dispatch(deleteBlock(blockId))
+              .then(() => {
+                this.props.dispatch(fetchTripDetailsById(this.props.match.params.id));
+              })
+              
           }}/>
       )
     });

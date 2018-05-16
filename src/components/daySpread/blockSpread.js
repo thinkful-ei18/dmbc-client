@@ -55,11 +55,10 @@ class BlockSpread extends Component{
     if (!this.props.ambassador) {
       deleteBlockButton = (
         <span className="delete-block">
-          {/* <button onClick={() => {
-            this.props.deleteBlock(this.props.block.id)
-          }}>Delete Block</button> */}
           <CardButton
-            buttonFunction={() => this.props.deleteBlock(this.props.block.id)}
+            buttonFunction={() => {
+              this.props.deleteBlock(this.props.block.id);
+            }}
             buttonText={'Delete Block'}
             overrideStyle={{backgroundColor:'red'}}
           />
