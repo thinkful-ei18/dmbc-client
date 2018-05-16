@@ -11,7 +11,7 @@ const disabledStyle = props.disabled ? disabledButtonStyle : {}
 console.log('from view button',disabledStyle);
   return(
     <button
-      className="view-button"
+      className={props.buttonClass||"view-button"}
       style={{...props.overrideStyle, ...disabledStyle}}
       onClick={props.buttonFunction}
       disabled={props.disabled}
