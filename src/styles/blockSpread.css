@@ -104,6 +104,25 @@
   width: 100%;
 }
 
+.star-outer {
+  position: relative;
+  display: inline;
+}
+
+.star-inner {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #f8ce0b;
+  width: 0;
+}
+
+.star-show {
+  width: 100%;
+}
+
 .location-phone {
   width: 100%;
 }
@@ -197,7 +216,6 @@
 @media only screen and (min-width: 1600px) {
   .location img {
     width: 40%;
-    height:100px;
   }
 
   .location-info {

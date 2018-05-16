@@ -6,7 +6,7 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 //actions
-import {fetchTripDetailsById} from '../actions/tripForm';
+import { fetchTripDetailsById } from '../actions/tripForm';
 import { putCardOnBlock, deleteBlock } from '../actions/block';
 
 //components and helpers
