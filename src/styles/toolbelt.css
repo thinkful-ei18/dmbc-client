@@ -37,12 +37,16 @@
   height: 100%;
   width: 100%;
   background-color: rgb(174, 153, 181);
+  padding-top:17px;
 }
 
 .cards-content {
   display: flex;
   flex-wrap: wrap;
   width: 305px;
+}
+.cards-container{
+  margin-top:40px;
 }
 
 .card-search {
@@ -53,19 +57,21 @@
 }
 
 .card-search input {
-  width: 230px;
+  width: 250px;
   height: 100%;
   margin: 0;
   border: none;
   border-radius: 5px 0 0 5px;
 }
-
-.card-search button {
+.card-search label{
+  margin-bottom:5px;
+}
+/* .card-search button {
   width: 70px;
   height: 100%;
   margin: 0;
   border-radius: 0 5px 5px 0;
-}
+} */
 
 .create-card, .back-button {
   margin: 50px 0;
@@ -76,6 +82,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom:25px;
 }
 
 .yelp-search form {
@@ -91,7 +98,7 @@
 }
 
 .yelp-search form input {
-  width: 230px;
+  width: 250px;
   height: 100%;
   margin: 0;
   border: none;

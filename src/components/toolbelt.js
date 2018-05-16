@@ -1,21 +1,22 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Yelp from './yelp';
 
+import { setToolbeltDisplay } from '../actions/dashboard';
+import {fetchDestinationCards, fetchSearchCards} from '../actions/cards';
 
 import requiresLogin from '../requires-login';
-import {fetchDestinationCards, fetchSearchCards} from '../actions/cards';
-import Background from '../assets/barPlaceHolder.jpg'
 import ToolbeltCard from './toolBeltCard'
+import EditCard from './edit-card';
+import ViewButton from './buttons/viewButton';
+
 import '../styles/oneDayView.css';
 import '../styles/toolbelt.css';
-import Yelp from './yelp';
-import { setToolbeltDisplay } from '../actions/dashboard';
-import EditCard from './edit-card';
+import Background from '../assets/barPlaceHolder.jpg'
 
 export class Toolbelt extends React.Component {
   constructor() {
     super();
-
     this.state = {
       cardId: ''
     }
@@ -46,7 +47,7 @@ export class Toolbelt extends React.Component {
     const placeTags = apiTags.map((tag,index) => {
       return (<li key={index}>{tag}</li>)
     });
-    //cards assembled here
+
     const cards = this.props.cards.map((card, index) => {
       return (
         <ToolbeltCard
@@ -55,7 +56,6 @@ export class Toolbelt extends React.Component {
           card={card}
           index={index}
           placeTags={placeTags}
-          blocks={this.props.availableBlocks}
           cardId={cardId => {
             this.setState({
               cardId: cardId
@@ -69,16 +69,35 @@ export class Toolbelt extends React.Component {
     if (this.props.toolBeltDisplay === 'cards') {
       display = (
         <div>
+
           <form className="card-search" onSubmit={event => {
             event.preventDefault();
-            this.props.dispatch(fetchSearchCards(this.searchTerm.value));
+            const values = {
+              searchTerm: this.searchTerm.value,
+              distance: this.props.destination.distance,
+              lat: this.props.destination.location.coordinates[1],
+              lng: this.props.destination.location.coordinates[0]
+            }
+            this.props.dispatch(fetchSearchCards(values));
           }}>
+            <label htmlFor="search">Your cards</label>
             <input
               placeholder="search cards"
               name="search"
               ref={input => this.searchTerm = input}
             />
-            <button><i className="fas fa-search"></i></button>
+            <ViewButton
+              buttonText={<i className="fas fa-search"></i>}
+              // buttonClass={'toolbelt-button-search'}
+              overrideStyle={{
+                width: '50px',
+                margin: 0,
+                borderBottomLeftRadius: 0,
+                borderTopLeftRadius: 0,
+                boxShadow: 'none',
+              }}
+
+            />
           </form>
           <div className="cards-container">
             {cards}
@@ -94,15 +113,22 @@ export class Toolbelt extends React.Component {
     let changeState;
     if (this.props.toolBeltDisplay === 'cards') {
       changeState = (
-        <button className="create-card" onClick={event => {
-          this.props.dispatch(setToolbeltDisplay('create'));
-        }}>New Card</button>
+        <ViewButton
+          buttonText={'New Card'}
+          buttonFunction={() => this.props.dispatch(setToolbeltDisplay('create'))}
+          overrideStyle={{margin:'24px 20px 24px 0px'}}
+        />
       )
     } else if (this.props.toolBeltDisplay !== 'cards'){
       changeState = (
-        <button className="back-button" onClick={event => {
-          this.props.dispatch(setToolbeltDisplay('cards'));
-        }}>Back</button>
+        <ViewButton
+          buttonText={"Back"}
+          buttonFunction={() => this.props.dispatch(setToolbeltDisplay('cards'))}
+          overrideStyle={{
+            backgroundColor:'tomato',
+            margin:'24px 20px 24px 0px'
+          }}
+        />
       )
     }
 

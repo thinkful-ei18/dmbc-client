@@ -2,14 +2,17 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from '../requires-login';
 
-import '../styles/oneDayView.css';
 import { fetchYelp } from '../actions/yelp';
+
 import CreateCard from './create-card';
+import ViewButton from './buttons/viewButton';
+import CardButton from './buttons/cardButton';
+import '../styles/oneDayView.css';
 
 export class Yelp extends React.Component {
   constructor() {
     super();
-    
+
     this.state = {
       create: false,
       name: '',
@@ -67,7 +70,7 @@ export class Yelp extends React.Component {
                 </span>
               </div>
               <div className='card-controls'>
-                <button onClick={event => {
+                {/* <button onClick={event => {
                     event.preventDefault();
                     this.setState({
                       create: true,
@@ -78,7 +81,28 @@ export class Yelp extends React.Component {
                       phone: result.display_phone,
                       image: result.image_url
                     })
-                  }}>Choose this location</button>
+                  }}>Choose this location</button> */}
+                <CardButton
+                  buttonText={'Choose this location'}
+                  overrideStyle={{
+                    width:'200px',
+                    margin:'auto',
+                    height:'37px',
+                    fontSize:'1em'
+                  }}
+                  buttonFunction={(event) => {
+                    event.preventDefault();
+                    this.setState({
+                      create: true,
+                      name: result.name,
+                      location: location,
+                      latitude: result.coordinates.latitude,
+                      longitude: result.coordinates.longitude,
+                      phone: result.display_phone,
+                      image: result.image_url
+                    })
+                  }}
+                />
               </div>
             </div>
           </div>
@@ -89,22 +113,38 @@ export class Yelp extends React.Component {
     if (searchResults) {
       nextButton = (
       <div>
-        <button disabled={this.offset ? '' : 'disabled'}
+        {/* <button disabled={this.offset ? '' : 'disabled'}
         onClick={event => {
           event.preventDefault();
           this.offset = this.offset - 1
           this.props.dispatch(fetchYelp(this.location.value, this.term.value, this.offset * 20))
-        }}>Back</button>
-        <button onClick={event => {
+        }}>Back</button> */}
+        <ViewButton
+          buttonText={'Back'}
+          buttonFunction={(event) => {
+            event.preventDefault();
+            this.offset = this.offset - 1
+            this.props.dispatch(fetchYelp(this.location.value, this.term.value, this.offset * 20))
+          }}
+        />
+        {/* <button onClick={event => {
           event.preventDefault();
           this.offset = this.offset + 1
           this.props.dispatch(fetchYelp(this.location.value, this.term.value, this.offset * 20))
-        }}>Next</button>
+        }}>Next</button> */}
+        <ViewButton
+          buttonText={'Next'}
+          buttonFunction={(event) => {
+            event.preventDefault();
+            this.offset = this.offset + 1
+            this.props.dispatch(fetchYelp(this.location.value, this.term.value, this.offset * 20))
+          }}
+        />
       </div>
     )}
     if (this.state.create) {
       return (
-        <CreateCard 
+        <CreateCard
           name={this.state.name}
           location={this.state.location}
           latitude={this.state.latitude}
@@ -125,7 +165,17 @@ export class Yelp extends React.Component {
         }}>
           <label htmlFor="searchterm">What kind of card are you creating?</label>
           <input type="text" ref={input => this.term = input} placeholder="searchterm" name="searchterm"/>
-          <button><i className="fas fa-search"></i></button>
+          {/* <button><i className="fas fa-search"></i></button> */}
+          <ViewButton
+            buttonText={<i className="fas fa-search"></i>}
+            overrideStyle={{
+              width: '50px',
+              margin: 0,
+              borderBottomLeftRadius: 0,
+              borderTopLeftRadius: 0,
+              boxShadow: 'none',
+            }}
+          />
         </form>
         {loading}
         <div className="yelp-results">

@@ -45,9 +45,6 @@ export const deleteBlock = (blockId) => (dispatch, getState) => {
   .then(res => {
     return res.json();
   })
-  .then(() => {
-    dispatch(fetchBlocks())
-  })
   .catch(err => {dispatch(fetchBlocksError(err))});
 }
 
