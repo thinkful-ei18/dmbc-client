@@ -66,8 +66,39 @@ export class LocationInfo extends Component {
     return selector;
   }
 
+  createStars() {
+    let stars = new Array(5);
+    for (let i = 0; i < 5; i++) {
+      if (i < this.props.rating) {
+        stars[i] = (
+          <div className="star-outer" key={i}>
+            <i className="far fa-star">
+              <i className="fas fa-star star-inner star-show"></i>
+            </i>
+          </div>
+        )
+      } else {
+        stars[i] = (
+          <div className="star-outer" key={i}>
+            <i className="far fa-star">
+              <i className="fas fa-star star-inner"></i>
+            </i>
+          </div>
+        )
+      }
+      
+    }
+    const rating = (
+      <div className="location-rating">
+        {stars}
+      </div> 
+    )
+    return rating;
+  }
+    
   render() {
     const selector = this.createSelect()
+    const stars = this.createStars();
     let select;
     if (this.props.ambassador && this.props.selected) {
       select = (
@@ -96,7 +127,7 @@ export class LocationInfo extends Component {
         <div className="location-name">
           <h3>{this.props.info.name}</h3>
           <p className="location-address">{this.props.info.address}</p>
-          <p className="location-phone">123-456-7890</p>
+          <p className="location-phone">{this.props.info.phone}</p>
           <hr />
           <ul className='place-tags'>
             {this.props.placeTags}
@@ -106,6 +137,7 @@ export class LocationInfo extends Component {
           <div>
             <p>Details</p>
             <p className="location-description">{this.props.info.description}</p>
+            {stars}
           </div>
           <div className="location-controls">
             {selector}

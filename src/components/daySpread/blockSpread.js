@@ -51,7 +51,6 @@ class BlockSpread extends Component{
   }
 
   render(){
-    console.log(this.props.block);
     let deleteBlockButton;
     if (!this.props.ambassador) {
       deleteBlockButton = (
