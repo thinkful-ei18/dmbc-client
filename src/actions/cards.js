@@ -48,10 +48,10 @@ export const fetchCards = cards => (dispatch, getState) => {
 export const FETCH_FILTER_CARDS_SUCCESS = 'FETCH_FILTER_CARDS_SUCCESS';
 export const fetchFilterCardsSuccess = (cards) => ({type: FETCH_FILTER_CARDS_SUCCESS, cards});
 
-export const fetchSearchCards = searchTerm => (dispatch, getState) => {
+export const fetchSearchCards = values => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchCardsRequest());
-  return fetch(`${API_BASE_URL}/cards?searchTerm=${searchTerm}`, {
+  return fetch(`${API_BASE_URL}/cards?searchTerm=${values.searchTerm}&lat=${values.lat}&distance=${values.distance}&lng=${values.lng}`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${authToken}`

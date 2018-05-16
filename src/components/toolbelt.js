@@ -71,7 +71,13 @@ export class Toolbelt extends React.Component {
         <div>
           <form className="card-search" onSubmit={event => {
             event.preventDefault();
-            this.props.dispatch(fetchSearchCards(this.searchTerm.value));
+            const values = {
+              searchTerm: this.searchTerm.value,
+              distance: this.props.destination.distance,
+              lat: this.props.destination.location.coordinates[1],
+              lng: this.props.destination.location.coordinates[0]
+            }
+            this.props.dispatch(fetchSearchCards(values));
           }}>
             <input
               placeholder="search cards"
