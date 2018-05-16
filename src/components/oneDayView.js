@@ -114,7 +114,7 @@ class OneDayView extends Component {
     }
     else if((this.state.addBlock || this.filterBlocks().length === 0) && this.props.currentUser.ambassador){
       //ambasador sees new block
-      addBlock = <h2>no blocks yet</h2>
+      addBlock = <span className="no-user-blocks-warning">There are no blocks yet for this day.</span>
     }
 
     let addBlockButton;
