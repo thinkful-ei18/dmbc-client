@@ -5,6 +5,8 @@ import { DragSource } from 'react-dnd';
 import PropTypes from 'prop-types';
 
 import { setToolbeltDisplay } from '../actions/dashboard';
+import CardButton from './buttons/cardButton';
+import { putCardOnBlock } from '../actions/block.js';
 
 const cardSource = {
   beginDrag(props){
@@ -21,8 +23,56 @@ function collect(connect, monitor){
 }
 
 class ToolbeltCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      width: 0, 
+      height: 0 
+    };
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+  
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+  
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
+
+  selectBlocks() {
+    let options = [];
+    for (let i = 0; i < this.props.blocks.length; i++) {
+      options[i] = <option value={this.props.blocks[i].id} key={i}>{this.props.blocks[i].title}</option>
+    }
+    this.selectVal = this.props.blocks[0].id;
+    const selector = (
+      <form
+        onSubmit={e => {
+        e.preventDefault();
+        const ids = {
+          cardID: this.props.card.id,
+          blockID: this.selectVal
+        }
+        this.props.dispatch(putCardOnBlock(ids))
+      }}>
+        <label>Block</label>
+        <select onChange={(input) => this.selectVal = input.target.value}>
+          {options}
+        </select>
+        <CardButton buttonText={'Add'} />
+      </form>
+    )
+    return selector;
+  }
 
   render(){
+    let select = (this.state.width <= 600 ? this.selectBlocks() : '');
     const { connectDragSource, isDragging } = this.props
     return connectDragSource(
         <div className='card-container-expanded' key={this.props.index}
@@ -45,7 +95,8 @@ class ToolbeltCard extends Component {
               <span className='card-blurb'>{this.props.card.description}</span>
             </div>
             <div className='card-controls'>
-              {/* {this.addSelectorToCard(card.id)} */}
+              {/* {this.addSelectorToCard(this.props.card.id)} */}
+              {select}
               <button onClick={event => {
                 event.preventDefault();
                 this.props.cardId(this.props.card.id);
