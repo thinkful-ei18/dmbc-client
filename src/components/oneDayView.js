@@ -22,6 +22,7 @@ import { setDashboardCurrentDay } from '../actions/dashboard';
 
 
 class OneDayView extends Component {
+
   constructor() {
     super();
     this.state = {
@@ -57,6 +58,7 @@ class OneDayView extends Component {
     return blocksAssembled;
   }
   render() {
+      console.log('this is prop',this.state);
     if (!this.props.currentDay) {
       this.props.dispatch(fetchTripDetailsById(this.props.match.params.id));
       let lastDayViewed = new Date(localStorage.getItem('lastDayViewed'));
@@ -100,7 +102,7 @@ class OneDayView extends Component {
       }
     }
     let addBlock;
-    if (this.state.addBlock || this.filterBlocks().length === 0) {
+    if ((this.state.addBlock || this.filterBlocks().length === 0) && !this.props.currentUser.ambassador) {
       addBlock = <AddNewBlock
         blocksAmmount={blocks.length}
         updateAddBlock={event => {
@@ -108,6 +110,10 @@ class OneDayView extends Component {
             addBlock: false
           });
       }}/>;
+    }
+    else if((this.state.addBlock || this.filterBlocks().length === 0) && this.props.currentUser.ambassador){
+      //ambasador sees new block
+      addBlock = <h2>no blocks yet</h2>
     }
 
     let addBlockButton;
