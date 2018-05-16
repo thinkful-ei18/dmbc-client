@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Background from '../../assets/barPlaceHolder.jpg'
 import LocationInfo from './location-info.js';
 
 import '../../styles/blockSpread.css';
