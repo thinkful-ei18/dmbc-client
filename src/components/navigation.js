@@ -8,14 +8,13 @@ export class Navigation extends React.Component {
     if (!this.props.loggedIn && !localStorage.getItem('authToken')) {
       return <Redirect to='/'/>
     }
-    let ambassadorLink = '';
+    let ambassadorLink = <Link to="/dashboard">My Dashboard</Link>;
     if (this.props.currentUser && this.props.currentUser.ambassador) {
       ambassadorLink = <Link to="/ambassador-page">Ambassador Dashboard</Link>
     }
     
     let isLoggedIn = (
       <div className="nav-content">
-        <Link to="/dashboard">My Dashboard</Link>
         {ambassadorLink}
         <Logout />
     </div>

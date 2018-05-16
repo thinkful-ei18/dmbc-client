@@ -7,8 +7,10 @@ import '../styles/register.css'
 export function AmbassadorRegister(props) {
   // If we are logged in (which happens automatically when registration
   // is successful) redirect to the user's dashboard
-  if (props.loggedIn) {
+  if (props.loggedIn && !props.currentUser.ambassador) {
     return <Redirect to="/dashboard" />;
+  } else if (props.loggedIn && props.currentUser.ambassador) {
+    return <Redirect to="/ambassador-page" />;
   }
   return (
     <div className="registration">
@@ -30,6 +32,7 @@ export function AmbassadorRegister(props) {
 }
 
 const mapStateToProps = state => ({
+  currentUser: state.auth.currentUser,
   loggedIn: state.auth.currentUser !== null
 });
 

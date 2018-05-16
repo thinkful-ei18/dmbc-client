@@ -6,8 +6,12 @@ import '../styles/login.css';
 
 export class Login extends Component {
   render() {
-    if (this.props.loggedIn) {
+    if (this.props.loggedIn && !this.props.currentUser.ambassador) {
       return <Redirect to="/dashboard" />;
+    } else if (this.props.loggedIn && this.props.currentUser.ambassador) {
+      return <Redirect to="/ambassador-page"/>
+    } else if (!this.props.loggedIn && this.props.loading) {
+      return <p>Loading...</p>
     }
 
     return (
@@ -23,7 +27,9 @@ export class Login extends Component {
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+  loading: state.auth.loading,
+  currentUser: state.auth.currentUser,
+  loggedIn: state.auth.currentUser !== null
 });
 
 export default connect(mapStateToProps)(Login);
