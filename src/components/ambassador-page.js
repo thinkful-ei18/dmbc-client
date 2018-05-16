@@ -2,7 +2,6 @@ import React from "react";
 import {connect} from "react-redux";
 
 import requiresLogin from "../requires-login";
-import Logout from "./logout";
 import AmbassadorItineraries from "./ambassador-itineraries";
 import AmbassadorPastItineraries from "./ambassador-past-itineraries";
 // import AmbassadorExplore from "./ambassador-explore";
@@ -32,8 +31,6 @@ export class AmbassadorPage extends React.Component {
         <AmbassadorItineraries/>
         <AmbassadorPastItineraries/>
         {/* <AmbassadorExplore/> */}
-        <button>My Cards</button>
-        <Logout/>
       </div>
       </div>
     );
