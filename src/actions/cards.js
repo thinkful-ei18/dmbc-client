@@ -106,7 +106,6 @@ export const fetchSingleCard = cardID => (dispatch, getState) => {
 
 export const addCard = (card, distance) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  console.log(card);
   return fetch(`${API_BASE_URL}/cards`, {
       method: 'POST',
       headers: {

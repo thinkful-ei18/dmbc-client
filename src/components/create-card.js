@@ -10,7 +10,6 @@ import CardButton from './buttons/cardButton'
 
 export class CreateCard extends React.Component {
   render() {
-    console.log(this.props)
     const apiTags = ['Family Friendly', 'Crowd Friendly', 'No Pets'];
     const placeTags = apiTags.map((tag,index) => {
       return (<li key={index}>{tag}</li>)

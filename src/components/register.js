@@ -22,8 +22,7 @@ export function Registration(props) {
       <div className="hero-container">
 
         <h2>Adventure Awaits</h2>
-        <p>In summis constias reprehenderi, id admodum do dolore qui singulis qui
-        illum!</p>
+        <p>Register now and let us help you make your next trip truly memorable</p>
       </div>
       <div className="form-container">
         <h2>Traveler Register Copy</h2>

@@ -144,6 +144,34 @@
   color: #4377f9;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+  
+}
+
+.one-day-view-logo {
+  float: right;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(188,192,210);
+  color: #4377f9;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-style: italic;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
 .no-user-blocks-warning{
   font-size:2em;
   display:block;

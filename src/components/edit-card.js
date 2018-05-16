@@ -31,7 +31,6 @@ class SingleCard extends React.Component {
     });
   };
   render() {
-    console.log(this.props)
     const apiTags = ['Family Friendly', 'Crowd Friendly', 'No Pets'];
 
     const placeTags = apiTags.map((tag,index) => {

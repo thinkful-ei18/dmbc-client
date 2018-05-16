@@ -89,7 +89,7 @@ class MultiView extends Component{
       })
       if (this.isAllNull(block)) {
         block = (
-          <p className="no-blocks">Go to day to create a block for this day.</p>
+          <p className="no-blocks">Go to day to request suggestions for the specific date.</p>
         )
       }
       return(
@@ -128,7 +128,7 @@ class MultiView extends Component{
         <div className="trip-details" style={{backgroundImage: `url(${BackgroundImage})`}}>
           <h1 className="itinerary-header">{this.props.currentItinerary.destination.locationName}</h1>
           <h2 className="itinerary-dates">{this.props.currentItinerary.dateStart.toDateString()} to {this.props.currentItinerary.dateEnd.toDateString()}</h2>
-          <p className="ambassador-info">Your ambassador is {this.props.currentItinerary.ambassador.name}</p>
+          <h4 className="ambassador-info">Select a day below to request expertly curated suggestions from {this.props.currentItinerary.ambassador.name}, your {this.props.currentItinerary.destination.locationName} Ambassador</h4>
         </div>
       )
     }
