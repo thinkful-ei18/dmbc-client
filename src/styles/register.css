@@ -14,9 +14,9 @@
 
   background-image:
     linear-gradient(
-      to right,
-       rgba(0, 0, 0, 0.44),
-       rgba(0, 0, 0, 0.22)
+      to bottom,
+       rgba(0, 0, 0, 0.66),
+       rgba(0, 0, 0, 0.55)
       ),
     url('../assets/register-large.jpg');
   background-repeat: no-repeat;
@@ -41,10 +41,11 @@
     grid-template-rows: auto;
   }
   .hero-container{
-    height:27vh;
+    height:37vh;
     display: inline-block;
-    padding-top:20px;
+    padding-top:110px;
     background-position: top;
+    font-size:0.9em;
   }
   .form-container{
     margin-top:15px;

@@ -49,7 +49,7 @@ class OneDayView extends Component {
             id={currentBlock.date}
             handleCardDrop={(e) => this.handleCardDrop(e)}
             ambassador={this.props.currentUser.ambassador}
-            deleteBlock={blockId => {
+            deleteBlock={(blockId) => {
               this.props.dispatch(deleteBlock(blockId));
               window.location.reload();
           }}/>
@@ -80,18 +80,13 @@ class OneDayView extends Component {
       />
       if (this.state.cardsContainer === 'hidden') {
         toolbeltButton = (
-          // <button className="toolbelt-button" onClick={event => {
-          //   event.preventDefault();
-          //   this.setState({
-          //     cardsContainer: 'show'
-          //   });
-          // }}>Toolbelt</button>
           <ViewButton
             buttonFunction={event => {
               event.preventDefault();
               this.setState({cardsContainer: 'show'});
             }}
             buttonText="Toolbelt"
+
           />
         )
       } else {

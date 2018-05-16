@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Background from '../../assets/barPlaceHolder.jpg'
 import LocationInfo from './location-info.js';
 
-import './blockSpread.css';
+import '../../styles/blockSpread.css';
 
 
 export default class Location extends Component {
