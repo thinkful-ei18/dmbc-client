@@ -8,7 +8,7 @@ import {fetchDestinationCards, fetchSearchCards} from '../actions/cards';
 import requiresLogin from '../requires-login';
 import ToolbeltCard from './toolBeltCard'
 import EditCard from './edit-card';
-import viewButton from './buttons/viewButton';
+import ViewButton from './buttons/viewButton';
 
 import '../styles/oneDayView.css';
 import '../styles/toolbelt.css';
@@ -84,9 +84,16 @@ export class Toolbelt extends React.Component {
               name="search"
               ref={input => this.searchTerm = input}
             />
-            <viewButton
+            <ViewButton
               buttonText={<i className="fas fa-search"></i>}
-              className={'toolbar-button-search'}
+              // buttonClass={'toolbelt-button-search'}
+              overrideStyle={{
+                width: '50px',
+                margin: 0,
+                borderBottomLeftRadius: 0,
+                borderTopLeftRadius: 0,
+                boxShadow: 'none',
+              }}
 
             />
             {/* <button><i className="fas fa-search"></i></button> */}
@@ -105,9 +112,14 @@ export class Toolbelt extends React.Component {
     let changeState;
     if (this.props.toolBeltDisplay === 'cards') {
       changeState = (
-        <button className="create-card" onClick={event => {
-          this.props.dispatch(setToolbeltDisplay('create'));
-        }}>New Card</button>
+        // <button className="create-card" onClick={event => {
+        //   this.props.dispatch(setToolbeltDisplay('create'));
+        // }}>New Card</button>
+        <ViewButton
+          buttonFunction={() => this.props.dispatch(setToolbeltDisplay('create'))}
+          buttonText={'New Card'}
+          overrideStyle={{margin:'24px 20px 24px 0px'}}
+        />
       )
     } else if (this.props.toolBeltDisplay !== 'cards'){
       changeState = (
