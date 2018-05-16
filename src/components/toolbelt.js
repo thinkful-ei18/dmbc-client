@@ -69,6 +69,7 @@ export class Toolbelt extends React.Component {
     if (this.props.toolBeltDisplay === 'cards') {
       display = (
         <div>
+
           <form className="card-search" onSubmit={event => {
             event.preventDefault();
             const values = {
@@ -79,6 +80,7 @@ export class Toolbelt extends React.Component {
             }
             this.props.dispatch(fetchSearchCards(values));
           }}>
+            <label htmlFor="search">Your cards</label>
             <input
               placeholder="search cards"
               name="search"
@@ -96,7 +98,6 @@ export class Toolbelt extends React.Component {
               }}
 
             />
-            {/* <button><i className="fas fa-search"></i></button> */}
           </form>
           <div className="cards-container">
             {cards}
@@ -112,20 +113,22 @@ export class Toolbelt extends React.Component {
     let changeState;
     if (this.props.toolBeltDisplay === 'cards') {
       changeState = (
-        // <button className="create-card" onClick={event => {
-        //   this.props.dispatch(setToolbeltDisplay('create'));
-        // }}>New Card</button>
         <ViewButton
-          buttonFunction={() => this.props.dispatch(setToolbeltDisplay('create'))}
           buttonText={'New Card'}
+          buttonFunction={() => this.props.dispatch(setToolbeltDisplay('create'))}
           overrideStyle={{margin:'24px 20px 24px 0px'}}
         />
       )
     } else if (this.props.toolBeltDisplay !== 'cards'){
       changeState = (
-        <button className="back-button" onClick={event => {
-          this.props.dispatch(setToolbeltDisplay('cards'));
-        }}>Back</button>
+        <ViewButton
+          buttonText={"Back"}
+          buttonFunction={() => this.props.dispatch(setToolbeltDisplay('cards'))}
+          overrideStyle={{
+            backgroundColor:'tomato',
+            margin:'24px 20px 24px 0px'
+          }}
+        />
       )
     }
 

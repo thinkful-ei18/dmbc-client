@@ -45,6 +45,9 @@
   flex-wrap: wrap;
   width: 305px;
 }
+.cards-container{
+  margin-top:40px;
+}
 
 .card-search {
   display: flex;
@@ -54,13 +57,15 @@
 }
 
 .card-search input {
-  width: 230px;
+  width: 250px;
   height: 100%;
   margin: 0;
   border: none;
   border-radius: 5px 0 0 5px;
 }
-
+.card-search label{
+  margin-bottom:5px;
+}
 /* .card-search button {
   width: 70px;
   height: 100%;
@@ -77,6 +82,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom:25px;
 }
 
 .yelp-search form {
@@ -92,7 +98,7 @@
 }
 
 .yelp-search form input {
-  width: 230px;
+  width: 250px;
   height: 100%;
   margin: 0;
   border: none;

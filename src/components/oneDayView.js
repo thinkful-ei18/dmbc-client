@@ -112,6 +112,12 @@ class OneDayView extends Component {
         )
         closeToolbeltButton = (
           <i
+            style={{
+              position:'absolute',
+              right:'10px',
+              top:'26px',
+              transition:'2s'
+            }}
             className="far fa-times-circle fa-lg toolbelt-button"
             onClick={(event) => {
             event.preventDefault();
