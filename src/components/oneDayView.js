@@ -86,6 +86,11 @@ class OneDayView extends Component {
               event.preventDefault();
               this.setState({cardsContainer: 'show'});
             }}
+            overrideStyle={{
+              position:'relative',
+              left:'100%',
+              transform:'translate(-100%,144%)'
+            }}
             buttonText="Toolbelt"
           />
         )
@@ -98,6 +103,11 @@ class OneDayView extends Component {
               this.setState({cardsContainer: 'hidden'});
             }}
             buttonText="Toolbelt"
+            overrideStyle={{
+              position:'relative',
+              left:'100%',
+              transform:'translate(-100%,144%)'
+            }}
           />
         )
         closeToolbeltButton = (
