@@ -113,7 +113,6 @@ export const putCardOnBlockError = (err) => ({
 })
 
 export const putCardOnBlock = (ids) => (dispatch, getState) => {
-  console.log('from actions',ids);
   dispatch(putCardOnBlockRequest());
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/block/${ids.blockID}/cards`, {

@@ -60,7 +60,6 @@ export class LocationInfo extends Component {
         <select onChange={(input) => this.selectVal = input.target.value}>
           {options}
         </select>
-        {/* <button type="submit">Rate Me</button> */}
         <CardButton buttonText={'Rate Me'} />
       </form>
     )

@@ -12,10 +12,6 @@ import Yelp from './yelp';
 import { setToolbeltDisplay } from '../actions/dashboard';
 import EditCard from './edit-card';
 
-
-
-
-
 export class Toolbelt extends React.Component {
   constructor() {
     super();
@@ -59,6 +55,7 @@ export class Toolbelt extends React.Component {
           card={card}
           index={index}
           placeTags={placeTags}
+          blocks={this.props.availableBlocks}
           cardId={cardId => {
             this.setState({
               cardId: cardId
