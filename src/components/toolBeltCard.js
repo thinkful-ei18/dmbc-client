@@ -47,10 +47,12 @@ class ToolbeltCard extends Component {
 
   selectBlocks() {
     let options = [];
-    for (let i = 0; i < this.props.blocks.length; i++) {
-      options[i] = <option value={this.props.blocks[i].id} key={i}>{this.props.blocks[i].title}</option>
+    if (this.props.blocks) {
+      for (let i = 0; i < this.props.blocks.length; i++) {
+        options[i] = <option value={this.props.blocks[i].id} key={i}>{this.props.blocks[i].title}</option>
+      }
+      this.selectVal = this.props.blocks[0].id;
     }
-    this.selectVal = this.props.blocks[0].id;
     const selector = (
       <form
         onSubmit={e => {
