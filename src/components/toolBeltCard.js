@@ -47,7 +47,7 @@ class ToolbeltCard extends Component {
 
   selectBlocks() {
     let options = [];
-    if (this.props.blocks.length > 0) {
+    if (this.props.blocks) {
       for (let i = 0; i < this.props.blocks.length; i++) {
         options[i] = <option value={this.props.blocks[i].id} key={i}>{this.props.blocks[i].title}</option>
       }
