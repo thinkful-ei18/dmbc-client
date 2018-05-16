@@ -1,21 +1,22 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Yelp from './yelp';
 
+import { setToolbeltDisplay } from '../actions/dashboard';
+import {fetchDestinationCards, fetchSearchCards} from '../actions/cards';
 
 import requiresLogin from '../requires-login';
-import {fetchDestinationCards, fetchSearchCards} from '../actions/cards';
-import Background from '../assets/barPlaceHolder.jpg'
 import ToolbeltCard from './toolBeltCard'
+import EditCard from './edit-card';
+import viewButton from './buttons/viewButton';
+
 import '../styles/oneDayView.css';
 import '../styles/toolbelt.css';
-import Yelp from './yelp';
-import { setToolbeltDisplay } from '../actions/dashboard';
-import EditCard from './edit-card';
+import Background from '../assets/barPlaceHolder.jpg'
 
 export class Toolbelt extends React.Component {
   constructor() {
     super();
-
     this.state = {
       cardId: ''
     }
@@ -46,7 +47,7 @@ export class Toolbelt extends React.Component {
     const placeTags = apiTags.map((tag,index) => {
       return (<li key={index}>{tag}</li>)
     });
-    //cards assembled here
+
     const cards = this.props.cards.map((card, index) => {
       return (
         <ToolbeltCard
@@ -55,7 +56,6 @@ export class Toolbelt extends React.Component {
           card={card}
           index={index}
           placeTags={placeTags}
-          blocks={this.props.availableBlocks}
           cardId={cardId => {
             this.setState({
               cardId: cardId
@@ -84,7 +84,12 @@ export class Toolbelt extends React.Component {
               name="search"
               ref={input => this.searchTerm = input}
             />
-            <button><i className="fas fa-search"></i></button>
+            <viewButton
+              buttonText={<i className="fas fa-search"></i>}
+              className={'toolbar-button-search'}
+
+            />
+            {/* <button><i className="fas fa-search"></i></button> */}
           </form>
           <div className="cards-container">
             {cards}
