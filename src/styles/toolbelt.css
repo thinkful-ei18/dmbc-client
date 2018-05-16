@@ -36,7 +36,7 @@
   overflow-y: scroll;
   height: 100%;
   width: 100%;
-  background-color: tomato;
+  background-color: rgb(174, 153, 181);
 }
 
 .cards-content {

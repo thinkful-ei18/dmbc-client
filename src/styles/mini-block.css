@@ -9,6 +9,7 @@
   grid-template-columns: 33% 67%;
 }
 
+
 .mini-block-nav {
   width: auto;
   padding-right: 15px;
@@ -18,7 +19,9 @@
   text-align: right;
   display: grid;
   grid-template-columns: 80% 20%;
+
 }
+
 
 .mini-block-title {
   font-size: 18px;
@@ -40,6 +43,7 @@
   background-size: cover;
   flex: 1 1 20em;
   font-size: 26px;
+  padding-bottom:10px;
 }
 .mini-card-blurb {
   display: flex;

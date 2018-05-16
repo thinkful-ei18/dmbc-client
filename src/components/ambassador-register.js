@@ -15,7 +15,7 @@ export function AmbassadorRegister(props) {
       <div className="hero-container">
         <div className='splash-logo'><Logo/></div>
         <h2>Want to be an Ambassador?</h2>
-        <p>If you're a master of all the nooks and crannies, hole in the walls, and hidden gems of your city, you're ready to be an ambassador for pley.</p>
+        <p>If you want to show the best of what your city has to offer, join pley</p>
       </div>
       <div className="form-container">
         <h2>Ambassador Registration</h2>

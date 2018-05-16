@@ -55,6 +55,8 @@
 
 .location img {
   width: 100%;
+  object-fit: cover;
+  height:350px;
 }
 
 .location hr {
@@ -164,6 +166,7 @@
 
   .location img {
     width: 40%;
+    height:100%;
   }
 
   .location-info {
@@ -186,7 +189,7 @@
   .location-info li {
     font-size: 15px;
   }
-  
+
   .location-info p {
     font-size: 15px;
   }
@@ -194,7 +197,7 @@
   .location-controls label {
     font-size: 15px;
   }
-  
+
   .location-controls button{
     font-size: 15px;
   }
@@ -213,6 +216,7 @@
 @media only screen and (min-width: 1600px) {
   .location img {
     width: 40%;
+    height:100px;
   }
 
   .location-info {

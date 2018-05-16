@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {selectCardOnBlock, removeSelectOnBlock, removeCardOnBlock} from '../../actions/block';
 import { rateCard } from "../../actions/cards";
-
+import CardButton from '../buttons/cardButton';
 import {connect} from 'react-redux';
 
 export class LocationInfo extends Component {
@@ -21,7 +21,7 @@ export class LocationInfo extends Component {
 
   removeCard() {
     this.props.dispatch(removeCardOnBlock({
-      blockID: this.props.blockId, 
+      blockID: this.props.blockId,
       cardID: this.props.info.id,
       cards:  this.props.cards
     }));
@@ -32,7 +32,7 @@ export class LocationInfo extends Component {
     this.props.dispatch(removeSelectOnBlock({blockId: this.props.blockId}))
       .then(() => {
         this.props.dispatch(removeCardOnBlock({
-          blockID: this.props.blockId, 
+          blockID: this.props.blockId,
           cardID: this.props.info.id,
           cards:  this.props.cards
         }))
@@ -48,19 +48,20 @@ export class LocationInfo extends Component {
       <form
         onSubmit={e => {
         e.preventDefault();
-        console.log('Value', this.selectVal, 'Card ID', this.props.info.id); 
-        const values = { 
-          rating: this.selectVal, 
+        console.log('Value', this.selectVal, 'Card ID', this.props.info.id);
+        const values = {
+          rating: this.selectVal,
           cardId: this.props.info.id,
-          blockId: this.props.blockId 
+          blockId: this.props.blockId
         }
-        this.props.dispatch(rateCard(values)); 
+        this.props.dispatch(rateCard(values));
       }}>
         <label>Rating</label>
         <select onChange={(input) => this.selectVal = input.target.value}>
           {options}
         </select>
-        <button type="submit">Rate Me</button>
+        {/* <button type="submit">Rate Me</button> */}
+        <CardButton buttonText={'Rate Me'} />
       </form>
     )
     return selector;
@@ -102,19 +103,23 @@ export class LocationInfo extends Component {
     let select;
     if (this.props.ambassador && this.props.selected) {
       select = (
-        <button onClick={() => this.removeSelected()} className='confirm-location'>Remove</button>
+        // <button onClick={() => this.removeSelected()} className='confirm-location'>Remove</button>
+        <CardButton buttonFunction={() => this.removeSelected()} buttonText={'Remove'} />
       )
     } else if (this.props.selected) {
       select = (
-        <button onClick={() => this.deselect()} className='confirm-location'>Choices</button>
+        // <button onClick={() => this.deselect()} className='confirm-location'>Choices</button>
+        <CardButton buttonFunction={() => this.deselect()} buttonText={'Choices'} />
       )
     } else if (this.props.ambassador) {
       select = (
-        <button onClick={() => this.removeCard()}>Remove</button>
+        // <button onClick={() => this.removeCard()}>Remove</button>
+        <CardButton buttonFunction={() => this.removeCard()} buttonText={'Remove'} />
       )
     } else {
       select = (
-        <button onClick={() => this.lockIn()} className='confirm-location'>Lock Location</button>
+        // <button onClick={() => this.lockIn()} className='confirm-location'>Lock Location</button>
+        <CardButton buttonFunction={() => this.lockIn()} buttonText={'Lock Location'} />
       )
     }
 
