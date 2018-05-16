@@ -2,7 +2,6 @@ import React from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Logout from './logout';
-import Logo from './logo';
 import '../styles/navigation.css';
 export class Navigation extends React.Component {
   render() {

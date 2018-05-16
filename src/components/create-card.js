@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import {addCard} from '../actions/cards';
 import requiresLogin from '../requires-login';
 import { setToolbeltDisplay } from '../actions/dashboard';
-import Background from '../assets/bar-large.jpg'
 
 
 export class CreateCard extends React.Component {

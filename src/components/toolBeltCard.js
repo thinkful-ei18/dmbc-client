@@ -23,7 +23,6 @@ function collect(connect, monitor){
 class ToolbeltCard extends Component {
 
   render(){
-    console.log(this.props)
     const { connectDragSource, isDragging } = this.props
     return connectDragSource(
         <div className='card-container-expanded' key={this.props.index}

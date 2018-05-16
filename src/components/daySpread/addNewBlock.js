@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { sendNewBlock } from '../../actions/block.js';
+import CardButton from '../buttons/cardButton';
 
 class AddNewBlock extends Component {
   handleNewBlockSubmit(){
@@ -30,7 +31,8 @@ class AddNewBlock extends Component {
             name="newblock"
             ref="block-name-input"
           />
-          <button>submit</button>
+          <CardButton buttonText={'Submit'} />
+          {/* <button>submit</button> */}
         </form>
       </div>
     )

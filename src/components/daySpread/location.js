@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Background from '../../assets/barPlaceHolder.jpg'
 import LocationInfo from './location-info.js';
 
 import '../../styles/blockSpread.css';
@@ -12,7 +11,6 @@ export default class Location extends Component {
     const isSelected = this.props.selected; // dummy boolean, for telling the component to display extra stuff or not
     //END DUMMY PROPS
     //dnd
-    console.log(this.props)
 
     const rating = this.props.info.ratingCount === 0 ? 0 : this.props.info.ratingScore / this.props.info.ratingCount;
 
