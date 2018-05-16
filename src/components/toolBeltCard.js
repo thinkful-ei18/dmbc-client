@@ -25,29 +25,29 @@ function collect(connect, monitor){
 class ToolbeltCard extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      width: 0, 
-      height: 0 
+    this.state = {
+      width: 0,
+      height: 0
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
-  
+
   componentDidMount() {
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
   }
-  
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateWindowDimensions);
   }
-  
+
   updateWindowDimensions() {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
 
   selectBlocks() {
     let options = [];
-    if (this.props.blocks.length > 0) {
+    if (this.props.blocks) {
       for (let i = 0; i < this.props.blocks.length; i++) {
         options[i] = <option value={this.props.blocks[i].id} key={i}>{this.props.blocks[i].title}</option>
       }
@@ -99,11 +99,19 @@ class ToolbeltCard extends Component {
             <div className='card-controls'>
               {/* {this.addSelectorToCard(this.props.card.id)} */}
               {select}
-              <button onClick={event => {
+              {/* <button onClick={event => {
                 event.preventDefault();
                 this.props.cardId(this.props.card.id);
                 this.props.dispatch(setToolbeltDisplay('edit'));
-              }}>Edit Card</button>
+              }}>Edit Card</button> */}
+              <CardButton
+                buttonText={'Edit Card'}
+                buttonFunction={(event) => {
+                  event.preventDefault();
+                  this.props.cardId(this.props.card.id);
+                  this.props.dispatch(setToolbeltDisplay('edit'));
+                }}
+              />
               {/* <button className='confirm-location'>Lock in</button> */}
             </div>
           </div>

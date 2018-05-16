@@ -58,7 +58,6 @@ class OneDayView extends Component {
     return blocksAssembled;
   }
   render() {
-      console.log('this is prop',this.state);
     if (!this.props.currentDay) {
       this.props.dispatch(fetchTripDetailsById(this.props.match.params.id));
       let lastDayViewed = new Date(localStorage.getItem('lastDayViewed'));
@@ -74,6 +73,7 @@ class OneDayView extends Component {
 
     let toolbelt;
     let toolbeltButton;
+    let closeToolbeltButton
     if (this.props.currentUser.id === this.props.blocks.ambassador.id) {
       toolbelt = <Toolbelt
         availableBlocks={this.filterBlocks()}
@@ -86,13 +86,38 @@ class OneDayView extends Component {
               event.preventDefault();
               this.setState({cardsContainer: 'show'});
             }}
+            overrideStyle={{
+              position:'relative',
+              left:'100%',
+              transform:'translate(-100%,144%)'
+            }}
             buttonText="Toolbelt"
-
           />
         )
-      } else {
+      }
+      else {
         toolbeltButton = (
+          <ViewButton
+            buttonFunction={event => {
+              event.preventDefault();
+              this.setState({cardsContainer: 'hidden'});
+            }}
+            buttonText="Toolbelt"
+            overrideStyle={{
+              position:'relative',
+              left:'100%',
+              transform:'translate(-100%,144%)'
+            }}
+          />
+        )
+        closeToolbeltButton = (
           <i
+            style={{
+              position:'absolute',
+              right:'10px',
+              top:'26px',
+              transition:'2s'
+            }}
             className="far fa-times-circle fa-lg toolbelt-button"
             onClick={(event) => {
             event.preventDefault();
@@ -112,7 +137,6 @@ class OneDayView extends Component {
       }}/>;
     }
     else if((this.state.addBlock || this.filterBlocks().length === 0) && this.props.currentUser.ambassador){
-      //ambasador sees new block
       addBlock = <span className="no-user-blocks-warning">There are no blocks yet for this day.</span>
     }
 
@@ -138,6 +162,7 @@ class OneDayView extends Component {
     return (
       <div className="day-spreads-container">
         {toolbeltButton}
+        {closeToolbeltButton}
         <h2>{this.props.currentDay.toDateString()}</h2>
         <ul>
           {blocks}

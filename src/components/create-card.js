@@ -6,6 +6,7 @@ import {addCard} from '../actions/cards';
 import requiresLogin from '../requires-login';
 import { setToolbeltDisplay } from '../actions/dashboard';
 
+import CardButton from './buttons/cardButton'
 
 export class CreateCard extends React.Component {
   render() {
@@ -85,7 +86,10 @@ export class CreateCard extends React.Component {
               </span>
             </div>
             <div className='card-controls'>
-              <button>Create</button>
+              <CardButton
+                buttonText={'Create'}
+                overrideStyle={{fontSize:'1em'}}
+              />
             </div>
           </div>
         </div>
