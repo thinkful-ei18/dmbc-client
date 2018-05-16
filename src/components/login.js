@@ -10,7 +10,7 @@ export class Login extends Component {
       return <Redirect to="/dashboard" />;
     } else if (this.props.loggedIn && this.props.currentUser.ambassador) {
       return <Redirect to="/ambassador-page"/>
-    } else if (!this.props.loggedIn && localStorage.getItem('authToken') !== null) {
+    } else if (!this.props.loggedIn && this.props.loading) {
       return <p>Loading...</p>
     }
 
@@ -27,6 +27,7 @@ export class Login extends Component {
 }
 
 const mapStateToProps = state => ({
+  loading: state.auth.loading,
   currentUser: state.auth.currentUser,
   loggedIn: state.auth.currentUser !== null
 });
