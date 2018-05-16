@@ -13,9 +13,11 @@ class Splash extends Component {
         </div>
         <div className="jumbotron-container">
           <div className="jumbotron-copy">
-            <h1>Let Us Decide</h1>
-            <p>Our application pairs you with an ambassador for your trip so that you can
-              receive trusted local suggestions for your trip only for the times you need.</p>
+            <h1>Your Personal Concierge</h1>
+            <p>Want to see a play on Broadway? Shop in Tokyo? Hike in Brazil? Dine in Paris? Dance in Toronto?
+              <br/>
+              Pley pairs you with an expert insider who knows the hottest new places, local favorites, hidden gems, and insider tips for your next destination so you can spend less time chosing and more time doing.
+              </p>
           </div>
           <div className="jumbotron-form">
             <Login/>

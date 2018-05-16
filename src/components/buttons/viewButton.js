@@ -8,7 +8,6 @@ const disabledButtonStyle = {
 
 export default function ViewButton(props){
 const disabledStyle = props.disabled ? disabledButtonStyle : {}
-console.log('from view button',disabledStyle);
   return(
     <button
       className={props.buttonClass||"view-button"}

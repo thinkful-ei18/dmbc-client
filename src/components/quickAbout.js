@@ -7,15 +7,15 @@ export default function QuickAbout(props){
       <div className="quick-about">
         <div className="info-card">
           <i className="fas fa-paper-plane"></i>
-          <p>Trip Details get sent to your ambassador</p>
+          <p>Request options for Lunch on Tuesday, drinks on Wednesday, and a massage on Friday. Whatever you want to do, wherever you want to go, we can help.</p>
         </div>
         <div className="info-card">
           <i className="fas fa-user"></i>
-          <p>Your Ambassador suggests places that fit your criterion</p>
+          <p>Your Ambassador will provide you with three expertly curated options for each request so you can travel like a pro. </p>
         </div>
         <div className="info-card">
           <i className="fas fa-map-pin"></i>
-          <p>Lorem Ipsum lerm abost dolrl florot alelsg</p>
+          <p>Selct the option you like best and enjoy!</p>
         </div>
       </div>
     </div>

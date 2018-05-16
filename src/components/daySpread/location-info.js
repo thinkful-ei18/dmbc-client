@@ -28,7 +28,6 @@ export class LocationInfo extends Component {
   }
 
   removeSelected() {
-    console.log('doin this')
     this.props.dispatch(removeSelectOnBlock({blockId: this.props.blockId}))
       .then(() => {
         this.props.dispatch(removeCardOnBlock({
@@ -48,7 +47,6 @@ export class LocationInfo extends Component {
       <form
         onSubmit={e => {
         e.preventDefault();
-        console.log('Value', this.selectVal, 'Card ID', this.props.info.id);
         const values = {
           rating: this.selectVal,
           cardId: this.props.info.id,

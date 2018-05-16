@@ -102,7 +102,6 @@ export class Yelp extends React.Component {
         }}>Next</button>
       </div>
     )}
-    console.log(this.props.yelp)
     if (this.state.create) {
       return (
         <CreateCard 

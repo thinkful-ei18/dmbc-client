@@ -23,10 +23,10 @@ class AddNewBlock extends Component {
           this.handleNewBlockSubmit();
           this.props.updateAddBlock();
         }}>
-          <label htmlFor="newblock">Enter a Block Name</label>
+          <label htmlFor="newblock">Request Suggestions for:</label>
           <input
             type="text"
-            placeholder="blockname"
+            placeholder="Tacos, Shopping, etc."
             className="block-name-input"
             name="newblock"
             ref="block-name-input"

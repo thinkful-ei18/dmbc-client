@@ -188,7 +188,6 @@ export const removeSelectOnBlock = value => (dispatch, getState) => {
   })
   .then(response => response.json())
     .then(updatedBlock => {
-      console.log(updatedBlock)
       const formattedBlock = Object.assign({}, updatedBlock, {
         date: new Date(updatedBlock.date)
       })
@@ -202,7 +201,6 @@ export const removeCardOnBlockSuccess = blockId => ({type: REMOVE_CARD_ON_BLOCK_
 
 export const removeCardOnBlock = ({cardID, blockID, cards}) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  console.log(cardID)
   return fetch(`${API_BASE_URL}/block/${blockID}/removecard`, {
     method: 'PUT',
     headers: {
@@ -216,7 +214,6 @@ export const removeCardOnBlock = ({cardID, blockID, cards}) => (dispatch, getSta
   })
   .then(response => response.json())
     .then(updatedBlock => {
-      console.log(updatedBlock)
       const formattedBlock = Object.assign({}, updatedBlock, {
         date: new Date(updatedBlock.date)
       })
