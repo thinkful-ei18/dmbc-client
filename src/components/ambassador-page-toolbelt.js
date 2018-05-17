@@ -91,8 +91,7 @@ class AmbassadorPageToolbelt extends Component {
       );
     } else if (this.state.display === "create") {
       display = (
-
-        <div>
+        <div className="a-toolbelt-newcard-container">
           <Yelp
             changeDisplay={event => {
               this.setState({ display: "your cards" });
