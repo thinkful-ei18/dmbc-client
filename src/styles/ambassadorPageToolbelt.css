@@ -51,7 +51,7 @@
   flex-direction:column;
   justify-content:space-around;
   align-items:center;
-  border:1px solid red;
+  /* border:1px solid red; */
 }
 .a-toolbelt-newcard-container h1{
   font-size:5vw
@@ -73,18 +73,24 @@
 }
 
 
-/* ambassadorpage yelpsearch */
+/* ambassadorpage yelpsearch css below */
 .a-toolbelt-newcard-container .yelp-search{
   display:flex;
   flex-direction: column;
   flex-wrap: wrap;
-  border:1px solid green;
+  /* border:1px solid green; */
   height:100%;
   width:100%;
 }
 
 .a-toolbelt-newcard-container .yelp-search label{
   display:block;
+  display: block;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  font-size:2.3vw;
+  margin-bottom:15px;
 
 }
 .a-toolbelt-newcard-container .yelp-results{
