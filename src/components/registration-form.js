@@ -31,29 +31,33 @@ export class RegistrationForm extends React.Component {
         <label htmlFor="name">Full Name</label>
         <Field
           component={Input}
+          name="name"
           type="text"
-          name="Carmen Sandiego"
+          placeHolder="Carmen Sandiego"
           validate={[required, nonEmpty, isTrimmed]}
         />
         <label htmlFor="email">Email</label>
         <Field
           component={Input}
+          name="email"
           type="email"
-          name="email@email.com"
+          placeHolder="email@email.com"
           validate={[required, nonEmpty, isTrimmed]}
         />
         <label htmlFor="password">Password</label>
         <Field
           component={Input}
+          name="password"
           type="password"
-          name="minimum eight characters"
+          placeHolder="minimum eight characters"
           validate={[required, passwordLength, isTrimmed]}
         />
         <label htmlFor="confirm password">Confirm password</label>
         <Field
           component={Input}
+          name="password-confirm"
           type="password"
-          name="confirm password"
+          placeHolder="confirm password"
           validate={[required, nonEmpty, matchesPassword]}
         />
         <button type="submit">Register</button>
