@@ -6,11 +6,8 @@ import '../../styles/blockSpread.css';
 
 export default class Location extends Component {
   render() {
-    //DUMMY PROPS FOR DESIGN
     const isExpanded = true;
-    const isSelected = this.props.selected; // dummy boolean, for telling the component to display extra stuff or not
-    //END DUMMY PROPS
-    //dnd
+    const isSelected = this.props.selected;
 
     const rating = this.props.info.ratingCount === 0 ? 0 : this.props.info.ratingScore / this.props.info.ratingCount;
 
@@ -31,19 +28,6 @@ export default class Location extends Component {
           />
       : undefined;
 
-    // const placeTags = this
-    //   .props
-    //   .info
-    //   .tags
-    //   .map((tag, index) => {
-    //     return (
-    //       <li key={index}>{tag}</li>
-    //     )
-    //   })
-
-    let divClassName = 'location';
-
-    // divClassName += isSelected ? ' card-selected' : '';
     const selectedColor = isSelected ? 'gold':'';
     return (
       <div className={'location'} style={{backgroundColor:`${selectedColor}`}}>

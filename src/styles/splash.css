@@ -43,7 +43,7 @@
 }
 .jumbotron-form{
   grid-column:2;
-  display:flex;
+  display:inline-block;
   flex-direction:column;
   justify-content: space-around;
   background-color:white;
@@ -68,13 +68,13 @@
   .jumbotron-copy{
     display:block;
     margin-left:10px;
-    margin:108px 0px 10px 45px;
+    margin:108px 0px 15px 45px;
   }
   .jumbotron-copy h1{
     font-size: 2.3em;
   }
   .jumbotron-form{
-    /* grid-column:1; */
+
     width:100%;
     height:65vh;
     margin:0;
@@ -85,7 +85,7 @@
 
 @media only screen and (max-width: 480px){
   .jumbotron-copy h1{
-    font-size:2.2em;
+    font-size:1.8em;
   }
   .jumbotron-copy p{
     font-size: .85em;
