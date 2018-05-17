@@ -9,7 +9,7 @@ export default function MiniBlock(props) {
 		smallCards = (
 			<div className="mini-card">
 				<h4 className="mini-card-header">
-					Come back soon for your curated suggestions
+					Please come back soon for your curated suggestions
 				</h4>
 			</div>
 		);
