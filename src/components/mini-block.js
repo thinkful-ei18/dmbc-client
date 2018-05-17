@@ -136,7 +136,6 @@ export default class MiniBlock extends Component {
         </div>
       );
     }
-
     return (
       <div className="mini-block">
         <div className="mini-block-nav">
