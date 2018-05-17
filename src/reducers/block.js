@@ -1,23 +1,25 @@
 // import actions
-import { SEND_NEW_BLOCK_SUCCESS, FETCH_BLOCKS_SUCCESS} from '../actions/block.js';
-
+import {
+  SEND_NEW_BLOCK_SUCCESS,
+  FETCH_BLOCKS_SUCCESS
+} from "../actions/block.js";
 
 const initialState = {
-  blocks:[],
-}
+  blocks: []
+};
 
-export default function reducer(state = initialState, action){
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SEND_NEW_BLOCK_SUCCESS:
-      return{
+      return {
         ...state,
-        blocks:[...state.blocks, action.newBlock]
-      }
+        blocks: [...state.blocks, action.newBlock]
+      };
     case FETCH_BLOCKS_SUCCESS:
-      return{
+      return {
         ...state,
-        blocks:[action.blocks]
-      }
+        blocks: [action.blocks]
+      };
     default:
       return state;
   }

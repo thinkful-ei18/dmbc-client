@@ -1,14 +1,14 @@
-import { INITIALIZE_SOCKET } from '../actions/chat'
+import { INITIALIZE_SOCKET } from "../actions/chat";
 
 const initialState = {
-	socket: null
-}
+  socket: null
+};
 
 export default function socketReducer(state = initialState, action) {
-	switch (action.type) {
-	case INITIALIZE_SOCKET:
-		return { ...initialState, socket: action.socket }
-	default:
-		return state
-	}
+  switch (action.type) {
+    case INITIALIZE_SOCKET:
+      return { ...initialState, socket: action.socket };
+    default:
+      return state;
+  }
 }

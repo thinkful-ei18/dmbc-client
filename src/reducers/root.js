@@ -1,14 +1,14 @@
-import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form';
+import { combineReducers } from "redux";
+import { reducer as formReducer } from "redux-form";
 
-import authReducer from './auth';
-import userReducer from './users';
-import tripReducer from './tripForm';
-import blockReducer from './block';
-import cardReducer from './cards';
-import dashboardReducer from './dashboard';
+import authReducer from "./auth";
+import userReducer from "./users";
+import tripReducer from "./tripForm";
+import blockReducer from "./block";
+import cardReducer from "./cards";
+import dashboardReducer from "./dashboard";
 import ambassadorItinerariesReducer from "./ambassador-itineraries";
-import yelpReducer from './yelp';
+import yelpReducer from "./yelp";
 
 const appReducer = combineReducers({
   block: blockReducer,
@@ -20,12 +20,12 @@ const appReducer = combineReducers({
   cards: cardReducer,
   itineraries: ambassadorItinerariesReducer,
   yelp: yelpReducer
-})
+});
 
 export default function rootReducer(state, action) {
-  if(action.type === 'USER_LOGOUT') {
-    state = undefined
+  if (action.type === "USER_LOGOUT") {
+    state = undefined;
   }
 
-  return appReducer(state, action)
+  return appReducer(state, action);
 }
