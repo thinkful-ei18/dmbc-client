@@ -1,0 +1,25 @@
+.ambassador-page-header{
+  border:1px solid red;
+  margin:10px auto;
+  height:160px;
+  /* background-image:url('http://via.placeholder.com/1600x800'); */
+  background-color: grey;
+  background-position:center;
+  display:flex;
+  justify-content: space-between;
+}
+
+.ambassador-page-header i{
+  margin-left:24px;
+}
+.ambassador-page-header h3{
+  font-size:2.4em;
+  vertical-align: middle;
+  color:white;
+  margin:auto 30px auto 0px;
+  /* width:100px; */
+
+}
+.ambasador-page li{
+  background-color:gold;
+}
