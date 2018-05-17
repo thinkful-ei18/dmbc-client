@@ -56,7 +56,16 @@
   padding: 0px 15px 0px 4px;
   font-size: 14px;
 }
+.mini-card-options-container{
+  display:inline-block;
+}
 
+@media only screen and (max-width:648px){
+  .mini-card-options-container{
+    width:100%;
+    display:flex;
+  }
+}
 @media only screen and (min-width: 800px) {
   .mini-card-blurb {
     font-size: 14px;

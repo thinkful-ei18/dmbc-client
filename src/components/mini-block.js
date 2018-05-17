@@ -26,7 +26,7 @@ export default function MiniBlock(props) {
       }
       name = props.block.cards[i].name
       nameTag.push (
-        <div style={{display:'inline-block'}} key={i}>
+        <div className="mini-card-options-container" key={i}>
           <i className="fas fa-map-pin"></i>
           <li className="mini-card-options" key={i}>{name}</li>
         </div>
