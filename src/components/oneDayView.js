@@ -15,7 +15,6 @@ import BlockSpread from "./daySpread/blockSpread";
 import AddNewBlock from "./daySpread/addNewBlock";
 import Toolbelt from "./toolbelt";
 import ViewButton from "./buttons/viewButton";
-import Logo from "./logo";
 //styles
 import "../styles/oneDayView.css";
 import { setDashboardCurrentDay } from "../actions/dashboard";
@@ -53,7 +52,7 @@ class OneDayView extends Component {
               .then(() => {
                 this.props.dispatch(fetchTripDetailsById(this.props.match.params.id));
               })
-              
+
           }}/>
       )
     });
