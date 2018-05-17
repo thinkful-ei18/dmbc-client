@@ -78,7 +78,9 @@ export class LocationInfo extends Component {
         <CardButton buttonText={"Rate Me"} />
       </form>
     );
-    return selector;
+    if (!this.props.ambassador) {
+      return selector;
+    }
   }
 
   createStars() {
@@ -107,8 +109,8 @@ export class LocationInfo extends Component {
   }
 
   render() {
-    const stars = this.createStars();
     let selector = this.createSelect();
+    const stars = this.createStars();
     let select;
     if (this.props.ambassador && this.props.selected) {
       select = null;

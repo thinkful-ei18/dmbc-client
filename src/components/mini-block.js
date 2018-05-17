@@ -8,7 +8,9 @@ export default function MiniBlock(props) {
   if (props.block.cards.length === 0) {
     smallCards = (
       <div className="mini-card">
-        <h4 className="mini-card-header">Your ambassador is still selecting</h4>
+        <h4 className="mini-card-header">
+          Come back soon for your curated suggestions
+        </h4>
       </div>
     );
   } else if (props.block.selectedCard) {
@@ -42,7 +44,9 @@ export default function MiniBlock(props) {
     }
     smallCards = (
       <div className="mini-card">
-        <h4 className="mini-card-header">Go to day to make your choice</h4>
+        <h4 className="mini-card-header">
+          Check out your Ambassador's suggestions
+        </h4>
         <div>
           <ul>{nameTag}</ul>
         </div>

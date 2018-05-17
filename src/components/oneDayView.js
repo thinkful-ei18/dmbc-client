@@ -19,7 +19,6 @@ import ViewButton from "./buttons/viewButton";
 //styles
 import "../styles/oneDayView.css";
 
-
 class OneDayView extends Component {
   constructor() {
     super();
@@ -150,7 +149,7 @@ class OneDayView extends Component {
     ) {
       addBlock = (
         <span className="no-user-blocks-warning">
-          There are no blocks yet for this day.
+          Currently, the traveler is not requesting suggestions for this day
         </span>
       );
     }
@@ -176,7 +175,7 @@ class OneDayView extends Component {
               }}
             />
           </span>
-          <span className="tooltiptext">Request an additional suggestion</span>
+          <span className="tooltiptext">Add another activity</span>
         </div>
       );
     }
@@ -197,8 +196,8 @@ class OneDayView extends Component {
           {closeToolbeltButton}
           <h2>{this.props.currentDay.toDateString()}</h2>
           {/* <div className="one-day-view-logo">
-            <Logo />
-          </div> */}
+          <Logo />
+        </div> */}
           <ul>{blocks}</ul>
           {addBlock}
           {addBlockButton}
