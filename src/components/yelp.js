@@ -10,8 +10,8 @@ import CardButton from "./buttons/cardButton";
 import "../styles/oneDayView.css";
 
 export class Yelp extends React.Component {
-  constructor() {
-    super();
+	constructor() {
+		super();
 
     this.state = {
       create: false,
