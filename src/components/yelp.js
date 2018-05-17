@@ -171,7 +171,7 @@ export class Yelp extends React.Component {
           this.offset = 0;
           this.props.dispatch(fetchYelp(latitude, longitude, this.term.value, this.offset));
         }}>
-          <label htmlFor="searchterm">What kind of card are you creating?</label>
+          <label htmlFor="searchterm">Search Yelp for the recommendation you would like to make</label>
           <input type="text" ref={input => this.term = input} placeholder="searchterm" name="searchterm"/>
           {/* <button><i className="fas fa-search"></i></button> */}
           <ViewButton
