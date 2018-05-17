@@ -15,7 +15,6 @@ import BlockSpread from "./daySpread/blockSpread";
 import AddNewBlock from "./daySpread/addNewBlock";
 import Toolbelt from "./toolbelt";
 import ViewButton from "./buttons/viewButton";
-import Logo from "./logo";
 //styles
 import "../styles/oneDayView.css";
 import { setDashboardCurrentDay } from "../actions/dashboard";
@@ -53,7 +52,7 @@ class OneDayView extends Component {
               .then(() => {
                 this.props.dispatch(fetchTripDetailsById(this.props.match.params.id));
               })
-              
+
           }}/>
       )
     });
@@ -145,7 +144,7 @@ class OneDayView extends Component {
     let addBlockButton;
     if (!this.props.currentUser.ambassador) {
       addBlockButton = (
-        <div class="tooltip">
+        <div className="tooltip">
           <span className="new-block-button">
             <i
               className="fas fa-plus-circle"
@@ -163,7 +162,7 @@ class OneDayView extends Component {
               }}
             />
           </span>
-          <span class="tooltiptext">Request an additional suggestion</span>
+          <span className="tooltiptext">Request an additional suggestion</span>
         </div>
       );
     }

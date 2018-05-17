@@ -43,10 +43,10 @@ export default class Location extends Component {
 
     let divClassName = 'location';
 
-    divClassName += isSelected ? ' card-selected' : '';
-
+    // divClassName += isSelected ? ' card-selected' : '';
+    const selectedColor = isSelected ? 'gold':'';
     return (
-      <div className={divClassName}>
+      <div className={'location'} style={{backgroundColor:`${selectedColor}`}}>
         {expandedContent}
         <img src={this.props.info.image} alt={this.props.info.name}/>
       </div>

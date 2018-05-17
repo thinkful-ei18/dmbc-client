@@ -44,6 +44,7 @@
   flex: 1 1 20em;
   font-size: 26px;
   padding-bottom:10px;
+  font-family:'roboto';
 }
 .mini-card-blurb {
   display: flex;
@@ -52,8 +53,8 @@
 }
 
 .mini-card-options {
-  float: left;
-  padding-right: 15px;
+  float: right;
+  padding: 0px 15px 0px 4px;
   font-size: 14px;
 }
 

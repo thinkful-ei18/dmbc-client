@@ -25,7 +25,12 @@ export default function MiniBlock(props) {
         break;
       }
       name = props.block.cards[i].name
-      nameTag.push (<li className="mini-card-options" key={i}>{name}</li>)
+      nameTag.push (
+        <div style={{display:'inline-block'}} key={i}>
+          <i className="fas fa-map-pin"></i>
+          <li className="mini-card-options" key={i}>{name}</li>
+        </div>
+    )
     }
     smallCards = (
       <div className="mini-card">
@@ -43,7 +48,6 @@ export default function MiniBlock(props) {
     <div className="mini-block">
       <div className="mini-block-nav">
         <h3 className="mini-block-title">{props.block.title}</h3>
-        {/* {timeline} */}
         <span>{props.timelineSymbol}</span>
       </div>
       {smallCards}

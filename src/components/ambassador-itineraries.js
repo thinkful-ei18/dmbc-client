@@ -15,6 +15,7 @@ import "../styles/carousel.css";
 
 class AmbassadorItineraries extends Component {
   render() {
+    console.log('help',this.props.itineraries);
     let itinerariesList;
     if (this.props.itineraries) {
       let currentItineraries = this.props.itineraries.filter(itinerary => {
@@ -35,22 +36,14 @@ class AmbassadorItineraries extends Component {
                 key={index}
                 className="ambassador-itinerary-slide"
               >
-                {/* <div
-                    className="itineraryheader"
-                    style={{
-                      backgroundImage: `url(${Background})`
-                    }}
-                  >
-                    
-                  </div> */}
-
-                <h3 className="place-name">
+                <h3 className="itinerary-location-name">
                   {itinerary.destination.locationName}
                 </h3>
-                <h4>Date Start: {moment(itinerary.dateStart).format("ll")}</h4>
-                <h4>Date End: {moment(itinerary.dateEnd).format("ll")}</h4>
-
-                <h4 className="itinerary-blurb">Notes: {itinerary.partners}</h4>
+                <div className="itinerary-info">
+                  <p>Date Start: {moment(itinerary.dateStart).format("ll")}</p>
+                  <p>Date End: {moment(itinerary.dateEnd).format("ll")}</p>
+                  <p className="itinerary-blurb">Notes: {itinerary.partners}</p>
+                </div>
               </Slide>
             </Link>
           );
@@ -62,8 +55,9 @@ class AmbassadorItineraries extends Component {
       <div>
         <h1 className="carousel-title-current">Current Itineraries</h1>
         <CarouselProvider
-          naturalSlideWidth={100}
-          naturalSlideHeight={70}
+          dragEnabled={false}
+          naturalSlideWidth={30}
+          naturalSlideHeight={20}
           totalSlides={this.props.itineraries.length || 1}
           visibleSlides={2}
           className="carousel-background-current"
@@ -75,7 +69,7 @@ class AmbassadorItineraries extends Component {
             <i className="fas fa-angle-right" />
           </ButtonNext>
           <Slider>{itinerariesList}</Slider>
-          
+
           {/* <h1>{itinerariesTotal}</h1> */}
         </CarouselProvider>
       </div>
