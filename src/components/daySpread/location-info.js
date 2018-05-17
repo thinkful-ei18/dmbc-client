@@ -4,7 +4,6 @@ import {
   removeSelectOnBlock,
   removeCardOnBlock
 } from "../../actions/block";
-import { rateCard } from "../../actions/cards";
 import CardButton from "../buttons/cardButton";
 import { connect } from "react-redux";
 
@@ -50,45 +49,12 @@ export class LocationInfo extends Component {
       });
   }
 
-  createSelect() {
-    let options = new Array(5);
-    for (let i = 0; i < 5; i++) {
-      options[i] = (
-        <option value={i + 1} key={i + 1}>
-          {i + 1}
-        </option>
-      );
-    }
-    const selector = (
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-          const values = {
-            rating: this.selectVal,
-            cardId: this.props.info.id,
-            blockId: this.props.blockId
-          };
-          this.props.dispatch(rateCard(values));
-        }}
-      >
-        <label>Rating</label>
-        <select onChange={input => (this.selectVal = input.target.value)}>
-          {options}
-        </select>
-        <CardButton buttonText={"Rate Me"} />
-      </form>
-    );
-    if (!this.props.ambassador) {
-      return selector;
-    }
-  }
-
   createStars() {
     let stars = new Array(5);
     for (let i = 0; i < 5; i++) {
       if (i < this.props.rating) {
         stars[i] = (
-          <div className="star-outer" key={i}>
+          <div className="star-outer" key={i} style={{ cursor: "default" }}>
             <i className="far fa-star">
               <i className="fas fa-star star-inner star-show" />
             </i>
@@ -96,7 +62,7 @@ export class LocationInfo extends Component {
         );
       } else {
         stars[i] = (
-          <div className="star-outer" key={i}>
+          <div className="star-outer" key={i} style={{ cursor: "default" }}>
             <i className="far fa-star">
               <i className="fas fa-star star-inner" />
             </i>
@@ -109,7 +75,6 @@ export class LocationInfo extends Component {
   }
 
   render() {
-    let selector = this.createSelect();
     const stars = this.createStars();
     let select;
     if (this.props.ambassador && this.props.selected) {
@@ -140,10 +105,6 @@ export class LocationInfo extends Component {
       );
     }
 
-    if (this.props.ambassador) {
-      selector = null;
-    }
-
     return (
       <div className="location-info">
         <div className="location-name">
@@ -161,10 +122,7 @@ export class LocationInfo extends Component {
             </p>
             {stars}
           </div>
-          <div className="location-controls">
-            {selector}
-            {select}
-          </div>
+          <div className="location-controls">{select}</div>
         </div>
       </div>
     );

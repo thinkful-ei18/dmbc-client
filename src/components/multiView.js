@@ -7,6 +7,7 @@ import {
   setDashboardTripdays
 } from "../actions/dashboard";
 import { fetchTripDetailsById } from "../actions/tripForm";
+import { rateCard } from "../actions/cards";
 import MiniBlock from "./mini-block";
 import ViewButton from "./buttons/viewButton";
 
@@ -87,6 +88,8 @@ class MultiView extends Component {
               index={index}
               length={filteredBlocks.length}
               timelineSymbol={timelineSymbol}
+              rateCard={input => this.props.dispatch(rateCard(input))}
+              ambassador={this.props.currentUser.ambassador}
             />
           </div>
         );
@@ -99,14 +102,14 @@ class MultiView extends Component {
         );
       }
       return (
-        <Link
-          to={`/itineraries/${this.props.currentItinerary.id ||
-            this.props.match.params.id}/oneDayView`}
-          onClick={() => this.handleRedirect(day)}
-          className="one-day-link"
-          key={index}
-        >
-          <li className="multi-view-day">
+        <li className="multi-view-day">
+          <Link
+            to={`/itineraries/${this.props.currentItinerary.id ||
+              this.props.match.params.id}/oneDayView`}
+            onClick={() => this.handleRedirect(day)}
+            className="one-day-link"
+            key={index}
+          >
             <div className="multi-day-header">
               <h2 className="block-date">{parsedDate}</h2>
               <ViewButton
@@ -119,9 +122,9 @@ class MultiView extends Component {
                 }}
               />
             </div>
-            {block}
-          </li>
-        </Link>
+          </Link>
+          {block}
+        </li>
       );
     });
     return tripSpread;
@@ -164,7 +167,8 @@ class MultiView extends Component {
 
 const mapStateToProps = state => ({
   tripDays: state.dashboard.tripDays,
-  currentItinerary: state.dashboard.currentItinerary
+  currentItinerary: state.dashboard.currentItinerary,
+  currentUser: state.auth.currentUser
 });
 
 export default connect(mapStateToProps)(MultiView);

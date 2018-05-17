@@ -106,6 +106,9 @@ class AmbassadorPageToolbelt extends Component {
               }
               buttonText={"Your Cards"}
               overrideStyle={{
+                width: "120px",
+                height: "35px",
+                margin: "15px 10px",
                 backgroundColor: `${
                   this.state.display === "your cards" ? `rgb(94, 76, 253)` : ""
                 }`
