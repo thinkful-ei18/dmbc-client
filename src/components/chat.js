@@ -3,7 +3,7 @@ import moment from "moment";
 import io from "socket.io-client";
 import { connect } from "react-redux";
 
-const socket = io()  
+const socket = io();
 
 export class Chat extends React.Component {
   constructor(props) {
@@ -49,7 +49,7 @@ export class Chat extends React.Component {
       this.goToBottom("chat");
     };
 
-   socket.on("RECEIVE_MESSAGE", function(data) {
+    socket.on("RECEIVE_MESSAGE", function(data) {
       addMessage(data);
     });
 
@@ -82,7 +82,7 @@ export class Chat extends React.Component {
   }
 
   componentWillUnmount() {
-   socket.emit("LEAVING_ROOM", {
+    socket.emit("LEAVING_ROOM", {
       roomId: this.props.roomId,
       username: this.state.username
     });

@@ -8,14 +8,14 @@ import {
   Slider,
   Slide,
   ButtonBack,
-  ButtonNext,
+  ButtonNext
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import "../styles/carousel.css";
 
 class AmbassadorItineraries extends Component {
   render() {
-    console.log('help',this.props.itineraries);
+    console.log("help", this.props.itineraries);
     let itinerariesList;
     if (this.props.itineraries) {
       let currentItineraries = this.props.itineraries.filter(itinerary => {
@@ -30,7 +30,12 @@ class AmbassadorItineraries extends Component {
       } else {
         itinerariesList = currentItineraries.map((itinerary, index) => {
           return (
-            <Link to={{ pathname: `/itineraries/${itinerary.id}` }} key={index}>
+            <Link
+              to={{
+                pathname: `/itineraries/${itinerary.id}`
+              }}
+              key={index}
+            >
               <Slide
                 index={index}
                 key={index}
