@@ -37,7 +37,7 @@
   height: 100%;
   width: 100%;
   background-color: rgb(174, 153, 181);
-  padding-top:17px;
+  padding-top: 17px;
 }
 
 .cards-content {
@@ -45,8 +45,8 @@
   flex-wrap: wrap;
   width: 305px;
 }
-.cards-container{
-  margin-top:40px;
+.cards-container {
+  margin-top: 40px;
 }
 
 .card-search {
@@ -63,8 +63,8 @@
   border: none;
   border-radius: 5px 0 0 5px;
 }
-.card-search label{
-  margin-bottom:5px;
+.card-search label {
+  margin-bottom: 5px;
 }
 /* .card-search button {
   width: 70px;
@@ -73,7 +73,8 @@
   border-radius: 0 5px 5px 0;
 } */
 
-.create-card, .back-button {
+.create-card,
+.back-button {
   margin: 50px 0;
   margin-bottom: 25px;
 }
@@ -82,7 +83,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom:25px;
+  margin-bottom: 25px;
 }
 
 .yelp-search form {
@@ -112,6 +113,7 @@
   border-radius: 0 5px 5px 0;
 }
 
-.create-card-form h4, .edit-card-form h4 {
+.create-card-form h4,
+.edit-card-form h4 {
   margin-bottom: 10px;
 }

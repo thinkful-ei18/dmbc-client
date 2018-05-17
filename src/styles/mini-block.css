@@ -9,7 +9,6 @@
   grid-template-columns: 33% 67%;
 }
 
-
 .mini-block-nav {
   width: auto;
   padding-right: 15px;
@@ -19,7 +18,6 @@
   text-align: right;
   display: grid;
   grid-template-columns: 80% 20%;
-
 }
 
 .mini-block-title {
@@ -42,8 +40,8 @@
   background-size: cover;
   flex: 1 1 20em;
   font-size: 26px;
-  padding-bottom:10px;
-  font-family:'roboto';
+  padding-bottom: 10px;
+  font-family: 'roboto';
 }
 .mini-card-blurb {
   display: flex;
@@ -56,14 +54,14 @@
   padding: 0px 15px 0px 4px;
   font-size: 14px;
 }
-.mini-card-options-container{
-  display:inline-block;
+.mini-card-options-container {
+  display: inline-block;
 }
 
-@media only screen and (max-width:648px){
-  .mini-card-options-container{
-    width:100%;
-    display:flex;
+@media only screen and (max-width: 648px) {
+  .mini-card-options-container {
+    width: 100%;
+    display: flex;
   }
 }
 @media only screen and (min-width: 800px) {
@@ -76,8 +74,8 @@
   }
 }
 
-.selected-pin{
-  font-size:1.3em;
-  color:red;
-  margin-right:10px;
+.selected-pin {
+  font-size: 1.3em;
+  color: red;
+  margin-right: 10px;
 }

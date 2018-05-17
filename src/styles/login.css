@@ -1,10 +1,10 @@
-.login-container h2{
+.login-container h2 {
   font-size: 1.8em;
 }
-.login-container a:hover{
-  color:rgb(94,124,253);
+.login-container a:hover {
+  color: rgb(94, 124, 253);
 }
-.login-container p{
-  display:block;
-  text-align:center;
+.login-container p {
+  display: block;
+  text-align: center;
 }

@@ -1,41 +1,40 @@
-
 .ambassador-cards-slide {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 .back-button {
-    position: absolute;
-    width: 3%;
-    height: 50%;
-    background-color: rgba(255, 255, 255, 0.25);
+  position: absolute;
+  width: 3%;
+  height: 50%;
+  background-color: rgba(255, 255, 255, 0.25);
 }
-.carousel-title-card{
-    font-size: 2em;
-    text-align: center;
-    border-botom:1px solid black;
+.carousel-title-card {
+  font-size: 2em;
+  text-align: center;
+  border-botom: 1px solid black;
 }
-.carousel-title-current{
-    font-size: 5vw;
-    text-align: center;
-    border-bottom:1px solid black;
+.carousel-title-current {
+  font-size: 5vw;
+  text-align: center;
+  border-bottom: 1px solid black;
 }
 
-.carousel-title-past{
-    font-size: 5vw;
-    text-align: center;
-    border-bottom:1px solid black;
+.carousel-title-past {
+  font-size: 5vw;
+  text-align: center;
+  border-bottom: 1px solid black;
 }
 
 .carousel-background-cards {
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .carousel-background-current {
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .carousel-background-past {
-    background-color: silver;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  background-color: silver;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 ._horizontalSlider_9ve3r_1 {
@@ -46,16 +45,16 @@
 }
 
 .itinerary-container {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .itinerary-container:hover {
-    background-color: grey;
-	border: solid black 4px;
+  background-color: grey;
+  border: solid black 4px;
 }
 
 .itinerary-destination {
-  background-color: rgba(0, 0, 0, 0.192)
+  background-color: rgba(0, 0, 0, 0.192);
 }
 
 .next-button {
@@ -70,7 +69,7 @@
   text-align: center;
   padding: 30px;
   color: grey;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 @media (max-width: 1650px) {
@@ -80,14 +79,13 @@
   .back-button {
     height: 10%;
   }
-
 }
 @media (max-width: 700px) {
   ._slideInner_fhwgk_1 li {
     font-size: 9px;
   }
 
-  ._slideInner_fhwgk_1{
+  ._slideInner_fhwgk_1 {
     padding: 5px;
     text-align: left;
   }

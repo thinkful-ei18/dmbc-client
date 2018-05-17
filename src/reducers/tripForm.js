@@ -3,37 +3,37 @@ import {
   SET_DATE_END,
   SET_TRIP_DESTINATION,
   SET_TRIP_PARTNERS
-} from '../actions/tripForm'
+} from "../actions/tripForm";
 
-const initialState={
+const initialState = {
   dateStart: null,
-  dateEnd:null,
-  destination:null,
-  partners:'Just me',
-}
+  dateEnd: null,
+  destination: null,
+  partners: "Just me"
+};
 
-export default function reducer(state = initialState, action){
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_DATE_START:
       return {
         ...state,
-        dateStart:action.dateStart
-      }
+        dateStart: action.dateStart
+      };
     case SET_DATE_END:
-      return{
+      return {
         ...state,
-        dateEnd:action.dateEnd
-      }
+        dateEnd: action.dateEnd
+      };
     case SET_TRIP_DESTINATION:
-      return{
+      return {
         ...state,
-        destination:action.destination
-      }
+        destination: action.destination
+      };
     case SET_TRIP_PARTNERS:
-      return{
+      return {
         ...state,
-        partners:action.partners
-      }
+        partners: action.partners
+      };
 
     default:
       return state;

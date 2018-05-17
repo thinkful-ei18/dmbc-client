@@ -1,8 +1,12 @@
-import React, {Component} from 'react';
-import {selectCardOnBlock, removeSelectOnBlock, removeCardOnBlock} from '../../actions/block';
+import React, { Component } from "react";
+import {
+  selectCardOnBlock,
+  removeSelectOnBlock,
+  removeCardOnBlock
+} from "../../actions/block";
 import { rateCard } from "../../actions/cards";
-import CardButton from '../buttons/cardButton';
-import {connect} from 'react-redux';
+import CardButton from "../buttons/cardButton";
+import { connect } from "react-redux";
 
 export class LocationInfo extends Component {
   componentDidMount() {
@@ -10,57 +14,70 @@ export class LocationInfo extends Component {
   }
 
   lockIn() {
-    this
-      .props
-      .dispatch(selectCardOnBlock({cardID: this.props.info.id, blockID: this.props.blockId}));
+    this.props.dispatch(
+      selectCardOnBlock({
+        cardID: this.props.info.id,
+        blockID: this.props.blockId
+      })
+    );
   }
 
   deselect() {
-    this.props.dispatch(removeSelectOnBlock({blockId: this.props.blockId}))
+    this.props.dispatch(removeSelectOnBlock({ blockId: this.props.blockId }));
   }
 
   removeCard() {
-    this.props.dispatch(removeCardOnBlock({
-      blockID: this.props.blockId,
-      cardID: this.props.info.id,
-      cards:  this.props.cards
-    }));
+    this.props.dispatch(
+      removeCardOnBlock({
+        blockID: this.props.blockId,
+        cardID: this.props.info.id,
+        cards: this.props.cards
+      })
+    );
   }
 
   removeSelected() {
-    this.props.dispatch(removeSelectOnBlock({blockId: this.props.blockId}))
+    this.props
+      .dispatch(removeSelectOnBlock({ blockId: this.props.blockId }))
       .then(() => {
-        this.props.dispatch(removeCardOnBlock({
-          blockID: this.props.blockId,
-          cardID: this.props.info.id,
-          cards:  this.props.cards
-        }))
-      })
+        this.props.dispatch(
+          removeCardOnBlock({
+            blockID: this.props.blockId,
+            cardID: this.props.info.id,
+            cards: this.props.cards
+          })
+        );
+      });
   }
 
   createSelect() {
     let options = new Array(5);
     for (let i = 0; i < 5; i++) {
-      options[i] = <option value={i + 1} key={i + 1}>{i + 1}</option>
+      options[i] = (
+        <option value={i + 1} key={i + 1}>
+          {i + 1}
+        </option>
+      );
     }
     const selector = (
       <form
         onSubmit={e => {
-        e.preventDefault();
-        const values = {
-          rating: this.selectVal,
-          cardId: this.props.info.id,
-          blockId: this.props.blockId
-        }
-        this.props.dispatch(rateCard(values));
-      }}>
+          e.preventDefault();
+          const values = {
+            rating: this.selectVal,
+            cardId: this.props.info.id,
+            blockId: this.props.blockId
+          };
+          this.props.dispatch(rateCard(values));
+        }}
+      >
         <label>Rating</label>
-        <select onChange={(input) => this.selectVal = input.target.value}>
+        <select onChange={input => (this.selectVal = input.target.value)}>
           {options}
         </select>
-        <CardButton buttonText={'Rate Me'} />
+        <CardButton buttonText={"Rate Me"} />
       </form>
-    )
+    );
     return selector;
   }
 
@@ -71,50 +88,54 @@ export class LocationInfo extends Component {
         stars[i] = (
           <div className="star-outer" key={i}>
             <i className="far fa-star">
-              <i className="fas fa-star star-inner star-show"></i>
+              <i className="fas fa-star star-inner star-show" />
             </i>
           </div>
-        )
+        );
       } else {
         stars[i] = (
           <div className="star-outer" key={i}>
             <i className="far fa-star">
-              <i className="fas fa-star star-inner"></i>
+              <i className="fas fa-star star-inner" />
             </i>
           </div>
-        )
+        );
       }
-      
     }
-    const rating = (
-      <div className="location-rating">
-        {stars}
-      </div> 
-    )
+    const rating = <div className="location-rating">{stars}</div>;
     return rating;
   }
-    
+
   render() {
     const stars = this.createStars();
-    let selector = this.createSelect()
+    let selector = this.createSelect();
     let select;
     if (this.props.ambassador && this.props.selected) {
       select = null;
     } else if (this.props.selected) {
       select = (
         // <button onClick={() => this.deselect()} className='confirm-location'>Choices</button>
-        <CardButton buttonFunction={() => this.deselect()} buttonText={'Choices'} />
-      )
+        <CardButton
+          buttonFunction={() => this.deselect()}
+          buttonText={"Choices"}
+        />
+      );
     } else if (this.props.ambassador) {
       select = (
         // <button onClick={() => this.removeCard()}>Remove</button>
-        <CardButton buttonFunction={() => this.removeCard()} buttonText={'Remove'} />
-      )
+        <CardButton
+          buttonFunction={() => this.removeCard()}
+          buttonText={"Remove"}
+        />
+      );
     } else {
       select = (
         // <button onClick={() => this.lockIn()} className='confirm-location'>Lock Location</button>
-        <CardButton buttonFunction={() => this.lockIn()} buttonText={'Lock Location'} />
-      )
+        <CardButton
+          buttonFunction={() => this.lockIn()}
+          buttonText={"Lock Location"}
+        />
+      );
     }
 
     if (this.props.ambassador) {
@@ -128,14 +149,14 @@ export class LocationInfo extends Component {
           <p className="location-address">{this.props.info.address}</p>
           <p className="location-phone">{this.props.info.phone}</p>
           <hr />
-          <ul className='place-tags'>
-            {this.props.placeTags}
-          </ul>
+          <ul className="place-tags">{this.props.placeTags}</ul>
         </div>
         <div className="location-content">
           <div>
             <p>Details</p>
-            <p className="location-description">{this.props.info.description}</p>
+            <p className="location-description">
+              {this.props.info.description}
+            </p>
             {stars}
           </div>
           <div className="location-controls">
@@ -144,7 +165,7 @@ export class LocationInfo extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

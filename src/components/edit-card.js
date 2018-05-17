@@ -1,8 +1,8 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {fetchSingleCard, updateCard} from '../actions/cards';
-import { setToolbeltDisplay } from '../actions/dashboard';
-import requiresLogin from '../requires-login';
+import React from "react";
+import { connect } from "react-redux";
+import { fetchSingleCard, updateCard } from "../actions/cards";
+import { setToolbeltDisplay } from "../actions/dashboard";
+import requiresLogin from "../requires-login";
 
 class SingleCard extends React.Component {
   constructor() {
@@ -13,26 +13,25 @@ class SingleCard extends React.Component {
       description: null,
       address: null,
       id: null,
-      image: null,
-    }
+      image: null
+    };
   }
   componentDidMount() {
-    this.props.dispatch(fetchSingleCard(this.props.id))
-    .then(() => {
+    this.props.dispatch(fetchSingleCard(this.props.id)).then(() => {
       this.setState({
         name: this.props.singleCard.name,
         description: this.props.singleCard.description,
         address: this.props.singleCard.address,
         id: this.props.singleCard.id,
         image: this.props.singleCard.image
-      })
+      });
     });
-  };
+  }
   render() {
-    const apiTags = ['Family Friendly', 'Crowd Friendly', 'No Pets'];
+    const apiTags = ["Family Friendly", "Crowd Friendly", "No Pets"];
 
-    const placeTags = apiTags.map((tag,index) => {
-      return (<li key={index}>{tag}</li>)
+    const placeTags = apiTags.map((tag, index) => {
+      return <li key={index}>{tag}</li>;
     });
     const distance = this.props.destination.distance;
 
@@ -46,80 +45,83 @@ class SingleCard extends React.Component {
         id: this.state.id,
         image: this.state.image,
         ambassador: this.props.singleCard.ambassador
-      }
+      };
       editForm = (
-        <form onSubmit={event => {
-          event.preventDefault();
-          this.props.dispatch(updateCard(newCard, this.state.id, distance))
-          this.props.dispatch(setToolbeltDisplay('cards'));
-        }}>
-        <h4>Edit Card</h4>
-        <div className='card-container-expanded no-drag' key={this.props.index}>
-          <div className='card-header' style={{'backgroundImage':`url(${this.state.image})`}}>
-            <div className="card-title">
-              <span className='place-name'>
-                <input 
-                  id="name"
-                  name="name"
-                  defaultValue={this.state.name}
-                  onChange={event => {
-                    event.preventDefault();
-                    this.setState({
-                      name: event.target.value
-                    })
-                  }}
-                />
-              </span>
-              <span className='card-blurb'>
-                <input 
-                  id="address"
-                  name="address"
-                  defaultValue={this.state.address}
-                  onChange={event => {
-                    event.preventDefault();
-                    this.setState({
-                      address: event.target.value
-                    })
-                  }}
-                />
-              </span>
+        <form
+          onSubmit={event => {
+            event.preventDefault();
+            this.props.dispatch(updateCard(newCard, this.state.id, distance));
+            this.props.dispatch(setToolbeltDisplay("cards"));
+          }}
+        >
+          <h4>Edit Card</h4>
+          <div
+            className="card-container-expanded no-drag"
+            key={this.props.index}
+          >
+            <div
+              className="card-header"
+              style={{ backgroundImage: `url(${this.state.image})` }}
+            >
+              <div className="card-title">
+                <span className="place-name">
+                  <input
+                    id="name"
+                    name="name"
+                    defaultValue={this.state.name}
+                    onChange={event => {
+                      event.preventDefault();
+                      this.setState({
+                        name: event.target.value
+                      });
+                    }}
+                  />
+                </span>
+                <span className="card-blurb">
+                  <input
+                    id="address"
+                    name="address"
+                    defaultValue={this.state.address}
+                    onChange={event => {
+                      event.preventDefault();
+                      this.setState({
+                        address: event.target.value
+                      });
+                    }}
+                  />
+                </span>
+              </div>
+            </div>
+            <div className="place-tags">
+              <ul>{placeTags}</ul>
+            </div>
+            <div>
+              <div className="card-body">
+                <span className="blurb-header">Details</span>
+                <span className="card-blurb">
+                  <textarea
+                    id="description"
+                    name="description"
+                    maxLength="100"
+                    defaultValue={this.state.description}
+                    onChange={event => {
+                      event.preventDefault();
+                      this.setState({
+                        description: event.target.value
+                      });
+                    }}
+                  />
+                </span>
+              </div>
+              <div className="card-controls">
+                <button>Submit Changes</button>
+              </div>
             </div>
           </div>
-          <div className='place-tags'>
-            <ul>
-              {placeTags}
-            </ul>
-          </div>
-          <div>
-            <div className='card-body'>
-              <span className='blurb-header'>Details</span>
-              <span className='card-blurb'>
-                <textarea 
-                  id="description"
-                  name="description"
-                  maxLength="100"
-                  defaultValue={this.state.description}
-                  onChange={event => {
-                    event.preventDefault();
-                    this.setState({
-                      description: event.target.value
-                    })
-                }}/>
-              </span>
-            </div>
-            <div className='card-controls'>
-              <button>Submit Changes</button>
-            </div>
-          </div>
-        </div>
         </form>
       );
     }
-    return (
-      <div className="edit-card-form">
-        {editForm}
-      </div>
-    )
+    return <div className="edit-card-form">{editForm}</div>;
   }
 }
 
@@ -127,7 +129,9 @@ const mapStateToProps = state => ({
   singleCard: state.cards.singleCard,
   loading: state.cards.loading,
   error: state.cards.error,
-  destination:state.dashboard.currentItinerary ? state.dashboard.currentItinerary.destination : ''
+  destination: state.dashboard.currentItinerary
+    ? state.dashboard.currentItinerary.destination
+    : ""
 });
 
 export default requiresLogin()(connect(mapStateToProps)(SingleCard));

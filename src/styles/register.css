@@ -1,57 +1,54 @@
-.registration{
-  display:grid;
-  grid-template-columns: repeat(2,1fr);
+.registration {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
-  height:100%;
+  height: 100%;
 }
-.hero-container{
+.hero-container {
   grid-column: 1;
   height: 96.5vh;
 
-  color:white;
-  padding-top:190px;
-  padding-left:30px;
+  color: white;
+  padding-top: 190px;
+  padding-left: 30px;
 
-  background-image:
-    linear-gradient(
+  background-image: linear-gradient(
       to bottom,
-       rgba(0, 0, 0, 0.66),
-       rgba(0, 0, 0, 0.55)
-      ),
+      rgba(0, 0, 0, 0.66),
+      rgba(0, 0, 0, 0.55)
+    ),
     url('../assets/register-large.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: 140%;
-
 }
-.form-container{
-  margin-top:27px;
-  grid-column:2;
+.form-container {
+  margin-top: 27px;
+  grid-column: 2;
   text-align: center;
 }
-.account-link{
+.account-link {
   font-size: 14px;
 }
 
-@media only screen and (max-width: 859px)  {
-  .registration{
-    display:grid;
-    grid-template-columns: repeat(1,1fr);
+@media only screen and (max-width: 859px) {
+  .registration {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
     grid-template-rows: auto;
   }
-  .hero-container{
-    height:37vh;
+  .hero-container {
+    height: 37vh;
     display: inline-block;
-    padding-top:110px;
+    padding-top: 110px;
     background-position: top;
-    font-size:0.9em;
+    font-size: 0.9em;
   }
-  .form-container{
-    margin-top:15px;
-    grid-column:1;
-    height:70vh;
+  .form-container {
+    margin-top: 15px;
+    grid-column: 1;
+    height: 70vh;
     display: inline-block;
   }
-
 }

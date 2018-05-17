@@ -1,8 +1,8 @@
 import {
   FETCH_USERS_REQUEST,
   FETCH_USERS_SUCCESS,
-  FETCH_USERS_ERROR,
-} from '../actions/users';
+  FETCH_USERS_ERROR
+} from "../actions/users";
 
 const initialState = {
   users: [],
