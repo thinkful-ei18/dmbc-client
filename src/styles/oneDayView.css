@@ -147,7 +147,7 @@
 .tooltip {
   position: relative;
   display: inline-block;
-  
+
 }
 
 .one-day-view-logo {
@@ -179,5 +179,5 @@
   padding:24px;
   margin:30px 0px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  
+
 }

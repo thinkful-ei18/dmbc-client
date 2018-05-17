@@ -5,8 +5,9 @@ import { DropTarget } from 'react-dnd';
 import { ItemTypes } from '../utils/itemTypes';
 import Location from './location';
 //styles
-import '../../styles/oneDayView.css';
 import '../../styles/blockSpread.css';
+import '../../styles/oneDayView.css';
+
 
 const blockTarget = {
   drop(props,monitor,component){

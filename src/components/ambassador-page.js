@@ -38,7 +38,7 @@ export class AmbassadorPage extends React.Component {
         <div className="ambassador-page">
           <AmbassadorItineraries/>
           <AmbassadorPastItineraries/>
-          <AmbasadorPageToolbelt/>
+          <AmbasadorPageToolbelt />
           {/* <AmbassadorExplore/> */}
         </div>
       </div>
