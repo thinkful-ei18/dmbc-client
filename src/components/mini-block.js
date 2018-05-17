@@ -3,10 +3,6 @@ import CardButton from "./buttons/cardButton";
 import "../styles/mini-block.css";
 import "../styles/timeline.css";
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 14f33f1fe2b9aa25639f4c8bb2ed0a7b7f402e55
 export default class MiniBlock extends Component {
   constructor() {
     super();
