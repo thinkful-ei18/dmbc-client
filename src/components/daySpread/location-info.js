@@ -84,12 +84,11 @@ export class LocationInfo extends Component {
           </div>
         )
       }
-      
     }
     const rating = (
       <div className="location-rating">
         {stars}
-      </div> 
+      </div>
     )
     return rating;
   }
@@ -117,9 +116,9 @@ export class LocationInfo extends Component {
       )
     }
 
-    if (this.props.ambassador) {
-      selector = null;
-    }
+    // if (this.props.ambassador) {
+    //   selector = null;
+    // }
 
     return (
       <div className="location-info">
