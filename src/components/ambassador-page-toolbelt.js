@@ -66,7 +66,7 @@ class AmbassadorPageToolbelt extends Component {
         if (card.ambassador === this.props.currentUser.id) {
           return (
             <Card
-              index={index}
+              key={index}
               card={card}
               currentUser={this.props.currentUser.id}
             />

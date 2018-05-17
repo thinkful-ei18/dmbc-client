@@ -3,10 +3,10 @@ import CardButton from "../buttons/cardButton";
 
 export default class Card extends Component {
   render() {
-    const apiTags = ["Family Friendly", "Crowd Friendly", "No Pets"];
-    const placeTags = apiTags.map((tag, index) => {
-      return <li key={index}>{tag}</li>;
-    });
+    // const apiTags = ["Family Friendly", "Crowd Friendly", "No Pets"];
+    // const placeTags = apiTags.map((tag, index) => {
+    //   return <li key={index}>{tag}</li>;
+    // });
     // const placeTags = this
     //   .props
     //   .info
