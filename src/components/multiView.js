@@ -172,7 +172,6 @@ class MultiView extends Component {
 const mapStateToProps = state => ({
 	tripDays: state.dashboard.tripDays,
 	currentItinerary: state.dashboard.currentItinerary
->>>>>>> penultimate copy draft and removed rating option for ambassador
 });
 
 export default connect(mapStateToProps)(MultiView);
