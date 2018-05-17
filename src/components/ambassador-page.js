@@ -29,6 +29,7 @@ export class AmbassadorPage extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <div className="ambassador-page-header">
@@ -38,7 +39,7 @@ export class AmbassadorPage extends React.Component {
         <div className="ambassador-page">
           <AmbassadorItineraries/>
           <AmbassadorPastItineraries/>
-          <AmbasadorPageToolbelt />
+          <AmbasadorPageToolbelt cards={this.props.cards.cards}/>
           {/* <AmbassadorExplore/> */}
         </div>
       </div>

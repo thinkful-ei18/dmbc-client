@@ -154,8 +154,15 @@ export class Yelp extends React.Component {
         />
       )
     }
-    let latitude = this.props.destination.location.coordinates[1];
-    let longitude = this.props.destination.location.coordinates[0];
+    let latitude;
+    let longitude;
+    if (this.props.destination && this.props.destination.location.lat) {
+      latitude = this.props.destination.location.lat;
+      longitude = this.props.destination.location.lng;
+    } else if (this.props.destination) {
+      latitude = this.props.destination.location.coordinates[1];
+      longitude = this.props.destination.location.coordinates[0];
+    }
     return (
       <div className="yelp-search">
         <form onSubmit={event => {
@@ -191,7 +198,7 @@ const mapStateToProps = state => ({
   yelp: state.yelp.yelp,
   loading: state.yelp.loading,
   error: state.yelp.error,
-  destination:state.dashboard.currentItinerary.destination
+  destination:state.dashboard.currentItinerary ? state.dashboard.currentItinerary.destination : state.trip.destination
 });
 
 export default requiresLogin()(connect(mapStateToProps)(Yelp));

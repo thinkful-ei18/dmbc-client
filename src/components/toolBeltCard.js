@@ -97,13 +97,7 @@ class ToolbeltCard extends Component {
               <span className='card-blurb'>{this.props.card.description}</span>
             </div>
             <div className='card-controls'>
-              {/* {this.addSelectorToCard(this.props.card.id)} */}
               {select}
-              {/* <button onClick={event => {
-                event.preventDefault();
-                this.props.cardId(this.props.card.id);
-                this.props.dispatch(setToolbeltDisplay('edit'));
-              }}>Edit Card</button> */}
               <CardButton
                 buttonText={'Edit Card'}
                 buttonFunction={(event) => {
@@ -112,7 +106,6 @@ class ToolbeltCard extends Component {
                   this.props.dispatch(setToolbeltDisplay('edit'));
                 }}
               />
-              {/* <button className='confirm-location'>Lock in</button> */}
             </div>
           </div>
         </div>
