@@ -10,7 +10,6 @@ import { fetchTripDetailsById } from "../actions/tripForm";
 import { rateCard } from "../actions/cards";
 import MiniBlock from "./mini-block";
 import ViewButton from "./buttons/viewButton";
-// import BackgroundImage from '../assets/la-large.jpg'
 
 import "../styles/multiView.css";
 
@@ -98,7 +97,7 @@ class MultiView extends Component {
       if (this.isAllNull(block)) {
         block = (
           <p className="no-blocks">
-            Go to day to request suggestions for the specific date.
+            View day to request suggestions for an activity.
           </p>
         );
       }
@@ -114,7 +113,7 @@ class MultiView extends Component {
             <div className="multi-day-header">
               <h2 className="block-date">{parsedDate}</h2>
               <ViewButton
-                buttonText={"Go To Day"}
+                buttonText={"View Day"}
                 overrideStyle={{
                   marginRight: "25px",
                   marginTop: "15px",
@@ -151,8 +150,8 @@ class MultiView extends Component {
           </h2>
           <h4 className="ambassador-info">
             Select a day below to request expertly curated suggestions from{" "}
-            {this.props.currentItinerary.ambassador.name}, your{" "}
-            {this.props.currentItinerary.destination.locationName} Ambassador
+            {this.props.currentItinerary.ambassador.name}, your Ambassador for{" "}
+            {this.props.currentItinerary.destination.locationName}
           </h4>
         </div>
       );

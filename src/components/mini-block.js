@@ -3,6 +3,7 @@ import CardButton from "./buttons/cardButton";
 import "../styles/mini-block.css";
 import "../styles/timeline.css";
 
+
 export default class MiniBlock extends Component {
   constructor() {
     super();
@@ -136,7 +137,6 @@ export default class MiniBlock extends Component {
         </div>
       );
     }
-
     return (
       <div className="mini-block">
         <div className="mini-block-nav">

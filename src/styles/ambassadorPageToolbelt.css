@@ -19,6 +19,7 @@
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
+  /* align-items: center; */
   min-height: 450px;
   padding:0px 25px;
 }
@@ -28,6 +29,7 @@
 }
 .a-toolbelt-body{
   background-color:rgb(188,193,209);
+  padding-bottom:25px;
 }
 .a-toolbelt-nav{
   padding:0px 25px;
@@ -45,7 +47,53 @@
   min-height: 450px;
   padding:0px 25px;
 }
-
+.a-toolbelt-newcard-container{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  align-items:center;
+  border:1px solid red;
+}
+.a-toolbelt-newcard-container h1{
+  font-size:5vw
+}
 .a-toolbelt-cards-container .card-container-expanded{
   margin:10px 0px;
+}
+.a-toolbelt-cards-container .geosuggest__suggests-wrapper{
+  width:85vw;
+}
+.a-trip-geo-input-label{
+  display:block;
+}
+.a-toolbelt-cards-container input{
+  font-size: 1em;
+  width: 85vw;
+  height: 40px;
+  margin: 10px auto 0px auto;
+}
+
+
+/* ambassadorpage yelpsearch */
+.a-toolbelt-newcard-container .yelp-search{
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border:1px solid green;
+  height:100%;
+  width:100%;
+}
+
+.a-toolbelt-newcard-container .yelp-search label{
+  display:block;
+
+}
+.a-toolbelt-newcard-container .yelp-results{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  /* align-items: center; */
+  min-height: 450px;
+  padding:0px 25px;
 }

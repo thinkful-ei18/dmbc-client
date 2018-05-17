@@ -25,7 +25,7 @@ export function Registration(props) {
         </p>
       </div>
       <div className="form-container">
-        <h2>Traveler Register Copy</h2>
+        <h2>Traveler Register</h2>
         <RegistrationForm ambassador="false" />
         <span className="account-link">
           Already have an account? <Link to="/">Login</Link>
