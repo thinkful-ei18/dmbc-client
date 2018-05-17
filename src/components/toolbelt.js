@@ -50,11 +50,11 @@ export class Toolbelt extends React.Component {
     const cards = this.props.cards.map((card, index) => {
       return (
         <ToolbeltCard
+          blocks={this.props.availableBlocks}
           key={index}
           card={card}
           index={index}
           placeTags={placeTags}
-          blocks={this.props.availableBlocks}
           cardId={cardId => {
             this.setState({
               cardId: cardId
@@ -83,7 +83,7 @@ export class Toolbelt extends React.Component {
           >
             <label htmlFor="search">Your cards</label>
             <input
-              placeholder="search cards"
+              placeholder="search your cards"
               name="search"
               ref={input => (this.searchTerm = input)}
             />

@@ -31,6 +31,12 @@ class AmbassadorPageToolbelt extends Component {
               key={index}
               card={card}
               currentUser={this.props.currentUser.id}
+              changeDisplay={input =>
+                this.setState({
+                  display: input.display,
+                  cardID: input.cardID
+                })
+              }
             />
           );
         } else {
@@ -40,7 +46,14 @@ class AmbassadorPageToolbelt extends Component {
     } else if (this.state.display === "edit") {
       display = (
         <div>
-          <EditCard id={this.state.cardID} />
+          <EditCard
+            id={this.state.cardID}
+            changeDisplay={input => {
+              this.setState({
+                display: "your cards"
+              });
+            }}
+          />
           <button
             onClick={event =>
               this.setState({
@@ -76,7 +89,11 @@ class AmbassadorPageToolbelt extends Component {
     } else if (this.state.display === "create") {
       display = (
         <div>
-          <Yelp />
+          <Yelp
+            changeDisplay={event => {
+              this.setState({ display: "your cards" });
+            }}
+          />
         </div>
       );
     } else if (this.state.display === "explore") {
@@ -89,7 +106,6 @@ class AmbassadorPageToolbelt extends Component {
       ));
     }
 
-    console.log(this.props);
     return (
       <div className="ambassador-page-toolbelt">
         <div className="ambassador-page-toolbelt-header">

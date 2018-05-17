@@ -133,7 +133,6 @@ export const addCard = (card, distance) => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(res => {
-      console.log(res, "here wit it");
       dispatch(
         fetchDestinationCards({
           distance: distance,

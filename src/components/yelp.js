@@ -164,6 +164,7 @@ export class Yelp extends React.Component {
           longitude={this.state.longitude}
           phone={this.state.phone}
           image={this.state.image}
+          changeDisplay={event => this.props.changeDisplay()}
         />
       );
     }
