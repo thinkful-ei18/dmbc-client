@@ -182,15 +182,26 @@ class OneDayView extends Component {
 
     return (
       <div className="day-spreads-container">
-        {toolbeltButton}
-        {closeToolbeltButton}
-        <h2>{this.props.currentDay.toDateString()}</h2>
-        {/* <div className="one-day-view-logo">
+        <div
+          className="toolbelt-overlay-close"
+          onClick={event => {
+            if (this.state.cardsContainer === "show") {
+              this.setState({
+                cardsContainer: "hidden"
+              });
+            }
+          }}
+        >
+          {toolbeltButton}
+          {closeToolbeltButton}
+          <h2>{this.props.currentDay.toDateString()}</h2>
+          {/* <div className="one-day-view-logo">
           <Logo />
         </div> */}
-        <ul>{blocks}</ul>
-        {addBlock}
-        {addBlockButton}
+          <ul>{blocks}</ul>
+          {addBlock}
+          {addBlockButton}
+        </div>
         {toolbelt}
       </div>
     );

@@ -12,7 +12,6 @@ import ViewButton from "./buttons/viewButton";
 
 import "../styles/oneDayView.css";
 import "../styles/toolbelt.css";
-import Background from "../assets/barPlaceHolder.jpg";
 
 export class Toolbelt extends React.Component {
   constructor() {
@@ -51,7 +50,7 @@ export class Toolbelt extends React.Component {
     const cards = this.props.cards.map((card, index) => {
       return (
         <ToolbeltCard
-          Background={Background}
+          blocks={this.props.availableBlocks}
           key={index}
           card={card}
           index={index}

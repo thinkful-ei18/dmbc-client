@@ -9,7 +9,6 @@ import {
 import { fetchTripDetailsById } from "../actions/tripForm";
 import MiniBlock from "./mini-block";
 import ViewButton from "./buttons/viewButton";
-import BackgroundImage from "../assets/la-large.jpg";
 
 import "../styles/multiView.css";
 
@@ -110,7 +109,6 @@ class MultiView extends Component {
           <li className="multi-view-day">
             <div className="multi-day-header">
               <h2 className="block-date">{parsedDate}</h2>
-              {/* <button className="go-to-day">Go to day</button> */}
               <ViewButton
                 buttonText={"View Day"}
                 overrideStyle={{
@@ -139,10 +137,7 @@ class MultiView extends Component {
 
     if (this.props.currentItinerary) {
       tripDetails = (
-        <div
-          className="trip-details"
-          style={{ backgroundImage: `url(${BackgroundImage})` }}
-        >
+        <div className="trip-details">
           <h1 className="itinerary-header">
             {this.props.currentItinerary.destination.locationName}
           </h1>
