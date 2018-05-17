@@ -144,7 +144,7 @@ class OneDayView extends Component {
     let addBlockButton;
     if (!this.props.currentUser.ambassador) {
       addBlockButton = (
-        <div class="tooltip">
+        <div className="tooltip">
           <span className="new-block-button">
             <i
               className="fas fa-plus-circle"
@@ -162,7 +162,7 @@ class OneDayView extends Component {
               }}
             />
           </span>
-          <span class="tooltiptext">Request an additional suggestion</span>
+          <span className="tooltiptext">Request an additional suggestion</span>
         </div>
       );
     }

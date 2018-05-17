@@ -1,14 +1,18 @@
 import React from "react";
 import {connect} from "react-redux";
+import {fetchItineraries} from "../actions/ambassador-itineraries";
+import {fetchCards} from "../actions/cards";
 
 import requiresLogin from "../requires-login";
 import AmbassadorItineraries from "./ambassador-itineraries";
 import AmbassadorPastItineraries from "./ambassador-past-itineraries";
+import AmbasadorPageToolbelt from './ambassador-page-toolbelt';
 // import AmbassadorExplore from "./ambassador-explore";
-import {fetchItineraries} from "../actions/ambassador-itineraries";
-import {fetchCards} from "../actions/cards";
+
+
 import Logo from './logo';
 import '../styles/ambasadorPage.css';
+
 
 export class AmbassadorPage extends React.Component {
   componentWillMount() {
@@ -34,6 +38,7 @@ export class AmbassadorPage extends React.Component {
         <div className="ambassador-page">
           <AmbassadorItineraries/>
           <AmbassadorPastItineraries/>
+          <AmbasadorPageToolbelt/>
           {/* <AmbassadorExplore/> */}
         </div>
       </div>

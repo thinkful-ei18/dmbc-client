@@ -1,6 +1,11 @@
+.ambassador-page{
+  margin-bottom:45px;
+}
+.ambassador-page *{
+  font-family:'Raleway',sans-serif;
+}
 .ambassador-page-header{
-  border:1px solid red;
-  margin:10px auto;
+  margin:0px auto 10px auto;
   height:160px;
   /* background-image:url('http://via.placeholder.com/1600x800'); */
   background-color: grey;
@@ -8,9 +13,6 @@
   display:flex;
   justify-content: space-between;
 
-}
-.ambassador-page *{
-  font-family:'Raleway',sans-serif;
 }
 
 .ambassador-page-header i{
@@ -22,22 +24,10 @@
   color:white;
   margin:auto 30px auto 0px;
   /* width:100px; */
-
 }
-/* .ambasador-page li{
-  background-color:gold;
-} */
-/* .ambassador-itinerary-slide{
-  color:grey;
-  background:white;
-}
-.carousel-background-current{
-  background-color: rgb(188, 193, 209);
-} */
 .carousel-title-current{
   background-color:none;
 }
-
 .carousel-background-current{
   background-color: rgb(188,193,209);
 }
@@ -46,8 +36,19 @@
   font-size:1.4em;
   margin:auto 10px;
 }
-.place-name{
+.itinerary-location-name{
   color:white;
-  font-size:2em;
+  font-size:1.5em;
   background-color:rgb(94,124,253);
+}
+
+.itinerary-info{
+  color:black;
+  font-size: .9em;
+}
+
+@media screen only and (max-width:600px){
+  .itinerary-info{
+    font-size:.7em;
+  }
 }

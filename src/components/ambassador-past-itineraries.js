@@ -34,12 +34,14 @@ class AmbassadorPastItineraries extends Component {
                 key={index}
                 className="ambassador-itinerary-slide"
               >
-                <h3 className="place-name">
+                <h3 className="itinerary-location-name">
                   {itinerary.destination.locationName}
                 </h3>
-                <h4>Date Start: {moment(itinerary.dateStart).format("ll")}</h4>
-                <h4>Date End: {moment(itinerary.dateEnd).format("ll")}</h4>
-                <h4 className="itinerary-blurb">Notes: {itinerary.partners}</h4>
+                <div className="itinerary-info">
+                  <p>Date Start: {moment(itinerary.dateStart).format("ll")}</p>
+                  <p>Date End: {moment(itinerary.dateEnd).format("ll")}</p>
+                  <p className="itinerary-blurb">Notes: {itinerary.partners}</p>
+                </div>
               </Slide>
             </Link>
           );
