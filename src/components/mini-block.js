@@ -15,7 +15,7 @@ export default function MiniBlock(props) {
     smallCards = (
     <div className="mini-card">
       <h4 className="mini-card-header">{smallCards.name}</h4>
-      <p className="mini-card-blurb">{smallCards.address}</p>
+      <p className="mini-card-blurb"><i className="fas fa-map-pin selected-pin"></i>{smallCards.address}</p>
     </div>
     )
   } else {

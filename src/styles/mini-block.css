@@ -22,7 +22,6 @@
 
 }
 
-
 .mini-block-title {
   font-size: 18px;
   text-align: right;
@@ -66,4 +65,10 @@
   .mini-block-title {
     font-size: 24px;
   }
+}
+
+.selected-pin{
+  font-size:1.3em;
+  color:red;
+  margin-right:10px;
 }
