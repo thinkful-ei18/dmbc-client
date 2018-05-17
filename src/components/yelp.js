@@ -124,7 +124,7 @@ export class Yelp extends React.Component {
           buttonFunction={(event) => {
             event.preventDefault();
             this.offset = this.offset - 1
-            this.props.dispatch(fetchYelp(this.location.value, this.term.value, this.offset * 20))
+            this.props.dispatch(fetchYelp(latitude, longitude, this.term.value, this.offset * 20))
           }}
         />
         {/* <button onClick={event => {
@@ -137,7 +137,7 @@ export class Yelp extends React.Component {
           buttonFunction={(event) => {
             event.preventDefault();
             this.offset = this.offset + 1
-            this.props.dispatch(fetchYelp(this.location.value, this.term.value, this.offset * 20))
+            this.props.dispatch(fetchYelp(latitude, longitude, this.term.value, this.offset * 20))
           }}
         />
       </div>
