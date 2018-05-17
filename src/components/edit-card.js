@@ -12,7 +12,6 @@ class SingleCard extends React.Component {
       name: null,
       description: null,
       address: null,
-      hours: null,
       id: null,
       image: null,
     }
@@ -24,7 +23,6 @@ class SingleCard extends React.Component {
         name: this.props.singleCard.name,
         description: this.props.singleCard.description,
         address: this.props.singleCard.address,
-        hours: this.props.singleCard.hours,
         id: this.props.singleCard.id,
         image: this.props.singleCard.image
       })
@@ -129,7 +127,7 @@ const mapStateToProps = state => ({
   singleCard: state.cards.singleCard,
   loading: state.cards.loading,
   error: state.cards.error,
-  destination:state.dashboard.currentItinerary.destination
+  destination:state.dashboard.currentItinerary ? state.dashboard.currentItinerary.destination : ''
 });
 
 export default requiresLogin()(connect(mapStateToProps)(SingleCard));

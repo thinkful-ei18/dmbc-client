@@ -95,14 +95,11 @@ export class LocationInfo extends Component {
   }
     
   render() {
-    const selector = this.createSelect()
     const stars = this.createStars();
+    let selector = this.createSelect()
     let select;
     if (this.props.ambassador && this.props.selected) {
-      select = (
-        // <button onClick={() => this.removeSelected()} className='confirm-location'>Remove</button>
-        <CardButton buttonFunction={() => this.removeSelected()} buttonText={'Remove'} />
-      )
+      select = null;
     } else if (this.props.selected) {
       select = (
         // <button onClick={() => this.deselect()} className='confirm-location'>Choices</button>
@@ -120,8 +117,8 @@ export class LocationInfo extends Component {
       )
     }
 
-    if (this.props.ambassador && this.props.selected) {
-      select = null;
+    if (this.props.ambassador) {
+      selector = null;
     }
 
     return (

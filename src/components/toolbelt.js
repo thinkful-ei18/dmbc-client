@@ -51,11 +51,11 @@ export class Toolbelt extends React.Component {
     const cards = this.props.cards.map((card, index) => {
       return (
         <ToolbeltCard
-          Background={Background}
           key={index}
           card={card}
           index={index}
           placeTags={placeTags}
+          blocks={this.props.availableBlocks}
           cardId={cardId => {
             this.setState({
               cardId: cardId
@@ -150,7 +150,7 @@ const mapStateToProps = state => ({
   cards: state.cards.cards,
   loading: state.cards.loading,
   error: state.cards.error,
-  destination:state.dashboard.currentItinerary.destination,
+  destination: state.dashboard.currentItinerary.destination,
   toolBeltDisplay: state.dashboard.toolBeltDisplay
 });
 
