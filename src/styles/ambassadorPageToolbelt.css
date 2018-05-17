@@ -19,7 +19,6 @@
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
-  /* align-items: center; */
   min-height: 450px;
   padding:0px 25px;
 }
@@ -38,7 +37,6 @@
   width:120px;
   height:35px;
   margin:15px 10px;
-  /* background-color:green; */
 }
 .a-toolbelt-cards-container{
   display:flex;
@@ -93,7 +91,6 @@
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
-  /* align-items: center; */
   min-height: 450px;
   padding:0px 25px;
 }

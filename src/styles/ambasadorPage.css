@@ -6,9 +6,15 @@
 .ambassador-page-header {
   margin: 0px auto 10px auto;
   height: 160px;
-  /* background-image:url('http://via.placeholder.com/1600x800'); */
+  background-image:linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.41)
+    ),
+    url('../assets/register-large.jpg');
   background-color: grey;
   background-position: center;
+  background-size:100%;
   display: flex;
   justify-content: space-between;
 }
@@ -21,7 +27,15 @@
   vertical-align: middle;
   color: white;
   margin: auto 30px auto 0px;
-  /* width:100px; */
+
+}
+@media only screen and (max-width:400px){
+  .ambassador-page-header h3{
+    visibility: hidden;
+  }
+  .ambassador-page-header .logo{
+    width:100%;
+  }
 }
 .carousel-title-current {
   background-color: none;
@@ -36,13 +50,13 @@
 }
 .itinerary-location-name {
   color: white;
-  font-size: 1.5em;
+  font-size: 3.5vw;
   background-color: rgb(94, 124, 253);
 }
 
 .itinerary-info {
   color: black;
-  font-size: 0.9em;
+  font-size: 3vw;
 }
 
 @media screen only and (max-width: 600px) {
