@@ -120,6 +120,7 @@ export class Yelp extends React.Component {
           this.props.dispatch(fetchYelp(this.location.value, this.term.value, this.offset * 20))
         }}>Back</button> */}
         <ViewButton
+          disabled={this.offset === 0}
           buttonText={'Back'}
           buttonFunction={(event) => {
             event.preventDefault();
