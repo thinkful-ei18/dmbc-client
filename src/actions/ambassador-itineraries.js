@@ -22,17 +22,13 @@ export const fetchItinerariesError = error => ({
 export const fetchItineraries = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchItinerariesRequest());
-  fetch(
-    `${API_BASE_URL}/itineraries`,
-
-    {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-        "Content-Type": "application/json"
-      }
+  fetch(`${API_BASE_URL}/itineraries`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json"
     }
-  )
+  })
     .then(res => {
       if (!res.ok) {
         return Promise.reject(res.statusText);

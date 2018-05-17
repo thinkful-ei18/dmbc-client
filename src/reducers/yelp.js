@@ -1,8 +1,8 @@
 import {
   FETCH_YELP_REQUEST,
   FETCH_YELP_SUCCESS,
-  FETCH_YELP_ERROR,
-} from '../actions/yelp';
+  FETCH_YELP_ERROR
+} from "../actions/yelp";
 
 const initialState = {
   yelp: [],

@@ -3,16 +3,16 @@ import { connect } from "react-redux";
 import { Route, withRouter } from "react-router-dom";
 import { refreshAuthToken } from "../actions/auth";
 
-import Navigation from './navigation';
+import Navigation from "./navigation";
 import Login from "./login";
 import Register from "./register";
-import AmbassadorRegister from './ambassador-register';
+import AmbassadorRegister from "./ambassador-register";
 import AmbassadorPage from "./ambassador-page";
-import Dashboard from './dashboard';
-import EditCard from './edit-card';
-import oneDayView from './oneDayView'
+import Dashboard from "./dashboard";
+import EditCard from "./edit-card";
+import oneDayView from "./oneDayView";
 import MultiView from "./multiView";
-import Splash from './splash'
+import Splash from "./splash";
 import "../styles/app.css";
 
 export class App extends React.Component {
@@ -52,7 +52,7 @@ export class App extends React.Component {
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/ambassador-register" component={AmbassadorRegister} />
-        
+
         <Route path="/dashboard" component={Navigation} />
         <Route path="/dashboard" component={Dashboard} />
 
@@ -67,7 +67,6 @@ export class App extends React.Component {
 
         <Route exact path="/itineraries/:id" component={Navigation} />
         <Route exact path="/itineraries/:id" component={MultiView} />
-
       </div>
     );
   }

@@ -1,10 +1,10 @@
-import React from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
-import {login} from '../actions/auth';
-import {required, nonEmpty} from '../validators';
-import {Redirect} from 'react-router-dom';
-import Input from './input';
-import '../styles/login-form.css';
+import React from "react";
+import { Field, reduxForm, focus } from "redux-form";
+import { login } from "../actions/auth";
+import { required, nonEmpty } from "../validators";
+import { Redirect } from "react-router-dom";
+import Input from "./input";
+import "../styles/login-form.css";
 
 export class LoginForm extends React.Component {
   onSubmit(values) {
@@ -28,9 +28,8 @@ export class LoginForm extends React.Component {
     return (
       <div className="login-form">
         <form
-          onSubmit={this.props.handleSubmit(values =>
-            this.onSubmit(values)
-          )}>
+          onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
+        >
           {error}
           <label htmlFor="email">Email</label>
           <Field
@@ -50,9 +49,7 @@ export class LoginForm extends React.Component {
             placeholder="password"
             validate={[required, nonEmpty]}
           />
-          <button>
-            Sign In
-          </button>
+          <button>Sign In</button>
         </form>
       </div>
     );
@@ -60,6 +57,6 @@ export class LoginForm extends React.Component {
 }
 
 export default reduxForm({
-  form: 'login',
-  onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'email'))
+  form: "login",
+  onSubmitFail: (errors, dispatch) => dispatch(focus("login", "email"))
 })(LoginForm);

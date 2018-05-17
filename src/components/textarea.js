@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export default class TextArea extends React.Component {
   componentDidUpdate(prevProps) {
@@ -15,9 +15,7 @@ export default class TextArea extends React.Component {
 
     let warning;
     if (this.props.meta.touched && this.props.meta.warning) {
-      warning = (
-        <div className="form-warning">{this.props.meta.warning}</div>
-      );
+      warning = <div className="form-warning">{this.props.meta.warning}</div>;
     }
 
     return (
@@ -28,12 +26,12 @@ export default class TextArea extends React.Component {
           {warning}
         </label>
         <textarea
-					{...this.props.input}
-					id={this.props.input.name}
-					type={this.props.type}
+          {...this.props.input}
+          id={this.props.input.name}
+          type={this.props.type}
           ref={input => (this.input = input)}
           placeholder={this.props.input.name}
-         />
+        />
         {warning}
       </div>
     );

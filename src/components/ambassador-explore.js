@@ -25,19 +25,18 @@ class AmbassadorExplore extends Component {
       this.props.cards.map((card, index) => {
         return (
           <Slide className="ambassador-cards-slide" index={index} key={index}>
-            
-              <h3 className="place-name">{card.name}</h3>
-              <div className="placeTags">
-                <ul>{placeTags}</ul>
-              </div>
-              <div>
-                <h4 className="explore-itinerary-blurb">{card.description}</h4>
-              </div>
-              <div className="explore-itinerary-controls">
-                <button>
+            <h3 className="place-name">{card.name}</h3>
+            <div className="placeTags">
+              <ul>{placeTags}</ul>
+            </div>
+            <div>
+              <h4 className="explore-itinerary-blurb">{card.description}</h4>
+            </div>
+            <div className="explore-itinerary-controls">
+              <button>
                 <Link to={`/cards/${card.id}`}>Edit Card</Link>
               </button>
-              </div>
+            </div>
           </Slide>
         );
       });
@@ -57,7 +56,7 @@ class AmbassadorExplore extends Component {
             <i class="fas fa-angle-left" /> Back
           </ButtonBack>
           <Slider>{exploreCardsList}</Slider>
-        
+
           <ButtonNext>
             Next <i class="fas fa-angle-right" />
           </ButtonNext>

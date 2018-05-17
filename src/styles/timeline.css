@@ -1,15 +1,14 @@
-.timeline-symbol{
-  position:relative;
-  display:block;
+.timeline-symbol {
+  position: relative;
+  display: block;
 }
 
-.timeline-symbol i{
+.timeline-symbol i {
   font-size: 2em;
   /* display:block; */
 }
 
-
-.timeline-symbol hr{
+.timeline-symbol hr {
   width: 3px;
   height: 55px;
   background-color: #333;
@@ -19,8 +18,8 @@
   top: 40px;
 }
 
-@media only screen and (max-width:630px){
-  .timeline-symbol{
+@media only screen and (max-width: 630px) {
+  .timeline-symbol {
     visibility: hidden;
   }
 }

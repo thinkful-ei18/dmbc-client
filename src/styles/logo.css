@@ -1,29 +1,29 @@
-.logo i{
-  color:red;
-  font-size:4em;
+.logo i {
+  color: red;
+  font-size: 4em;
 }
 
-.logo p{
-  color:red;
+.logo p {
+  color: red;
   font-family: 'Grand Hotel';
-  font-size:4.4em;
+  font-size: 4.4em;
 }
 
-.tiny i{
-  font-size:1.6em;
+.tiny i {
+  font-size: 1.6em;
 }
-.small i{
+.small i {
   font-size: 3em;
 }
-.large i{
+.large i {
   font-size: 6em;
 }
-.tiny p{
-  font-size:1.7em;
+.tiny p {
+  font-size: 1.7em;
 }
-.small p{
+.small p {
   font-size: 1.9em;
 }
-.large p{
-  font-size:6em;
+.large p {
+  font-size: 6em;
 }

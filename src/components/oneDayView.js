@@ -8,6 +8,7 @@ import HTML5Backend from "react-dnd-html5-backend";
 //actions
 import { fetchTripDetailsById } from "../actions/tripForm";
 import { putCardOnBlock, deleteBlock } from "../actions/block";
+import { setDashboardCurrentDay } from "../actions/dashboard";
 
 //components and helpers
 import requiresLogin from "../requires-login";
@@ -17,7 +18,7 @@ import Toolbelt from "./toolbelt";
 import ViewButton from "./buttons/viewButton";
 //styles
 import "../styles/oneDayView.css";
-import { setDashboardCurrentDay } from "../actions/dashboard";
+
 
 class OneDayView extends Component {
   constructor() {
@@ -41,20 +42,21 @@ class OneDayView extends Component {
   assembleBlocks() {
     const blocksAssembled = this.filterBlocks().map((currentBlock, index) => {
       return (
-          <BlockSpread
-            block={currentBlock}
-            key={index}
-            id={currentBlock.date}
-            handleCardDrop={(e) => this.handleCardDrop(e)}
-            ambassador={this.props.currentUser.ambassador}
-            deleteBlock={(blockId) => {
-              this.props.dispatch(deleteBlock(blockId))
-              .then(() => {
-                this.props.dispatch(fetchTripDetailsById(this.props.match.params.id));
-              })
-
-          }}/>
-      )
+        <BlockSpread
+          block={currentBlock}
+          key={index}
+          id={currentBlock.date}
+          handleCardDrop={e => this.handleCardDrop(e)}
+          ambassador={this.props.currentUser.ambassador}
+          deleteBlock={blockId => {
+            this.props.dispatch(deleteBlock(blockId)).then(() => {
+              this.props.dispatch(
+                fetchTripDetailsById(this.props.match.params.id)
+              );
+            });
+          }}
+        />
+      );
     });
     return blocksAssembled;
   }
@@ -72,7 +74,7 @@ class OneDayView extends Component {
 
     let toolbelt;
     let toolbeltButton;
-    let closeToolbeltButton
+    let closeToolbeltButton;
     if (this.props.currentUser.id === this.props.blocks.ambassador.id) {
       toolbelt = (
         <Toolbelt
@@ -88,9 +90,9 @@ class OneDayView extends Component {
               this.setState({ cardsContainer: "show" });
             }}
             overrideStyle={{
-              position:'relative',
-              left:'100%',
-              transform:'translate(-100%,144%)'
+              position: "relative",
+              left: "100%",
+              transform: "translate(-100%,144%)"
             }}
             buttonText="Toolbelt"
           />
@@ -100,23 +102,23 @@ class OneDayView extends Component {
           <ViewButton
             buttonFunction={event => {
               event.preventDefault();
-              this.setState({cardsContainer: 'hidden'});
+              this.setState({ cardsContainer: "hidden" });
             }}
             buttonText="Toolbelt"
             overrideStyle={{
-              position:'relative',
-              left:'100%',
-              transform:'translate(-100%,144%)'
+              position: "relative",
+              left: "100%",
+              transform: "translate(-100%,144%)"
             }}
           />
-        )
+        );
         closeToolbeltButton = (
           <i
             style={{
-              position:'absolute',
-              right:'10px',
-              top:'26px',
-              transition:'2s'
+              position: "absolute",
+              right: "10px",
+              top: "26px",
+              transition: "2s"
             }}
             className="far fa-times-circle fa-lg toolbelt-button"
             onClick={event => {
@@ -128,17 +130,29 @@ class OneDayView extends Component {
       }
     }
     let addBlock;
-    if ((this.state.addBlock || this.filterBlocks().length === 0) && !this.props.currentUser.ambassador) {
-      addBlock = <AddNewBlock
-        blocksAmmount={blocks.length}
-        updateAddBlock={event => {
-          this.setState({
-            addBlock: false
-          });
-      }}/>;
-    }
-    else if((this.state.addBlock || this.filterBlocks().length === 0) && this.props.currentUser.ambassador){
-      addBlock = <span className="no-user-blocks-warning">There are no blocks yet for this day.</span>
+    if (
+      (this.state.addBlock || this.filterBlocks().length === 0) &&
+      !this.props.currentUser.ambassador
+    ) {
+      addBlock = (
+        <AddNewBlock
+          blocksAmmount={blocks.length}
+          updateAddBlock={event => {
+            this.setState({
+              addBlock: false
+            });
+          }}
+        />
+      );
+    } else if (
+      (this.state.addBlock || this.filterBlocks().length === 0) &&
+      this.props.currentUser.ambassador
+    ) {
+      addBlock = (
+        <span className="no-user-blocks-warning">
+          There are no blocks yet for this day.
+        </span>
+      );
     }
 
     let addBlockButton;
@@ -169,13 +183,16 @@ class OneDayView extends Component {
 
     return (
       <div className="day-spreads-container">
-        <div className="toolbelt-overlay-close" onClick={event => {
-          if (this.state.cardsContainer === 'show') {
-            this.setState({
-              cardsContainer: 'hidden'
-            })
-          }
-        }}>
+        <div
+          className="toolbelt-overlay-close"
+          onClick={event => {
+            if (this.state.cardsContainer === "show") {
+              this.setState({
+                cardsContainer: "hidden"
+              });
+            }
+          }}
+        >
           {toolbeltButton}
           {closeToolbeltButton}
           <h2>{this.props.currentDay.toDateString()}</h2>
