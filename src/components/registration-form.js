@@ -28,32 +28,32 @@ export class RegistrationForm extends React.Component {
         className="registration-form"
         onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
       >
-        <label htmlFor="name">Full Name</label>
         <Field
+          label="Full Name"
           component={Input}
           name="name"
           type="text"
           placeHolder="Carmen Sandiego"
           validate={[required, nonEmpty, isTrimmed]}
         />
-        <label htmlFor="email">Email</label>
         <Field
+          label="Email"
           component={Input}
           name="email"
           type="email"
           placeHolder="email@email.com"
           validate={[required, nonEmpty, isTrimmed]}
         />
-        <label htmlFor="password">Password</label>
         <Field
+          label="Password"
           component={Input}
           name="password"
           type="password"
           placeHolder="minimum eight characters"
           validate={[required, passwordLength, isTrimmed]}
         />
-        <label htmlFor="confirm password">Confirm password</label>
         <Field
+          label="Confirm Password"
           component={Input}
           name="password-confirm"
           type="password"

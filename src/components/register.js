@@ -15,16 +15,16 @@ export function Registration(props) {
   }
   return (
     <div className="registration">
-      <div className="splash-logo">
+      <div className="splash-logo" role="banner">
         <Logo />
       </div>
-      <div className="hero-container">
-        <h2>Adventure Awaits</h2>
+      <div className="hero-container" role="complementary">
+        <h1>Adventure Awaits</h1>
         <p>
           Register now and let us help you make your next trip truly memorable
         </p>
       </div>
-      <div className="form-container">
+      <div className="form-container" role="main">
         <h2>Traveler Register</h2>
         <RegistrationForm ambassador="false" />
         <span className="account-link">

@@ -25,14 +25,16 @@ class AddNewBlock extends Component {
             this.props.updateAddBlock();
           }}
         >
-          <label htmlFor="newblock">Request Suggestions for:</label>
-          <input
-            type="text"
-            placeholder="Tacos, Shopping, etc."
-            className="block-name-input"
-            name="newblock"
-            ref="block-name-input"
-          />
+          <label htmlFor="newblock">
+            Request Suggestions for:
+            <input
+              type="text"
+              placeholder="Tacos, Shopping, etc."
+              className="block-name-input"
+              name="newblock"
+              ref="block-name-input"
+            />
+          </label>
           <CardButton buttonText={"Submit"} />
           {/* <button>submit</button> */}
         </form>

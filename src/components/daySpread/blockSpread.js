@@ -66,10 +66,10 @@ class BlockSpread extends Component {
     }
     if (cards.length === 0) {
       cards = (
-        <h4>
+        <h3>
           Your Ambassador is putting together personalized suggestions for{" "}
           <span className="suggestion-title">"{this.props.block.title}"</span>
-        </h4>
+        </h3>
       );
     }
     return cards;
@@ -86,7 +86,8 @@ class BlockSpread extends Component {
             }}
             buttonText={"Delete"}
             overrideStyle={{
-              backgroundColor: "red"
+              backgroundColor: "rgb(238, 0, 0)",
+              fontSize: "1.5em"
             }}
           />
         </span>

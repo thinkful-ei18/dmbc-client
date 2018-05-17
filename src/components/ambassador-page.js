@@ -25,11 +25,11 @@ export class AmbassadorPage extends React.Component {
   render() {
     return (
       <div>
-        <div className="ambassador-page-header">
+        <div className="ambassador-page-header" role="banner">
           <Logo />
           <h3>Hello, {this.props.currentUser.name}</h3>
         </div>
-        <div className="ambassador-page">
+        <div className="ambassador-page" role="main">
           <AmbassadorItineraries />
           <AmbassadorPastItineraries />
           <AmbasadorPageToolbelt cards={this.props.cards.cards} />

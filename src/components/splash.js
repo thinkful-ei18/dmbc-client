@@ -8,10 +8,10 @@ class Splash extends Component {
   render() {
     return (
       <div className="splash-container">
-        <div className="splash-logo">
+        <div className="splash-logo" role="banner">
           <Logo />
         </div>
-        <div className="jumbotron-container">
+        <div className="jumbotron-container" role="main">
           <div className="jumbotron-copy">
             <h1>Your Personal Concierge</h1>
             <p>
@@ -28,7 +28,7 @@ class Splash extends Component {
             <Login />
           </div>
         </div>
-        <div>
+        <div role="complementary">
           <QuickAbout />
         </div>
       </div>

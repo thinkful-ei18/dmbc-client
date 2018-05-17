@@ -181,7 +181,7 @@ class OneDayView extends Component {
     }
 
     return (
-      <div className="day-spreads-container">
+      <div className="day-spreads-container" role="main">
         <div
           className="toolbelt-overlay-close"
           onClick={event => {
@@ -194,7 +194,7 @@ class OneDayView extends Component {
         >
           {toolbeltButton}
           {closeToolbeltButton}
-          <h2>{this.props.currentDay.toDateString()}</h2>
+          <h1>{this.props.currentDay.toDateString()}</h1>
           {/* <div className="one-day-view-logo">
           <Logo />
         </div> */}

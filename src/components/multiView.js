@@ -133,7 +133,7 @@ class MultiView extends Component {
   render() {
     let trips = this.assembleTripSpread();
     let tripDetails = (
-      <div className="trip-details">
+      <div className="trip-details" role="banner">
         <h1 className="itinerary-header">We are loading your trip</h1>
       </div>
     );
@@ -148,16 +148,16 @@ class MultiView extends Component {
             {this.props.currentItinerary.dateStart.toDateString()} to{" "}
             {this.props.currentItinerary.dateEnd.toDateString()}
           </h2>
-          <h4 className="ambassador-info">
+          <h3 className="ambassador-info">
             Select a day below to request expertly curated suggestions from{" "}
             {this.props.currentItinerary.ambassador.name}, your Ambassador for{" "}
             {this.props.currentItinerary.destination.locationName}
-          </h4>
+          </h3>
         </div>
       );
     }
     return (
-      <div className="multi-view">
+      <div className="multi-view" role="main">
         {tripDetails}
         <ul>{trips}</ul>
       </div>

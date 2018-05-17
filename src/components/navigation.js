@@ -20,7 +20,11 @@ export class Navigation extends React.Component {
       </div>
     );
 
-    return <div className="navigation">{isLoggedIn}</div>;
+    return (
+      <div className="navigation" role="navigation">
+        {isLoggedIn}
+      </div>
+    );
   }
 }
 

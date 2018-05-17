@@ -34,9 +34,9 @@ class AmbassadorPastItineraries extends Component {
                 key={index}
                 className="ambassador-itinerary-slide"
               >
-                <h3 className="itinerary-location-name">
+                <h2 className="itinerary-location-name">
                   {itinerary.destination.locationName}
-                </h3>
+                </h2>
                 <div className="itinerary-info">
                   <p>Date Start: {moment(itinerary.dateStart).format("ll")}</p>
                   <p>Date End: {moment(itinerary.dateEnd).format("ll")}</p>
