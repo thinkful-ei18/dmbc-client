@@ -60,5 +60,4 @@ export default function MiniBlock(props) {
 			{smallCards}
 		</div>
 	);
->>>>>>> penultimate copy draft and removed rating option for ambassador
 }
