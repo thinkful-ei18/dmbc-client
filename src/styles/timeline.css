@@ -19,7 +19,7 @@
   top: 40px;
 }
 
-@media only screen and (max-width:595px){
+@media only screen and (max-width:630px){
   .timeline-symbol{
     visibility: hidden;
   }

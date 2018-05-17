@@ -15,7 +15,7 @@ class Splash extends Component {
           <div className="jumbotron-copy">
             <h1>Your Personal Concierge</h1>
             <p>Want to see a play on Broadway? Shop in Tokyo? Hike in Brazil? Dine in Paris? Dance in Toronto?
-              <br/>
+              {/* <br/> */}
               Pley pairs you with an expert insider who knows the hottest new places, local favorites, hidden gems, and insider tips for your next destination so you can spend less time chosing and more time doing.
               </p>
           </div>

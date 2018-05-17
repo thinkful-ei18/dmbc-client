@@ -6,7 +6,7 @@ import { setDashboardCurrentDay, setDashboardTripdays } from '../actions/dashboa
 import { fetchTripDetailsById } from '../actions/tripForm';
 import MiniBlock from "./mini-block";
 import ViewButton from './buttons/viewButton'
-import BackgroundImage from '../assets/la-large.jpg'
+// import BackgroundImage from '../assets/la-large.jpg'
 
 
 import '../styles/multiView.css';
@@ -97,7 +97,6 @@ class MultiView extends Component{
           <li className="multi-view-day">
             <div className="multi-day-header">
               <h2 className="block-date">{parsedDate}</h2>
-              {/* <button className="go-to-day">Go to day</button> */}
               <ViewButton buttonText={'Go To Day'} overrideStyle={
                 {
                   marginRight: '25px',
@@ -125,7 +124,7 @@ class MultiView extends Component{
 
     if (this.props.currentItinerary) {
       tripDetails = (
-        <div className="trip-details" style={{backgroundImage: `url(${BackgroundImage})`}}>
+        <div className="trip-details">
           <h1 className="itinerary-header">{this.props.currentItinerary.destination.locationName}</h1>
           <h2 className="itinerary-dates">{this.props.currentItinerary.dateStart.toDateString()} to {this.props.currentItinerary.dateEnd.toDateString()}</h2>
           <h4 className="ambassador-info">Select a day below to request expertly curated suggestions from {this.props.currentItinerary.ambassador.name}, your {this.props.currentItinerary.destination.locationName} Ambassador</h4>

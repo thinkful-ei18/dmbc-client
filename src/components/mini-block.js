@@ -15,7 +15,7 @@ export default function MiniBlock(props) {
     smallCards = (
     <div className="mini-card">
       <h4 className="mini-card-header">{smallCards.name}</h4>
-      <p className="mini-card-blurb">{smallCards.address}</p>
+      <p className="mini-card-blurb"><i className="fas fa-map-pin selected-pin"></i>{smallCards.address}</p>
     </div>
     )
   } else {
@@ -26,7 +26,7 @@ export default function MiniBlock(props) {
       }
       name = props.block.cards[i].name
       nameTag.push (
-        <div style={{display:'inline-block'}} key={i}>
+        <div className="mini-card-options-container" key={i}>
           <i className="fas fa-map-pin"></i>
           <li className="mini-card-options" key={i}>{name}</li>
         </div>

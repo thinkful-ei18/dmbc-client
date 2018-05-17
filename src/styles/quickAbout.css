@@ -1,6 +1,8 @@
 .quick-about i{
   font-size: 7em;
-  margin-bottom:20px;
+  margin-bottom:15px;
+  margin-top:30px;
+
 }
 .quick-about{
   display:flex;
@@ -24,17 +26,28 @@
   background-color: rgb(188, 193, 209);
   margin:0 auto;
   height:330px;
-  width:240px;
+  width:331px;
   padding:10px;
 }
-.info-card >*{
+.info-card > *{
   display:block;
 }
 
 
-@media only screen and (max-width: 850px)  {
+@media only screen and (max-width: 995px)  {
   .info-card{
     width:100%;
     margin:15px 50px;
+    justify-content: space-around;
+  }
+  .info-card i{
+    margin-top:44px;
+    /* margin-bottom:0px; */
+  }
+}
+
+@media only screen and (max-width:400px){
+  .info-card{
+    height:440px;
   }
 }
