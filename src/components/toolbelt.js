@@ -12,6 +12,7 @@ import ViewButton from "./buttons/viewButton";
 
 import "../styles/oneDayView.css";
 import "../styles/toolbelt.css";
+import Background from "../assets/barPlaceHolder.jpg";
 
 export class Toolbelt extends React.Component {
   constructor() {
@@ -50,11 +51,11 @@ export class Toolbelt extends React.Component {
     const cards = this.props.cards.map((card, index) => {
       return (
         <ToolbeltCard
+          Background={Background}
           key={index}
           card={card}
           index={index}
           placeTags={placeTags}
-          blocks={this.props.availableBlocks}
           cardId={cardId => {
             this.setState({
               cardId: cardId
@@ -83,7 +84,7 @@ export class Toolbelt extends React.Component {
           >
             <label htmlFor="search">Your cards</label>
             <input
-              placeholder="search cards"
+              placeholder="search your cards"
               name="search"
               ref={input => (this.searchTerm = input)}
             />

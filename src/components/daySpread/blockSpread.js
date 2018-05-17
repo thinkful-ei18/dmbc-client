@@ -65,7 +65,12 @@ class BlockSpread extends Component {
       );
     }
     if (cards.length === 0) {
-      cards = <h4>Waiting for Ambassador to Add Cards</h4>;
+      cards = (
+        <h4>
+          Your Ambassador is putting together personalized suggestions for{" "}
+          <span className="suggestion-title">"{this.props.block.title}"</span>
+        </h4>
+      );
     }
     return cards;
   }
@@ -79,7 +84,7 @@ class BlockSpread extends Component {
             buttonFunction={() => {
               this.props.deleteBlock(this.props.block.id);
             }}
-            buttonText={"Delete Block"}
+            buttonText={"Delete"}
             overrideStyle={{ backgroundColor: "red" }}
           />
         </span>

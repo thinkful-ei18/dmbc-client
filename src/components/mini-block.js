@@ -8,7 +8,9 @@ export default function MiniBlock(props) {
   if (props.block.cards.length === 0) {
     smallCards = (
       <div className="mini-card">
-        <h4 className="mini-card-header">Your ambassador is still selecting</h4>
+        <h4 className="mini-card-header">
+          Come back soon for your curated suggestions
+        </h4>
       </div>
     );
   } else if (props.block.selectedCard) {
@@ -18,10 +20,7 @@ export default function MiniBlock(props) {
     smallCards = (
       <div className="mini-card">
         <h4 className="mini-card-header">{smallCards.name}</h4>
-        <p className="mini-card-blurb">
-          <i className="fas fa-map-pin selected-pin" />
-          {smallCards.address}
-        </p>
+        <p className="mini-card-blurb">{smallCards.address}</p>
       </div>
     );
   } else {
@@ -32,7 +31,7 @@ export default function MiniBlock(props) {
       }
       name = props.block.cards[i].name;
       nameTag.push(
-        <div className="mini-card-options-container" key={i}>
+        <div style={{ display: "inline-block" }} key={i}>
           <i className="fas fa-map-pin" />
           <li className="mini-card-options" key={i}>
             {name}
@@ -42,7 +41,9 @@ export default function MiniBlock(props) {
     }
     smallCards = (
       <div className="mini-card">
-        <h4 className="mini-card-header">Go to day to make your choice</h4>
+        <h4 className="mini-card-header">
+          Check out your Ambassador's suggestions
+        </h4>
         <div>
           <ul>{nameTag}</ul>
         </div>

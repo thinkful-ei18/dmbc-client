@@ -78,7 +78,9 @@ export class LocationInfo extends Component {
         <CardButton buttonText={"Rate Me"} />
       </form>
     );
-    return selector;
+    if (!this.props.ambassador) {
+      return selector;
+    }
   }
 
   createStars() {
@@ -107,11 +109,17 @@ export class LocationInfo extends Component {
   }
 
   render() {
+    const selector = this.createSelect();
     const stars = this.createStars();
-    let selector = this.createSelect();
     let select;
     if (this.props.ambassador && this.props.selected) {
-      select = null;
+      select = (
+        // <button onClick={() => this.removeSelected()} className='confirm-location'>Remove</button>
+        <CardButton
+          buttonFunction={() => this.removeSelected()}
+          buttonText={"Remove"}
+        />
+      );
     } else if (this.props.selected) {
       select = (
         // <button onClick={() => this.deselect()} className='confirm-location'>Choices</button>
@@ -138,8 +146,8 @@ export class LocationInfo extends Component {
       );
     }
 
-    if (this.props.ambassador) {
-      selector = null;
+    if (this.props.ambassador && this.props.selected) {
+      select = null;
     }
 
     return (
