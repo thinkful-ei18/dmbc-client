@@ -13,7 +13,9 @@ export class CreateCard extends React.Component {
     const placeTags = apiTags.map((tag, index) => {
       return <li key={index}>{tag}</li>;
     });
-    const distance = this.props.destination.distance;
+    const distance = this.props.destination.distance
+      ? this.props.destination.distance
+      : 100000;
     return (
       <div className="create-card-form">
         <form
@@ -29,7 +31,11 @@ export class CreateCard extends React.Component {
               image: this.props.image
             };
             this.props.dispatch(addCard(card, distance));
-            this.props.dispatch(setToolbeltDisplay("cards"));
+            if (this.props.destination.distance) {
+              this.props.dispatch(setToolbeltDisplay("cards"));
+            } else {
+              this.props.changeDisplay();
+            }
           }}
         >
           <h4>Create a Card</h4>

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchSingleCard, updateCard } from "../actions/cards";
+import { fetchSingleCard, updateCard, fetchCards } from "../actions/cards";
 import { setToolbeltDisplay } from "../actions/dashboard";
 import requiresLogin from "../requires-login";
 
@@ -33,7 +33,9 @@ class SingleCard extends React.Component {
     const placeTags = apiTags.map((tag, index) => {
       return <li key={index}>{tag}</li>;
     });
-    const distance = this.props.destination.distance;
+    const distance = this.props.destination.distance
+      ? this.props.destination.distance
+      : 100000;
 
     let editForm;
     if (this.state.id) {
@@ -51,7 +53,12 @@ class SingleCard extends React.Component {
           onSubmit={event => {
             event.preventDefault();
             this.props.dispatch(updateCard(newCard, this.state.id, distance));
-            this.props.dispatch(setToolbeltDisplay("cards"));
+            if (this.props.destination.distance) {
+              this.props.dispatch(setToolbeltDisplay("cards"));
+            } else {
+              this.props.changeDisplay();
+              this.props.dispatch(fetchCards());
+            }
           }}
         >
           <h4>Edit Card</h4>

@@ -22,13 +22,12 @@ export default class Card extends Component {
         <div className="card-controls">
           <CardButton
             buttonText={"Edit Card"}
-            buttonFunction={event => {
-              event.preventDefault();
-              this.setState({
+            buttonFunction={event =>
+              this.props.changeDisplay({
                 display: "edit",
                 cardID: this.props.card.id
-              });
-            }}
+              })
+            }
           />
         </div>
       );
