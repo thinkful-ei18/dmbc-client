@@ -7,6 +7,11 @@ import Geosuggest from "react-geosuggest";
 import {setTripDestination,} from '../actions/tripForm';
 import {fixtures} from './utils/geoFixtures';
 
+
+
+import {setTripDestination,} from '../actions/tripForm';
+import {fixtures} from './utils/geoFixtures';
+
 import Card from './daySpread/Card';
 import EditCard from './edit-card';
 import Yelp from './yelp';
@@ -22,6 +27,7 @@ class AmbassadorPageToolbelt extends Component{
       cardID: ""
     };
   }
+<<<<<<< HEAD
 
   render() {
     let display;
@@ -40,6 +46,22 @@ class AmbassadorPageToolbelt extends Component{
         }
       });
     } else if (this.state.display === "edit") {
+=======
+  render(){
+    let display;
+    if (this.state.display === 'your cards') {
+    display = this.props.cards.map((card, index) => {
+      if (card.ambassador === this.props.currentUser.id) {
+        return (
+          <Card index={index} card={card} currentUser={this.props.currentUser.id}/>
+        )
+      } else {
+        return null;
+      }
+    }
+      )
+    } else if (this.state.display === 'edit') {
+>>>>>>> ff10eb080f3b79b135b4ed1a25d4e4e0ac250b04
       display = (
         <div>
           <EditCard id={this.state.cardID} />
@@ -80,6 +102,7 @@ class AmbassadorPageToolbelt extends Component{
         <div>
           <Yelp />
         </div>
+<<<<<<< HEAD
       );
     } else if (this.state.display === "explore") {
       display = this.props.cards.map((card, index) => (
@@ -95,6 +118,19 @@ class AmbassadorPageToolbelt extends Component{
     return (
       <div className="ambassador-page-toolbelt">
         <div className="ambassador-page-toolbelt-header">
+=======
+      )
+    } else if (this.state.display === 'explore') {
+      display = this.props.cards.map((card, index) =>
+        <Card index={index} card={card} currentUser={this.props.currentUser.id}/>
+      )
+    }
+
+    console.log(this.props)
+    return(
+      <div className='ambassador-page-toolbelt'>
+        <div className='ambassador-page-toolbelt-header'>
+>>>>>>> ff10eb080f3b79b135b4ed1a25d4e4e0ac250b04
           <h1>Toolbelt</h1>
         </div>
         <div className="a-toolbelt-body">
@@ -127,10 +163,17 @@ class AmbassadorPageToolbelt extends Component{
                 display: 'explore'
               })
             }>Explore</button> */}
+<<<<<<< HEAD
           </div>
           <div className='a-toolbelt-cards-container'>
             {display}
           </div>
+=======
+          </div>
+          <div className='a-toolbelt-cards-container'>
+            {display}
+          </div>
+>>>>>>> ff10eb080f3b79b135b4ed1a25d4e4e0ac250b04
 
 
 
