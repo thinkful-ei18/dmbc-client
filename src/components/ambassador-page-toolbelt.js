@@ -2,14 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Geosuggest from "react-geosuggest";
 
-
-
-import {setTripDestination,} from '../actions/tripForm';
-import {fixtures} from './utils/geoFixtures';
-
-
-
-import {setTripDestination,} from '../actions/tripForm';
+import {setTripDestination} from '../actions/tripForm';
 import {fixtures} from './utils/geoFixtures';
 
 import Card from './daySpread/Card';
