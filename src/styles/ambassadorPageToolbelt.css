@@ -19,7 +19,6 @@
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
-  /* align-items: center; */
   min-height: 450px;
   padding:0px 25px;
 }
@@ -38,7 +37,6 @@
   width:120px;
   height:35px;
   margin:15px 10px;
-  /* background-color:green; */
 }
 .a-toolbelt-cards-container{
   display:flex;
@@ -53,7 +51,7 @@
   flex-direction:column;
   justify-content:space-around;
   align-items:center;
-  border:1px solid red;
+  /* border:1px solid red; */
 }
 .a-toolbelt-newcard-container h1{
   font-size:5vw
@@ -67,7 +65,7 @@
 .a-trip-geo-input-label{
   display:block;
 }
-.a-toolbelt-cards-container input{
+.a-toolbelt-newcard-container input{
   font-size: 1em;
   width: 85vw;
   height: 40px;
@@ -75,25 +73,28 @@
 }
 
 
-/* ambassadorpage yelpsearch */
+/* ambassadorpage yelpsearch css below */
 .a-toolbelt-newcard-container .yelp-search{
   display:flex;
   flex-direction: column;
   flex-wrap: wrap;
-  border:1px solid green;
   height:100%;
   width:100%;
 }
 
-.a-toolbelt-newcard-container .yelp-search label{
+.yelp-search label{
   display:block;
-
+  display: block;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  font-size:2.3vw;
+  margin-bottom:15px;
 }
 .a-toolbelt-newcard-container .yelp-results{
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
-  /* align-items: center; */
   min-height: 450px;
   padding:0px 25px;
 }
