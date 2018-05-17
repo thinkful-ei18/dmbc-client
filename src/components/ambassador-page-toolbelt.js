@@ -54,28 +54,31 @@ class AmbassadorPageToolbelt extends Component {
       );
     } else if (this.state.display === "set destination") {
       display = (
-        <div>
+        <div className="a-toolbelt-newcard-container">
+          <h1>Create a new card</h1>
+          <span className="a-trip-geo-input-label">
+            Where is the place located?
+          </span>
           <Geosuggest
-            className="trip-geo-input"
+            className="a-trip-geo-input"
             fixtures={fixtures}
             onSuggestSelect={location =>
               this.props.dispatch(setTripDestination(location))
             }
           />
-          <button
-            onClick={event => {
+          <ViewButton
+            buttonFunction={event => {
               this.setState({
                 display: "create"
               });
             }}
-          >
-            Search
-          </button>
+            buttonText={"create"}
+          />
         </div>
       );
     } else if (this.state.display === "create") {
       display = (
-        <div>
+        <div className="a-toolbelt-newcard-container">
           <Yelp />
         </div>
       );
@@ -88,8 +91,6 @@ class AmbassadorPageToolbelt extends Component {
         />
       ));
     }
-
-    console.log(this.props);
     return (
       <div className="ambassador-page-toolbelt">
         <div className="ambassador-page-toolbelt-header">
@@ -97,11 +98,6 @@ class AmbassadorPageToolbelt extends Component {
         </div>
         <div className="a-toolbelt-body">
           <div className="a-toolbelt-nav">
-            {/* <button onClick={event =>
-              this.setState({
-                display: 'your cards'
-              })
-            }>Your Cards</button> */}
             <ViewButton
               buttonFunction={() =>
                 this.setState({
@@ -112,14 +108,12 @@ class AmbassadorPageToolbelt extends Component {
               overrideStyle={{
                 width: "120px",
                 height: "35px",
-                margin: "15px 10px"
+                margin: "15px 10px",
+                backgroundColor: `${
+                  this.state.display === "your cards" ? `rgb(94, 76, 253)` : ""
+                }`
               }}
             />
-            {/* <button onClick={event =>
-            this.setState({
-              display: 'set destination'
-            })
-            }>New Card</button> */}
             <ViewButton
               buttonFunction={() =>
                 this.setState({
@@ -127,12 +121,14 @@ class AmbassadorPageToolbelt extends Component {
                 })
               }
               buttonText={"New Card"}
+              overrideStyle={{
+                backgroundColor: `${
+                  this.state.display === "set destination"
+                    ? `rgb(94, 76, 253)`
+                    : ""
+                }`
+              }}
             />
-            {/* <button onClick={event =>
-              this.setState({
-                display: 'explore'
-              })
-            }>Explore</button> */}
           </div>
           <div className="a-toolbelt-cards-container">{display}</div>
         </div>

@@ -130,6 +130,10 @@
   width: 100%;
 }
 
+.suggestion-title {
+  font-weight: bold;
+}
+
 .location-phone {
   width: 100%;
 }
