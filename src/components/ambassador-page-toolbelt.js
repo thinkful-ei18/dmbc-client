@@ -12,6 +12,7 @@ import {
 
 import '../styles/ambassadorPageToolbelt.css';
 
+
 const fixtures = [
   {
     gmaps: {
@@ -57,6 +58,7 @@ class AmbassadorPageToolbelt extends Component{
       cardID: ''
     }
   }
+
   render(){
     let display;
     if (this.state.display === 'your cards') {
@@ -115,6 +117,7 @@ class AmbassadorPageToolbelt extends Component{
           <h1>Toolbelt</h1>
         </div>
         <div className='a-toolbelt-body'>
+
           <div className="a-toolbelt-nav">
             <button onClick={event =>
               this.setState({
@@ -133,6 +136,9 @@ class AmbassadorPageToolbelt extends Component{
             }>Explore</button>
           </div>
           {display}
+
+
+
         </div>
       </div>
     )
