@@ -109,7 +109,9 @@ export class CreateCard extends React.Component {
 const mapStateToProps = state => ({
   loading: state.cards.loading,
   error: state.cards.error,
-  destination: state.dashboard.currentItinerary.destination
+  destination: state.dashboard.currentItinerary
+    ? state.dashboard.currentItinerary.destination
+    : ""
 });
 
 export default requiresLogin()(connect(mapStateToProps)(CreateCard));

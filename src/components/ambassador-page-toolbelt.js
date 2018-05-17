@@ -2,19 +2,19 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Geosuggest from "react-geosuggest";
 
-import {setTripDestination} from '../actions/tripForm';
-import {fixtures} from './utils/geoFixtures';
+import { setTripDestination } from "../actions/tripForm";
+import { fixtures } from "./utils/geoFixtures";
 
-import Card from './daySpread/Card';
-import EditCard from './edit-card';
-import Yelp from './yelp';
-import ViewButton from './buttons/viewButton';
+import Card from "./daySpread/Card";
+import EditCard from "./edit-card";
+import Yelp from "./yelp";
+import ViewButton from "./buttons/viewButton";
 
-import '../styles/ambassadorPageToolbelt.css';
+import "../styles/ambassadorPageToolbelt.css";
 
-class AmbassadorPageToolbelt extends Component{
+class AmbassadorPageToolbelt extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       display: "your cards",
       cardID: ""
@@ -103,11 +103,17 @@ class AmbassadorPageToolbelt extends Component{
               })
             }>Your Cards</button> */}
             <ViewButton
-              buttonFunction={() => this.setState({
-                display:'your cards'
-              })}
-              buttonText={'Your Cards'}
-              overrideStyle={{width:'120px',height:'35px',margin:'15px 10px'}}
+              buttonFunction={() =>
+                this.setState({
+                  display: "your cards"
+                })
+              }
+              buttonText={"Your Cards"}
+              overrideStyle={{
+                width: "120px",
+                height: "35px",
+                margin: "15px 10px"
+              }}
             />
             {/* <button onClick={event =>
             this.setState({
@@ -115,10 +121,12 @@ class AmbassadorPageToolbelt extends Component{
             })
             }>New Card</button> */}
             <ViewButton
-              buttonFunction={() => this.setState({
-                display:'set destination'
-              })}
-              buttonText={'New Card'}
+              buttonFunction={() =>
+                this.setState({
+                  display: "set destination"
+                })
+              }
+              buttonText={"New Card"}
             />
             {/* <button onClick={event =>
               this.setState({
@@ -126,13 +134,7 @@ class AmbassadorPageToolbelt extends Component{
               })
             }>Explore</button> */}
           </div>
-          <div className='a-toolbelt-cards-container'>
-            {display}
-          </div>
-
-
-
-
+          <div className="a-toolbelt-cards-container">{display}</div>
         </div>
       </div>
     );

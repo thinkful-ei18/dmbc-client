@@ -45,6 +45,7 @@
 }
 .mini-card-blurb {
   display: flex;
+  flex-wrap: wrap;
   flex: 1 1 10em;
   font-size: 13px;
 }

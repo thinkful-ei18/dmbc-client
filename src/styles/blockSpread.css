@@ -105,9 +105,15 @@
   width: 100%;
 }
 
+.rating {
+  width: 100%;
+  font-size: 1.1em;
+}
+
 .star-outer {
   position: relative;
   display: inline;
+  cursor: pointer;
 }
 
 .star-inner {
