@@ -3,3 +3,49 @@
   text-align: center;
   border-bottom: 1px solid black;
 }
+.a-toolbelt-body{
+  background-color:rgb(188,193,209);
+}
+.a-toolbelt-nav{
+  padding:0px 25px;
+}
+.a-toolbelt-nav button{
+  width:120px;
+  height:35px;
+  margin:15px 10px;
+  /* background-color:green; */
+}
+.a-toolbelt-cards-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  min-height: 450px;
+  padding:0px 25px;
+}
+
+.a-toolbelt-cards-container .card-container-expanded{
+  margin:10px 0px;
+}
+.a-toolbelt-body{
+  background-color:rgb(188,193,209);
+}
+.a-toolbelt-nav{
+  padding:0px 25px;
+}
+.a-toolbelt-nav button{
+  width:120px;
+  height:35px;
+  margin:15px 10px;
+  /* background-color:green; */
+}
+.a-toolbelt-cards-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  min-height: 450px;
+  padding:0px 25px;
+}
+
+.a-toolbelt-cards-container .card-container-expanded{
+  margin:10px 0px;
+}

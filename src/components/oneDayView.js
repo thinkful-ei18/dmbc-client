@@ -8,6 +8,7 @@ import HTML5Backend from "react-dnd-html5-backend";
 //actions
 import { fetchTripDetailsById } from "../actions/tripForm";
 import { putCardOnBlock, deleteBlock } from "../actions/block";
+import { setDashboardCurrentDay } from "../actions/dashboard";
 
 //components and helpers
 import requiresLogin from "../requires-login";
@@ -17,7 +18,7 @@ import Toolbelt from "./toolbelt";
 import ViewButton from "./buttons/viewButton";
 //styles
 import "../styles/oneDayView.css";
-import { setDashboardCurrentDay } from "../actions/dashboard";
+
 
 class OneDayView extends Component {
   constructor() {

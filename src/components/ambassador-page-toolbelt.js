@@ -2,57 +2,19 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Geosuggest from "react-geosuggest";
 
-import Card from "./daySpread/Card";
-import EditCard from "./edit-card";
-import Yelp from "./yelp";
+import {setTripDestination} from '../actions/tripForm';
+import {fixtures} from './utils/geoFixtures';
 
-import { setTripDestination } from "../actions/tripForm";
+import Card from './daySpread/Card';
+import EditCard from './edit-card';
+import Yelp from './yelp';
+import ViewButton from './buttons/viewButton';
 
-import "../styles/ambassadorPageToolbelt.css";
+import '../styles/ambassadorPageToolbelt.css';
 
-const fixtures = [
-  {
-    gmaps: {
-      address_components: [
-        {
-          long_name: "Chicago",
-          types: ["locality"]
-        }
-      ]
-    },
-    label: "Chicago",
-    location: { lat: 41.8781, lng: -87.6298 }
-  },
-  {
-    gmaps: {
-      address_components: [
-        {
-          long_name: "Mexico City",
-          types: ["locality"]
-        }
-      ]
-    },
-    label: "Mexico City",
-    location: { lat: 19.4326, lng: -99.1332 }
-  },
-  {
-    gmaps: {
-      address_components: [
-        {
-          long_name: "Tokyo",
-          types: ["locality"]
-        }
-      ]
-    },
-    label: "Tokyo",
-    location: { lat: 35.673343, lng: 139.710388 }
-  }
-];
-
-class AmbassadorPageToolbelt extends Component {
+class AmbassadorPageToolbelt extends Component{
   constructor() {
-    super();
-
+    super()
     this.state = {
       display: "your cards",
       cardID: ""
@@ -135,35 +97,42 @@ class AmbassadorPageToolbelt extends Component {
         </div>
         <div className="a-toolbelt-body">
           <div className="a-toolbelt-nav">
-            <button
-              onClick={event =>
-                this.setState({
-                  display: "your cards"
-                })
-              }
-            >
-              Your Cards
-            </button>
-            <button
-              onClick={event =>
-                this.setState({
-                  display: "set destination"
-                })
-              }
-            >
-              New Card
-            </button>
-            <button
-              onClick={event =>
-                this.setState({
-                  display: "explore"
-                })
-              }
-            >
-              Explore
-            </button>
+            {/* <button onClick={event =>
+              this.setState({
+                display: 'your cards'
+              })
+            }>Your Cards</button> */}
+            <ViewButton
+              buttonFunction={() => this.setState({
+                display:'your cards'
+              })}
+              buttonText={'Your Cards'}
+              overrideStyle={{width:'120px',height:'35px',margin:'15px 10px'}}
+            />
+            {/* <button onClick={event =>
+            this.setState({
+              display: 'set destination'
+            })
+            }>New Card</button> */}
+            <ViewButton
+              buttonFunction={() => this.setState({
+                display:'set destination'
+              })}
+              buttonText={'New Card'}
+            />
+            {/* <button onClick={event =>
+              this.setState({
+                display: 'explore'
+              })
+            }>Explore</button> */}
           </div>
-          {display}
+          <div className='a-toolbelt-cards-container'>
+            {display}
+          </div>
+
+
+
+
         </div>
       </div>
     );
