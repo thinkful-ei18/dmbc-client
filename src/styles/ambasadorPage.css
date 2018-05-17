@@ -1,54 +1,53 @@
-.ambassador-page{
-  margin-bottom:45px;
+.ambassador-page {
+  margin-bottom: 45px;
 }
-.ambassador-page *{
-  font-family:'Raleway',sans-serif;
+.ambassador-page * {
+  font-family: 'Raleway', sans-serif;
 }
-.ambassador-page-header{
-  margin:0px auto 10px auto;
-  height:160px;
+.ambassador-page-header {
+  margin: 0px auto 10px auto;
+  height: 160px;
   /* background-image:url('http://via.placeholder.com/1600x800'); */
   background-color: grey;
-  background-position:center;
-  display:flex;
+  background-position: center;
+  display: flex;
   justify-content: space-between;
-
 }
 
-.ambassador-page-header i{
-  margin-left:24px;
+.ambassador-page-header i {
+  margin-left: 24px;
 }
-.ambassador-page-header h3{
-  font-size:2.4em;
+.ambassador-page-header h3 {
+  font-size: 2.4em;
   vertical-align: middle;
-  color:white;
-  margin:auto 30px auto 0px;
+  color: white;
+  margin: auto 30px auto 0px;
   /* width:100px; */
 }
-.carousel-title-current{
-  background-color:none;
+.carousel-title-current {
+  background-color: none;
 }
-.carousel-background-current{
-  background-color: rgb(188,193,209);
+.carousel-background-current {
+  background-color: rgb(188, 193, 209);
 }
-.ambassador-itinerary-slide{
+.ambassador-itinerary-slide {
   background-color: white;
-  font-size:1.4em;
-  margin:auto 10px;
+  font-size: 1.4em;
+  margin: auto 10px;
 }
-.itinerary-location-name{
-  color:white;
-  font-size:1.5em;
-  background-color:rgb(94,124,253);
-}
-
-.itinerary-info{
-  color:black;
-  font-size: .9em;
+.itinerary-location-name {
+  color: white;
+  font-size: 1.5em;
+  background-color: rgb(94, 124, 253);
 }
 
-@media screen only and (max-width:600px){
-  .itinerary-info{
-    font-size:.7em;
+.itinerary-info {
+  color: black;
+  font-size: 0.9em;
+}
+
+@media screen only and (max-width: 600px) {
+  .itinerary-info {
+    font-size: 0.7em;
   }
 }

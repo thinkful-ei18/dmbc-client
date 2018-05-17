@@ -1,53 +1,51 @@
-.quick-about i{
+.quick-about i {
   font-size: 7em;
-  margin-bottom:15px;
-  margin-top:30px;
-
+  margin-bottom: 15px;
+  margin-top: 30px;
 }
-.quick-about{
-  display:flex;
-  margin:45px 0px;
+.quick-about {
+  display: flex;
+  margin: 45px 0px;
   flex-wrap: wrap;
 }
-.quick-about-header{
-  width:100%;
-  border:1px solid red;
-  height:5vh;
-  margin-bottom:5px;
+.quick-about-header {
+  width: 100%;
+  border: 1px solid red;
+  height: 5vh;
+  margin-bottom: 5px;
 }
-.info-card{
-  display:flex;
+.info-card {
+  display: flex;
   flex-direction: column;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
   align-items: center;
   justify-content: space-between;
   text-align: center;
   background-color: rgb(188, 193, 209);
-  margin:0 auto;
-  height:330px;
-  width:331px;
-  padding:10px;
+  margin: 0 auto;
+  height: 330px;
+  width: 331px;
+  padding: 10px;
 }
-.info-card > *{
-  display:block;
+.info-card > * {
+  display: block;
 }
 
-
-@media only screen and (max-width: 995px)  {
-  .info-card{
-    width:100%;
-    margin:15px 50px;
+@media only screen and (max-width: 995px) {
+  .info-card {
+    width: 100%;
+    margin: 15px 50px;
     justify-content: space-around;
   }
-  .info-card i{
-    margin-top:44px;
+  .info-card i {
+    margin-top: 44px;
     /* margin-bottom:0px; */
   }
 }
 
-@media only screen and (max-width:400px){
-  .info-card{
-    height:440px;
+@media only screen and (max-width: 400px) {
+  .info-card {
+    height: 440px;
   }
 }

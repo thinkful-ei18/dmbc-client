@@ -1,9 +1,9 @@
 .multi-view {
   font-family: 'IBM Plex', sans-serif;
-  margin-bottom:25px;
+  margin-bottom: 25px;
 }
-.multi-view button{
-  margin:10px;
+.multi-view button {
+  margin: 10px;
 }
 .trip-spread {
   display: flex;
@@ -16,7 +16,7 @@
 
 .multi-day-header {
   border-bottom: 1px solid black;
-  padding-bottom:10px;
+  padding-bottom: 10px;
 }
 
 .block-date {
@@ -43,11 +43,12 @@
 
 .trip-details {
   height: auto;
-  background-image:linear-gradient(
-    to top,
-     rgba(0, 0, 0, 0.25),
-     rgba(0, 0, 0, 0.2)
-    ),url('../assets/la-large.jpg') ;
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.25),
+      rgba(0, 0, 0, 0.2)
+    ),
+    url('../assets/la-large.jpg');
   background-repeat: no-repeat;
   background-position: 0% 80%;
   background-size: 100%;

@@ -1,75 +1,72 @@
-.trip-form-container{
-  margin:0px auto;
-  display:flex;
-  flex-wrap:wrap;
+.trip-form-container {
+  margin: 0px auto;
+  display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  width:85vw;
-  height:500px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  width: 85vw;
+  height: 500px;
   background-color: white;
 }
-.trip-form-background{
+.trip-form-background {
   padding-top: 43px;
   z-index: -1000;
-  width:100vw;
-  height:100vh;
-  background-image:linear-gradient(
-    to bottom,
-     rgba(0, 0, 0, 0.56),
-     rgba(0, 0, 0, 0.41)
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.41)
     ),
-  url('../assets/new-trip-large.jpg')
-  ;
+    url('../assets/new-trip-large.jpg');
   background-repeat: no-repeat;
   background-size: 220%;
   background-position: top center;
-
 }
-.trip-form-container h2{
+.trip-form-container h2 {
   margin-top: 36px;
-  font-size:30px;
+  font-size: 30px;
 }
-.trip-form-container > *{
-  width:80%;
-  margin:auto;
+.trip-form-container > * {
+  width: 80%;
+  margin: auto;
   text-align: center;
 }
 
-.trip-form-place{
-flex:3 1 auto;
-text-align: center;
-padding:55px 10px 10px 10px;
+.trip-form-place {
+  flex: 3 1 auto;
+  text-align: center;
+  padding: 55px 10px 10px 10px;
 }
 
-.trip-form-place input{
-  font-size:26px;
+.trip-form-place input {
+  font-size: 26px;
 }
-.trip-form-container input{
-  height:40px;
-  width:80%;
+.trip-form-container input {
+  height: 40px;
+  width: 80%;
 }
-.trip-form-dates{
+.trip-form-dates {
   width: auto;
-flex:1 1 auto;
-text-align: center;
+  flex: 1 1 auto;
+  text-align: center;
 }
-.trip-travelrs{
-flex:1 1 auto;
+.trip-travelrs {
+  flex: 1 1 auto;
 }
-.trip-travelers input{
-  height:38px;
-  width:80%;
-  font-size:18px;
-
+.trip-travelers input {
+  height: 38px;
+  width: 80%;
+  font-size: 18px;
 }
-.controls{
-flex:1 1 auto;
+.controls {
+  flex: 1 1 auto;
 }
-.form-container p{
-  display:inline-block;
-  font-size:1.4em;
+.form-container p {
+  display: inline-block;
+  font-size: 1.4em;
 }
 
 .trip-form-error {
@@ -86,53 +83,53 @@ flex:1 1 auto;
   max-height: 0;
   overflow: hidden;
   border-width: 0;
-  border:none;
+  border: none;
 }
 .geosuggest__item--active {
   background: #267dc0;
   color: #fff;
 }
-.geosuggest__suggests-wrapper{
-  position:absolute;
+.geosuggest__suggests-wrapper {
+  position: absolute;
   max-width: 100%;
-  width:80%;
-  margin:auto;
-  left:50%;
-  z-index:1000;
-  transform: translate(-50%,0);
-  font-size:22px;
+  width: 80%;
+  margin: auto;
+  left: 50%;
+  z-index: 1000;
+  transform: translate(-50%, 0);
+  font-size: 22px;
 }
-.geosuggest__suggests{
+.geosuggest__suggests {
   background-color: white;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
-.react-date-picker{
-  margin:0 15px
+.react-date-picker {
+  margin: 0 15px;
 }
-.react-date-picker__calendar{
+.react-date-picker__calendar {
   z-index: 1000;
 }
 
-@media only screen and (max-width: 705px)  {
-  .trip-form-container h2{
+@media only screen and (max-width: 705px) {
+  .trip-form-container h2 {
     margin-top: 26px;
     font-size: 1.3em;
   }
-  .trip-form-background{
+  .trip-form-background {
     background-size: 420%;
   }
 
-  .trip-form-dates > *{
-    display:inline-block;
-    margin:auto;
-    width:80%;
+  .trip-form-dates > * {
+    display: inline-block;
+    margin: auto;
+    width: 80%;
   }
-  .trip-form-place{
-    padding-top:18px;
-    margin-top:10px;
+  .trip-form-place {
+    padding-top: 18px;
+    margin-top: 10px;
   }
-  .trip-form-place input{
-    font-size:22px;
+  .trip-form-place input {
+    font-size: 22px;
   }
   /* .react-calendar .react-date-picker__calendar .react-date-picker__calendar--open .react-date-picker__calendar--above-label{
     position:relative;
@@ -141,8 +138,7 @@ flex:1 1 auto;
   } */
   .react-date-picker__calendar {
     left: -91px;
-
-}
+  }
 
   .react-date-picker__button__input {
     min-width: calc(1px + (0px * 3) + 3.68em + 0.434em);
@@ -151,11 +147,11 @@ flex:1 1 auto;
 /*  */
 
 @media only screen and (max-width: 400px) {
-  .trip-form-container h2{
+  .trip-form-container h2 {
     margin-top: 26px;
     font-size: 1.1em;
   }
-  .form-container p{
-    font-size:0.7em;
+  .form-container p {
+    font-size: 0.7em;
   }
 }

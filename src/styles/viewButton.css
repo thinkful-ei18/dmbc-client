@@ -1,8 +1,7 @@
-.view-button{
-  background-color:rgb(94,124,253);
-  color:white;
-  box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  width:100px;
-  height:30px;
-
+.view-button {
+  background-color: rgb(94, 124, 253);
+  color: white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  width: 100px;
+  height: 30px;
 }
