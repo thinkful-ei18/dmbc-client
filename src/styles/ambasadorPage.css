@@ -7,6 +7,10 @@
   background-position:center;
   display:flex;
   justify-content: space-between;
+
+}
+.ambassador-page *{
+  font-family:'Raleway',sans-serif;
 }
 
 .ambassador-page-header i{
@@ -20,6 +24,30 @@
   /* width:100px; */
 
 }
-.ambasador-page li{
+/* .ambasador-page li{
   background-color:gold;
+} */
+/* .ambassador-itinerary-slide{
+  color:grey;
+  background:white;
+}
+.carousel-background-current{
+  background-color: rgb(188, 193, 209);
+} */
+.carousel-title-current{
+  background-color:none;
+}
+
+.carousel-background-current{
+  background-color: rgb(188,193,209);
+}
+.ambassador-itinerary-slide{
+  background-color: white;
+  font-size:1.4em;
+  margin:auto 10px;
+}
+.place-name{
+  color:white;
+  font-size:2em;
+  background-color:rgb(94,124,253);
 }

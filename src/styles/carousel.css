@@ -1,48 +1,36 @@
 
-
 .ambassador-cards-slide {
     margin-top: 15px;
 }
-
 .back-button {
     position: absolute;
     width: 3%;
     height: 50%;
     background-color: rgba(255, 255, 255, 0.25);
-    
 }
-
 .carousel-title-card{
     font-size: 2em;
     text-align: center;
-    background: linear-gradient(to right, #5e7cfd -14%, #ffffff 53%);
-    font-family: 'IBM plex serif';
+    border-botom:1px solid black;
 }
-
 .carousel-title-current{
     font-size: 5vw;
     text-align: center;
-    background: linear-gradient(to right, #5e7cfd -14%, #ffffff 53%);
-    font-family: 'IBM plex serif';
+    border-bottom:1px solid black;
 }
 
 .carousel-title-past{
     font-size: 5vw;
     text-align: center;
-    background: linear-gradient(to right, #5e7cfd -14%, #ffffff 53%);
-    font-family: 'IBM plex serif';
+    border-bottom:1px solid black;
 }
 
 .carousel-background-cards {
-    background-color: silver;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    font-family: 'IBM plex serif';
 }
 
 .carousel-background-current {
-    background-color: silver;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    font-family: 'IBM plex serif';
 }
 
 .carousel-background-past {
@@ -51,150 +39,59 @@
 }
 
 ._horizontalSlider_9ve3r_1 {
-    padding: 10px;
-    margin-left: 3%;
-    margin-right: 3%;
-    display: block;
+  padding: 10px;
+  margin-left: 3%;
+  margin-right: 3%;
+  display: block;
 }
 
 .itinerary-container {
-    /* background-color: white;
-    width:400px;
-    height:355px;
-    display:flex;
-    flex-direction: column;
-    padding:15px;
-    margin-top: 100px;
-    margin: 0px auto;
-    margin-bottom: 30px; */
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    font-family: 'IBM plex serif';
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-.itinerary-container:hover { 
+.itinerary-container:hover {
     background-color: grey;
 	border: solid black 4px;
 }
 
 .itinerary-destination {
-    background-color: rgba(0, 0, 0, 0.192)
+  background-color: rgba(0, 0, 0, 0.192)
 }
 
 .next-button {
-    position: absolute;
-    right: 0;
-    height: 50%;
-    width: 3%;
-    background-color: rgba(255, 255, 255, 0.25);
-    margin: 50px 0;
-    
+  position: absolute;
+  right: 0;
+  height: 50%;
+  width: 3%;
+  background-color: rgba(255, 255, 255, 0.25);
+  margin: 50px 0;
 }
-
 ._slideInner_fhwgk_1 {
-    text-align: center;
-    padding: 30px;
-    color: white;
-    font-family: 'IBM plex serif';
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    border-top: solid gold 4px;
+  text-align: center;
+  padding: 30px;
+  color: grey;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
-
-._slideInner_fhwgk_1 h3 {
-    font-size: 6vw;
-    background-color: rgba(241, 243, 108, 0.555)
-}
-
-._slideInner_fhwgk_1 h4 {
-    font-size: 2vw;
-}
-
-
 
 @media (max-width: 1650px) {
-    /* ._slideInner_fhwgk_1 h3 {
-        font-size: 40px;
-            } */
-        
-            .next-button {
-                height: 10%;
-                
-            }
-            .back-button {
-                height: 10%;
-                
-            }
+  .next-button {
+    height: 10%;
+  }
+  .back-button {
+    height: 10%;
+  }
 
 }
 @media (max-width: 700px) {
-    /* ._slideInner_fhwgk_1 h3 {
-font-size: 15px;
-    } */
-    /* ._slideInner_fhwgk_1 h4 {
-        font-size: 9px;
-            } */
-           ._slideInner_fhwgk_1 li {
-                font-size: 9px;
-            } 
-          
-            ._slideInner_fhwgk_1{
-                padding: 5px;
-                text-align: left;
-            }
-            .back-button {
-                
-                height: 10%;
-            }
+  ._slideInner_fhwgk_1 li {
+    font-size: 9px;
+  }
 
-              
+  ._slideInner_fhwgk_1{
+    padding: 5px;
+    text-align: left;
+  }
+  .back-button {
+    height: 10%;
+  }
 }
-    /* .carousel-background-current
-   {
-        height: 280px;
-    }
-    .carousel-background-past
-    {
-         height: 280px;
-     }
-     .carousel-background-cards
-     {
-          height: 280px;
-      }
-      .carousel-background-cards > button {
-          vertical-align: bottom;
-      }
-      .itinerary-container {
-          height: 200px;
-          width: 200px;
-      }
-} */ 
-/* @media (max-width: 400px) {
-    .itinerary-container {
-        width:150px;
-        height:55px;
-    }
-
-.small-card {
-	border-top: solid rgb(7, 180, 233) 2px;
-}
-
-.lp-header {
-	grid-column: 1 / -1;
-	/* border-bottom: solid white 0.5px; */
-	/* text-align: center;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-.image {
-	width: 100%;
-}
-
-.social-container {
-	margin: 50px auto;
-	padding: 0;
-	border: 0;
-	background-color: rgba(34, 34, 34, 0.747);
-	font-family: Arial, Helvetica, sans-serif;
-	width: 90%;
-}
-} */ 
-
-

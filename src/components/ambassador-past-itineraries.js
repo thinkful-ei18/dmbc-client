@@ -55,7 +55,7 @@ class AmbassadorPastItineraries extends Component {
           naturalSlideHeight={70}
           totalSlides={this.props.itineraries.length || 1}
           visibleSlides={2}
-          className="carousel-background-past"
+          className="carousel-background-current"
         >
         <ButtonBack className="back-button">
             <i className="fas fa-angle-left" />

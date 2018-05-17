@@ -8,6 +8,7 @@ import AmbassadorPastItineraries from "./ambassador-past-itineraries";
 import {fetchItineraries} from "../actions/ambassador-itineraries";
 import {fetchCards} from "../actions/cards";
 import Logo from './logo';
+import '../styles/ambasadorPage.css';
 
 export class AmbassadorPage extends React.Component {
   componentWillMount() {
@@ -26,12 +27,15 @@ export class AmbassadorPage extends React.Component {
   render() {
     return (
       <div>
-        <Logo />
-      <div className="ambassador-page">
-        <AmbassadorItineraries/>
-        <AmbassadorPastItineraries/>
-        {/* <AmbassadorExplore/> */}
-      </div>
+        <div className="ambassador-page-header">
+          <Logo />
+          <h3>Hello, {this.props.currentUser.name}</h3>
+        </div>
+        <div className="ambassador-page">
+          <AmbassadorItineraries/>
+          <AmbassadorPastItineraries/>
+          {/* <AmbassadorExplore/> */}
+        </div>
       </div>
     );
   }

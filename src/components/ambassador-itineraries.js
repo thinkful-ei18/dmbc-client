@@ -41,7 +41,7 @@ class AmbassadorItineraries extends Component {
                       backgroundImage: `url(${Background})`
                     }}
                   >
-                    
+
                   </div> */}
 
                 <h3 className="place-name">
@@ -62,8 +62,9 @@ class AmbassadorItineraries extends Component {
       <div>
         <h1 className="carousel-title-current">Current Itineraries</h1>
         <CarouselProvider
-          naturalSlideWidth={100}
-          naturalSlideHeight={70}
+          dragEnabled={false}
+          naturalSlideWidth={70}
+          naturalSlideHeight={40}
           totalSlides={this.props.itineraries.length || 1}
           visibleSlides={2}
           className="carousel-background-current"
@@ -75,7 +76,7 @@ class AmbassadorItineraries extends Component {
             <i className="fas fa-angle-right" />
           </ButtonNext>
           <Slider>{itinerariesList}</Slider>
-          
+
           {/* <h1>{itinerariesTotal}</h1> */}
         </CarouselProvider>
       </div>
