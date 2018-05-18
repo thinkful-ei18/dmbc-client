@@ -13,14 +13,16 @@ export default class MiniBlock extends Component {
   }
 
   componentDidMount() {
+<<<<<<< HEAD
     if (this.props.block.cards.length > 0) {
+=======
+    if (this.props.block.selectedCard) {
+      let selectedCard = this.filterSelectedCard();
+      let initialRating = selectedCard.ratingScore / selectedCard.ratingCount;
+>>>>>>> 1ec7264bda8cfd680e4293758958b2a2b04fc19d
       this.setState({
-        baseRating:
-          this.props.block.cards[0].ratingScore /
-          this.props.block.cards[0].ratingCount,
-        rating:
-          this.props.block.cards[0].ratingScore /
-          this.props.block.cards[0].ratingCount
+        baseRating: initialRating,
+        rating: initialRating
       });
     }
   }
@@ -80,6 +82,12 @@ export default class MiniBlock extends Component {
     return selector;
   }
 
+  filterSelectedCard() {
+    return this.props.block.cards.filter(
+      card => card.id === this.props.block.selectedCard
+    )[0];
+  }
+
   render() {
     console.log(this.props.block.cards);
     let smallCards = "";
@@ -98,9 +106,7 @@ export default class MiniBlock extends Component {
         </div>
       );
     } else if (this.props.block.selectedCard) {
-      smallCards = this.props.block.cards.filter(
-        card => card.id === this.props.block.selectedCard
-      )[0];
+      smallCards = this.filterSelectedCard();
       smallCards = (
         <div className="mini-card">
           <h4 className="mini-card-header">{smallCards.name}</h4>
