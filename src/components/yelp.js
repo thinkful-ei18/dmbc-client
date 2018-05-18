@@ -23,17 +23,13 @@ export class Yelp extends React.Component {
       image: ""
     };
   }
+
   render() {
     const apiTags = ["Family Friendly", "Crowd Friendly", "No Pets"];
 
     const placeTags = apiTags.map((tag, index) => {
       return <li key={index}>{tag}</li>;
     });
-
-    let loading;
-    if (this.props.loading) {
-      loading = <p>Loading...</p>;
-    }
 
     let searchResults;
     if (this.props.yelp.length > 0) {
@@ -105,6 +101,9 @@ export class Yelp extends React.Component {
           </div>
         );
       });
+    }
+    if (this.props.loading) {
+      searchResults = <p>Loading...</p>;
     }
     let nextButton;
     if (searchResults) {
@@ -209,7 +208,6 @@ export class Yelp extends React.Component {
             }}
           />
         </form>
-        {loading}
         <div className="yelp-results">{searchResults}</div>
         {nextButton}
       </div>

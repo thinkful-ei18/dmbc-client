@@ -7,6 +7,12 @@ export const fetchYelpSuccess = yelp => ({ type: FETCH_YELP_SUCCESS, yelp });
 export const FETCH_YELP_ERROR = "FETCH_YELP_ERROR";
 export const fetchYelpError = err => ({ type: FETCH_YELP_ERROR, err });
 
+export const CLEAR_YELP = "CLEAR_YELP";
+export const clearYelp = clear => ({
+  type: CLEAR_YELP,
+  clear
+});
+
 const authToken =
   "03rTECP0UF1Ut9hWQRCZyxmVcpihKSAJvXV3XY9Q6STTKAuTvkCuFgHiH2gKaaD2h3jvoS2ReA2n56YS" +
   "cSytSJwDSAvec7Ls1zK96ZqVPxb441bMY7T7sRNEGDLvWnYx";
@@ -34,4 +40,8 @@ export const fetchYelp = (latitude, longitude, term, offset) => dispatch => {
     .catch(err => {
       dispatch(fetchYelpError(err));
     });
+};
+
+export const clearYelpSearch = yelp => dispatch => {
+  dispatch(clearYelp(yelp));
 };
