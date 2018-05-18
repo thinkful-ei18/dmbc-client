@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import CardButton from "./buttons/cardButton";
 import "../styles/mini-block.css";
 import "../styles/timeline.css";
 
@@ -14,14 +13,12 @@ export default class MiniBlock extends Component {
   }
 
   componentDidMount() {
-    if (this.props.block.cards.length === 1) {
+    if (this.props.block.selectedCard) {
+      let selectedCard = this.filterSelectedCard();
+      let initialRating = selectedCard.ratingScore / selectedCard.ratingCount;
       this.setState({
-        baseRating:
-          this.props.block.cards[0].ratingScore /
-          this.props.block.cards[0].ratingCount,
-        rating:
-          this.props.block.cards[0].ratingScore /
-          this.props.block.cards[0].ratingCount
+        baseRating: initialRating,
+        rating: initialRating
       });
     }
   }
@@ -81,6 +78,12 @@ export default class MiniBlock extends Component {
     return selector;
   }
 
+  filterSelectedCard() {
+    return this.props.block.cards.filter(
+      card => card.id === this.props.block.selectedCard
+    )[0];
+  }
+
   render() {
     let smallCards = "";
     let name = "";
@@ -98,9 +101,7 @@ export default class MiniBlock extends Component {
         </div>
       );
     } else if (this.props.block.selectedCard) {
-      smallCards = this.props.block.cards.filter(
-        card => card.id === this.props.block.selectedCard
-      )[0];
+      smallCards = this.filterSelectedCard();
       smallCards = (
         <div className="mini-card">
           <h4 className="mini-card-header">{smallCards.name}</h4>
