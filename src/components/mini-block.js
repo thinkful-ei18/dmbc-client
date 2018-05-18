@@ -49,7 +49,7 @@ export default class MiniBlock extends Component {
               this.setState({
                 baseRating: this.state.rating
               });
-              // this.props.rateCard(values);
+              this.props.rateCard(values);
               alert("Thank you for your feedback!");
             }}
           >
