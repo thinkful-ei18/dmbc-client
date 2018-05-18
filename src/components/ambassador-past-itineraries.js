@@ -60,11 +60,10 @@ class AmbassadorPastItineraries extends Component {
           className="carousel-background-current"
         >
           <ButtonBack className="back-button">
-            {/* <i className="fas fa-angle-left"></i> */}
-            <p>{`<`}</p>
+            <i className="fas fa-angle-left" />
           </ButtonBack>
           <ButtonNext className="next-button">
-            <p>></p>
+            <i className="fas fa-angle-right" />
           </ButtonNext>
           <Slider>{itinerariesList}</Slider>
           {/* <h1>{itinerariesTotal}</h1> */}
