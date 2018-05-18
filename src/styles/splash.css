@@ -63,6 +63,7 @@
     height: 100vh;
     background-position: top;
     background-size: 300%;
+    /* padding-top:806px; */
   }
   .jumbotron-copy {
     display: block;
