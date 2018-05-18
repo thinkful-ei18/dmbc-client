@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const FETCH_YELP_REQUEST = "FETCH_YELP_REQUEST";
 export const fetchYelpRequest = () => ({ type: FETCH_YELP_REQUEST });
 
@@ -28,7 +30,8 @@ export const fetchYelp = (latitude, longitude, term, offset) => dispatch => {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${authToken}`
-      }
+      },
+      withCredentials: true
     }
   )
     .then(res => {

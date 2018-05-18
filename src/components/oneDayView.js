@@ -114,7 +114,7 @@ class OneDayView extends Component {
         closeToolbeltButton = (
           <i
             style={{
-              position: "absolute",
+              position: "fixed",
               right: "10px",
               top: "26px",
               transition: "2s"

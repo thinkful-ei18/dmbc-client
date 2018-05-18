@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import CardButton from "./buttons/cardButton";
 import "../styles/mini-block.css";
 import "../styles/timeline.css";
 
@@ -14,7 +13,7 @@ export default class MiniBlock extends Component {
   }
 
   componentDidMount() {
-    if (this.props.block.cards.length === 1) {
+    if (this.props.block.cards.length > 0) {
       this.setState({
         baseRating:
           this.props.block.cards[0].ratingScore /
@@ -82,6 +81,7 @@ export default class MiniBlock extends Component {
   }
 
   render() {
+    console.log(this.props.block.cards);
     let smallCards = "";
     let name = "";
     let selector = this.createSelect();

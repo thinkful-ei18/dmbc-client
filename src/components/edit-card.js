@@ -53,7 +53,7 @@ class SingleCard extends React.Component {
           onSubmit={event => {
             event.preventDefault();
             this.props.dispatch(updateCard(newCard, this.state.id, distance));
-            if (this.props.destination.distance) {
+            if (this.props.destination !== "") {
               this.props.dispatch(setToolbeltDisplay("cards"));
             } else {
               this.props.changeDisplay();

@@ -11,7 +11,6 @@ import Yelp from "./yelp";
 import ViewButton from "./buttons/viewButton";
 
 import "../styles/ambassadorPageToolbelt.css";
-import { clearYelp } from "../actions/yelp";
 
 class AmbassadorPageToolbelt extends Component {
   constructor() {
@@ -85,7 +84,6 @@ class AmbassadorPageToolbelt extends Component {
               this.setState({
                 display: "create"
               });
-              this.props.dispatch(clearYelp([]));
             }}
             buttonText={"create"}
           />
