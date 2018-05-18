@@ -28,7 +28,8 @@ export const fetchYelp = (latitude, longitude, term, offset) => dispatch => {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${authToken}`
-      }
+      },
+      withCredentials: true
     }
   )
     .then(res => {

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import requiresLogin from "../requires-login";
 
-import { fetchYelp } from "../actions/yelp";
+import { fetchYelp, clearYelp } from "../actions/yelp";
 
 import CreateCard from "./create-card";
 import ViewButton from "./buttons/viewButton";
@@ -22,6 +22,10 @@ export class Yelp extends React.Component {
       phone: "",
       image: ""
     };
+  }
+
+  componentDidMount() {
+    this.props.dispatch(clearYelp([]));
   }
 
   render() {

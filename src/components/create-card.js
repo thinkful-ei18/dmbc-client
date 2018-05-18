@@ -31,7 +31,7 @@ export class CreateCard extends React.Component {
               image: this.props.image
             };
             this.props.dispatch(addCard(card, distance));
-            if (this.props.destination.distance) {
+            if (this.props.destination !== "") {
               this.props.dispatch(setToolbeltDisplay("cards"));
             } else {
               this.props.changeDisplay();
