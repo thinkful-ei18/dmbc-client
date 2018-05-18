@@ -91,11 +91,13 @@
   flex-wrap: wrap;
   justify-content: center;
   height: 30px;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
+  position: relative;
 }
 
 .yelp-search form label {
   margin-bottom: 5px;
+  font-size:1em;
 }
 
 .yelp-search form input {
