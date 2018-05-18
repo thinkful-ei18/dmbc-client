@@ -1,6 +1,9 @@
 .ambassador-page {
 }
 .ambassador-page * {
+
+}
+.ambassador-page * :not(i){
   font-family: 'Raleway', sans-serif;
 }
 .ambassador-page-header {

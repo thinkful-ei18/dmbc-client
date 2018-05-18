@@ -102,7 +102,7 @@ class MultiView extends Component {
         );
       }
       return (
-        <li className="multi-view-day">
+        <li className="multi-view-day" key={index}>
           <Link
             to={`/itineraries/${this.props.currentItinerary.id ||
               this.props.match.params.id}/oneDayView`}

@@ -68,7 +68,10 @@ class AmbassadorItineraries extends Component {
           className="carousel-background-current"
         >
           <ButtonBack className="back-button">
-            <i className="fas fa-angle-left" />
+            <i
+              style={{ fontFamily: `Font Awesome\ 5 Free` }}
+              className="fas fa-angle-left"
+            />
           </ButtonBack>
           <ButtonNext className="next-button">
             <i className="fas fa-angle-right" />
