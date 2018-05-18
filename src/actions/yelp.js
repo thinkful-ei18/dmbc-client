@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export const FETCH_YELP_REQUEST = "FETCH_YELP_REQUEST";
 export const fetchYelpRequest = () => ({ type: FETCH_YELP_REQUEST });
 

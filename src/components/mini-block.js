@@ -13,13 +13,9 @@ export default class MiniBlock extends Component {
   }
 
   componentDidMount() {
-<<<<<<< HEAD
-    if (this.props.block.cards.length > 0) {
-=======
     if (this.props.block.selectedCard) {
       let selectedCard = this.filterSelectedCard();
       let initialRating = selectedCard.ratingScore / selectedCard.ratingCount;
->>>>>>> 1ec7264bda8cfd680e4293758958b2a2b04fc19d
       this.setState({
         baseRating: initialRating,
         rating: initialRating
@@ -89,7 +85,6 @@ export default class MiniBlock extends Component {
   }
 
   render() {
-    console.log(this.props.block.cards);
     let smallCards = "";
     let name = "";
     let selector = this.createSelect();
