@@ -189,12 +189,12 @@ export class Yelp extends React.Component {
           }}
         >
           <label htmlFor="searchterm">
-            Search Yelp for the recommendation you would like to make
+            Search Yelp to start making your new suggestion card
           </label>
           <input
             type="text"
             ref={input => (this.term = input)}
-            placeholder="searchterm"
+            placeholder="Lunch, Drinks, Hiking, Family Fun"
             name="searchterm"
           />
           {/* <button><i className="fas fa-search"></i></button> */}

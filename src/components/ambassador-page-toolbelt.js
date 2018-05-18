@@ -69,8 +69,12 @@ class AmbassadorPageToolbelt extends Component {
       display = (
         <div className="a-toolbelt-newcard-container">
           <h1>Create a new card</h1>
+          <h4>
+            Create a new card every time you discover a great place so you can
+            suggest it to a future traveler!
+          </h4>
           <span className="a-trip-geo-input-label">
-            Where is the place located?
+            Where was the great place located?
           </span>
           <Geosuggest
             className="a-trip-geo-input"
