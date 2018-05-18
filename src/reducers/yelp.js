@@ -1,7 +1,8 @@
 import {
   FETCH_YELP_REQUEST,
   FETCH_YELP_SUCCESS,
-  FETCH_YELP_ERROR
+  FETCH_YELP_ERROR,
+  CLEAR_YELP
 } from "../actions/yelp";
 
 const initialState = {
@@ -26,6 +27,10 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, {
       loading: false,
       error: action.error
+    });
+  } else if (action.type === CLEAR_YELP) {
+    return Object.assign({}, state, {
+      yelp: action.clear
     });
   }
   return state;
