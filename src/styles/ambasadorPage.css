@@ -1,7 +1,10 @@
 .ambassador-page {
 }
 .ambassador-page * {
-  /* font-family: 'Raleway', sans-serif; */
+
+}
+.ambassador-page * :not(i){
+  font-family: 'Raleway', sans-serif;
 }
 .ambassador-page-header {
   margin: 0px auto 10px auto;
