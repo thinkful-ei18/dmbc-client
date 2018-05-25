@@ -18,6 +18,10 @@ export class Login extends Component {
       <div className="login-container">
         <h2>Login</h2>
         <LoginForm />
+        <p>Ambassador Email: example@example.com</p>
+        <p>Ambassador Password: 12345678</p>
+        <p>Traveller Email: bob@bob.com</p>
+        <p>Traveller Password: thepriceisright</p>
         <p>
           Don't have an account?
           <Link to="/register">Register</Link>
